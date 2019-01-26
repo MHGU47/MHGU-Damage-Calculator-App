@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Monsters">
+        <item>None</item>
+        <item>Agnaktor</item>
+        <item>Ahtal Ka</item>
+        <item>Akantor</item>
+        <item>Alatreon</item>
+        <item>Amatsu</item>
+        <item>Arzuros</item>
+        <item>Redhelm Arzuros</item>
+        <item>Astalos</item>
+        <item>Boltreaver Astalos</item>
+        <item>Barioth</item>
+        <item>Barroth</item>
+        <item>Basarios</item>
+        <item>Blangonga</item>
+        <item>Brachydios</item>
+        <item>Raging Brachydios</item>
+        <item>Bulldrome</item>
+        <item>Congalala</item>
+        <item>Cephadrome</item>
+        <item>Chameleos</item>
+        <item>Daimyo Hermitaur</item>
+        <item>Stonefist Hermitaur</item>
+        <item>Deviljho</item>
+        <item>Savage Deviljho</item>
+        <item>Diablos</item>
+        <item>Bloodbath Diablos</item>
+        <item>Duramboros</item>
+        <item>Fatalis</item>
+        <item>Crimson Fatalis</item>
+        <item>White Fatalis</item>
+        <item>Gammoth</item>
+        <item>Elderfrost Gammoth</item>
+        <item>Gendrome</item>
+        <item>Giadrome</item>
+        <item>Glavenus</item>
+        <item>Hellblade Glavenus</item>
+        <item>Gore Magala</item>
+        <item>Chaotic Gore Magala</item>
+        <item>Gravios</item>
+        <item>Great Maccao</item>
+        <item>Gypceros</item>
+        <item>Iodrome</item>
+        <item>Kecha Wacha</item>
+        <item>Khezu</item>
+        <item>Kirin</item>
+        <item>Kushala Daora</item>
+        <item>Lagiacrus</item>
+        <item>Lagombi</item>
+        <item>Snowbaron Lagombi</item>
+        <item>Lao Shan Lung</item>
+        <item>Lavasioth</item>
+        <item>Malfestio</item>
+        <item>Nightcloak Malfestio</item>
+        <item>Mizutsune</item>
+        <item>Soulseer Mizutsune</item>
+        <item>Najarala</item>
+        <item>Nakarkos</item>
+        <item>Nargacuga</item>
+        <item>Silverwind Nargacuga</item>
+        <item>Nibelsnarf</item>
+        <item>Nerscylla</item>
+        <item>Plesioth</item>
+        <item>Rajang</item>
+        <item>Furious Rajang</item>
+        <item>Rathalos</item>
+        <item>Silver Rathalos</item>
+        <item>Dreadking Rathalos</item>
+        <item>Rathian</item>
+        <item>Gold Rathian</item>
+        <item>Dreadqueen Rathian</item>
+        <item>Royal Ludroth</item>
+        <item>Seltas</item>
+        <item>Seltas Queen</item>
+        <item>Seregios</item>
+        <item>Shagaru Magala</item>
+        <item>Shogun Ceanataur</item>
+        <item>Rustrazor Ceanataur</item>
+        <item>Teostra</item>
+        <item>Tetsucabra</item>
+        <item>Drilltusk Tetsucabra</item>
+        <item>Tigrex</item>
+        <item>Grimclaw Tigrex</item>
+        <item>Ukanlos</item>
+        <item>Uragaan</item>
+        <item>Crystalbeard Uragaan</item>
+        <item>Valstrax</item>
+        <item>Velocidrome</item>
+        <item>Volvidon</item>
+        <item>Yian Garuga</item>
+        <item>Deadeye Yian Garuga</item>
+        <item>Yian Kut Ku</item>
+        <item>Zamtrios</item>
+        <item>Zinogre</item>
+        <item>Thunderlord Zinogre</item>
+    </string-array>
+
+    <!--Hitzone Labels-->
+    <!--Specifc-->
+    <string-array name="NoneHitzones">
+        <item>NONE</item>
+    </string-array>
+    <string-array name="AgnaktorHitzones">
+        <item>Head</item>
+        <item>Head-Lava/Wounded</item>
+        <item>Neck</item>
+        <item>Neck-Lava/Wounded</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Lava/Wounded</item>
+        <item>Back</item>
+        <item>Back-Lava/Wounded</item>
+        <item>Chest</item>
+        <item>Chest-Lava/Wounded</item>
+        <item>Stomach</item>
+        <item>Stomach-Wounded</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Lava/Wounded</item>
+        <item>Tail</item>
+        <item>Tail-Lava/Wounded</item>
+    </string-array>
+    <string-array name="AhtalKaHitzones">
+        <item>Head</item>
+        <item>Arms</item>
+        <item>Claws</item>
+        <item>Back</item>
+        <item>Body</item>
+        <item>Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="AkantorHitzones">
+        <item>Head</item>
+        <item>Head-Stomach Wounded</item>
+        <item>Neck</item>
+        <item>Neck-Stomach Wounded</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Stomach Wounded</item>
+        <item>Back</item>
+        <item>Back-Stomach Wounded</item>
+        <item>Stomach</item>
+        <item>Stomach-Wounded</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Stomach Wounded</item>
+        <item>Tail</item>
+        <item>Tail-Stomach Wounded</item>
+    </string-array>
+    <string-array name="AlatreonHitzones">
+        <item>Head</item>
+        <item>Head-Flying</item>
+        <item>Neck</item>
+        <item>Neck-Flying</item>
+        <item>Wings</item>
+        <item>Wings-Flying</item>
+        <item>Body</item>
+        <item>Body-Flying</item>
+        <item>Feet</item>
+        <item>Feet-Flying</item>
+        <item>Tail</item>
+        <item>Tail-Flying</item>
+    </string-array>
+    <string-array name="AmatsuHitzones">
+        <item>Head</item>
+        <item>Head-During Storm</item>
+        <item>Neck</item>
+        <item>Back</item>
+        <item>Wings</item>
+        <item>Stomach</item>
+        <item>Feet</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="AstalosHitzones">
+        <item>Head</item>
+        <item>Head-Charged</item>
+        <item>Head-Wounded</item>
+        <item>Back</item>
+        <item>Wings</item>
+        <item>Wings-Charged</item>
+        <item>Stomach</item>
+        <item>Feet</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+        <item>Tail Tip-Charged</item>
+    </string-array>
+    <string-array name="BoltreaverAstalosHitzones">
+        <item>Head</item>
+        <item>Head (Charged)</item>
+        <item>Head (Fatigued)</item>
+        <item>Neck</item>
+        <item>Wings</item>
+        <item>Wings (Charged)</item>
+        <item>Wings (Fatigued)</item>
+        <item>Stomach</item>
+        <item>Feet</item>
+        <item>Tail</item>
+        <item>Tail (Charged)</item>
+        <item>Tail (Fatigued)</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="BariothHitzones">
+        <item>Head</item>
+        <item>Neck/Back</item>
+        <item>Wings</item>
+        <item>Claws</item>
+        <item>Stomach</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="BarrothHitzones">
+        <item>Head</item>
+        <item>Head (Mud)</item>
+        <item>Body</item>
+        <item>Body (Mud)</item>
+        <item>Claws</item>
+        <item>Claws (Mud)</item>
+        <item>Legs</item>
+        <item>Legs (Mud)</item>
+        <item>Tail</item>
+        <item>Tail (Mud)</item>
+    </string-array>
+    <string-array name="BasariosHitzones">
+        <item>Head</item>
+        <item>Neck</item>
+        <item>Back</item>
+        <item>Wings</item>
+        <item>Stomach</item>
+        <item>Stomach (Wounded)</item>
+        <item>Feet</item>
+        <item>Tail Base</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="BlangongaHitzones">
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="BrachydiosHitzones">
+        <item>Horn</item>
+        <item>Head</item>
+        <item>Body</item>
+        <item>Fists</item>
+        <item>Legs</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="RagingBrachydiosHitzones">
+        <item>Horn</item>
+        <item>Horn (Red Slime)</item>
+        <item>Head</item>
+        <item>Head (Red Slime)</item>
+        <item>Body</item>
+        <item>Fists</item>
+        <item>Fists (Red Slime)</item>
+        <item>Legs</item>
+        <item>Tail</item>
+        <item>Tail (Red Slime)</item>
+    </string-array>
+    <string-array name="CongalalaHitzones">
+        <item>Head</item>
+        <item>Head (Wounded)</item>
+        <item>Forelegs</item>
+        <item>Forelegs (Wounded)</item>
+        <item>Torso</item>
+        <item>Torso (Inflated)</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs (Wounded)</item>
+        <item>Tail</item>
+        <item>Tail (Wounded)</item>
+    </string-array>
+    <string-array name="ChameleosHitzones">
+        <item>Head</item>
+        <item>Head-Invisible</item>
+        <item>Stomach</item>
+        <item>Stomach-Invisible</item>
+        <item>Back</item>
+        <item>Back-Invisible</item>
+        <item>Wings</item>
+        <item>Wings-Invisible</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Invisible</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Invisible</item>
+        <item>Tail</item>
+        <item>Tail-Invisible</item>
+    </string-array>
+    <string-array name="DaimyoHermitaurHitzones"><!--3300HP-->
+        <item>Head</item>
+        <item>Head-Guarding</item>
+        <item>Body</item>
+        <item>Body-Guarding</item>
+        <item>Arms</item>
+        <item>Arms-Guarding</item>
+        <item>Claws</item>
+        <item>Claws-Guarding</item>
+        <item>Shell</item>
+        <item>Shell-Guarding</item>
+        <item>Shell-Wounded</item>
+        <item>Legs</item>
+        <item>Legs-Guarding</item>
+    </string-array>
+    <string-array name="StonefistHermitaurHitzones"><!--5500HP-->
+        <item>Head</item>
+        <item>Body</item>
+        <item>Arms</item>
+        <item>Arms-Wounded</item>
+        <item>Left Claw</item>
+        <item>Left Claw-Wounded</item>
+        <item>Right Claw</item>
+        <item>Right Claw-Wounded</item>
+        <item>Shell</item>
+        <item>Shell-Wounded</item>
+        <item>Legs</item>
+        <item>Legs-Wounded</item>
+    </string-array>
+    <string-array name="DeviljhoHitzones">
+        <item>Head</item>
+        <item>Head-Enraged</item>
+        <item>Chest</item>
+        <item>Chest-Enraged</item>
+        <item>Body</item>
+        <item>Body-Enraged</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Legs</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Enraged</item>
+        <item>Tail</item>
+        <item>Tail-Enraged</item>
+    </string-array>
+    <string-array name="SavageDeviljhoHitzones">
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Chest</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="DiablosHitzones">
+        <item>Head</item>
+        <item>Neck</item>
+        <item>Back</item>
+        <item>Wings</item>
+        <item>Stomach</item>
+        <item>Feet</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="BloodbathDiablosHitzones">
+        <item>Horn</item>
+        <item>Horn (Rage 1)</item>
+        <item>Horn (Rage 2)</item>
+        <item>Head</item>
+        <item>Back</item>
+        <item>Wings</item>
+        <item>Stomach</item>
+        <item>Feet</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="DuramborosHitzones">
+        <item>Horn</item>
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Hump</item>
+        <item>Hump-Wounded</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="FatalisHitzones">
+        <item>Head</item>
+        <item>Neck</item>
+        <item>Back</item>
+        <item>Wings</item>
+        <item>Front Legs</item>
+        <item>Chest</item>
+        <item>Stomach/Hing Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="CrimsonFatalisHitzones">
+        <item>Head</item>
+        <item>Head (Enraged)</item>
+        <item>Neck</item>
+        <item>Neck (Enraged)</item>
+        <item>Back</item>
+        <item>Back (Enraged)</item>
+        <item>Wings</item>
+        <item>Wings (Enraged)</item>
+        <item>Front Legs</item>
+        <item>Front Legs (Enraged)</item>
+        <item>Chest</item>
+        <!--<item>Chest (Enraged)</item>-->
+        <item>Stomach/Hing Legs</item>
+        <item>Stomach/Hing Legs (Enraged)</item>
+        <item>Tail</item>
+        <item>Tail (Enraged)</item>
+    </string-array>
+    <string-array name="WhiteFatalisHitzones">
+        <item>Head</item>
+        <item>Head (Enraged)</item>
+        <item>Neck</item>
+        <item>Neck (Enraged)</item>
+        <item>Back</item>
+        <item>Back (Enraged)</item>
+        <item>Wings</item>
+        <item>Wings (Enraged)</item>
+        <item>Front Legs</item>
+        <item>Front Legs (Enraged)</item>
+        <item>Chest</item>
+        <item>Chest (Enraged)</item>
+        <item>Stomach/Hing Legs</item>
+        <item>Stomach/Hing Legs (Enraged)</item>
+        <item>Tail</item>
+        <item>Tail (Enraged)</item>
+    </string-array>
+    <string-array name="GammothHitzones">
+        <item>Head</item>
+        <item>Trunk</item>
+        <item>Trunk-Wounded</item>
+        <item>Body</item>
+        <item>Legs</item>
+        <item>Legs-Snow</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="ElderfrostGammothHitzones">
+        <item>Head</item>
+        <item>Trunk</item>
+        <item>Trunk (Ice)</item>
+        <item>Body</item>
+        <item>Front Legs</item>
+        <item>Front Legs (Ice)</item>
+        <item>Back Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="GlavenusHitzones">
+        <item>Head</item>
+        <item>Head-Heated</item>
+        <item>Throat</item>
+        <item>Throat-Heated</item>
+        <item>Forelegs</item>
+        <item>Back</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Tail-Base</item>
+        <item>Tail-Blade</item>
+        <item>Tail-Blade (Cooled)</item>
+        <item>Tail-Blade (Heated)</item>
+        <item>Tail-Blade (Wounded)</item>
+    </string-array>
+    <string-array name="HellbladeGlavenusHitzones">
+        <item>Head</item>
+        <item>Head-Heated</item>
+        <item>Throat</item>
+        <item>Throat-Heated</item>
+        <item>Forelegs</item>
+        <item>Back</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Tail-Base</item>
+        <item>Tail-Base (Heated)</item>
+        <item>Tail-Blade</item>
+        <item>Tail-Blade (Heated)</item>
+    </string-array>
+    <string-array name="GreatMaccaoHitzones"><!--2000HP-->
+        <item>Head</item>
+        <item>Body</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="GraviosHitzones">
+        <item>Head</item>
+        <item>Head (Wounded)</item>
+        <item>Back</item>
+        <item>Back (Wounded)</item>
+        <item>Wings</item>
+        <item>Wings (Wounded)</item>
+        <item>Chest</item>
+        <item>Chest (Wounded)</item>
+        <item>Stomach</item>
+        <item>Feet</item>
+        <item>Feet (Wounded)</item>
+    </string-array>
+    <string-array name="GoreMagalaHitzones">
+        <item>Head</item>
+        <item>Head (Frenzy)</item>
+        <item>Neck</item>
+        <item>Body</item>
+        <item>Forelegs</item>
+        <item>Wings</item>
+        <item>Wing Legs</item>
+        <item>Wing Legs (Frenzy)</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="ChaoticGoreMagalaHitzones">
+        <item>Head</item>
+        <item>Head (Frenzy)</item>
+        <item>Forelegs</item>
+        <item>Forelegs (Frenzy)</item>
+        <item>Wings</item>
+        <item>Left Wing Leg</item>
+        <item>Left Wing Leg (Frenzy)</item>
+        <item>Right Wing Leg</item>
+        <item>Right Wing Leg (Frenzy)</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs (Frenzy)</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="KechaWachaHitzones"><!--3800HP-->
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Claws</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="KhezuHitzones">
+        <item>Head</item>
+        <item>Head-Ceiling</item>
+        <item>Neck</item>
+        <item>Neck-Ceiling</item>
+        <item>Wings</item>
+        <item>Body</item>
+        <item>Feet</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="KirinHitzones">
+        <item>Head</item>
+        <item>Head-Enraged</item>
+        <item>Body</item>
+        <item>Body-Enraged</item>
+        <item>Lower Body</item>
+        <item>Lower Body-Enraged</item>
+        <item>Legs</item>
+        <item>Legs-Enraged</item>
+    </string-array>
+    <string-array name="KushalaDaoraHitzones">
+        <item>Head</item>
+        <item>Head-Wind</item>
+        <item>Neck</item>
+        <item>Neck-Wind</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Wind</item>
+        <item>Back</item>
+        <item>Back-Wind</item>
+        <item>Wings</item>
+        <item>Wings-Wind</item>
+        <item>Stomach</item>
+        <item>Stomach-Wind</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Wind</item>
+        <item>Tail</item>
+        <item>Tail-Wind</item>
+    </string-array>
+    <string-array name="LagiacrusHitzones">
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Chest</item>
+        <item>Body</item>
+        <item>Back</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="LaoShanLungHitzones">
+        <item>Head</item>
+        <item>Mouth</item>
+        <item>Neck</item>
+        <item>Back</item>
+        <item>Back (Wounded)</item>
+        <item>Legs</item>
+        <item>Stomach</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="MalfestioHitzones"><!--4000HP-->
+        <item>Head</item>
+        <item>Body</item>
+        <item>Wings</item>
+        <item>Wing Claws</item>
+        <item>Feet</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="MizutsuneHitzones">
+        <item>Head</item>
+        <item>Head (Enraged)</item>
+        <item>Neck</item>
+        <item>Neck (Enraged)</item>
+        <item>Forelegs</item>
+        <item>Forelegs (Wounded)</item>
+        <item>Body</item>
+        <item>Fin</item>
+        <item>Fin (Enraged)</item>
+        <item>Back Legs</item>
+        <item>Back Legs (Enraged)</item>
+        <item>Tail</item>
+        <item>Tail (Wounded)</item>
+    </string-array>
+    <string-array name="SoulseerMizutsuneHitzones">
+        <item>Head</item>
+        <item>Head (Enraged)</item>
+        <item>Neck</item>
+        <item>Forelegs</item>
+        <item>Forelegs (Bubbles)</item>
+        <item>Forelegs (Wounded)</item>
+        <item>Body</item>
+        <item>Fin</item>
+        <item>Fin (Wounded)</item>
+        <item>Back Legs</item>
+        <item>Tail</item>
+        <item>Tail (Bubbles)</item>
+        <item>Tail (Wounded)</item>
+    </string-array>
+    <string-array name="NajaralaHitzones">
+        <item>Head</item>
+        <item>Neck</item>
+        <item>Frills</item>
+        <item>Frills-Exhausted</item>
+        <item>Forelegs</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Exhausted</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="NakarkosHitzones">
+        <item>Head</item>
+        <item>Head-Mist</item>
+        <item>Tentacles</item>
+        <item>Tentacles-Tip</item>
+        <item>Back</item>
+        <item>Shell</item>
+        <item>Fin</item>
+        <item>Body</item>
+        <item>Blowhole</item>
+        <item>Rainbow Weakspot</item>
+    </string-array>
+    <string-array name="NargacugaHitzones">
+        <item>Head</item>
+        <item>Head-Enraged</item>
+        <item>Neck</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Enraged</item>
+        <item>Wingblades</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="SilverwindNargacugaHitzones">
+        <item>Head</item>
+        <item>Head-Enraged</item>
+        <item>Neck</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Enraged</item>
+        <item>Wingblades</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Enraged</item>
+        <item>Tail</item>
+        <item>Tail-Enraged</item>
+        <item>Tail Tip</item>
+        <item>Tail Tip-Enraged</item>
+    </string-array>
+    <string-array name="NibelsnarfHitzones">
+        <item>Head</item>
+        <item>Head-Taking Bait</item>
+        <item>Nose-Enraged</item>
+        <item>Uvula</item>
+        <item>Gills</item>
+        <item>Body</item>
+        <item>Body-Taking Bait</item>
+        <item>Back</item>
+        <item>Back-Taking Bait</item>
+        <item>Stomach</item>
+        <item>Stomach-Taking Bait</item>
+        <item>Feet</item>
+        <item>Feet-Taking Bait</item>
+        <item>Tail</item>
+        <item>Tail-Taking Bait</item>
+    </string-array>
+    <string-array name="NerscyllaHitzones">
+        <item>Head</item>
+        <item>Head (No hide)</item>
+        <item>Claws</item>
+        <item>Claws (No hide)</item>
+        <item>Body</item>
+        <item>Body (No hide)</item>
+        <item>Stomach</item>
+        <item>Stomach (No hide)</item>
+        <item>Thigh</item>
+        <item>Thigh (No hide)</item>
+        <item>Leg</item>
+        <item>Leg (No hide)</item>
+        <item>Stinger</item>
+        <item>Stinger (No hide)</item>
+    </string-array>
+    <string-array name="RajangHitzones">
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Enraged</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Enraged</item>
+        <item>Tail</item>
+        <item>Tail-Enraged</item>
+    </string-array>
+    <string-array name="FuriousRajangHitzones">
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Enraged</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Enraged</item>
+        <item>Tail</item>
+        <item>Tail-Enraged</item>
+    </string-array>
+    <string-array name="RoyalLudrothHitzones"><!--4100HP-->
+        <item>Head</item>
+        <item>Mane</item>
+        <item>Forelegs</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="SeltasHitzones"><!--2000HP-->
+        <item>Horn</item>
+        <item>Head</item>
+        <item>Claws</item>
+        <item>Body</item>
+        <item>Legs</item>
+    </string-array>
+    <string-array name="SeltasQueenHitzones">
+        <item>Head</item>
+        <item>Body</item>
+        <item>Stomach</item>
+        <item>Legs</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="ShogunCeanataurHitzones">
+        <item>Head</item>
+        <item>Body</item>
+        <item>Shell</item>
+        <item>Shell-Wounded</item>
+        <item>Shell-Flesh</item>
+        <item>Arms</item>
+        <item>Claws</item>
+        <item>Feet</item>
+    </string-array>
+    <string-array name="RustrazorCeanataurHitzones">
+        <item>Head</item>
+        <item>Body</item>
+        <item>Shell</item>
+        <item>Shell (Glavenus)</item>
+        <item>Shell Flesh</item>
+        <item>Shell Flesh (No shell)</item>
+        <item>Arms</item>
+        <item>Claws</item>
+        <item>Claws (Glavenus)</item>
+        <item>Front Legs</item>
+        <item>Front Legs (Glavenus)</item>
+        <item>Back Legs</item>
+        <item>Back Legs (Glavenus)</item>
+    </string-array>
+    <string-array name="TetsucabraHitzones"><!--4000HP-->
+        <item>Head</item>
+        <item>Tusks</item>
+        <item>Body</item>
+        <item>Forelegs</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+        <item>Tail-Inflated</item>
+        <item>Rock</item>
+    </string-array>
+    <string-array name="DrilltuskTetsucabraHitzones"><!--4700HP-->
+        <item>Head</item>
+        <item>Tusks</item>
+        <item>Body</item>
+        <item>Forelegs</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+        <item>Tail-Inflated</item>
+        <item>Rock</item>
+    </string-array>
+    <string-array name="TigrexHitzones">
+        <item>Head</item>
+        <item>Head-Enraged</item>
+        <item>Neck</item>
+        <item>Neck-Enraged</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Enraged</item>
+        <item>Back</item>
+        <item>Back-Enraged</item>
+        <item>Stomach</item>
+        <item>Stomach-Enraged</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="GrimclawTigrexHitzones">
+        <item>Head</item>
+        <item>Head-Enraged</item>
+        <item>Neck</item>
+        <item>Neck-Enraged</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Enraged</item>
+        <item>Claws</item>
+        <item>Claws-Wounded</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Stomach-Enraged</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="SeregiosHitzones">
+        <item>Head</item>
+        <item>Neck</item>
+        <item>Wings</item>
+        <item>Wingclaw</item>
+        <item>Wingclaw-Wounded</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="ShagaruMagalaHitzones">
+        <item>Head</item>
+        <item>Neck</item>
+        <item>Forelegs</item>
+        <item>Wings</item>
+        <item>Wing Legs</item>
+        <item>Wing Legs-Wounded</item>
+        <item>Body</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="TeostraHitzones">
+        <item>Head</item>
+        <item>Head-Enraged</item>
+        <item>Neck</item>
+        <item>Neck</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Enraged</item>
+        <item>Wings</item>
+        <item>Wings-Enraged</item>
+        <item>Back</item>
+        <item>Back-Enraged</item>
+        <item>Stomach</item>
+        <item>Stomach-Enraged</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Enraged</item>
+        <item>Tail</item>
+        <item>Tail-Enraged</item>
+    </string-array>
+    <string-array name="UkanlosHitzones">
+        <item>Head</item>
+        <item>Head (Stomach Wounded)</item>
+        <item>Neck/Back</item>
+        <item>Neck/Back (Stomach Wounded)</item>
+        <item>Forelegs</item>
+        <item>Forelegs (Stomach Wounded)</item>
+        <item>Chest</item>
+        <item>Chest (Stomach Wounded)</item>
+        <item>Stomach</item>
+        <item>Stomach (Wounded)</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs (Stomach Wounded)</item>
+        <item>Tail</item>
+        <item>Tail (Stomach Wounded)</item>
+    </string-array>
+    <string-array name="UragaanHitzones">
+        <item>Head</item>
+        <item>Chin</item>
+        <item>Chin-Wounded</item>
+        <item>Neck</item>
+        <item>Forelegs</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="CrystalbeardUragaanHitzones">
+        <item>Head</item>
+        <item>Chin</item>
+        <item>Neck</item>
+        <item>Forelegs</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Hind Legs</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+    </string-array>
+    <string-array name="ValstraxHitzones">
+        <item>Head</item>
+        <item>Head (Enraged)</item>
+        <item>Neck</item>
+        <item>Neck (Enraged)</item>
+        <item>Wings</item>
+        <item>Wings (Enraged)</item>
+        <item>Wing Talon</item>
+        <item>Front Legs</item>
+        <item>Body</item>
+        <item>Body (Enraged)</item>
+        <item>Back Legs</item>
+        <item>Back Legs (Enraged)</item>
+        <item>Tail</item>
+        <item>Tail (Enraged)</item>
+    </string-array>
+    <string-array name="VolvidonHitzones"><!--3800HP-->
+        <item>Head</item>
+        <item>Forelegs</item>
+        <item>Body</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Hind Legs</item>
+        <item>Rear</item>
+        <item>Rolling</item>
+    </string-array>
+    <string-array name="ZamtriosHitzones">
+        <item>Head</item>
+        <item>Head-Ice</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Ice</item>
+        <item>Back</item>
+        <item>Back-Ice</item>
+        <item>Body</item>
+        <item>Body-Ice</item>
+        <item>Stomach</item>
+        <item>Stomach-Ice</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Ice</item>
+        <item>Tail</item>
+        <item>Tail-Ice</item>
+    </string-array>
+    <string-array name="ZinogreHitzones">
+        <item>Head</item>
+        <item>Head-Charged</item>
+        <item>Shoulders</item>
+        <item>Shoulders-Charged</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Charged</item>
+        <item>Body</item>
+        <item>Body-Charged</item>
+        <item>Back</item>
+        <item>Back-Charged</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Charged</item>
+        <item>Tail</item>
+        <item>Tail-Charged</item>
+        <item>Tail Tip</item>
+        <item>Tail Tip-Charged</item>
+    </string-array>
+    <string-array name="ThunderlordZinogreHitzones">
+        <item>Head</item>
+        <item>Head-Charged</item>
+        <item>Shoulders</item>
+        <item>Shoulders-Charged</item>
+        <item>Forelegs</item>
+        <item>Forelegs-Charged</item>
+        <item>Body</item>
+        <item>Back</item>
+        <item>Back-Charged</item>
+        <item>Hind Legs</item>
+        <item>Hind Legs-Charged</item>
+        <item>Tail</item>
+        <item>Tail-Charged</item>
+        <item>Tail Tip</item>
+        <item>Tail Tip-Charged</item>
+    </string-array>
+
+    <!--Grouped-->
+    <string-array name="BeastHitzones">
+        <item>Head</item>
+        <item>Body</item>
+        <item>Forelegs</item>
+        <item>Rear</item>
+        <item>Stomach/Hing Legs</item>
+    </string-array>
+    <string-array name="DreadkingRathalosHitzones">
+        <item>Head</item>
+        <item>Head-Wounded</item>
+        <item>Neck</item>
+        <item>Neck-Wounded</item>
+        <item>Wings</item>
+        <item>Wings-Wounded</item>
+        <item>Back</item>
+        <item>Back-Wounded</item>
+        <item>Stomach</item>
+        <item>Legs</item>
+        <item>Legs-Wounded</item>
+        <item>Tail</item>
+        <item>Tail-Wounded</item>
+    </string-array>
+    <string-array name="DreadqueenRathianHitzones">
+        <item>Head</item>
+        <item>Head-Wounded</item>
+        <item>Neck</item>
+        <item>Wings</item>
+        <item>Back</item>
+        <item>Back-Wounded</item>
+        <item>Stomach</item>
+        <item>Legs</item>
+        <item>Tail</item>
+        <item>Tail Tip</item>
+        <item>Tail Tip-Wounded</item>
+    </string-array>
+    <string-array name="FlyingWyvernHitzones">
+        <item>Head</item>
+        <item>Neck</item>
+        <item>Wings</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="FlyingWyvernWoundedHitzones">
+        <item>Head</item>
+        <item>Head-Wounded</item>
+        <item>Neck</item>
+        <item>Wings</item>
+        <item>Back</item>
+        <item>Stomach</item>
+        <item>Legs</item>
+        <item>Tail</item>
+    </string-array>
+    <string-array name="RaptorHitzones">
+        <item>Head</item>
+        <item>Body</item>
+    </string-array>
+</resources>

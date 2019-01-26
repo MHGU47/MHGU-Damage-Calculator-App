@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mhx.marcus.mhgendamagecalc.WeaponSelect">
+    <item
+        android:id="@+id/credits"
+        android:orderInCategory="0"
+        android:title="@string/credits"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/log"
+        android:orderInCategory="1"
+        android:title="@string/log"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/feedback"
+        android:orderInCategory="2"
+        android:title="@string/feedback"
+        app:showAsAction="never" />
+    
+</menu>

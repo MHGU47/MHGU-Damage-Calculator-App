@@ -1,0 +1,367 @@
+<resources>
+    <string name="app_name">MHGU Damage Calculator</string>
+    <string name="log">Change Log</string>
+    <string name="credits">Credit</string>
+    <string name="feedback">Feedback</string>
+    <string name="title_activity_great_sword_calculation">Great Sword</string>
+    <string name="physical_damage_label">Enter physical damage</string>
+    <string name="elemental_input_label">Enter elemental damage</string>
+    <string name="style_select_label" />
+    <string name="affinity_input_label">Enter affinity</string>
+    <string name="affinity_label">Enter affinity</string>
+    <string name="calculate_button_label">Calculate</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="sharpness_label">Sharpness</string>
+    <string name="style_label">Style</string>
+    <string name="attack_banner_label">Attacks</string>
+    <string-array name="Styles">
+        <item>Guild</item>
+        <item>Striker</item>
+        <item>Aerial</item>
+        <item>Adept</item>
+        <item>Valor</item>
+        <item>Alchemy</item>
+    </string-array>
+    <string-array name="Sharpness">
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>White</item>
+        <item>Purple</item>
+    </string-array>
+    <string-array name="Element">
+        <item>NONE</item>
+        <item>Fire</item>
+        <item>Water</item>
+        <item>Ice</item>
+        <item>Thunder</item>
+        <item>Dragon</item>
+    </string-array>
+    <string-array name="SubElement">
+        <item>[NONE]</item>
+        <item>[Fire]</item>
+        <item>[Water]</item>
+        <item>[Ice]</item>
+        <item>[Thunder]</item>
+        <item>[Dragon]</item>
+    </string-array>
+    <string-array name="Spirit_Gauge">
+        <item>No Colour</item>
+        <item>-White-</item>
+        <item>-Yellow-</item>
+        <item>-Red-</item>
+        <item>-Blue (Valor)-</item>
+    </string-array>
+    <string-array name="SAPhial">
+        <item>Power Phial</item>
+        <item>Element Phial</item>
+        <item>Dragon Phial</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="CBPhial">
+        <item>Impact</item>
+        <item>Element</item>
+    </string-array>
+    <string-array name="CBShieldCharge">
+        <item>No Charge</item>
+        <item>Yellow Charge</item>
+        <item>Red Charge</item>
+        <item>Blue Charge (Valor)</item>
+    </string-array>
+    <string-array name="CBPhialNumber">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="GLShellNumber">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="GLShotType">
+        <item>Normal</item>
+        <item>Long</item>
+        <item>Wide</item>
+    </string-array>
+    <string-array name="GLShotLevel">
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
+        <item>Level 4</item>
+        <item>Level 5</item>
+    </string-array>
+    <string-array name="HeatGauge">
+        <item>Yellow Gauge</item>
+        <item>Orange Gauge</item>
+        <item>Red Gauge</item>
+    </string-array>
+    <string-array name="DBModes">
+        <item>Normal</item>
+        <item>Demon</item>
+        <item>Archdemon</item>
+    </string-array>
+    <string-array name="Extracts">
+        <item>None</item>
+        <item>Red Extract</item>
+        <item>Red + White Extract</item>
+        <item>All Extracts</item>
+    </string-array>
+    <string-array name="BowCoatings">
+        <item>No Coating</item>
+        <item>Power Lv1</item>
+        <item>Power Lv2</item>
+        <item>Elemental Lv1</item>
+        <item>Elemental Lv2</item>
+    </string-array>
+    <string-array name="ArcShots">
+        <item>None</item>
+        <item>Wide</item>
+        <item>Focus</item>
+        <item>Blast</item>
+    </string-array>
+    <string-array name="BowDistance">
+        <item>Normal/Too Close</item>
+        <item>Critical</item>
+        <item>Far</item>
+        <item>Too Far</item>
+    </string-array>
+    <string-array name="BowChargeLevels1">
+        <item>[1]Rapid Level 1</item>
+        <item>[1]Rapid Level 2</item>
+        <item>[1]Rapid Level 3</item>
+        <item>[1]Rapid Level 4</item>
+        <item>[1]Rapid Level 5</item>
+        <item>[1]Pierce Level 1</item>
+        <item>[1]Pierce Level 2</item>
+        <item>[1]Pierce Level 3</item>
+        <item>[1]Pierce Level 4</item>
+        <item>[1]Pierce Level 5</item>
+        <item>[1]Spread Level 1</item>
+        <item>[1]Spread Level 2</item>
+        <item>[1]Spread Level 3</item>
+        <item>[1]Spread Level 4</item>
+        <item>[1]Spread Level 5</item>
+        <item>[1]Heavy Level 1</item>
+        <item>[1]Heavy Level 2</item>
+        <item>[1]Heavy Level 3</item>
+        <item>[1]Heavy Level 4</item>
+        <item>[1]Heavy Level 5</item>
+    </string-array>
+    <string-array name="BowChargeLevels2">
+        <item>[2]Rapid Level 1</item>
+        <item>[2]Rapid Level 2</item>
+        <item>[2]Rapid Level 3</item>
+        <item>[2]Rapid Level 4</item>
+        <item>[2]Rapid Level 5</item>
+        <item>[2]Pierce Level 1</item>
+        <item>[2]Pierce Level 2</item>
+        <item>[2]Pierce Level 3</item>
+        <item>[2]Pierce Level 4</item>
+        <item>[2]Pierce Level 5</item>
+        <item>[2]Spread Level 1</item>
+        <item>[2]Spread Level 2</item>
+        <item>[2]Spread Level 3</item>
+        <item>[2]Spread Level 4</item>
+        <item>[2]Spread Level 5</item>
+        <item>[2]Heavy Level 1</item>
+        <item>[2]Heavy Level 2</item>
+        <item>[2]Heavy Level 3</item>
+        <item>[2]Heavy Level 4</item>
+        <item>[2]Heavy Level 5</item>
+    </string-array>
+    <string-array name="BowChargeLevels3">
+        <item>[3]None</item>
+        <item>[3]Rapid Level 1</item>
+        <item>[3]Rapid Level 2</item>
+        <item>[3]Rapid Level 3</item>
+        <item>[3]Rapid Level 4</item>
+        <item>[3]Rapid Level 5</item>
+        <item>[3]Pierce Level 1</item>
+        <item>[3]Pierce Level 2</item>
+        <item>[3]Pierce Level 3</item>
+        <item>[3]Pierce Level 4</item>
+        <item>[3]Pierce Level 5</item>
+        <item>[3]Spread Level 1</item>
+        <item>[3]Spread Level 2</item>
+        <item>[3]Spread Level 3</item>
+        <item>[3]Spread Level 4</item>
+        <item>[3]Spread Level 5</item>
+        <item>[3]Heavy Level 1</item>
+        <item>[3]Heavy Level 2</item>
+        <item>[3]Heavy Level 3</item>
+        <item>[3]Heavy Level 4</item>
+        <item>[3]Heavy Level 5</item>
+    </string-array>
+    <string-array name="BowChargeLevels4">
+        <item>[4]None</item>
+        <item>[4]Rapid Level 1</item>
+        <item>[4]Rapid Level 2</item>
+        <item>[4]Rapid Level 3</item>
+        <item>[4]Rapid Level 4</item>
+        <item>[4]Rapid Level 5</item>
+        <item>[4]Pierce Level 1</item>
+        <item>[4]Pierce Level 2</item>
+        <item>[4]Pierce Level 3</item>
+        <item>[4]Pierce Level 4</item>
+        <item>[4]Pierce Level 5</item>
+        <item>[4]Spread Level 1</item>
+        <item>[4]Spread Level 2</item>
+        <item>[4]Spread Level 3</item>
+        <item>[4]Spread Level 4</item>
+        <item>[4]Spread Level 5</item>
+        <item>[4]Heavy Level 1</item>
+        <item>[4]Heavy Level 2</item>
+        <item>[4]Heavy Level 3</item>
+        <item>[4]Heavy Level 4</item>
+        <item>[4]Heavy Level 5</item>
+    </string-array>
+    <string-array name="BGAmmo">
+        <item>Normal S Lv1</item>
+        <item>Normal S Lv2</item>
+        <item>Normal S Lv3</item>
+        <item>Pierce S Lv1</item>
+        <item>Pierce S Lv2</item>
+        <item>Pierce S Lv3</item>
+        <item>Pellet S Lv1</item>
+        <item>Pellet S Lv2</item>
+        <item>Pellet S Lv3</item>
+        <item>Crag S Lv1</item>
+        <item>Crag S Lv2</item>
+        <item>Crag S Lv3</item>
+        <item>Clust S Lv1</item>
+        <item>Clust S Lv2</item>
+        <item>Clust S Lv3</item>
+        <item>Wyvern S</item>
+        <item>Slicing S Lv1</item>
+        <item>Slicing S Lv2</item>
+        <item>Force S Lv1</item>
+        <item>Force S Lv2</item>
+        <item>Heavy S Lv1</item>
+        <item>Heavy S Lv2</item>
+        <item>Sting S</item>
+        <item>Cannon S Lv1</item>
+        <item>Cannon S Lv2</item>
+        <item>Long S Lv1</item>
+        <item>Long S Lv2</item>
+        <item>Stone S</item>
+        <item>Flaming S Lv1</item>
+        <item>Flaming S Lv2</item>
+        <item>Water S Lv1</item>
+        <item>Water S Lv2</item>
+        <item>Thunder S Lv1</item>
+        <item>Thunder S Lv2</item>
+        <item>Freeze S Lv1</item>
+        <item>Freeze S Lv2</item>
+        <item>Dragon S Lv1</item>
+        <item>Dragon S Lv2</item>
+        <item>P.Flaming S Lv1</item>
+        <item>P.Flaming S Lv2</item>
+        <item>P.Water S Lv1</item>
+        <item>P.Water S Lv2</item>
+        <item>P.Thunder S Lv1</item>
+        <item>P.Thunder S Lv2</item>
+        <item>P.Freeze S Lv1</item>
+        <item>P.Freeze S Lv2</item>
+        <item>Triblast S</item>
+        <item>Shrapnel S</item>
+        <item>Dazzling S</item>
+    </string-array>
+    <string-array name="Boomerangs">
+        <item>Normal</item>
+        <item>Big</item>
+        <item>Pierce</item>
+        <item>Big + Pierce</item>
+    </string-array>
+    <string-array name="ProwlerType">
+        <item>Charisma</item>
+        <item>Fighting</item>
+        <item>Protection</item>
+        <item>Assisting</item>
+        <item>Healing</item>
+        <item>Bombing</item>
+        <item>Gathering</item>
+        <item>Beast</item>
+    </string-array>
+    <string-array name="NineLivesAttack">
+        <item>[Nine Lives Attack]</item>
+        <item>First Revive (+3)</item>
+        <item>Second Revive (+6)</item>
+        <item>Third Revive (+9)</item>
+        <item>Fourth Revive (+12)</item>
+        <item>Fifth Revive (+15)</item>
+        <item>Sixth Revive (+18)</item>
+        <item>Seventh Revive (+21)</item>
+        <item>Eighth Revive (+24)</item>
+    </string-array>
+    <string name="title_activity_swordand_shield_calculation">Sword and Shield</string>
+    <string name="title_activity_lance_calculation">Lance</string>
+    <string name="title_activity_hammer_calculation">Hammer</string>
+    <string name="key_banner_label">Key: (Move Name) - (KO), (Exhaust)</string>
+    <string name="title_activity_longsword_calculation">Long Sword</string>
+    <string name="spirit_gauge_select_label">Spirit Gauge Colour</string>
+    <string name="max_spirit_gauge_label">Max Spirit Gauge</string>
+    <string name="title_activity_switch_axe_calculations">Switch Axe</string>
+    <string name="switch_axe_key_label">Key: (A) = Axe Mode, (S) = Sword Mode</string>
+    <string name="phial_select_label">Phial Type</string>
+    <string name="phial_select">Phial</string>
+    <string name="title_activity_hunting_horn_calculation">Hunting Horn</string>
+    <string name="title_activity_charge_blade_calculation">Charge Blade</string>
+    <string name="cb_phial_number_label">Number of phials</string>
+    <string name="shield_charge_label">Shield Charge</string>
+    <string name="burst_banner_label">Burst/Phial Damage</string>
+    <string name="phial_disclaimer">Burst/Phial damage shown at the bottom</string>
+    <string name="sword_moves_banner">Sword Moves</string>
+    <string name="axe_moves_banner_label">Axe Moves</string>
+    <string name="title_activity_dual_blades_calculation">Dual Blades</string>
+    <string name="mode_select_label">Mode</string>
+    <string name="title_activity_gunlance_calculation">Gunlance</string>
+    <string name="shot_level_select_label">Shot Level</string>
+    <string name="shot_type_select_label">Shot Type</string>
+    <string name="heat_gauge_select_label">Heat Gauge Colour</string>
+    <string name="shelling_banner">Shelling</string>
+    <string name="valor_shelling_banner">Valor Rapid Fire Shelling</string>
+    <string name="shelling_damage_disclaimer">Shelling damage is fixed and is based on shelling level and type ONLY</string>
+    <string name="title_activity_bow_calculation">Bow</string>
+    <string name="title_activity_insect_glaive_calculation">Insect Glaive</string>
+    <string name="title_activity_credit">Credit</string>
+    <string name="fixed_damage_disclaimer">These values are fixed and are based on raw damage ONLY</string>
+    <string name="title_activity_light_bowgun">Light Bowgun</string>
+    <string name="title_activity_light_bowgun_calculation">Light Bowgun</string>
+    <string name="title_activity_change_log">Change Log</string>
+    <string name="title_activity_heavy_bowgun_calculation">Heavy Bowgun</string>
+    <string name="title_activity_prowler_calculation">Prowler</string>
+    <string name="title_activity_test">Test</string>
+    <string name="title_activity_test2">Test2</string>
+    <string name="element_label">Element</string>
+    <string name="hitzone_select_label">Hitzone</string>
+    <string name="monster_select_label">Monster</string>
+    <string name="credit_thanks">
+        This was made using motion and hitzone values from Gaijin Hunter, Kiranico
+        and information gathered from various Reddit and Gamefaqs posts, in particular Reddit user
+        Luckssmith for posting 90% of the Bowgun Ammo types, all fully translated, and Reddit user
+        jeck95 for compiling all the MHGU motion values that they found from numerous sources
+        into a single reddit post. This app could not have been made without the information gathered
+        by these sources, so obviously a huge thank you to these guys. Also a big shout out to the guys
+        who tested this app and gave me feedback on things that would be better off looking differently
+        or adding/removing things as well as everyone else who emailed me and let me know about any
+        other errors. Your feedback was much appreciated!
+    </string>
+    <string name="credit_feedback">
+        If you have any suggestions on what could be improved or what you think needs to be
+        changed/added, feel free to contact me using the &apos;Feedback&apos; option.
+    </string>
+</resources>

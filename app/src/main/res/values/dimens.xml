@@ -1,0 +1,19 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="convert1">200dp</dimen>
+    <dimen name="revert1">80dp</dimen>
+    <dimen name="convert2">150dp</dimen>
+    <dimen name="revert2">40dp</dimen>
+    <dimen name="Skills_Hidden">20dp</dimen>
+    <dimen name="Skills_Visible">550dp</dimen>
+    <dimen name="Skills_Visible_CB">600dp</dimen>
+    <dimen name="Skills_Visible_BG">800dp</dimen>
+    <dimen name="Skills_Visible_Bow">650dp</dimen>
+    <dimen name="Skills_Visible_Prowler">380dp</dimen>
+    <dimen name="Calculate_Bottom_Margin">50dp</dimen>
+    <dimen name="Synergy_Hidden">0dp</dimen>
+    <dimen name="Synergy_Visible">100dp</dimen>
+</resources>

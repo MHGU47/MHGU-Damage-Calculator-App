@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:scrollIndicators="right">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollIndicators="right"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.mhx.marcus.mhgendamagecalc.WeaponSelect"
+        tools:showIn="@layout/activity_weapon_select">
+
+
+        <ImageButton
+            android:id="@+id/HammerIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:longClickable="false"
+            android:src="@drawable/hammer_icon" />
+
+        <TextView
+            android:id="@+id/HammerBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/HammerIcon"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/HammerIcon"
+            android:background="@drawable/roundedcorners"
+            android:padding="5dp"
+            android:text="Hammer"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/BaseStats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/HammerIcon"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/DamageInputH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/physical_damage_label"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/ElementLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/ElementSelect"
+                android:layout_alignLeft="@+id/ElementSelect"
+                android:layout_alignParentLeft="true"
+                android:text="@string/element_label"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/ElementSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@+id/ElementInputH"
+                android:layout_alignParentLeft="true"
+                android:layout_alignStart="@+id/StyleLabel"
+                android:layout_alignTop="@+id/ElementInputH"
+                android:layout_toLeftOf="@+id/ElementInputH" />
+
+            <EditText
+                android:id="@+id/ElementInputH"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/DamageInputH"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/elemental_input_label"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/AffinityInputH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ElementInputH"
+                android:layout_marginBottom="25dp"
+                android:elegantTextHeight="false"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/affinity_input_label"
+                android:inputType="number|numberDecimal|numberSigned" />
+
+            <TextView
+                android:id="@+id/StyleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/AffinityInputH"
+                android:text="@string/style_label"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/StyleSelect"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/StyleLabel"
+                android:gravity="center"
+                android:prompt="@string/style_select_label"
+                android:spinnerMode="dropdown" />
+
+            <RelativeLayout
+                android:id="@+id/Sharpness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/StyleLabel">
+
+                <TextView
+                    android:id="@+id/SharpnessLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/sharpness_label"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/SharpnessSelect"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/SharpnessLabel"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/MonsterHitzones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/BaseStats"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp">
+
+            <Spinner
+                android:id="@+id/HitzoneSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/HitzoneSelectLabel"
+                android:layout_centerHorizontal="true" />
+
+            <Spinner
+                android:id="@+id/MonsterSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/MonsterSelectLabel"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/MonsterSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/monster_select_label"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/HitzoneSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/MonsterSelect"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/hitzone_select_label"
+                android:textStyle="bold|italic" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/HunterArts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/MonsterHitzones"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/HunterArtsSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Hunter Arts"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/HunterArtSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/HunterArtsSelectLabel"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <Switch
+            android:id="@+id/SkillsSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArts"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Skills" />
+
+        <RelativeLayout
+            android:id="@+id/Skills"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/SkillsSwitch"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <CheckBox
+                android:id="@+id/PowercharmCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Powercharm (+6)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/PowertalonCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="false"
+                android:text="Powertalon (+9)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/FelyneBoosterCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/PowertalonCheckBox"
+                android:text="Felyne Booster (+3)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/CrisisCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/PowertalonCheckBox"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/PowertalonCheckBox"
+                android:text="Crisis (+20)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/FurorCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/FelyneBoosterCheckBox"
+                android:text="Furor (+20)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/BludgeonerCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/CrisisCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/CrisisCheckBox"
+                android:text="Bludgeoner"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/RepeatOffenderCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/FurorCheckBox"
+                android:text="Repeat Offender"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/CriticalBoostCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/BludgeonerCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/BludgeonerCheckBox"
+                android:text="Critical Boost"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/ElementalCritCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/RepeatOffenderCheckBox"
+                android:text="Elemental Crit"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/ElementalAtkUpCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/CriticalBoostCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/CriticalBoostCheckBox"
+                android:text="Element Atk Up"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/WeaknessExploitCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/ElementalCritCheckBox"
+                android:text="Weakness Exploit"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/AirborneCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ElementalAtkUpCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ElementalAtkUpCheckBox"
+                android:text="Airborne"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupC_1Select"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/AirborneCheckBox"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupC_2Select"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/GroupC_1Select"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupDSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/GroupC_1Select"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupFSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupC_2Select"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupGSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/GroupDSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupHSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/GroupFSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupISelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/GroupGSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupJSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupHSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupKSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/GroupISelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupOSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupJSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupPSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/GroupKSelect"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/CalculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SkillsSwitch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:hint="@string/calculate_button_label"
+            android:text="Calculate"
+            android:textStyle="bold|italic" />
+
+        <RelativeLayout
+            android:id="@+id/AttackInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/CalculateButton"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/AttackBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/attack_banner_label"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/KeyBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/AttackBanner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/key_banner_label"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/StaggerBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/KeyBanner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_1_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/StaggerBanner"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_1_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_2_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_1_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_2_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_3_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_2_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_3_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_4_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_3_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_4_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_5_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_4_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_5_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_6_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_5_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_6_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_7_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_6_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_7_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_8_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_7_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_8_Name"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="false"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_9_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_8_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_9_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_10_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_9_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_10_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_11_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_10_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_11_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_12_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_11_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_12_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_13_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_12_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_13_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_14_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_13_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_14_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_15_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_14_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_15_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_16_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_15_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_16_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_17_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_16_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_17_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_18_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_17_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_18_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_19_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_18_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_19_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_20_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_19_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_20_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_21_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_20_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_21_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_22_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_21_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_22_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_23_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HAttack_22_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HAttack_23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HAttack_23_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

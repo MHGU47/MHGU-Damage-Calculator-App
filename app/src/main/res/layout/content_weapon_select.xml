@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="56dp"
+    tools:showIn="@layout/activity_weapon_select">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:scrollIndicators="right">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context="com.mhx.marcus.mhgendamagecalc.WeaponSelect"
+            tools:showIn="@layout/activity_weapon_select"
+            android:clickable="false">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose a weapon"
+                android:textSize="30sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/WeaponSelectBanner" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/GreatSwordSelect"
+                android:layout_below="@+id/WeaponSelectBanner"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/great_sword_icon"
+                android:clickable="false" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LongSwordSelect"
+                android:layout_below="@+id/WeaponSelectBanner"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/long_sword_icon" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SwordandShieldSelect"
+                android:layout_below="@+id/WeaponSelectBanner"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/sword_and_shield_icon"
+                android:fadeScrollbars="false" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/DualBladesSelect"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/dual_blades_icon"
+                android:layout_below="@+id/GreatSwordSelect"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignEnd="@id/GreatSwordSelect"
+                android:layout_alignLeft="@+id/GreatSwordSelect"
+                android:layout_alignRight="@+id/GreatSwordSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/HammerSelect"
+                android:layout_alignBottom="@+id/DualBladesSelect"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/hammer_icon"
+                android:layout_alignEnd="@id/LongSwordSelect"
+                android:layout_alignTop="@+id/DualBladesSelect"
+                android:layout_alignRight="@+id/LongSwordSelect"
+                android:layout_alignLeft="@+id/LongSwordSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/HuntingHornSelect"
+                android:src="@drawable/hunting_horn_icon"
+                android:layout_alignTop="@+id/HammerSelect"
+                android:layout_alignLeft="@+id/SwordandShieldSelect"
+                android:layout_alignStart="@+id/SwordandShieldSelect"
+                android:layout_alignBottom="@+id/HammerSelect"
+                android:layout_alignRight="@+id/SwordandShieldSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LanceSelect"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/lance_icon"
+                android:layout_below="@+id/DualBladesSelect"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignEnd="@id/DualBladesSelect"
+                android:layout_alignRight="@+id/DualBladesSelect"
+                android:layout_alignLeft="@+id/DualBladesSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/GunlanceSelect"
+                android:src="@drawable/gunlance_icon"
+                android:layout_alignTop="@+id/LanceSelect"
+                android:layout_alignRight="@+id/HammerSelect"
+                android:layout_alignEnd="@+id/HammerSelect"
+                android:layout_alignBottom="@+id/LanceSelect"
+                android:layout_centerHorizontal="true" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SwitchAxeSelect"
+                android:src="@drawable/switch_axe_icon"
+                android:layout_alignTop="@+id/GunlanceSelect"
+                android:layout_alignLeft="@+id/HuntingHornSelect"
+                android:layout_alignStart="@+id/HuntingHornSelect"
+                android:layout_alignRight="@+id/HuntingHornSelect"
+                android:layout_alignBottom="@+id/GunlanceSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ChargeBladeSelect"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/charge_blade_icon"
+                android:layout_below="@+id/LanceSelect"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignEnd="@id/LanceSelect"
+                android:layout_alignLeft="@+id/LanceSelect"
+                android:layout_alignRight="@+id/LanceSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/InsectGlaiveSelect"
+                android:src="@drawable/insect_glaive_icon"
+                android:layout_alignBottom="@+id/ChargeBladeSelect"
+                android:layout_alignLeft="@+id/GunlanceSelect"
+                android:layout_alignEnd="@id/GunlanceSelect"
+                android:layout_centerHorizontal="true"
+                android:layout_alignRight="@+id/GunlanceSelect"
+                android:layout_alignTop="@+id/ChargeBladeSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LightBowgunSelect"
+                android:layout_alignTop="@+id/InsectGlaiveSelect"
+                android:layout_alignLeft="@+id/SwitchAxeSelect"
+                android:layout_alignStart="@+id/SwitchAxeSelect"
+                android:src="@drawable/light_bowgun_icon"
+                android:layout_alignBottom="@+id/InsectGlaiveSelect"
+                android:layout_alignRight="@+id/SwitchAxeSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/HeavyBowgunSelect"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/heavy_bowgun_icon"
+                android:layout_marginTop="32dp"
+                android:layout_alignEnd="@id/ChargeBladeSelect"
+                android:layout_alignLeft="@+id/ChargeBladeSelect"
+                android:layout_below="@+id/ChargeBladeSelect"
+                android:layout_alignRight="@+id/ChargeBladeSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/BowSelect"
+                android:layout_alignTop="@+id/HeavyBowgunSelect"
+                android:layout_alignLeft="@+id/InsectGlaiveSelect"
+                android:layout_alignStart="@+id/InsectGlaiveSelect"
+                android:src="@drawable/bow_icon"
+                android:layout_alignBottom="@+id/HeavyBowgunSelect"
+                android:layout_alignRight="@+id/InsectGlaiveSelect" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ProwlerSelect"
+                android:src="@drawable/prowler_icon"
+                android:layout_alignTop="@+id/BowSelect"
+                android:layout_alignLeft="@+id/LightBowgunSelect"
+                android:layout_alignStart="@+id/LightBowgunSelect"
+                android:visibility="visible"
+                android:baselineAlignBottom="false" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

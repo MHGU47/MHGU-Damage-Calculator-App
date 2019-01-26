@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="GreatSword">
+        <item>-None-</item>
+        <item>Ground Slash</item>
+        <item>Lions Maw (Wide Slash)</item>
+        <item>Brimstone Slash</item>
+        <item>Moon Breaker</item>
+    </string-array>
+    <string-array name="LongSword">
+        <item>-None-</item>
+        <item>Sakura Slash</item>
+        <item>Unhinged Spirit</item>
+        <item>Critical Juncture</item>
+    </string-array>
+    <string-array name="SwordandShield">
+        <item>-None-</item>
+        <item>Sword Dance</item>
+        <item>Round Force</item>
+        <item>Shoryugeki</item>
+    </string-array>
+    <string-array name="DualBlades">
+        <item>-None-</item>
+        <item>Blood Wind</item>
+        <item>Aerial Slam</item>
+        <item>Spiral Rend</item>
+    </string-array>
+    <string-array name="Hammer">
+        <item>-None-</item>
+        <item>Spinning Meteor</item>
+        <item>Provoke</item>
+        <item>Typhoon Trigger</item>
+    </string-array>
+    <string-array name="HuntingHorn">
+        <item>-None-</item>
+        <item>Sonic Smash</item>
+    </string-array>
+    <string-array name="Lance">
+        <item>-None-</item>
+        <item>Shield Assault</item>
+        <item>Corkscrew Jab</item>
+    </string-array>
+    <string-array name="Gunlance">
+        <item>-None-</item>
+        <item>Dragon Blast</item>
+        <item>Blast Dash</item>
+    </string-array>
+    <string-array name="SwitchAxe">
+        <item>-None-</item>
+        <item>Trance Slash</item>
+        <item>Energy Charge (Side Slash)</item>
+    </string-array>
+    <string-array name="ChargeBlade">
+        <item>-None-</item>
+        <item>Energy Blade</item>
+        <item>Ripper Shield</item>
+    </string-array>
+    <string-array name="InsectGlaive">
+        <item>-None-</item>
+        <item>Extract Hunter</item>
+        <item>Swarm</item>
+        <item>Bug Blow</item>
+    </string-array>
+    <string-array name="LightBowgun">
+        <item>-None-</item>
+        <item>Bullet Geyser</item>
+        <item>Charged Shot</item>
+    </string-array>
+    <string-array name="HeavyBowgun">
+        <item>-None-</item>
+        <item>Super Nova</item>
+        <item>Slicing Shell</item>
+    </string-array>
+    <string-array name="Bow">
+        <item>-None-</item>
+        <item>Triple Volley</item>
+        <item>Blade Wire</item>
+    </string-array>
+    <string-array name="Prowler">
+        <item>-None-</item>
+        <item>Anti-Monster Mine</item>
+        <item>Anti-Monster Mine+</item>
+        <item>Claw Dance</item>
+        <item>Explosive Roll</item>
+        <item>Felyne Comet</item>
+        <item>Mini Barrel Bombay</item>
+        <item>Barrel Bombay</item>
+        <item>Bounce Bombay</item>
+        <item>Big Barrel Bombay</item>
+        <item>Mega Barrel Bombay</item>
+        <item>Giga Barrel Bombay</item>
+        <item>Rath-of-Meow</item>
+        <item>Shock Tripper</item>
+    </string-array>
+</resources>

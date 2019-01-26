@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="GroupC_1">
+        <item>-Demon Drugs-</item>
+        <item>Demondrug (+5)</item>
+        <item>Mega Demondrug (+7)</item>
+    </string-array>
+    <string-array name="GroupC_2">
+        <item>-Atk Up (Meal)-</item>
+        <item>Attack Up S - Meal (+3)</item>
+        <item>Attack Up M - Meal (+5)</item>
+        <item>Attack Up L - Meal (+7)</item>
+    </string-array>
+    <string-array name="GroupD">
+        <item>-Group D-</item>
+        <item>Might Seed (+10)</item>
+        <item>Might Pill (+25)</item>
+        <item>Exciteshroom - Mycology (+10)</item>
+        <item>Demon Horn (+10)</item>
+        <item>Demon S (+10)</item><!--10% Sharpness Increase-->
+        <item>Demon Affinity S (+15)</item><!--10% Sharpness Increase, +10% Crit-->
+        <item>Cool Cat (+15)</item>
+    </string-array>
+    <string-array name="GroupF">
+        <item>-Atk Up-</item>
+        <item>Attack Up S (+10)</item>
+        <item>Attack Up M (+15)</item>
+        <item>Attack Up L (+20)</item>
+    </string-array>
+    <string-array name="GroupG">
+        <item>-Group G-</item>
+        <item>Adrenaline +2 (+30%)</item>
+        <item>Felyne Heroics (+35%)</item>
+    </string-array>
+    <string-array name="GroupH">
+        <item>-H.Horn Buffs-</item>
+        <item>Attack Up S - Hunting Horn (+10%)</item>
+        <item>Attack Up S - Hunting Horn (Recital) (+15%)</item>
+        <item>Attack Up L - Hunting Horn (+15%)</item>
+        <item>Attack Up L - Hunting Horn (Recital) (+20%)</item>
+    </string-array>
+    <string-array name="GroupI">
+        <item>-Fortify-</item>
+        <item>Fortify - First Cart (+10%)</item>
+        <item>Fortify - Second Cart (+20%)</item>
+    </string-array>
+    <string-array name="GroupJ">
+        <item>-Group J-</item>
+        <item>Challenger +1 (+10%)</item><!--+10% crit-->
+        <item>Challenger +2 (+20%)</item><!--+15% crit-->
+        <item>Unscathed (+20)</item>
+        <item>Latent Power +1</item><!--+30% crit-->
+        <item>Latent Power +2</item><!--+50% crit-->
+    </string-array>
+    <string-array name="GroupK">
+        <item>-Cold/Hot Blooded-</item>
+        <item>Cold Blooded - Cold Area (+15)</item>
+        <item>Cold Blooded - Cold Drink (+5)</item>
+        <item>Cold Blooded - Cold Area + Cold Drink (+20)</item>
+        <item>Hot Blooded - Hot Area (+15)</item>
+    </string-array>
+    <string-array name="GroupO">
+        <item>-Critical Eye-</item>
+        <item>Critical Eye +1</item>
+        <item>Critical Eye +2</item>
+        <item>Critical Eye +3</item>
+    </string-array>
+    <string-array name="GroupP">
+        <item>-Element Atk Up-</item>
+        <item>[Element] Atk Up +1</item>
+        <item>[Element] Atk Up +2</item>
+    </string-array>
+    <string-array name="GroupP_DB">
+        <item>-Element Atk Up-</item>
+        <item>[Element] Atk Up +1</item>
+        <item>[Sub Element] Atk Up +1</item>
+        <item>[Element] Atk Up +2</item>
+        <item>[Sub Element] Atk Up +2</item>
+    </string-array>
+    <string-array name="GroupS">
+        <item>-Artillery-</item>
+        <item>Artillery Novice</item>
+        <item>Artillery Expert</item>
+    </string-array>
+</resources>

@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:scrollIndicators="right">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollIndicators="right"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.mhx.marcus.mhgendamagecalc.WeaponSelect"
+        tools:showIn="@layout/activity_weapon_select">
+
+
+        <ImageButton
+            android:id="@+id/HeavyBowgunIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/heavy_bowgun_icon" />
+
+        <TextView
+            android:id="@+id/HeavyBowgunBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/HeavyBowgunIcon"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/HeavyBowgunIcon"
+            android:background="@drawable/roundedcorners"
+            android:padding="5dp"
+            android:text="Heavy Bowgun"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/BaseStats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/HeavyBowgunIcon"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/DamageInputHBG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/physical_damage_label"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/AffinityInputHBG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/DamageInputHBG"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/affinity_label"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/ShotSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/AffinityInputHBG"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Selected Shot" />
+
+            <Spinner
+                android:id="@+id/ShotSelect"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/ShotSelectLabel"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:isScrollContainer="false"
+                android:spinnerMode="dropdown" />
+
+            <CheckBox
+                android:id="@+id/AerialShotSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ShotSelect"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Aerial Shot" />
+
+            <CheckBox
+                android:id="@+id/PowerReloadCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/AerialShotSelect"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Power Reload" />
+
+            <TextView
+                android:id="@+id/StyleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/PowerReloadCheckBox"
+                android:layout_marginTop="10dp"
+                android:text="@string/style_label" />
+
+            <Spinner
+                android:id="@+id/StyleSelect"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/StyleLabel"
+                android:gravity="center"
+                android:prompt="@string/style_select_label"
+                android:spinnerMode="dropdown" />
+
+            <RelativeLayout
+                android:id="@+id/Distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/StyleLabel">
+
+                <TextView
+                    android:id="@+id/DistanceSelectLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Distance" />
+
+                <Spinner
+                    android:id="@+id/DistanceSelect"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/DistanceSelectLabel"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown"
+                    android:transitionGroup="false" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/MonsterHitzones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/BaseStats"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/MonsterSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Monster"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/MonsterSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/MonsterSelectLabel"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/HitzoneSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/MonsterSelect"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Hitzone"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/HitzoneSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/HitzoneSelectLabel"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/HunterArts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/MonsterHitzones"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp">
+
+            <Spinner
+                android:id="@+id/HunterArtSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/HunterArtSelectLabel"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/HunterArtSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Hunter Arts"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/GunpowderInfusionCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/HunterArtSelect"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Gunpowder Infusion" />
+
+        </RelativeLayout>
+
+        <Switch
+            android:id="@+id/SkillsSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArts"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Skills"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/Skills"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/SkillsSwitch"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <CheckBox
+                android:id="@+id/PowercharmCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/ElementalCritCheckBox"
+                android:text="Powercharm (+6)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/PowertalonCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="Powertalon (+9)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/FelyneBoosterCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/PowercharmCheckBox"
+                android:text="Felyne Booster (+3)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/CrisisCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/PowertalonCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/PowertalonCheckBox"
+                android:layout_below="@+id/PowertalonCheckBox"
+                android:text="Crisis (+20)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/FurorCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/FelyneBoosterCheckBox"
+                android:text="Furor (+20)"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/BludgeonerCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/CrisisCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/CrisisCheckBox"
+                android:layout_below="@+id/CrisisCheckBox"
+                android:text="Bludgeoner"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/RepeatOffenderCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/FurorCheckBox"
+                android:text="Repeat Offender"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/CriticalBoostCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/BludgeonerCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/CrisisCheckBox"
+                android:layout_below="@+id/BludgeonerCheckBox"
+                android:text="Critical Boost"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/ElementalCritCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignStart="@+id/GroupDSelect"
+                android:layout_below="@+id/RepeatOffenderCheckBox"
+                android:text="Elemental Crit"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/ElementalAtkUpCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/CriticalBoostCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/CrisisCheckBox"
+                android:layout_below="@+id/CriticalBoostCheckBox"
+                android:text="Element Atk Up"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/FelyneTemperCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/ElementalCritCheckBox"
+                android:text="Felyne Temper"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/FelyneSharpshooterCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ElementalAtkUpCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ElementalAtkUpCheckBox"
+                android:text="Felyne Sharpshooter"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/FelyneBombardierCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/FelyneTemperCheckBox"
+                android:text="Felyne Bombardier"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/AirborneCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/FelyneSharpshooterCheckBox"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/FelyneSharpshooterCheckBox"
+                android:text="Airborne"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/WeaknessExploitCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/FelyneBombardierCheckBox"
+                android:text="Weakness Exploit"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupC_1Select"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/WeaknessExploitCheckBox"
+                android:layout_marginTop="10dp"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupC_2Select"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/GroupC_1Select"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupDSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/GroupC_1Select"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupFSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupC_2Select"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupGSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/GroupDSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupHSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupFSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupISelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/GroupGSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupJSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupHSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupKSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/GroupISelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupOSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupJSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupPSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/GroupKSelect"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupSSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/GroupOSelect"
+                android:visibility="visible" />
+
+            <RadioGroup
+                android:id="@+id/ShotUpRadios"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/GroupPSelect"
+                android:layout_marginTop="10dp"
+                android:visibility="visible">
+
+                <RadioButton
+                    android:id="@+id/NoShotUpRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="[No Shot Up Skill]" />
+
+                <RadioButton
+                    android:id="@+id/NormalUpRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal Up" />
+
+                <RadioButton
+                    android:id="@+id/PelletUpRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pellet Up" />
+
+                <RadioButton
+                    android:id="@+id/PierceUpRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pierce Up" />
+
+                <RadioButton
+                    android:id="@+id/HeavyUpRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Heavy Up" />
+
+                <RadioButton
+                    android:id="@+id/TrueShotUpRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="True Shot Up" />
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/CalculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SkillsSwitch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:hint="@string/calculate_button_label"
+            android:text="Calculate"
+            android:textStyle="bold|italic" />
+
+        <RelativeLayout
+            android:id="@+id/AttackInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/CalculateButton"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundedcorners"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/AttackBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/attack_banner_label"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/ShotDisclaimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/AttackBanner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="(If all hits land)"
+                android:textSize="10sp"
+                android:textStyle="bold|italic"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/StaggerBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ShotDisclaimer"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/HBGAttack_1_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/StaggerBanner"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Shot Damage"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HBGAttack_1_Name"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_2_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HBGAttack_1_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HBGAttack_2_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_3_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HBGAttack_2_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HBGAttack_3_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_4_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HBGAttack_3_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HBGAttack_4_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_5_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HBGAttack_4_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HBGAttack_5_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_6_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/HBGAttack_5_Name"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/HBGAttack_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/HBGAttack_6_Name"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="New Text"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>
