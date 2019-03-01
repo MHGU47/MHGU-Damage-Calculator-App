@@ -1094,7 +1094,7 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
         Calculate.setOnClickListener(new View.OnClickListener() {
 
             /*Creates a TextView array variable called 'textviews' and sets it so the values
-            affect all the textviews needed, excepted the burst textviews.*/
+            affect all the textviews needed, except the burst textviews.*/
             TextView[] textviews = new TextView[(62)];
 
             @Override

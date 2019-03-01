@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/HunterArts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedcorners"
+        android:padding="20dp">
+
+        <Spinner
+            android:id="@+id/HunterArtSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelectLabel"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/HunterArtSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Hunter Arts"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/ChaosOilSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/ChaosOilOffRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="No Chaos Oil Affinity Boost" />
+
+            <RadioButton
+                android:id="@+id/ChaosOilLevel1_2Radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Chaos Oil Level 1/2 (+15% Affinity)" />
+
+            <RadioButton
+                android:id="@+id/ChaosOilLevel3Radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Chaos Oil Level 3  (+30% Affinity)" />
+        </RadioGroup>
+    </RelativeLayout>
+</RelativeLayout>

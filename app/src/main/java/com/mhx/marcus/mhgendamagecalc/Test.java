@@ -5,12 +5,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 public class Test extends AppCompatActivity {
 
@@ -19,6 +21,9 @@ public class Test extends AppCompatActivity {
     Button Calculate;
     int SelectedMonster;
     static String ChosenMonster, ChosenHitzone, HitzoneGroup;
+
+    ViewStub stub, stub1;
+    boolean temps = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +127,9 @@ public class Test extends AppCompatActivity {
 
         HitzoneSelect.setOnItemSelectedListener(this);*/
 
+        stub = (ViewStub) findViewById(R.id.BaseStats1);
+        stub1 = (ViewStub) findViewById(R.id.BaseStats1);
+
         calculate();
     }
     public void calculate(){
@@ -130,7 +138,7 @@ public class Test extends AppCompatActivity {
         Calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Test.this, "Hi", Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(Test.this, "Hi", Toast.LENGTH_SHORT).show();
 
                 int Counter, temp;
                 CharSequence[] Counter2;
@@ -168,8 +176,17 @@ public class Test extends AppCompatActivity {
 
                 TextView textview = (TextView) findViewById(R.id.textView5);
 
-                textview.setText(String.format("%s", Math.round(output)));
-
+                textview.setText(String.format("%s", Math.round(output)));*/
+                stub.setLayoutResource(R.layout.content_stats_input_gs);
+                stub1.setLayoutResource(R.layout.content_stats_input_sns);
+                if(temps){
+                    stub1.inflate();
+                    temps = !temps;
+                }
+                else{
+                    stub.inflate();
+                    temps = !temps;
+                }
             }
         });
     }

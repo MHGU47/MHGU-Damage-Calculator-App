@@ -25,7 +25,7 @@ public class WeaponSelect extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, GreatSwordCalculation.class);
+                Intent intent = new Intent(WeaponSelect.this, UI.class);
                 startActivity(intent);
             }
         });

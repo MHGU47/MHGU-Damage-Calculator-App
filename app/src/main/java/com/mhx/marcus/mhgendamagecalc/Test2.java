@@ -7,8 +7,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,13 +23,14 @@ public class Test2 extends Activity {
     ArrayAdapter<String> adp1,adp2;
     List<String> l1,l2;
     int pos;
+    ViewStub stub, stub1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_test);
+        stub = (ViewStub) findViewById(R.id.BaseStats1);
 
-
-        l1=new ArrayList<String>();
+        /*l1=new ArrayList<String>();
 
         l1.add("A");
         l1.add("B");
@@ -113,7 +116,16 @@ public class Test2 extends Activity {
                 // TODO Auto-generated method stub
 
             }
-        });
+        });*/
+
+        calculate();
+    }
+
+    public void calculate(){
+
+        stub.setLayoutResource(R.layout.content_stats_input_gs);
+        //stub1.setLayoutResource(R.layout.content_stats_input_sns);
+        stub.inflate();
     }
 
 }

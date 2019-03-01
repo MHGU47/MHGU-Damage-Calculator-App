@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +30,7 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
     Spinner StyleSelect, SharpnessSelect, ElementSelect, MonsterSelect, HitzoneSelect, HunterArtSelect;
     Button Calculate;
     String SelectedMonster;
+    ViewStub stub;
 
     static String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, MonsterType, ChosenArt;
     static float SelectedSharpnessElmModifier, SelectedSharpnessAtkModifier;
@@ -135,6 +137,9 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
         setContentView(R.layout.activity_sword_and_shield_calculation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        stub = findViewById(R.id.viewStub);
+        stub.setLayoutResource(R.layout.content_stats_input_sns);
+        stub.inflate();
 
         /*Gives the variable for the spinner 'StyleSelect' the actual value for a spinner.*/
         StyleSelect = (Spinner) findViewById(R.id.StyleSelect);

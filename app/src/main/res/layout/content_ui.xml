@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:scrollIndicators="right">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.mhx.marcus.mhgendamagecalc.WeaponSelect"
+        tools:showIn="@layout/activity_ui_base">
+
+            <ImageButton
+                android:id="@+id/WeaponIcon"
+                android:inflatedId="@+id/WeaponIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/charge_blade_icon" />
+
+            <TextView
+                android:id="@+id/NameBanner"
+                android:inflatedId="@+id/NameBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/WeaponIcon"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/WeaponIcon"
+                android:background="@drawable/roundedcorners"
+                android:padding="5dp"
+                android:text="Sword and Shield"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ViewStub
+                android:id="@+id/BaseStatsStub"
+                android:inflatedId="@+id/BaseStatsStub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/WeaponIcon"
+                android:layout="@layout/content_stats_input_gs" />
+
+        <ViewStub
+            android:id="@+id/MonsterHitzonesStub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BaseStatsStub"
+            android:layout_marginTop="10dp"
+            android:inflatedId="@+id/MonsterHitzonesStub"
+            android:layout="@layout/content_monster_hitzones" />
+
+        <ViewStub
+            android:id="@+id/HunterArtsStub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MonsterHitzonesStub"
+            android:layout_marginTop="10dp"
+            android:inflatedId="@+id/HunterArtsStub"
+            android:layout="@layout/content_hunter_arts" />
+
+        <Switch
+            android:id="@+id/SkillsSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtsStub"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="Skills" />
+
+        <ViewStub
+            android:id="@+id/SkillsStub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SkillsSwitch"
+            android:layout_marginTop="10dp"
+            android:inflatedId="@+id/SkillsStub"
+            android:layout="@layout/content_skills" />
+
+        <Button
+            android:id="@+id/CalculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SkillsSwitch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:hint="@string/calculate_button_label"
+            android:text="Calculate"
+            android:textStyle="bold|italic" />
+
+        <ViewStub
+            android:id="@+id/AttackInfoStub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CalculateButton"
+            android:layout_marginTop="10dp"
+            android:inflatedId="@+id/AttackInfoStub"
+            android:layout="@layout/content_attack_info" />
+
+        </RelativeLayout>
+
+</ScrollView>

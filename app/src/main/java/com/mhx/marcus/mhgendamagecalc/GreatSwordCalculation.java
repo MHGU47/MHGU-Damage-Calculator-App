@@ -1,5 +1,6 @@
 package com.mhx.marcus.mhgendamagecalc;
 
+import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
