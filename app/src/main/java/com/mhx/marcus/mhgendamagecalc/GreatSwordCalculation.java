@@ -169,7 +169,7 @@ public class GreatSwordCalculation extends AppCompatActivity implements AdapterV
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter HunterArtAdapter = ArrayAdapter.createFromResource(this,R.array.GreatSword,
+        ArrayAdapter HunterArtAdapter = ArrayAdapter.createFromResource(this,R.array.GS_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(HunterArtAdapter);

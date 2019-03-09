@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="HA_Levels">
+        <item>Level I</item>
+        <item>Level II</item>
+        <item>Level III</item>
+    </string-array>
+    <integer-array name="HA_ElementCheck">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
+
+
+    <integer-array name="GS_Guild_MV">
+        <item>48</item><!--Draw Attack-->
+        <item>48</item><!--Lv. 0 Charge No Charge)-->
+        <item>65</item><!--Lv. 1 Charge-->
+        <item>80</item><!--Lv. 2 Charge-->
+        <item>100</item><!--Lv. 3 Charge-->
+        <item>52</item><!--Lv. 0 Strong Charge-->
+        <item>48</item><!--   -Follow Up-->
+        <item>72</item><!--Lv. 1 Strong Charge-->
+        <item>52</item><!--   -Follow Up -->
+        <item>90</item><!--Lv. 2 Strong Charge-->
+        <item>60</item><!--   -Follow Up  -->
+        <item>120</item><!--Lv. 3 Strong Charge-->
+        <item>80</item><!--   -Follow Up   -->
+        <item>18</item><!--Side Slap (22 KO)-->
+        <item>32</item><!--Wide Slash-->
+        <item>18</item><!--Wide Slash (after evade)-->
+        <item>44</item><!--Reverse Overhead Slash-->
+        <item>2</item><!--Kick-->
+        <item>48</item><!--Jump Attack-->
+        <item>72</item><!--   -Follow Up-->
+    </integer-array>
+    <integer-array name="GS_Striker_MV">
+        <item>48</item><!--Draw Attack-->
+        <item>48</item><!--Lv. 0 Charge (No Charge)-->
+        <item>65</item><!--Lv. 1 Charge-->
+        <item>80</item><!--Lv. 2 Charge-->
+        <item>100</item><!--Lv. 3 Charge-->
+        <item>18</item><!--Side Slash (22 KO)-->
+        <item>32</item><!--Wide Slash-->
+        <item>18</item><!--Wide Slash (after evade)-->
+        <item>44</item><!--Reverse Overhead Slash-->
+        <item>2</item><!--Kick-->
+        <item>48</item><!--Jump Attack-->
+    </integer-array>
+    <integer-array name="GS_Aerial_MV">
+        <item>48</item><!--Draw Attack-->
+        <item>48</item><!--Aerial Lv. 0 Charge (No Charge)-->
+        <item>60</item><!--   -Follow Up-->
+        <item>57</item><!--Lv. 1 Charge-->
+        <item>60</item><!--   -Follow Up -->
+        <item>66</item><!--Lv. 2 Charge-->
+        <item>60</item><!--   -Follow Up  -->
+        <item>75</item><!--Lv. 3 Charge-->
+        <item>60</item><!--   -Follow Up   -->
+        <item>18</item><!--Side Slap (22 KO)-->
+        <item>32</item><!--Wide Slash-->
+        <item>18</item><!--Wide Slash (after evade)-->
+        <item>44</item><!--Reverse Overhead Slash-->
+        <item>2</item><!--Kick-->
+        <item>48</item><!--Jump Attack-->
+    </integer-array>
+    <integer-array name="GS_Adept_MV">
+        <item>48</item><!--Draw Attack-->
+        <item>48</item><!--Lv. 0 Charge No Charge)-->
+        <item>65</item><!--Lv. 1 Charge-->
+        <item>80</item><!--Lv. 2 Charge-->
+        <item>100</item><!--Lv. 3 Charge-->
+        <item>18</item><!--Side Slap (22 KO)-->
+        <item>32</item><!--Wide Slash-->
+        <item>18</item><!--Wide Slash (after evade)-->
+        <item>44</item><!--Reverse Overhead Slash-->
+        <item>2</item><!--Kick-->
+        <item>26</item><!--Adept Evade Lv. 0 Dash Charge-->
+        <item>39</item><!--Adept Evade Lv. 1 Dash Charge-->
+        <item>72</item><!--   - Lv. 1 Strong Charge-->
+        <item>52</item><!--   -Follow Up -->
+        <item>52</item><!--Adept Evade Lv. 2 Dash Charge-->
+        <item>90</item><!--   - Lv. 2 Strong Charge-->
+        <item>60</item><!--   -Follow Up  -->
+        <item>78</item><!--Adept Evade Lv. 3 Dash Charge-->
+        <item>120</item><!--   - Lv. 3 Strong Charge-->
+        <item>80</item><!--   -Follow Up   -->
+        <item>48</item><!--Jump Attack-->
+    </integer-array>
+    <integer-array name="GS_Valor_MV">
+        <item>48</item><!--Draw Attack-->
+        <item>18</item><!--Side Slap (22 KO)-->
+        <item>32</item><!--Wide Slash-->
+        <item>18</item><!--Wide Slash (after evade)-->
+        <item>44</item><!--Reverse Overhead Slash-->
+        <item>65</item><!--Valor Stance - Lv.1 Charge-->
+        <item>80</item><!--Valor Stance - Lv.2 Charge-->
+        <item>100</item><!--Valor Stance - Lv.3 Charge-->
+        <item>80</item><!--Valor Stance - Overcharge-->
+        <item>52</item><!--Draw Slash (Valor State)-->
+        <item>48</item><!--   -Follow Up-->
+        <item>65</item><!--Draw Slash Lv.1 (Valor State)-->
+        <item>52</item><!--   -Follow Up -->
+        <item>81</item><!--Draw Slash Lv.2 (Valor State)-->
+        <item>60</item><!--   -Follow Up  -->
+        <item>112</item><!--Draw Slash Lv.3 (Valor State)-->
+        <item>80</item><!--   -Follow Up   -->
+        <item>52</item><!--Blue Charge Lv.0 (Valor State)-->
+        <item>48</item><!--   -Follow Up-->
+        <item>65</item><!--Blue Charge Lv.1 (Valor State)-->
+        <item>52</item><!--   -Follow Up -->
+        <item>81</item><!--Blue Charge Lv.2 (Valor State)-->
+        <item>60</item><!--   -Follow Up  -->
+        <item>115</item><!--Blue Charge Lv.3 (Valor State)-->
+        <item>80</item><!--   -Follow Up   -->
+        <item>2</item><!--Kick-->
+        <item>48</item><!--Jump Attack-->
+        <item>72</item><!--   -Follow Up (Valor State)-->
+    </integer-array>
+    <integer-array name="GS_Alchemy_MV">
+        <item>48</item><!--Draw Attack-->
+        <item>48</item><!--Lv. 0 Charge (No Charge)-->
+        <item>65</item><!--Lv. 1 Charge-->
+        <item>80</item><!--Lv. 2 Charge-->
+        <item>100</item><!--Lv. 3 Charge-->
+        <item>18</item><!--Side Slash (22 KO)-->
+        <item>32</item><!--Wide Slash-->
+        <item>18</item><!--Wide Slash (after evade)-->
+        <item>44</item><!--Reverse Overhead Slash-->
+        <item>2</item><!--Kick-->
+        <item>48</item><!--Jump Attack-->
+    </integer-array>
+    <string-array name="GS_HA_Names">
+        <item>-None-</item>
+        <item>Ground Slash</item>
+        <item>Lions Maw (Wide Slash)</item>
+        <item>Brimstone Slash</item>
+        <item>Moon Breaker</item>
+    </string-array>
+    <integer-array name="GS_HA_GroundSlash_MV">
+        <item>70</item>
+        <item>94</item>
+        <item>138</item>
+    </integer-array>
+    <integer-array name="GS_HA_LionsMaw_MV">
+        <item>48</item>
+        <item>52</item>
+        <item>66</item>
+    </integer-array>
+    <integer-array name="GS_HA_LionsMaw_ElmCheck">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
+    <string-array name="GS_HA_BrimstoneSlash_Levels">
+        <item>Level 0 (No charge)</item>
+        <item>     -Strong Attack Counter Hit</item>
+        <item>Level I</item>
+        <item>     -Strong Attack Counter Hit </item>
+        <item>Level II</item>
+        <item>     -Strong Attack Counter Hit  </item>
+        <item>Level III</item>
+        <item>     -Strong Attack Counter Hit   </item>
+    </string-array>
+    <integer-array name="GS_HA_BrimstoneSlash_MV">
+        <item>130</item>
+        <item>130</item>
+        <item>150</item>
+        <item>150</item>
+        <item>175</item>
+        <item>175</item>
+        <item>190</item>
+        <item>190</item>
+    </integer-array>
+    <integer-array name="GS_HA_BrimstoneSlash_ElmCheck">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
+    <integer-array name="GS_HA_MoonBreaker_MV">
+        <item>60</item>
+        <item>82</item>
+        <item>102</item>
+    </integer-array>
+    <integer-array name="GS_HA_MoonBreaker_ElmCheck">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="LS_HA_Names">
+        <item>-None-</item>
+        <item>Sakura Slash</item>
+        <item>Unhinged Spirit</item>
+        <item>Critical Juncture</item>
+    </string-array>
+    <string-array name="SNS_HA_Names">
+        <item>-None-</item>
+        <item>Sword Dance</item>
+        <item>Round Force</item>
+        <item>Shoryugeki</item>
+    </string-array>
+    <string-array name="DB_HA_Names">
+        <item>-None-</item>
+        <item>Blood Wind</item>
+        <item>Aerial Slam</item>
+        <item>Spiral Rend</item>
+    </string-array>
+    <string-array name="Hammer_HA_Names">
+        <item>-None-</item>
+        <item>Spinning Meteor</item>
+        <item>Provoke</item>
+        <item>Typhoon Trigger</item>
+    </string-array>
+    <string-array name="HH_HA_Names">
+        <item>-None-</item>
+        <item>Sonic Smash</item>
+    </string-array>
+    <string-array name="Lance_HA_Names">
+        <item>-None-</item>
+        <item>Shield Assault</item>
+        <item>Corkscrew Jab</item>
+    </string-array>
+    <string-array name="GL_HA_Names">
+        <item>-None-</item>
+        <item>Dragon Blast</item>
+        <item>Blast Dash</item>
+    </string-array>
+    <string-array name="SA_HA_Names">
+        <item>-None-</item>
+        <item>Trance Slash</item>
+        <item>Energy Charge (Side Slash)</item>
+    </string-array>
+    <string-array name="CB_HA_Names">
+        <item>-None-</item>
+        <item>Energy Blade</item>
+        <item>Ripper Shield</item>
+    </string-array>
+    <string-array name="IG_HA_Names">
+        <item>-None-</item>
+        <item>Extract Hunter</item>
+        <item>Swarm</item>
+        <item>Bug Blow</item>
+    </string-array>
+    <string-array name="LBG_HA_Names">
+        <item>-None-</item>
+        <item>Bullet Geyser</item>
+        <item>Charged Shot</item>
+    </string-array>
+    <string-array name="HBG_HA_Names">
+        <item>-None-</item>
+        <item>Super Nova</item>
+        <item>Slicing Shell</item>
+    </string-array>
+    <string-array name="Bow_HA_Names">
+        <item>-None-</item>
+        <item>Triple Volley</item>
+        <item>Blade Wire</item>
+    </string-array>
+    <string-array name="Prowler_HA_Names">
+        <item>-None-</item>
+        <item>Anti-Monster Mine</item>
+        <item>Anti-Monster Mine+</item>
+        <item>Claw Dance</item>
+        <item>Explosive Roll</item>
+        <item>Felyne Comet</item>
+        <item>Mini Barrel Bombay</item>
+        <item>Barrel Bombay</item>
+        <item>Bounce Bombay</item>
+        <item>Big Barrel Bombay</item>
+        <item>Mega Barrel Bombay</item>
+        <item>Giga Barrel Bombay</item>
+        <item>Rath-of-Meow</item>
+        <item>Shock Tripper</item>
+    </string-array>
+</resources>

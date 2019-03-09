@@ -7,11 +7,12 @@
         android:id="@+id/BaseStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/HammerIcon"
         android:background="@drawable/roundedcorners"
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInput"
+            android:id="@+id/DamageInputH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -26,62 +27,53 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/ElementSelect"
-            android:layout_alignStart="@+id/ElementSelect"
             android:layout_alignLeft="@+id/ElementSelect"
-            android:text="Element"
+            android:layout_alignParentLeft="true"
+            android:text="@string/element_label"
             android:textStyle="bold|italic" />
 
         <Spinner
             android:id="@+id/ElementSelect"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ElementInput"
-            android:layout_alignBottom="@+id/ElementInput"
-            android:layout_alignParentStart="true"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/StyleLabel"
+            android:layout_alignTop="@+id/ElementInputH"
+            android:layout_alignBottom="@+id/ElementInputH"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInput" />
+            android:layout_toLeftOf="@+id/ElementInputH" />
 
         <EditText
-            android:id="@+id/ElementInput"
+            android:id="@+id/ElementInputH"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInput"
+            android:layout_below="@+id/DamageInputH"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
             android:ems="10"
             android:gravity="center"
             android:hint="@string/elemental_input_label"
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/AffinityInput"
+            android:id="@+id/AffinityInputH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ElementSelect"
+            android:layout_below="@+id/ElementInputH"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
             android:elegantTextHeight="false"
             android:ems="10"
             android:gravity="center"
-            android:hint="@string/affinity_label"
+            android:hint="@string/affinity_input_label"
             android:inputType="number|numberDecimal|numberSigned" />
-
-        <CheckBox
-            android:id="@+id/AffinityOilCheck"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInput"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="40dp"
-            android:checked="false"
-            android:text="Affinity Oil" />
 
         <TextView
             android:id="@+id/StyleLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityOilCheck"
+            android:layout_below="@+id/AffinityInputH"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:text="@string/style_label"
             android:textStyle="bold|italic" />
 
@@ -90,7 +82,8 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_below="@+id/StyleLabel"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="true"
             android:gravity="center"
             android:prompt="@string/style_select_label"
             android:spinnerMode="dropdown" />
@@ -106,8 +99,8 @@
                 android:id="@+id/SharpnessLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
                 android:text="@string/sharpness_label"
                 android:textStyle="bold|italic" />
 
@@ -116,9 +109,10 @@
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_below="@+id/SharpnessLabel"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:gravity="center"
                 android:spinnerMode="dropdown" />
-
         </RelativeLayout>
 
     </RelativeLayout>

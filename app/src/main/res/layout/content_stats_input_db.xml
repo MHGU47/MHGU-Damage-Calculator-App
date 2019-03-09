@@ -7,11 +7,12 @@
         android:id="@+id/BaseStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/DualBladesIcon"
         android:background="@drawable/roundedcorners"
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInput"
+            android:id="@+id/DamageInputDB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -22,30 +23,30 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/ElementLabel"
+            android:id="@+id/MainElementLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/ElementSelect"
+            android:layout_above="@+id/MainElementSelect"
             android:layout_alignStart="@+id/ElementSelect"
-            android:layout_alignLeft="@+id/ElementSelect"
+            android:layout_alignLeft="@+id/MainElementSelect"
             android:text="Element"
             android:textStyle="bold|italic" />
 
         <Spinner
-            android:id="@+id/ElementSelect"
+            android:id="@+id/MainElementSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ElementInput"
-            android:layout_alignBottom="@+id/ElementInput"
+            android:layout_alignTop="@+id/MainElementInputDB"
+            android:layout_alignBottom="@+id/MainElementInputDB"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInput" />
+            android:layout_toLeftOf="@+id/MainElementInputDB" />
 
         <EditText
-            android:id="@+id/ElementInput"
+            android:id="@+id/MainElementInputDB"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInput"
+            android:layout_below="@+id/DamageInputDB"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:ems="10"
@@ -53,11 +54,43 @@
             android:hint="@string/elemental_input_label"
             android:inputType="number" />
 
-        <EditText
-            android:id="@+id/AffinityInput"
+        <TextView
+            android:id="@+id/SubElementSelectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ElementSelect"
+            android:layout_above="@+id/SubElementSelect"
+            android:layout_alignLeft="@+id/SubElementSelect"
+            android:text="Sub Element"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/SubElementSelect"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/MainElementSelect"
+            android:layout_alignTop="@+id/SubElementInputDB"
+            android:layout_alignBottom="@+id/SubElementInputDB"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/SubElementInputDB" />
+
+        <EditText
+            android:id="@+id/SubElementInputDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MainElementInputDB"
+            android:layout_alignStart="@+id/MainElementInputDB"
+            android:layout_alignEnd="@+id/AffinityInputDB"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/elemental_input_label"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/AffinityInputDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SubElementInputDB"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:elegantTextHeight="false"
@@ -66,22 +99,34 @@
             android:hint="@string/affinity_label"
             android:inputType="number|numberDecimal|numberSigned" />
 
-        <CheckBox
-            android:id="@+id/AffinityOilCheck"
+        <TextView
+            android:id="@+id/ModeSelectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInput"
+            android:layout_below="@+id/AffinityInputDB"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="40dp"
-            android:checked="false"
-            android:text="Affinity Oil" />
+            android:layout_marginTop="20dp"
+            android:text="@string/mode_select_label"
+            android:textStyle="bold|italic" />
+
+        <Spinner
+            android:id="@+id/ModeSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@+id/ModeSelectLabel"
+            android:layout_alignStart="@+id/CalculateButton"
+            android:layout_alignEnd="@+id/DualBladesBanner"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:spinnerMode="dropdown" />
 
         <TextView
             android:id="@+id/StyleLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityOilCheck"
+            android:layout_below="@+id/ModeSelect"
+            android:layout_marginTop="10dp"
             android:text="@string/style_label"
             android:textStyle="bold|italic" />
 
@@ -108,6 +153,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginEnd="-132dp"
+                android:layout_toStartOf="@+id/SharpnessSelect"
                 android:text="@string/sharpness_label"
                 android:textStyle="bold|italic" />
 

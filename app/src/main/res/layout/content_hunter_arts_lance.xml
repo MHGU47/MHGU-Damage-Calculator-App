@@ -8,15 +8,10 @@
         android:id="@+id/HunterArts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/MonsterHitzones"
+        android:layout_marginTop="10dp"
         android:background="@drawable/roundedcorners"
         android:padding="20dp">
-
-        <Spinner
-            android:id="@+id/HunterArtSelect"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/HunterArtSelectLabel"
-            android:layout_centerHorizontal="true" />
 
         <TextView
             android:id="@+id/HunterArtSelectLabel"
@@ -28,37 +23,50 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <Spinner
+            android:id="@+id/HunterArtSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelectLabel"
+            android:layout_centerHorizontal="true" />
+
         <RadioGroup
-            android:id="@+id/ChaosOilSelect"
-            android:layout_width="wrap_content"
+            android:id="@+id/EnragedGuardCheck"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/HunterArtSelect"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="false"
             android:layout_marginTop="10dp">
 
             <RadioButton
-                android:id="@+id/ChaosOilOffRadio"
+                android:id="@+id/NoEnragedGuardAura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="No Chaos Oil Affinity Boost" />
+                android:layout_gravity="center_horizontal"
+                android:checked="true"
+                android:text="No Enraged Guard Aura" />
 
             <RadioButton
-                android:id="@+id/ChaosOilLevel1_2Radio"
+                android:id="@+id/EnragedGuardRed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Chaos Oil Level 1/2 (+15% Affinity)" />
+                android:layout_gravity="center_horizontal"
+                android:text="Enraged Guard Red Aura (+10%)" />
 
             <RadioButton
-                android:id="@+id/ChaosOilLevel3Radio"
+                android:id="@+id/EnragedGuardYellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Chaos Oil Level 3  (+30% Affinity)" />
+                android:layout_gravity="center_horizontal"
+                android:text="Enraged Guard Yellow Aura (+20%)" />
+
+            <RadioButton
+                android:id="@+id/EnragedGuardOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Enraged Guard Orange Aura (+30%)" />
         </RadioGroup>
+
     </RelativeLayout>
 </RelativeLayout>

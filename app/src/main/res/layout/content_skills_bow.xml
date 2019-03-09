@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/Skills"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/SkillsSwitch"
         android:background="@drawable/roundedcorners"
         android:padding="20dp"
@@ -17,7 +16,6 @@
             android:id="@+id/PowercharmCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/ElementalCritCheckBox"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:text="Powercharm (+6)"
@@ -117,13 +115,12 @@
             android:visibility="visible" />
 
         <CheckBox
-            android:id="@+id/WeaknessExploitCheckBox"
+            android:id="@+id/FelyneTemperCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ElementalCritCheckBox"
-            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:text="Weakness Exploit"
+            android:text="Felyne Temper"
             android:visibility="visible" />
 
         <CheckBox
@@ -136,11 +133,67 @@
             android:text="Airborne"
             android:visibility="visible" />
 
+        <CheckBox
+            android:id="@+id/NormalUpCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/FelyneTemperCheckBox"
+            android:text="Normal Up"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/HeavyUpCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AirborneCheckBox"
+            android:layout_alignLeft="@+id/AirborneCheckBox"
+            android:layout_alignParentRight="true"
+            android:text="Heavy Up"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/PierceUpCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/NormalUpCheckBox"
+            android:layout_alignParentLeft="true"
+            android:text="Pierce Up"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/PelletUpCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HeavyUpCheckBox"
+            android:layout_alignLeft="@+id/HeavyUpCheckBox"
+            android:layout_alignParentRight="true"
+            android:text="Pellet Up"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/TrueShotUpCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/PierceUpCheckBox"
+            android:layout_alignParentLeft="true"
+            android:text="True Shot"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/WeaknessExploitCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/PelletUpCheckBox"
+            android:layout_alignLeft="@+id/PelletUpCheckBox"
+            android:layout_alignParentRight="true"
+            android:text="Weakness Exploit"
+            android:visibility="visible" />
+
         <Spinner
             android:id="@+id/GroupC_1Select"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AirborneCheckBox"
+            android:layout_below="@+id/TrueShotUpCheckBox"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="10dp"

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <RelativeLayout
+        android:id="@+id/HunterArts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MonsterHitzones"
+        android:background="@drawable/roundedcorners"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/HunterArtSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Hunter Arts"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/HunterArtSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelectLabel"
+            android:layout_centerHorizontal="true" />
+
+        <RadioGroup
+            android:id="@+id/SacrificialBladeSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelect"
+            android:layout_marginTop="10dp"
+            android:visibility="visible">
+
+            <RadioButton
+                android:id="@+id/SacrificialBladeOffCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:checked="true"
+                android:text="No Sacrificial Blade Attack Boost"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/SacrificialBladeLevel1Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Sacrificial Blade Level 1 Attack Boost (+10%)"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/SacrificialBladeLevel2Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Sacrificial Blade Level 2 Attack Boost (+20%)"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/SacrificialBladeLevel3Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Sacrificial Blade Level 3 Attack Boost (+30%)"
+                android:textSize="12sp" />
+        </RadioGroup>
+
+    </RelativeLayout>
+</RelativeLayout>

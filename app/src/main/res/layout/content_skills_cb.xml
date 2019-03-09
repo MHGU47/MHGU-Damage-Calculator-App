@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/Skills"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/SkillsSwitch"
         android:background="@drawable/roundedcorners"
         android:padding="20dp"
@@ -117,10 +116,19 @@
             android:visibility="visible" />
 
         <CheckBox
-            android:id="@+id/WeaknessExploitCheckBox"
+            android:id="@+id/FelyneBombardierCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ElementalCritCheckBox"
+            android:layout_alignParentLeft="true"
+            android:text="Felyne Bombardier"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/WeaknessExploitCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/FelyneBombardierCheckBox"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:text="Weakness Exploit"
@@ -140,7 +148,7 @@
             android:id="@+id/GroupC_1Select"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AirborneCheckBox"
+            android:layout_below="@+id/WeaknessExploitCheckBox"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="10dp"
@@ -230,6 +238,14 @@
             android:layout_below="@+id/GroupKSelect"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/GroupSSelect"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/GroupOSelect"
+            android:layout_alignParentRight="true"
             android:visibility="visible" />
     </RelativeLayout>
 </RelativeLayout>

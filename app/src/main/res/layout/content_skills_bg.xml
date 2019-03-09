@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/Skills"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/SkillsSwitch"
+        android:layout_marginTop="10dp"
         android:background="@drawable/roundedcorners"
         android:padding="20dp"
         android:visibility="gone">
@@ -117,30 +117,58 @@
             android:visibility="visible" />
 
         <CheckBox
-            android:id="@+id/WeaknessExploitCheckBox"
+            android:id="@+id/FelyneTemperCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ElementalCritCheckBox"
-            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:text="Weakness Exploit"
+            android:text="Felyne Temper"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/FelyneSharpshooterCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ElementalAtkUpCheckBox"
+            android:layout_alignLeft="@+id/ElementalAtkUpCheckBox"
+            android:layout_alignParentRight="true"
+            android:text="Felyne Sharpshooter"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/FelyneBombardierCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/FelyneTemperCheckBox"
+            android:layout_alignParentLeft="true"
+            android:text="Felyne Bombardier"
             android:visibility="visible" />
 
         <CheckBox
             android:id="@+id/AirborneCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ElementalAtkUpCheckBox"
-            android:layout_alignLeft="@+id/ElementalAtkUpCheckBox"
+            android:layout_below="@+id/FelyneSharpshooterCheckBox"
+            android:layout_alignLeft="@+id/FelyneSharpshooterCheckBox"
             android:layout_alignParentRight="true"
             android:text="Airborne"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/WeaknessExploitCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/FelyneBombardierCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="Weakness Exploit"
             android:visibility="visible" />
 
         <Spinner
             android:id="@+id/GroupC_1Select"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AirborneCheckBox"
+            android:layout_below="@id/WeaknessExploitCheckBox"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="10dp"
@@ -231,5 +259,61 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/GroupSSelect"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/GroupOSelect"
+            android:layout_alignParentRight="true"
+            android:visibility="visible" />
+
+        <RadioGroup
+            android:id="@+id/ShotUpRadios"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/GroupPSelect"
+            android:layout_marginTop="10dp"
+            android:visibility="visible">
+
+            <RadioButton
+                android:id="@+id/NoShotUpRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="[No Shot Up Skill]" />
+
+            <RadioButton
+                android:id="@+id/NormalUpRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal Up" />
+
+            <RadioButton
+                android:id="@+id/PelletUpRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pellet Up" />
+
+            <RadioButton
+                android:id="@+id/PierceUpRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pierce Up" />
+
+            <RadioButton
+                android:id="@+id/HeavyUpRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heavy Up" />
+
+            <RadioButton
+                android:id="@+id/TrueShotUpRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="True Shot Up" />
+
+        </RadioGroup>
+
     </RelativeLayout>
 </RelativeLayout>

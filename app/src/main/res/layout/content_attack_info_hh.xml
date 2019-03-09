@@ -26,10 +26,23 @@
             android:visibility="visible" />
 
         <TextView
-            android:id="@+id/StaggerBanner"
+            android:id="@+id/KeyBanner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/AttackBanner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/key_banner_label"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/StaggerBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/KeyBanner"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:gravity="center"
@@ -38,23 +51,22 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_1_Name"
+            android:id="@+id/HHAttack_1_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/StaggerBanner"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="10dp"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_1"
+            android:id="@+id/HHAttack_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_1_Name"
+            android:layout_alignBottom="@+id/HHAttack_1_Name"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:gravity="center"
@@ -62,10 +74,10 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_2_Name"
+            android:id="@+id/HHAttack_2_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_1_Name"
+            android:layout_below="@+id/HHAttack_1_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -74,20 +86,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_2"
+            android:id="@+id/HHAttack_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_2_Name"
+            android:layout_alignBottom="@+id/HHAttack_2_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_3_Name"
+            android:id="@+id/HHAttack_3_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_2_Name"
+            android:layout_below="@+id/HHAttack_2_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -96,20 +108,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_3"
+            android:id="@+id/HHAttack_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_3_Name"
+            android:layout_alignBottom="@+id/HHAttack_3_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_4_Name"
+            android:id="@+id/HHAttack_4_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_3_Name"
+            android:layout_below="@+id/HHAttack_3_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -118,20 +130,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_4"
+            android:id="@+id/HHAttack_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_4_Name"
+            android:layout_alignBottom="@+id/HHAttack_4_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_5_Name"
+            android:id="@+id/HHAttack_5_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_4_Name"
+            android:layout_below="@+id/HHAttack_4_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -140,20 +152,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_5"
+            android:id="@+id/HHAttack_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_5_Name"
+            android:layout_alignBottom="@+id/HHAttack_5_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_6_Name"
+            android:id="@+id/HHAttack_6_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_5_Name"
+            android:layout_below="@+id/HHAttack_5_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -162,20 +174,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_6"
+            android:id="@+id/HHAttack_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_6_Name"
+            android:layout_alignBottom="@+id/HHAttack_6_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_7_Name"
+            android:id="@+id/HHAttack_7_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_6_Name"
+            android:layout_below="@+id/HHAttack_6_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -184,20 +196,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_7"
+            android:id="@+id/HHAttack_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_7_Name"
+            android:layout_alignBottom="@+id/HHAttack_7_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_8_Name"
+            android:id="@+id/HHAttack_8_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_7_Name"
+            android:layout_below="@+id/HHAttack_7_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -206,20 +218,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_8"
+            android:id="@+id/HHAttack_8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_8_Name"
+            android:layout_alignBottom="@+id/HHAttack_8_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_9_Name"
+            android:id="@+id/HHAttack_9_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_8_Name"
+            android:layout_below="@+id/HHAttack_8_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -228,20 +240,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_9"
+            android:id="@+id/HHAttack_9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_9_Name"
+            android:layout_alignBottom="@+id/HHAttack_9_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_10_Name"
+            android:id="@+id/HHAttack_10_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_9_Name"
+            android:layout_below="@+id/HHAttack_9_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -250,20 +262,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_10"
+            android:id="@+id/HHAttack_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_10_Name"
+            android:layout_alignBottom="@+id/HHAttack_10_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_11_Name"
+            android:id="@+id/HHAttack_11_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_10_Name"
+            android:layout_below="@+id/HHAttack_10_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -272,20 +284,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_11"
+            android:id="@+id/HHAttack_11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_11_Name"
+            android:layout_alignBottom="@+id/HHAttack_11_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_12_Name"
+            android:id="@+id/HHAttack_12_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_11_Name"
+            android:layout_below="@+id/HHAttack_11_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -294,20 +306,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_12"
+            android:id="@+id/HHAttack_12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_12_Name"
+            android:layout_alignBottom="@+id/HHAttack_12_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_13_Name"
+            android:id="@+id/HHAttack_13_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_12_Name"
+            android:layout_below="@+id/HHAttack_12_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -316,20 +328,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_13"
+            android:id="@+id/HHAttack_13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_13_Name"
+            android:layout_alignBottom="@+id/HHAttack_13_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_14_Name"
+            android:id="@+id/HHAttack_14_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_13_Name"
+            android:layout_below="@+id/HHAttack_13_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -338,20 +350,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_14"
+            android:id="@+id/HHAttack_14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_14_Name"
+            android:layout_alignBottom="@+id/HHAttack_14_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_15_Name"
+            android:id="@+id/HHAttack_15_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_14_Name"
+            android:layout_below="@+id/HHAttack_14_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -360,20 +372,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_15"
+            android:id="@+id/HHAttack_15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_15_Name"
+            android:layout_alignBottom="@+id/HHAttack_15_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_16_Name"
+            android:id="@+id/HHAttack_16_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_15_Name"
+            android:layout_below="@+id/HHAttack_15_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -382,20 +394,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_16"
+            android:id="@+id/HHAttack_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_16_Name"
+            android:layout_alignBottom="@+id/HHAttack_16_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_17_Name"
+            android:id="@+id/HHAttack_17_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_16_Name"
+            android:layout_below="@+id/HHAttack_16_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -404,20 +416,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_17"
+            android:id="@+id/HHAttack_17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_17_Name"
+            android:layout_alignBottom="@+id/HHAttack_17_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_18_Name"
+            android:id="@+id/HHAttack_18_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_17_Name"
+            android:layout_below="@+id/HHAttack_17_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -426,20 +438,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_18"
+            android:id="@+id/HHAttack_18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_18_Name"
+            android:layout_alignBottom="@+id/HHAttack_18_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_19_Name"
+            android:id="@+id/HHAttack_19_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_18_Name"
+            android:layout_below="@+id/HHAttack_18_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -448,20 +460,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_19"
+            android:id="@+id/HHAttack_19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_19_Name"
+            android:layout_alignBottom="@+id/HHAttack_19_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_20_Name"
+            android:id="@+id/HHAttack_20_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_19_Name"
+            android:layout_below="@+id/HHAttack_19_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -470,20 +482,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_20"
+            android:id="@+id/HHAttack_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_20_Name"
+            android:layout_alignBottom="@+id/HHAttack_20_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_21_Name"
+            android:id="@+id/HHAttack_21_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_20_Name"
+            android:layout_below="@+id/HHAttack_20_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -492,20 +504,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_21"
+            android:id="@+id/HHAttack_21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_21_Name"
+            android:layout_alignBottom="@+id/HHAttack_21_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_22_Name"
+            android:id="@+id/HHAttack_22_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_21_Name"
+            android:layout_below="@+id/HHAttack_21_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -514,20 +526,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_22"
+            android:id="@+id/HHAttack_22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_22_Name"
+            android:layout_alignBottom="@+id/HHAttack_22_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_23_Name"
+            android:id="@+id/HHAttack_23_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_22_Name"
+            android:layout_below="@+id/HHAttack_22_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -536,20 +548,20 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_23"
+            android:id="@+id/HHAttack_23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_23_Name"
+            android:layout_alignBottom="@+id/HHAttack_23_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_24_Name"
+            android:id="@+id/HHAttack_24_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SnSAttack_23_Name"
+            android:layout_below="@+id/HHAttack_23_Name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="40dp"
@@ -558,10 +570,10 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/SnSAttack_24"
+            android:id="@+id/HHAttack_24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SnSAttack_24_Name"
+            android:layout_alignBottom="@+id/HHAttack_24_Name"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="New Text"

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/Skills"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/SkillsSwitch"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundedcorners"
+        android:padding="20dp"
+        android:visibility="gone">
+
+        <CheckBox
+            android:id="@+id/PowercharmCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/ElementalCritCheckBox"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Powercharm (+6)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/PowertalonCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="Powertalon (+9)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/AttackUpSCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/PowercharmCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="Attack Up S (+5)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/AttackUpLCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/PowertalonCheckBox"
+            android:layout_alignTop="@+id/AttackUpSCheckBox"
+            android:layout_alignParentRight="true"
+            android:text="Attack Up L (+10)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/AffinityUpSCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AttackUpSCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="Affinity Up S (+10%)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/AffinityUpLCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AttackUpLCheckBox"
+            android:layout_alignLeft="@+id/AttackUpLCheckBox"
+            android:layout_alignParentRight="true"
+            android:text="Affinity Up L (+20%)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/LastStandCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AffinityUpLCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="Last Stand (+40)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/FanalisCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AffinityUpLCheckBox"
+            android:layout_alignLeft="@+id/AffinityUpLCheckBox"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:text="Fanalis (+30)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/UniversalCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LastStandCheckBox"
+            android:layout_alignParentLeft="true"
+            android:text="Universal (+20)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/TriforceCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/FanalisCheckBox"
+            android:layout_alignLeft="@+id/FanalisCheckBox"
+            android:layout_alignParentRight="true"
+            android:text="Triforce (+10)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/DemonHornCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/WorldsStrongestCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="Demon Horn (+10)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/WorldsStrongestCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TriforceCheckBox"
+            android:layout_alignLeft="@+id/TriforceCheckBox"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:text="World&apos;s Strongest (+50%)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/RangedAttackUpCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/BaddestCatEverCheckBox"
+            android:layout_alignRight="@+id/AffinityUpSCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="Ranged Attack Up (10%)"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/BaddestCatEverCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/WorldsStrongestCheckBox"
+            android:layout_alignLeft="@+id/WorldsStrongestCheckBox"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:text="Baddest Cat Ever (+10%)"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/NineLivesAttackSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BaddestCatEverCheckBox"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+</RelativeLayout>

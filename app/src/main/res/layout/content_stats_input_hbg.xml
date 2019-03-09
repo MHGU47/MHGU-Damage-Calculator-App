@@ -7,118 +7,114 @@
         android:id="@+id/BaseStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/HeavyBowgunIcon"
         android:background="@drawable/roundedcorners"
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInput"
+            android:id="@+id/DamageInputHBG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
             android:ems="10"
             android:gravity="center"
             android:hint="@string/physical_damage_label"
             android:inputType="number" />
 
-        <TextView
-            android:id="@+id/ElementLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/ElementSelect"
-            android:layout_alignStart="@+id/ElementSelect"
-            android:layout_alignLeft="@+id/ElementSelect"
-            android:text="Element"
-            android:textStyle="bold|italic" />
-
-        <Spinner
-            android:id="@+id/ElementSelect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ElementInput"
-            android:layout_alignBottom="@+id/ElementInput"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInput" />
-
         <EditText
-            android:id="@+id/ElementInput"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInput"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="@string/elemental_input_label"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/AffinityInput"
+            android:id="@+id/AffinityInputHBG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ElementSelect"
-            android:layout_alignParentRight="true"
+            android:layout_below="@+id/DamageInputHBG"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:elegantTextHeight="false"
             android:ems="10"
             android:gravity="center"
             android:hint="@string/affinity_label"
-            android:inputType="number|numberDecimal|numberSigned" />
+            android:inputType="number" />
 
-        <CheckBox
-            android:id="@+id/AffinityOilCheck"
+        <TextView
+            android:id="@+id/ShotSelectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInput"
+            android:layout_below="@+id/AffinityInputHBG"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="40dp"
-            android:checked="false"
-            android:text="Affinity Oil" />
+            android:text="Selected Shot" />
+
+        <Spinner
+            android:id="@+id/ShotSelect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/ShotSelectLabel"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:spinnerMode="dropdown" />
+
+        <CheckBox
+            android:id="@+id/AerialShotSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Aerial Shot" />
+
+        <CheckBox
+            android:id="@+id/PowerReloadCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AerialShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Power Reload" />
 
         <TextView
             android:id="@+id/StyleLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityOilCheck"
-            android:text="@string/style_label"
-            android:textStyle="bold|italic" />
+            android:layout_below="@+id/PowerReloadCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/style_label" />
 
         <Spinner
             android:id="@+id/StyleSelect"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_below="@+id/StyleLabel"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentStart="false"
             android:gravity="center"
             android:prompt="@string/style_select_label"
             android:spinnerMode="dropdown" />
 
         <RelativeLayout
-            android:id="@+id/Sharpness"
+            android:id="@+id/Distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/StyleLabel"
             android:layout_alignParentRight="true">
 
             <TextView
-                android:id="@+id/SharpnessLabel"
+                android:id="@+id/DistanceSelectLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:text="@string/sharpness_label"
-                android:textStyle="bold|italic" />
+                android:text="Distance" />
 
             <Spinner
-                android:id="@+id/SharpnessSelect"
+                android:id="@+id/DistanceSelect"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_below="@+id/SharpnessLabel"
+                android:layout_below="@+id/DistanceSelectLabel"
+                android:layout_alignParentLeft="true"
                 android:gravity="center"
-                android:spinnerMode="dropdown" />
-
+                android:spinnerMode="dropdown"
+                android:transitionGroup="false" />
         </RelativeLayout>
 
     </RelativeLayout>

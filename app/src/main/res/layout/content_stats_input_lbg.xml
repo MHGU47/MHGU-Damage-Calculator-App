@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/BaseStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LightBowgunIcon"
+        android:background="@drawable/roundedcorners"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/DamageInputLBG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/physical_damage_label"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/AffinityInputLBG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DamageInputLBG"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/affinity_label"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/ShotSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AffinityInputLBG"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Selected Shot" />
+
+        <Spinner
+            android:id="@+id/ShotSelect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/ShotSelectLabel"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:spinnerMode="dropdown" />
+
+        <CheckBox
+            android:id="@+id/AerialShotSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Aerial Shot" />
+
+        <CheckBox
+            android:id="@+id/PowerReloadCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AerialShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Power Reload" />
+
+        <CheckBox
+            android:id="@+id/RapidFireCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/PowerReloadCheckBox"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Rapid Fire" />
+
+        <TextView
+            android:id="@+id/StyleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RapidFireCheckBox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/style_label" />
+
+        <Spinner
+            android:id="@+id/StyleSelect"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/StyleLabel"
+            android:layout_alignParentStart="false"
+            android:gravity="center"
+            android:prompt="@string/style_select_label"
+            android:spinnerMode="dropdown" />
+
+        <RelativeLayout
+            android:id="@+id/Distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/StyleLabel"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/DistanceSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Distance" />
+
+            <Spinner
+                android:id="@+id/DistanceSelect"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/DistanceSelectLabel"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+                android:transitionGroup="false" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

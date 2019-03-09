@@ -8,6 +8,7 @@
         android:id="@+id/HunterArts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/MonsterHitzones"
         android:background="@drawable/roundedcorners"
         android:padding="20dp">
 
@@ -27,6 +28,15 @@
             android:text="Hunter Arts"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/GunpowderInfusionCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Gunpowder Infusion" />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -982,9 +982,9 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
                 float RawElement = 0;
                 float RawAffinity = 0;
 
-                TextView Damage = (TextView) findViewById(R.id.DamageInputSnS);
-                TextView Element = (TextView) findViewById(R.id.ElementInputSnS);
-                TextView Affinity = (TextView) findViewById(R.id.AffinityInputSnS);
+                TextView Damage = (TextView) findViewById(R.id.DamageInput);
+                TextView Element = (TextView) findViewById(R.id.ElementInput);
+                TextView Affinity = (TextView) findViewById(R.id.AffinityInput);
 
                 if(TextUtils.isEmpty(Damage.getText().toString())){
                     RawDamage = 0;

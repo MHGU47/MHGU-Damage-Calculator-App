@@ -7,11 +7,12 @@
         android:id="@+id/BaseStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/LongSwordIcon"
         android:background="@drawable/roundedcorners"
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInput"
+            android:id="@+id/DamageInputLS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -35,17 +36,17 @@
             android:id="@+id/ElementSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ElementInput"
-            android:layout_alignBottom="@+id/ElementInput"
+            android:layout_alignTop="@+id/ElementInputLS"
+            android:layout_alignBottom="@+id/ElementInputLS"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInput" />
+            android:layout_toLeftOf="@+id/ElementInputLS" />
 
         <EditText
-            android:id="@+id/ElementInput"
+            android:id="@+id/ElementInputLS"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInput"
+            android:layout_below="@+id/DamageInputLS"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:ems="10"
@@ -54,7 +55,7 @@
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/AffinityInput"
+            android:id="@+id/AffinityInputLS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ElementSelect"
@@ -67,21 +68,56 @@
             android:inputType="number|numberDecimal|numberSigned" />
 
         <CheckBox
-            android:id="@+id/AffinityOilCheck"
+            android:id="@+id/CentreBladeCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInput"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/AffinityInputLS"
+            android:layout_alignParentLeft="true"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="40dp"
             android:checked="false"
-            android:text="Affinity Oil" />
+            android:text='"Centre of Blade" Bonus' />
+
+        <CheckBox
+            android:id="@+id/MaxSpiritGauge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/CentreBladeCheck"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="Max Spirit Gauge" />
+
+        <RelativeLayout
+            android:id="@+id/SpiritGaugeSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MaxSpiritGauge"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/SpiritGaugeSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/spirit_gauge_select_label"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/SpiritGaugeColourSelect"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/SpiritGaugeSelectLabel" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/StyleLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityOilCheck"
+            android:layout_below="@+id/SpiritGaugeSelect"
+            android:layout_marginTop="10dp"
             android:text="@string/style_label"
             android:textStyle="bold|italic" />
 
@@ -108,6 +144,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginEnd="-132dp"
+                android:layout_toStartOf="@+id/SharpnessSelect"
                 android:text="@string/sharpness_label"
                 android:textStyle="bold|italic" />
 

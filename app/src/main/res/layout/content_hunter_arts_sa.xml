@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <RelativeLayout
+        android:id="@+id/HunterArts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MonsterHitzones"
+        android:background="@drawable/roundedcorners"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/HunterArtSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Hunter Arts"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/HunterArtSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelectLabel"
+            android:layout_centerHorizontal="true" />
+
+        <RadioGroup
+            android:id="@+id/DemonRiotCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/DemonRiotOffCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:checked="true"
+                android:text="No Demon Riot Phial Boost" />
+
+            <RadioButton
+                android:id="@+id/DemonRiotLevel1Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Demon Riot Level 1 Phial Boost (+5%)" />
+
+            <RadioButton
+                android:id="@+id/DemonRiotLevel2Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Demon Riot Level 2 Phial Boost (+10%)" />
+
+            <RadioButton
+                android:id="@+id/DemonRiotLevel3Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Demon Riot Level 3 Phial Boost (+20%)" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/EnergyChargeCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DemonRiotCheck"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/EnergyChargeOffCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:checked="true"
+                android:text="No Energy Charge Affinity Boost" />
+
+            <RadioButton
+                android:id="@+id/EnergyChargeLevel2Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Energy Charge Level 2 (+10% Affinity)" />
+
+            <RadioButton
+                android:id="@+id/EnergyChargeLevel3Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Energy Charge Level 3 (+30% Affinity)" />
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/TempestAxeCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EnergyChargeCheck"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Tempest Axe" />
+
+    </RelativeLayout>
+</RelativeLayout>

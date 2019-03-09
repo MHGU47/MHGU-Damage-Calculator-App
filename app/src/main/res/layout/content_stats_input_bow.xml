@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/BaseStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BowIcon"
+        android:background="@drawable/roundedcorners"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/DamageInputB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/physical_damage_label"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/ElementLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ElementSelect"
+            android:layout_alignLeft="@+id/ElementSelect"
+            android:text="@string/element_label" />
+
+        <Spinner
+            android:id="@+id/ElementSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ElementInputB"
+            android:layout_alignBottom="@+id/ElementInputB"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/ElementInputB" />
+
+        <EditText
+            android:id="@+id/ElementInputB"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DamageInputB"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/elemental_input_label"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/AffinityInputB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ElementInputB"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:elegantTextHeight="false"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/affinity_label"
+            android:inputType="number|numberDecimal|numberSigned" />
+
+        <TextView
+            android:id="@+id/DistanceSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AffinityInputB"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:text="Distance" />
+
+        <Spinner
+            android:id="@+id/DistanceSelect"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/DistanceSelectLabel"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:transitionGroup="false" />
+
+        <RelativeLayout
+            android:id="@+id/Coating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/DistanceSelectLabel"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/CoatingSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="Coating" />
+
+            <Spinner
+                android:id="@+id/CoatingSelect"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/CoatingSelectLabel"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:prompt="@string/style_select_label"
+                android:spinnerMode="dropdown" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/StyleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DistanceSelect"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/style_label" />
+
+        <Spinner
+            android:id="@+id/StyleSelect"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/StyleLabel"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:prompt="@string/style_select_label"
+            android:spinnerMode="dropdown" />
+
+        <RelativeLayout
+            android:id="@+id/ArcShot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/StyleLabel"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/ArcShotSelectLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arc Shot" />
+
+            <Spinner
+                android:id="@+id/ArcShotSelect"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/ArcShotSelectLabel"
+                android:layout_alignParentStart="true"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/Level1ShotSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/StyleSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Level 1 Shot" />
+
+        <Spinner
+            android:id="@+id/Level1ShotSelect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Level1ShotSelectLabel"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/Level2ShotSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Level1ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Level 2 Shot" />
+
+        <Spinner
+            android:id="@+id/Level2ShotSelect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Level2ShotSelectLabel"
+            android:layout_alignStart="@id/Level1ShotSelect"
+            android:layout_alignEnd="@id/Level1ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/Level3ShotSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Level2ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Level 3 Shot" />
+
+        <Spinner
+            android:id="@+id/Level3ShotSelect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Level3ShotSelectLabel"
+            android:layout_alignStart="@+id/Level1ShotSelect"
+            android:layout_alignEnd="@+id/Level1ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/Level4ShotSelectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Level3ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Level 4 Shot" />
+
+        <Spinner
+            android:id="@+id/Level4ShotSelect"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Level4ShotSelectLabel"
+            android:layout_alignStart="@+id/Level1ShotSelect"
+            android:layout_alignEnd="@+id/Level1ShotSelect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:spinnerMode="dropdown" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="Red_Raw">50</integer>
+    <integer name="Orange_Raw">75</integer>
+    <integer name="Yellow_Raw">100</integer>
+    <integer name="Green_Raw">105</integer>
+    <integer name="Blue_Raw">120</integer>
+    <integer name="White_Raw">132</integer>
+    <integer name="Purple_Raw">139</integer>
+
+    <integer name="Red_Elm">25</integer>
+    <integer name="Orange_Elm">50</integer>
+    <integer name="Yellow_Elm">75</integer>
+    <integer name="Green_Elm">100</integer>
+    <integer name="Blue_Elm">106</integer>
+    <integer name="White_Elm">112</integer>
+    <integer name="Purple_Elm">120</integer>
+</resources>

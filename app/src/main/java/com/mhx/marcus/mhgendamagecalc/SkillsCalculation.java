@@ -69,6 +69,8 @@ public class SkillsCalculation {
     //Might Seed (+10), Might Pill (+25), Exciteshroom - Mycology (+10), Demon Horn (+10)
     //Demon S (+10), Demon Affinity S (+15), Cool Cat (+15)
 
+    private float GroupDSharp = 1;
+
     private float GroupF = 0;
     //Attack Up S (+10), Attack Up M (+15), Attack Up L (+20)
 
@@ -176,6 +178,14 @@ public class SkillsCalculation {
 
     public void setGroupD(float D) {
         GroupD = D;
+    }
+
+    public void setGroupDSharp(float D){
+        GroupDSharp = D;
+    }
+
+    public float getGroupDSharp(){
+        return GroupDSharp;
     }
 
     public void setGroupF(float F) {

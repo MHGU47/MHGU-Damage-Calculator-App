@@ -8,15 +8,9 @@
         android:id="@+id/HunterArts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/MonsterHitzones"
         android:background="@drawable/roundedcorners"
         android:padding="20dp">
-
-        <Spinner
-            android:id="@+id/HunterArtSelect"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/HunterArtSelectLabel"
-            android:layout_centerHorizontal="true" />
 
         <TextView
             android:id="@+id/HunterArtSelectLabel"
@@ -28,37 +22,49 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <Spinner
+            android:id="@+id/HunterArtSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/HunterArtSelectLabel"
+            android:layout_centerHorizontal="true" />
+
         <RadioGroup
-            android:id="@+id/ChaosOilSelect"
-            android:layout_width="wrap_content"
+            android:id="@+id/LionsMawSelect"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/HunterArtSelect"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:visibility="visible">
 
             <RadioButton
-                android:id="@+id/ChaosOilOffRadio"
+                android:id="@+id/LionsMawOffCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="No Chaos Oil Affinity Boost" />
+                android:layout_gravity="center_horizontal"
+                android:checked="true"
+                android:text="No Lions Maw Attack Boost" />
 
             <RadioButton
-                android:id="@+id/ChaosOilLevel1_2Radio"
+                android:id="@+id/LionsMawLevel1Check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Chaos Oil Level 1/2 (+15% Affinity)" />
+                android:layout_gravity="center_horizontal"
+                android:text="Lions Maw Level 1 Attack Boost (+10%)" />
 
             <RadioButton
-                android:id="@+id/ChaosOilLevel3Radio"
+                android:id="@+id/LionsMawLevel2Check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Chaos Oil Level 3  (+30% Affinity)" />
+                android:layout_gravity="center_horizontal"
+                android:text="Lions Maw Level 2 Attack Boost (+20%)" />
+
+            <RadioButton
+                android:id="@+id/LionsMawLevel3Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Lions Maw Level 3 Attack Boost (+33%)" />
         </RadioGroup>
     </RelativeLayout>
 </RelativeLayout>
