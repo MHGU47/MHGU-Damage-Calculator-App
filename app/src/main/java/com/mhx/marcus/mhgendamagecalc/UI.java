@@ -57,7 +57,8 @@ public class UI extends AppCompatActivity {
     CheckBox CentreBladeBonusCheck;
 
     RadioButton ChaosOilLevel1_2Radio, ChaosOilLevel3Radio, ChaosOilOffRadio,
-            LionsMawLevel1Check, LionsMawLevel2Check, LionsMawLevel3Check, LionsMawOffCheck;
+            LionsMawLevel1Check, LionsMawLevel2Check, LionsMawLevel3Check, LionsMawOffCheck,
+            EvasiveManeuversOffCheck, EvasiveManeuversLevel2Check, EvasiveManeuversLevel3Check;
     Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
     //-End-
@@ -295,7 +296,7 @@ public class UI extends AppCompatActivity {
             HunterArtSelect = findViewById(R.id.HunterArtSelect);
         }
         else{
-            BoomerangSelect = (Spinner) findViewById(R.id.BoomerangSelect);
+            BoomerangSelect = findViewById(R.id.BoomerangSelect);
             ArrayAdapter BoomerangAdapter = ArrayAdapter.createFromResource(this,R.array.Boomerangs,android.R.layout.
                     simple_spinner_dropdown_item);
             BoomerangSelect.setAdapter(BoomerangAdapter);
@@ -394,7 +395,7 @@ public class UI extends AppCompatActivity {
                 }
             });*/
 
-            ProwlerTypeSelect = (Spinner) findViewById(R.id.ProwlerTypeSelect);
+            ProwlerTypeSelect = findViewById(R.id.ProwlerTypeSelect);
             ArrayAdapter ProwlerTypeAdapter = ArrayAdapter.createFromResource(this,R.array.ProwlerType,
                     android.R.layout.simple_spinner_dropdown_item);
             ProwlerTypeSelect.setAdapter(ProwlerTypeAdapter);
@@ -436,7 +437,7 @@ public class UI extends AppCompatActivity {
                 }
             });
 
-            NineLivesAttackSelect = (Spinner) findViewById(R.id.NineLivesAttackSelect);
+            NineLivesAttackSelect = findViewById(R.id.NineLivesAttackSelect);
             ArrayAdapter NineLivesAttackAdapter = ArrayAdapter.createFromResource(this,R.array.NineLivesAttack,
                     android.R.layout.simple_spinner_dropdown_item);
             NineLivesAttackSelect.setAdapter(NineLivesAttackAdapter);
@@ -1073,6 +1074,10 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "Bow":
+                EvasiveManeuversOffCheck = findViewById(R.id.EvasiveManeuversOffCheck);
+                EvasiveManeuversLevel2Check = findViewById(R.id.EvasiveManeuversLevel2Check);
+                EvasiveManeuversLevel3Check = findViewById(R.id.EvasiveManeuversLevel3Check);
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Bow_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;

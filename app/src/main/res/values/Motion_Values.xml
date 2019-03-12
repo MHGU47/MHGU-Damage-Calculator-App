@@ -22,27 +22,51 @@
 
 
     <integer-array name="GS_Guild_MV">
-        <item>48</item><!--Draw Attack-->
-        <item>48</item><!--Lv. 0 Charge No Charge)-->
-        <item>65</item><!--Lv. 1 Charge-->
-        <item>80</item><!--Lv. 2 Charge-->
-        <item>100</item><!--Lv. 3 Charge-->
-        <item>52</item><!--Lv. 0 Strong Charge-->
-        <item>48</item><!--   -Follow Up-->
-        <item>72</item><!--Lv. 1 Strong Charge-->
-        <item>52</item><!--   -Follow Up -->
-        <item>90</item><!--Lv. 2 Strong Charge-->
-        <item>60</item><!--   -Follow Up  -->
-        <item>120</item><!--Lv. 3 Strong Charge-->
-        <item>80</item><!--   -Follow Up   -->
-        <item>18</item><!--Side Slap (22 KO)-->
-        <item>32</item><!--Wide Slash-->
-        <item>18</item><!--Wide Slash (after evade)-->
-        <item>44</item><!--Reverse Overhead Slash-->
-        <item>2</item><!--Kick-->
-        <item>48</item><!--Jump Attack-->
-        <item>72</item><!--   -Follow Up-->
+        <item>48</item>
+        <item>48</item>
+        <item>65</item>
+        <item>80</item>
+        <item>100</item>
+        <item>52</item>
+        <item>48</item>
+        <item>72</item>
+        <item>52</item>
+        <item>90</item>
+        <item>60</item>
+        <item>120</item>
+        <item>80</item>
+        <item>18</item>
+        <item>32</item>
+        <item>18</item>
+        <item>44</item>
+        <item>2</item>
+        <item>48</item>
+        <item>72</item>
     </integer-array>
+    <string-array name="GS_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 1 Charge</item>
+        <item>Lv. 2 Charge</item>
+        <item>Lv. 3 Charge</item>
+        <item>Lv. 0 Strong Charge</item>
+        <item>   -Follow Up</item>
+        <item>Lv. 1 Strong Charge</item>
+        <item>   -Follow Up </item>
+        <item>Lv. 2 Strong Charge</item>
+        <item>   -Follow Up  </item>
+        <item>Lv. 3 Strong Charge</item>
+        <item>   -Follow Up   </item>
+        <item>Side Slap (22 KO)</item>
+        <item>Wide Slash</item>
+        <item>Wide Slash (after evade)</item>
+        <item>Reverse Overhead Slash</item>
+        <item>Kick</item>
+        <item>Jump Attack</item>
+        <item>   -Follow Up</item>
+    </string-array>
+
+
     <integer-array name="GS_Striker_MV">
         <item>48</item><!--Draw Attack-->
         <item>48</item><!--Lv. 0 Charge (No Charge)-->
@@ -56,9 +80,23 @@
         <item>2</item><!--Kick-->
         <item>48</item><!--Jump Attack-->
     </integer-array>
+    <string-array name="GS_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 1 Charge</item>
+        <item>Lv. 2 Charge</item>
+        <item>Lv. 3 Charge</item>
+        <item>Side Slap (22 KO)</item>
+        <item>Wide Slash</item>
+        <item>Wide Slash (after evade)</item>
+        <item>Reverse Overhead Slash</item>
+        <item>Kick</item>
+        <item>Jump Attack</item>
+    </string-array>
+
     <integer-array name="GS_Aerial_MV">
         <item>48</item><!--Draw Attack-->
-        <item>48</item><!--Aerial Lv. 0 Charge (No Charge)-->
+        <item>48</item><!-- Lv. 0 Charge (No Charge)-->
         <item>60</item><!--   -Follow Up-->
         <item>57</item><!--Lv. 1 Charge-->
         <item>60</item><!--   -Follow Up -->
@@ -73,29 +111,72 @@
         <item>2</item><!--Kick-->
         <item>48</item><!--Jump Attack-->
     </integer-array>
+    <string-array name="GS_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Aerial Lv. 0 Charge No Charge)</item>
+        <item>   -Follow Up</item>
+        <item>Aerial Lv. 1 Charge</item>
+        <item>   -Follow Up </item>
+        <item>Aerial Lv. 2 Charge</item>
+        <item>   -Follow Up  </item>
+        <item>Aerial Lv. 3 Charge</item>
+        <item>   -Follow Up   </item>
+        <item>Side Slap (22 KO)</item>
+        <item>Wide Slash</item>
+        <item>Wide Slash (after evade)</item>
+        <item>Reverse Overhead Slash</item>
+        <item>Kick</item>
+        <item>Jump Attack</item>
+    </string-array>
+
     <integer-array name="GS_Adept_MV">
-        <item>48</item><!--Draw Attack-->
-        <item>48</item><!--Lv. 0 Charge No Charge)-->
-        <item>65</item><!--Lv. 1 Charge-->
-        <item>80</item><!--Lv. 2 Charge-->
-        <item>100</item><!--Lv. 3 Charge-->
-        <item>18</item><!--Side Slap (22 KO)-->
-        <item>32</item><!--Wide Slash-->
-        <item>18</item><!--Wide Slash (after evade)-->
-        <item>44</item><!--Reverse Overhead Slash-->
-        <item>2</item><!--Kick-->
-        <item>26</item><!--Adept Evade Lv. 0 Dash Charge-->
-        <item>39</item><!--Adept Evade Lv. 1 Dash Charge-->
-        <item>72</item><!--   - Lv. 1 Strong Charge-->
-        <item>52</item><!--   -Follow Up -->
-        <item>52</item><!--Adept Evade Lv. 2 Dash Charge-->
-        <item>90</item><!--   - Lv. 2 Strong Charge-->
-        <item>60</item><!--   -Follow Up  -->
-        <item>78</item><!--Adept Evade Lv. 3 Dash Charge-->
-        <item>120</item><!--   - Lv. 3 Strong Charge-->
-        <item>80</item><!--   -Follow Up   -->
-        <item>48</item><!--Jump Attack-->
+        <item>48</item>
+        <item>48</item>
+        <item>65</item>
+        <item>80</item>
+        <item>100</item>
+        <item>18</item>
+        <item>32</item>
+        <item>18</item>
+        <item>44</item>
+        <item>2</item>
+        <item>26</item>
+        <item>39</item>
+        <item>72</item>
+        <item>52</item>
+        <item>52</item>
+        <item>90</item>
+        <item>60</item>
+        <item>78</item>
+        <item>120</item>
+        <item>80</item>
+        <item>48</item>
     </integer-array>
+    <string-array name="GS_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 1 Charge</item>
+        <item>Lv. 2 Charge</item>
+        <item>Lv. 3 Charge</item>
+        <item>Side Slap (22 KO)</item>
+        <item>Wide Slash</item>
+        <item>Wide Slash (after evade)</item>
+        <item>Reverse Overhead Slash</item>
+        <item>Kick</item>
+        <item>Adept Evade Lv. 0 Dash Charge</item>
+        <item>Adept Evade Lv. 1 Dash Charge</item>
+        <item>   -Lv. 1 Strong Charge</item>
+        <item>Adept Evade Lv. 1 Dash Charge</item>
+        <item>   -Follow Up </item>
+        <item>Adept Evade Lv. 2 Dash Charge</item>
+        <item>   -Lv. 2 Strong Charge</item>
+        <item>   -Follow Up  </item>
+        <item>Adept Evade Lv. 3 Dash Charge</item>
+        <item>   -Lv. 3 Strong Charge</item>
+        <item>   -Follow Up   </item>
+        <item>Jump Attack</item>
+    </string-array>
+
     <integer-array name="GS_Valor_MV">
         <item>48</item><!--Draw Attack-->
         <item>18</item><!--Side Slap (22 KO)-->
@@ -126,6 +207,37 @@
         <item>48</item><!--Jump Attack-->
         <item>72</item><!--   -Follow Up (Valor State)-->
     </integer-array>
+    <string-array name="GS_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Side Slap (22 KO)</item>
+        <item>Wide Slash</item>
+        <item>Wide Slash (after evade)</item>
+        <item>Reverse Overhead Slash</item>
+        <item>Valor Stance - Lv.1 Charge</item>
+        <item>Valor Stance - Lv.2 Charge</item>
+        <item>Valor Stance - Lv.3 Charge</item>
+        <item>Valor Stance - Overcharge</item>
+        <item>Draw Slash (Valor State)</item>
+        <item>   -Follow Up</item>
+        <item>Draw Slash Lv.1 (Valor State)</item>
+        <item>   -Follow Up </item>
+        <item>Draw Slash Lv.2 (Valor State)</item>
+        <item>   -Follow Up  </item>
+        <item>Draw Slash Lv.3 (Valor State)</item>
+        <item>   -Follow Up   </item>
+        <item>Blue Charge Lv.0 (Valor State)</item>
+        <item>   -Follow Up</item>
+        <item>Blue Charge Lv.1 (Valor State)</item>
+        <item>   -Follow Up </item>
+        <item>Blue Charge Lv.2 (Valor State)</item>
+        <item>   -Follow Up  </item>
+        <item>Blue Charge Lv.3 (Valor State)</item>
+        <item>   -Follow Up   </item>
+        <item>Kick</item>
+        <item>Jump Attack</item>
+        <item>   -Follow Up (Valor State)</item>
+    </string-array>
+
     <integer-array name="GS_Alchemy_MV">
         <item>48</item><!--Draw Attack-->
         <item>48</item><!--Lv. 0 Charge (No Charge)-->
@@ -139,6 +251,20 @@
         <item>2</item><!--Kick-->
         <item>48</item><!--Jump Attack-->
     </integer-array>
+    <string-array name="GS_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 1 Charge</item>
+        <item>Lv. 2 Charge</item>
+        <item>Lv. 3 Charge</item>
+        <item>Side Slap (22 KO)</item>
+        <item>Wide Slash</item>
+        <item>Wide Slash (after evade)</item>
+        <item>Reverse Overhead Slash</item>
+        <item>Kick</item>
+        <item>Jump Attack</item>
+    </string-array>
+
     <string-array name="GS_HA_Names">
         <item>-None-</item>
         <item>Ground Slash</item>
@@ -202,18 +328,543 @@
         <item>3</item>
     </integer-array>
 
+
+
+    <integer-array name="LS_Guild_MV">
+        <item>26</item>
+        <item>26</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>30</item>
+        <item>30</item>
+        <item>74</item>
+        <item>44</item>
+        <item>18</item>
+        <item>30</item>
+        <item>26</item>
+        <item>16</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="LS_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Idle Slash</item>
+        <item>Poke</item>
+        <item>Upward Slash</item>
+        <item>Fade Slash</item>
+        <item>Spirit Slash 1</item>
+        <item>Spirit Slash 2</item>
+        <item>Spirit Slash 3 (3 hits)</item>
+        <item>Spirit Slash Finisher</item>
+        <item>Charge-In Slash</item>
+        <item>Charge-In Slash (With Spirit Energy)</item>
+        <item>Jump Attack</item>
+        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>   -(With Spirit Energy)</item>
+    </string-array>
+
+    <integer-array name="LS_Striker_MV">
+        <item>26</item>
+        <item>26</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>30</item>
+        <item>30</item>
+        <item>74</item>
+        <item>44</item>
+        <item>26</item>
+        <item>16</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="LS_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Idle Slash</item>
+        <item>Poke</item>
+        <item>Upward Slash</item>
+        <item>Fade Slash</item>
+        <item>Spirit Slash 1</item>
+        <item>Spirit Slash 2</item>
+        <item>Spirit Slash 3 (3 hits)</item>
+        <item>Spirit Slash Finisher</item>
+        <item>Jump Attack</item>
+        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>   -(With Spirit Energy)</item>
+    </string-array>
+
+    <integer-array name="LS_Aerial_MV">
+        <item>26</item>
+        <item>26</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>35</item>
+        <item>30</item>
+        <item>30</item>
+        <item>74</item>
+        <item>44</item>
+        <item>26</item>
+        <item>16</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="LS_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Idle Slash</item>
+        <item>Poke</item>
+        <item>Upward Slash</item>
+        <item>Fade Slash</item>
+        <item>Aerial Attack (2 hits)</item>
+        <item>Spirit Slash 1</item>
+        <item>Spirit Slash 2</item>
+        <item>Spirit Slash 3 (3 hits)</item>
+        <item>Spirit Slash Finisher</item>
+        <item>Jump Attack</item>
+        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>   -(With Spirit Energy)</item>
+    </string-array>
+
+    <integer-array name="LS_Adept_MV">
+        <item>26</item>
+        <item>26</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>30</item>
+        <item>30</item>
+        <item>74</item>
+        <item>18</item>
+        <item>30</item>
+        <item>26</item>
+        <item>108</item>
+        <item>26</item>
+        <item>16</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="LS_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Idle Slash</item>
+        <item>Poke</item>
+        <item>Upward Slash</item>
+        <item>Fade Slash</item>
+        <item>Spirit Slash 1</item>
+        <item>Spirit Slash 2</item>
+        <item>Spirit Slash 3 (3 hits)</item>
+        <item>Charge-In Slash</item>
+        <item>Charge-In Slash (With Spirit Energy)</item>
+        <item>Adept Evade Attack</item>
+        <item>   -Spirit Attack (2 hits)</item>
+        <item>Jump Attack</item>
+        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>   -(With Spirit Energy)</item>
+    </string-array>
+
+    <integer-array name="LS_Valor_MV">
+        <item>26</item>
+        <item>26</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>26</item>
+        <item>28</item>
+        <item>51</item>
+        <item>30</item>
+        <item>30</item>
+        <item>95</item>
+        <item>30</item>
+        <item>26</item>
+        <item>16</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="LS_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Idle Slash</item>
+        <item>Poke</item>
+        <item>Upward Slash</item>
+        <item>Fade Slash</item>
+        <item>Valor Stance - Side Slash</item>
+        <item>Spirit Slash 1</item>
+        <item>   -Counter</item>
+        <item>Spirit Slash 2</item>
+        <item>Spirit Slash 3 (3 hits)</item>
+        <item>Spirit Slash Finisher (Valor State) (2 hits)</item>
+        <item>Charge-In Slash (Valor State)</item>
+        <item>Jump Attack</item>
+        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>   -(With Spirit Energy)</item>
+    </string-array>
+
+    <integer-array name="LS_Alchemy_MV">
+        <item>26</item>
+        <item>26</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>30</item>
+        <item>30</item>
+        <item>74</item>
+        <item>26</item>
+        <item>16</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="LS_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Idle Slash</item>
+        <item>Poke</item>
+        <item>Upward Slash</item>
+        <item>Fade Slash</item>
+        <item>Spirit Slash 1</item>
+        <item>Spirit Slash 2</item>
+        <item>Spirit Slash 3 (3 hits)</item>
+        <item>Jump Attack</item>
+        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>   -(With Spirit Energy)</item>
+    </string-array>
+
     <string-array name="LS_HA_Names">
         <item>-None-</item>
         <item>Sakura Slash</item>
         <item>Unhinged Spirit</item>
         <item>Critical Juncture</item>
     </string-array>
+
+    <integer-array name="LS_HA_SakuraSlash_MV">
+        <item>130</item>
+        <item>150</item>
+        <item>190</item>
+    </integer-array>
+    <integer-array name="LS_HA_SakuraSlash_ElmCheck">
+        <item>4</item>
+        <item>5</item>
+        <item>8</item>
+    </integer-array>
+
+    <integer-array name="LS_HA_UnhingedSpirit_MV">
+        <item>42</item>
+        <item>42</item>
+        <item>42</item>
+    </integer-array>
+
+    <integer-array name="LS_HA_CriticalJuncture_MV">
+        <item>100</item>
+        <item>140</item>
+        <item>180</item>
+    </integer-array>
+
+
+    <integer-array name="SNS_Guild_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>14</item>
+        <item>13</item>
+        <item>10</item>
+        <item>20</item>
+        <item>21</item>
+        <item>19</item>
+        <item>24</item>
+        <item>8</item>
+        <item>16</item>
+        <item>18</item>
+        <item>14</item>
+        <item>20</item>
+        <item>34</item>
+        <item>14</item>
+        <item>14</item>
+        <item>20</item>
+        <item>18</item>
+        <item>18</item>
+    </integer-array>
+    <string-array name="SNS_Guild_Names">
+        <item>Draw Attack(X)</item>
+        <item>Dash Attack(X)</item>
+        <item>Upward Slash(X)</item>
+        <item>Downward Slash(X)</item>
+        <item>Side Slash(X)</item>
+        <item>Finisher - First hit(X) - 15 Exhaust, 10 KO</item>
+        <item>Finisher - Second hit(X)</item>
+        <item>Side Slash(A)</item>
+        <item>Upward Slash(A)</item>
+        <item>Spinning Slash Finisher(A)</item>
+        <item>Shield Smack 1 - 15 Exhaust, 10 KO</item>
+        <item>Shield Smack 2 - 25 Exhaust, 10 KO</item>
+        <item>Back Step Attack - Early release</item>
+        <item>Back Step Attack - Cancel</item>
+        <item>Back Step Attack - First hit - 25 Exhaust, 15 KO</item>
+        <item>Back Step Attack - Second hit</item>
+        <item>Side Slash - From guard</item>
+        <item>Upward Slash - From guard</item>
+        <item>Jump Attack</item>
+        <item>Dash Attack - Off ledge</item>
+        <item>Dash Attack - Up ledge</item>
+    </string-array>
+
+    <integer-array name="SNS_Striker_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>14</item>
+        <item>13</item>
+        <item>10</item>
+        <item>20</item>
+        <item>21</item>
+        <item>19</item>
+        <item>24</item>
+        <item>8</item>
+        <item>16</item>
+        <item>14</item>
+        <item>14</item>
+        <item>20</item>
+        <item>18</item>
+        <item>18</item>
+    </integer-array>
+    <string-array name="SNS_Striker_Names">
+        <item>Draw Attack(X)</item>
+        <item>Dash Attack(X)</item>
+        <item>Upward Slash(X)</item>
+        <item>Downward Slash(X)</item>
+        <item>Side Slash(X)</item>
+        <item>Finisher - First hit(X) - 15 Exhaust, 10 KO</item>
+        <item>Finisher - Second hit(X)</item>
+        <item>Side Slash(A)</item>
+        <item>Upward Slash(A)</item>
+        <item>Spinning Slash Finisher(A)</item>
+        <item>Shield Smack 1 - 15 Exhaust, 10 KO</item>
+        <item>Shield Smack 2 - 25 Exhaust, 10 KO</item>
+        <item>Side Slash - From guard</item>
+        <item>Upward Slash - From guard</item>
+        <item>Jump Attack</item>
+        <item>Dash Attack - Off ledge</item>
+        <item>Dash Attack - Up ledge</item>
+    </string-array>
+
+    <integer-array name="SNS_Aerial_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>14</item>
+        <item>13</item>
+        <item>10</item>
+        <item>20</item>
+        <item>8</item>
+        <item>16</item>
+        <item>24</item>
+        <item>18</item>
+        <item>14</item>
+        <item>20</item>
+        <item>34</item>
+        <item>14</item>
+        <item>14</item>
+        <item>20</item>
+        <item>18</item>
+        <item>18</item>
+        <item>25</item>
+    </integer-array>
+    <string-array name="SNS_Aerial_Names">
+        <item>Draw Attack(X)</item>
+        <item>Dash Attack(X)</item>
+        <item>Upward Slash(X)</item>
+        <item>Downward Slash(X)</item>
+        <item>Side Slash(X)</item>
+        <item>Finisher - First hit(X) - 15 Exhaust, 10 KO</item>
+        <item>Finisher - Second hit(X)</item>
+        <item>Shield Smack 1 - 15 Exhaust, 10 KO</item>
+        <item>Shield Smack 2 - 25 Exhaust, 10 KO</item>
+        <item>Spinning Slash Finisher</item>
+        <item>Back Step Attack - Early release</item>
+        <item>Back Step Attack - Cancel</item>
+        <item>Back Step Attack - First hit - 25 Exhaust, 15 KO</item>
+        <item>Back Step Attack - Second hit</item>
+        <item>Side Slash - From guard</item>
+        <item>Upward Slash - From guard</item>
+        <item>Jump Attack</item>
+        <item>Dash Attack - Off ledge</item>
+        <item>Dash Attack - Up ledge</item>
+        <item>Vault</item>
+    </string-array>
+
+    <integer-array name="SNS_Adept_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>14</item>
+        <item>13</item>
+        <item>10</item>
+        <item>20</item>
+        <item>8</item>
+        <item>16</item>
+        <item>24</item>
+        <item>18</item>
+        <item>14</item>
+        <item>14</item>
+        <item>20</item>
+        <item>18</item>
+        <item>18</item>
+        <item>20</item>
+        <item>20</item>
+        <item>21</item>
+        <item>19</item>
+        <item>24</item>
+        <item>18</item>
+        <item>20</item>
+        <item>42</item>
+    </integer-array>
+    <string-array name="SNS_Adept_Names">
+        <item>Draw Attack(X)</item>
+        <item>Dash Attack(X)</item>
+        <item>Upward Slash(X)</item>
+        <item>Downward Slash(X)</item>
+        <item>Side Slash(X)</item>
+        <item>Finisher - First hit(X) - 15 Exhaust, 10 KO</item>
+        <item>Finisher - Second hit(X)</item>
+        <item>Shield Smack 1 - 15 Exhaust, 10 KO</item>
+        <item>Shield Smack 2 - 25 Exhaust, 10 KO</item>
+        <item>Spinning Slash Finisher</item>
+        <item>Back Step Attack</item>
+        <item>Side Slash - From guard</item>
+        <item>Upward Slash - From guard</item>
+        <item>Jump Attack</item>
+        <item>Dash Attack - Off ledge</item>
+        <item>Dash Attack - Up ledge</item>
+        <item>Adept Evade Jump Attack</item>
+        <item>   -Mid-Air Follow Up</item>
+        <item>   -Ground Follow Up 1</item>
+        <item>   -Ground Follow Up 2</item>
+        <item>   -Ground Follow Up Finisher</item>
+        <item>Adept Evade Lunge Attack</item>
+        <item>   -Mid-Air Follow Up</item>
+        <item>Adept Back Step Evade Attack</item>
+    </string-array>
+
+    <integer-array name="SNS_Valor_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>14</item>
+        <item>13</item>
+        <item>10</item>
+        <item>20</item>
+        <item>8</item>
+        <item>16</item>
+        <item>21</item>
+        <item>19</item>
+        <item>28</item>
+        <item>24</item>
+        <item>14</item>
+        <item>16</item>
+        <item>32</item>
+        <item>54</item>
+        <item>14</item>
+        <item>14</item>
+        <item>20</item>
+        <item>18</item>
+        <item>18</item>
+    </integer-array>
+    <string-array name="SNS_Valor_Names">
+        <item>Draw Attack(X)</item>
+        <item>Dash Attack(X)</item>
+        <item>Upward Slash(X)</item>
+        <item>Downward Slash(X)</item>
+        <item>Side Slash(X)</item>
+        <item>Finisher - First hit(X) - 15 Exhaust, 10 KO</item>
+        <item>Finisher - Second hit(X)</item>
+        <item>Shield Smack 1 - 15 Exhaust, 10 KO</item>
+        <item>Shield Smack 2 - 25 Exhaust, 10 KO</item>
+        <item>Side Slash(A)</item>
+        <item>Upward Slash(A)</item>
+        <item>Valor Stance - Charge Slash (3 hits)</item>
+        <item>Valor Stance - Spinning Slash</item>
+        <item>Flip Attack (Valor State)</item>
+        <item>   -Run In Slash</item>
+        <item>   -True Slash (2 hits)</item>
+        <item>   -Charge Slash (3 hits)</item>
+        <item>Side Slash - From guard</item>
+        <item>Upward Slash - From guard</item>
+        <item>Jump Attack</item>
+        <item>Dash Attack - Off ledge</item>
+        <item>Dash Attack - Up ledge</item>
+    </string-array>
+
+    <integer-array name="SNS_Alchemy_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>14</item>
+        <item>13</item>
+        <item>8</item>
+        <item>16</item>
+        <item>18</item>
+        <item>14</item>
+        <item>20</item>
+        <item>34</item>
+        <item>24</item>
+        <item>18</item>
+        <item>14</item>
+        <item>13</item>
+        <item>20</item>
+        <item>18</item>
+        <item>20</item>
+    </integer-array>
+    <string-array name="SNS_Alchemy_Names">
+        <item>Draw Attack(X)</item>
+        <item>Dash Attack(X)</item>
+        <item>Upward Slash(X)</item>
+        <item>Downward Slash(X)</item>
+        <item>Side Slash(X)</item>
+        <item>Shield Smack 1 - 15 Exhaust, 10 KO</item>
+        <item>Shield Smack 2 - 25 Exhaust, 10 KO</item>
+        <item>Back Step Attack - Early release</item>
+        <item>Back Step Attack - Cancel</item>
+        <item>Back Step Attack - First hit - 25 Exhaust, 15 KO</item>
+        <item>Back Step Attack - Second hit</item>
+        <item>Spinning Slash Finisher</item>
+        <item>Back Step Slash</item>
+        <item>Side Slash - From guard</item>
+        <item>Upward Slash - From guard</item>
+        <item>Jump Attack</item>
+        <item>Dash Attack - Off ledge</item>
+        <item>Dash Attack - Up ledge</item>
+    </string-array>
+
     <string-array name="SNS_HA_Names">
         <item>-None-</item>
         <item>Sword Dance</item>
         <item>Round Force</item>
         <item>Shoryugeki</item>
     </string-array>
+
+    <integer-array name="SNS_HA_Shoryugeki_MV">
+        <item>70</item>
+        <item>105</item>
+        <item>135</item>
+    </integer-array>
+    <integer-array name="SNS_HA_Shoryugeki_ElmCheck">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+
+    <integer-array name="SNS_HA_RoundForce_MV">
+        <item>30</item>
+        <item>50</item>
+        <item>70</item>
+    </integer-array>
+    <integer-array name="SNS_HA_RoundForce_ElmCheck">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+    <integer-array name="SNS_HA_SwordDance_MV">
+        <item>109</item>
+        <item>138</item>
+        <item>170</item>
+    </integer-array>
+    <integer-array name="SNS_HA_SwordDance_ElmCheck">
+        <item>5</item>
+        <item>7</item>
+        <item>9</item>
+    </integer-array>
+
     <string-array name="DB_HA_Names">
         <item>-None-</item>
         <item>Blood Wind</item>

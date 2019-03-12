@@ -29,8 +29,9 @@ public class DamageCalculation {
             "Deadeye Yian Garuga","Malfestio","Nightcloak Malfestio");
 
 
-    public DamageCalculation(Context context, UI ui, String Weapon, String Style, String Sharpness, float RawDamage,
-                             String ChosenElement, float ElementalDamage, float Affinity, String Monster, String HitzoneGroup, String Hitzone){
+    public DamageCalculation(Context context, UI ui, String Weapon, String Style, String Sharpness,
+                             float RawDamage, String ChosenElement, float ElementalDamage,
+                             float Affinity, String Monster, String HitzoneGroup, String Hitzone){
 
 
 
@@ -64,16 +65,7 @@ public class DamageCalculation {
         SharpnessModifier_Atk /= 100;
         SharpnessModifier_Elm /= 100;
         MV_Array = context.getResources().getIdentifier(Weapon + "_" + Style, "array", context.getPackageName());
-        switch(String.valueOf(ui.HunterArtSelect.getSelectedItem())){
-            case "Brimstone Slash":
-                HA_Levels_Array = context.getResources().getIdentifier("GS_HA_BrimstoneSlash_Levels", "array", context.getPackageName());
-                HA_ElementCheck_Array = context.getResources().getIdentifier("GS_HA_BrimstoneSlash_ElmCheck", "array", context.getPackageName());
-                break;
-            default:
-                HA_Levels_Array = context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName());
-                HA_ElementCheck_Array = context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName());
-                break;
-        }
+        setHA_MV();
     }
 
     public boolean CalculateSkills(){
@@ -373,6 +365,24 @@ public class DamageCalculation {
             }
         }
         return 1;
+    }
+
+    private float getDBElmMod(){
+
+        return 1f;
+    }
+
+    private void setHA_MV(){
+        switch(String.valueOf(ui.HunterArtSelect.getSelectedItem())){
+            case "Brimstone Slash":
+                HA_Levels_Array = context.getResources().getIdentifier("GS_HA_BrimstoneSlash_Levels", "array", context.getPackageName());
+                HA_ElementCheck_Array = context.getResources().getIdentifier("GS_HA_BrimstoneSlash_ElmCheck", "array", context.getPackageName());
+                break;
+            default:
+                HA_Levels_Array = context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName());
+                HA_ElementCheck_Array = context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName());
+                break;
+        }
     }
 
     /*if(MotionCheck == 0){

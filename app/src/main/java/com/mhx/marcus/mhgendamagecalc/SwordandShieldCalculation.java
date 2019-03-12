@@ -61,7 +61,7 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
     String[] SelectedStyle;
 
     Float[] GuildStyleMotion =  {0.18f, 0.18f, 0.14f, 0.14f, /*space*/0.13f, 0.1f, 0.2f, /*space*/
-            0.21f, 0.19f, 0.24f, /*space*/0.08f, 0.17f, /*space*/0.18f, 0.14f, 0.2f, /*space*/
+            0.21f, 0.19f, 0.24f, /*space*/0.08f, 0.16f, /*space*/0.18f, 0.14f, 0.2f, /*space*/
             0.34f, 0.14f, 0.14f, /*space*/0.2f, 0.18f, 0.18f};
     String[] GuildStyleNames = {"Draw Attack(X)","Dash Attack(X)","Upward Slash(X)","Downward Slash(X)",
             "Side Slash(X)","Finisher - First hit(X) - 15 Exhaust, 10 KO","Finisher - Second hit(X)",
@@ -81,7 +81,7 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
             "Dash Attack - Off ledge","Dash Attack - Up ledge"};
 
     Float[] AerialStyleMotion = {0.18f, 0.18f, 0.14f, 0.14f, 0.13f, 0.1f, 0.2f, 0.08f, 0.16f, 0.24f,
-            0.18f, 0.14f, 0.2f, 0.34f, 0.14f, 0.13f, 0.2f, 0.18f, 0.2f, 0.2f};
+            0.18f, 0.14f, 0.2f, 0.34f, 0.14f, 0.14f, 0.2f, 0.18f, 0.18f, 0.25f};
     String[] AerialStyleNames = {"Draw Attack(X)","Dash Attack(X)","Upward Slice(X)","Downward Slash(X)",
             "Side Slash(X)","Finisher - First hit(X) - 15 Exhaust, 10 KO","Finisher - Second hit(X)",
             "Shield Smack 1 - 15 Exhaust, 10 KO","Shield Smack 2 - 25 Exhaust, 10 KO",
@@ -91,7 +91,7 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
             "Dash Attack - Up ledge","Vault"};
 
     Float[] AdeptStyleMotion = {0.18f, 0.18f, 0.14f, 0.14f, /*space*/0.13f, 0.1f, 0.2f, /*space*/
-            0.08f, 0.16f, /*space*/0.24f, 0.18f, 0.14f, 0.13f, /*space*/0.2f, 0.18f, 0.18f, /*space*/
+            0.08f, 0.16f, /*space*/0.24f, 0.18f, 0.14f, 0.14f, /*space*/0.2f, 0.18f, 0.18f, /*space*/
             0.2f, 0.2f, 0.21f, 0.19f, /*space*/0.24f, 0.18f, 0.2f, /*space*/0.42f};
     String[] AdeptStyleNames = {"Draw Attack(X)","Dash Attack(X)","Upward Slash(X)","Downward Slash(X)",
             "Side Slash(X)","Finisher - First hit(X) - 15 Exhaust, 10 KO","Finisher - Second hit(X)",
@@ -177,7 +177,7 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.SwordandShield,
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.SNS_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter5);
