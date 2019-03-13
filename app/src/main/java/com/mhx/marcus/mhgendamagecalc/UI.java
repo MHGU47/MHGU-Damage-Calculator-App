@@ -26,13 +26,13 @@ import java.util.List;
 
 public class UI extends AppCompatActivity {
 
-    Spinner StyleSelect, SharpnessSelect, ElementSelect, MonsterSelect, HitzoneSelect, HunterArtSelect,
-            PhialSelect, ShieldChargeSelect, NumberofPhialsSelect, ProwlerTypeSelect, NineLivesAttackSelect,
-            SupportSkillsSelect, BoomerangSelect;
+    Spinner StyleSelect, SharpnessSelect, ElementSelect, SubElementSelect, MonsterSelect, HitzoneSelect,
+            HunterArtSelect, PhialSelect, ShieldChargeSelect, NumberofPhialsSelect, ProwlerTypeSelect,
+            NineLivesAttackSelect, SupportSkillsSelect, BoomerangSelect;
     Button Calculate;
 
 
-    static String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, MonsterType, ChosenArt;
+    static String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, MonsterType, ChosenArt;
     static float SelectedSharpnessElmModifier, SelectedSharpnessAtkModifier;
 
     SkillsCalculation Skills = new SkillsCalculation();
@@ -58,7 +58,8 @@ public class UI extends AppCompatActivity {
 
     RadioButton ChaosOilLevel1_2Radio, ChaosOilLevel3Radio, ChaosOilOffRadio,
             LionsMawLevel1Check, LionsMawLevel2Check, LionsMawLevel3Check, LionsMawOffCheck,
-            EvasiveManeuversOffCheck, EvasiveManeuversLevel2Check, EvasiveManeuversLevel3Check;
+            EvasiveManeuversOffCheck, EvasiveManeuversLevel2Check, EvasiveManeuversLevel3Check,
+            WolfsMawLevel1Check, WolfsMawLevel2Check, WolfsMawLevel3Check, WolfsMawOffCheck;
     Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
     //-End-
@@ -603,6 +604,51 @@ public class UI extends AppCompatActivity {
 
                 }
             });
+
+            if(SelectedWpn.equals("DB")){
+                SubElementSelect = findViewById(R.id.SubElementSelect);
+
+                ArrayAdapter SubElementAdapter = ArrayAdapter.createFromResource(this,R.array.SubElement,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                SubElementSelect.setAdapter(SubElementAdapter);
+
+                SubElementSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        switch (String.valueOf(ElementSelect.getSelectedItem())) {
+                            case "[Fire]":
+                                getChosenSubElement("Fire");
+                                break;
+
+                            case "[Water]":
+                                getChosenSubElement("Water");
+                                break;
+
+                            case "[Ice]":
+                                getChosenSubElement("Ice");
+                                break;
+
+                            case "[Thunder]":
+                                getChosenSubElement("Thunder");
+                                break;
+
+                            case "[Dragon]":
+                                getChosenSubElement("Dragon");
+                                break;
+
+                            default:
+                                getChosenSubElement("NONE");
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+            }
         }
 
         if(SelectedWpn.equals("CB") || SelectedWpn.equals("GL")){
@@ -1034,6 +1080,11 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "DB":
+                WolfsMawOffCheck = (RadioButton) findViewById(R.id.WolfsMawOffCheck);
+                WolfsMawLevel1Check = (RadioButton) findViewById(R.id.WolfsMawLevel1Check);
+                WolfsMawLevel2Check = (RadioButton) findViewById(R.id.WolfsMawLevel2Check);
+                WolfsMawLevel3Check = (RadioButton) findViewById(R.id.WolfsMawLevel3Check);
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
@@ -1780,6 +1831,7 @@ public class UI extends AppCompatActivity {
 
                 TextView Damage = findViewById(R.id.DamageInput);
                 TextView Element = findViewById(R.id.ElementInput);
+                TextView SubElement;
                 TextView Affinity = findViewById(R.id.AffinityInput);
 
                 if(TextUtils.isEmpty(Damage.getText().toString())){
@@ -1792,28 +1844,72 @@ public class UI extends AppCompatActivity {
                     Affinity.setText("0");
                 }
 
-                DmgCalc = new DamageCalculation(UI.this,UI.this, "e",
-                        String.valueOf(StyleSelect.getSelectedItem()),
-                        String.valueOf(SharpnessSelect.getSelectedItem()),
-                        Float.parseFloat(Damage.getText().toString()), ChosenElement,
-                        Float.parseFloat(Element.getText().toString()),
-                        Float.parseFloat(Affinity.getText().toString()),
-                        ChosenMonster, HitzoneGroup, ChosenHitzone);
+                //if(getIntent().getStringExtra("Weapon").equals("DB"))
+                    //SubElement = findViewById(R.id.SubElementInputDB);
 
-                if(!DmgCalc.Stats.isValid()){
-                    if(!DmgCalc.Stats.isValidAtk()){
-                        Damage.setError("Enter a valid attack");
-                        return;
-                    }
-                    else if(!DmgCalc.Stats.isValidElm()){
-                        Element.setError("Enter a valid element");
-                        return;
-                    }
-                    else if(!DmgCalc.Stats.isValidAffinity()){
-                        Affinity.setError("Enter a valid affinity");
-                        return;
-                    }
+                switch(getIntent().getStringExtra("Weapon")){
+                    case "DB":
+                        SubElement = findViewById(R.id.SubElementInputDB);
+                        if(TextUtils.isEmpty(SubElement.getText().toString())){
+                            SubElement.setText("0");
+                        }
+
+                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e",
+                                String.valueOf(StyleSelect.getSelectedItem()),
+                                String.valueOf(SharpnessSelect.getSelectedItem()),
+                                Float.parseFloat(Damage.getText().toString()), ChosenElement,
+                                Float.parseFloat(SubElement.getText().toString()), ChosenSubElement,
+                                Float.parseFloat(Element.getText().toString()),
+                                Float.parseFloat(Affinity.getText().toString()),
+                                ChosenMonster, HitzoneGroup, ChosenHitzone);
+
+                        if(!DmgCalc.Stats.isValid()){
+                            if(!DmgCalc.Stats.isValidAtk()){
+                                Damage.setError("Enter a valid attack");
+                                return;
+                            }
+                            else if(!DmgCalc.Stats.isValidElm()){
+                                Element.setError("Enter a valid element");
+                                return;
+                            }
+                            else if(!DmgCalc.Stats.isValidSubElm()){
+                                SubElement.setError("Enter a valid sub element");
+                                return;
+                            }
+                            else if(!DmgCalc.Stats.isValidAffinity()){
+                                Affinity.setError("Enter a valid affinity");
+                                return;
+                            }
+                        }
+                        break;
+
+                    default:
+                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e",
+                                String.valueOf(StyleSelect.getSelectedItem()),
+                                String.valueOf(SharpnessSelect.getSelectedItem()),
+                                Float.parseFloat(Damage.getText().toString()), ChosenElement,
+                                Float.parseFloat(Element.getText().toString()),
+                                Float.parseFloat(Affinity.getText().toString()),
+                                ChosenMonster, HitzoneGroup, ChosenHitzone);
+
+                        if(!DmgCalc.Stats.isValid()){
+                            if(!DmgCalc.Stats.isValidAtk()){
+                                Damage.setError("Enter a valid attack");
+                                return;
+                            }
+                            else if(!DmgCalc.Stats.isValidElm()){
+                                Element.setError("Enter a valid element");
+                                return;
+                            }
+                            else if(!DmgCalc.Stats.isValidAffinity()){
+                                Affinity.setError("Enter a valid affinity");
+                                return;
+                            }
+                        }
+                        break;
                 }
+
+
 
                 if (DmgCalc.CalculateSkills()){
                     Snackbar.make(view, "Please check your inputted element/skills", Snackbar.LENGTH_LONG)
@@ -1837,6 +1933,10 @@ public class UI extends AppCompatActivity {
     public static String getChosenElement(String i) {
         ChosenElement = i;
         return ChosenElement;
+    }
+    public static String getChosenSubElement(String i) {
+        ChosenSubElement = i;
+        return ChosenSubElement;
     }
     public static String getMonster(String i) {
         ChosenMonster = i;

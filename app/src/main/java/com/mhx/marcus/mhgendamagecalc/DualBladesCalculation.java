@@ -272,7 +272,7 @@ public class DualBladesCalculation extends AppCompatActivity implements AdapterV
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.DualBlades,
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter5);

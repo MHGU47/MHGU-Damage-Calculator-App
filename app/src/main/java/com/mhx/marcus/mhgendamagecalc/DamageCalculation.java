@@ -13,13 +13,14 @@ public class DamageCalculation {
     private SkillsCalculation Skills = new SkillsCalculation();
 
     //Stat Variables
-    private String Weapon, Style, ChosenElement, Monster, HitzoneGroup, Hitzone, Sharpness;
-    private float RawDamage, ElementalDamage, Affinity;
+    private String Weapon, Style, ChosenElement, ChosenSubElement, Monster, HitzoneGroup, Hitzone, Sharpness;
+    private float RawDamage, ElementalDamage, SubElementalDamage, Affinity;
     private Context context;
     private int MV_Array, MV_Names_Array, HA_Levels_Array, HA_ElementCheck_Array;
     private float SharpnessModifier_Atk, SharpnessModifier_Elm;
     private int[] MV, HA_ElementCheck;
     private String[] MV_Names, HA_Levels;
+    private boolean DualElement = false;
     private List<String> HA_List = Arrays.asList("Ground Slash","Lions Maw (Wide Slash)",
             "Brimstone Slash","Moon Breaker",
 
@@ -68,6 +69,50 @@ public class DamageCalculation {
         setHA_MV();
     }
 
+    public DamageCalculation(Context context, UI ui, String Weapon, String Style, String Sharpness,
+                             float RawDamage, String ChosenElement, float ElementalDamage,
+                             String ChosenSubElement, float SubElementalDamage,
+                             float Affinity, String Monster, String HitzoneGroup, String Hitzone){
+
+
+
+        //String Stripped = SelectedMonster.replaceAll("\\s","");
+
+
+
+        Stats = new StatsValidation(RawDamage,ChosenElement,ElementalDamage,Affinity);
+        this.ui = ui;
+        this.context = context;
+        this.RawDamage = RawDamage;
+        this.ElementalDamage = ElementalDamage;
+        this.ChosenElement = ChosenElement;
+        this.SubElementalDamage = SubElementalDamage;
+        this.ChosenSubElement = ChosenSubElement;
+        this.Affinity = Affinity;
+        this.Weapon = Weapon;
+        this.Monster = Monster;
+        DualElement = SubElementalDamage > 0;
+        /*this.HitzoneGroup = HitzoneGroup;
+        this.Hitzone = Hitzone;
+        this.Style = Style;
+        this.Sharpness = Sharpness;*/
+        M = new MonsterCalculation(context,
+                Monster + "RawHitzones_Cut",
+                Monster + "ElmHitzones_" + ChosenElement,
+                Monster + "ElmHitzones_" + ChosenSubElement,
+                Monster + "_StaggerLimits",
+                HitzoneGroup + "Hitzones",
+                Hitzone);
+
+        M.getHitzones(context, ChosenElement, ChosenSubElement, Skills, ui.WeaknessExploitCheck.isChecked());
+        SharpnessModifier_Atk = context.getResources().getIdentifier(Sharpness + "_Raw","integer", context.getPackageName());
+        SharpnessModifier_Elm = context.getResources().getIdentifier(Sharpness + "_Elm","integer", context.getPackageName());
+        SharpnessModifier_Atk /= 100;
+        SharpnessModifier_Elm /= 100;
+        MV_Array = context.getResources().getIdentifier(Weapon + "_" + Style, "array", context.getPackageName());
+        setHA_MV();
+    }
+
     public boolean CalculateSkills(){
         if(!Weapon.equals("Prowler")){
             if(Weapon.equals("GS")){
@@ -106,7 +151,10 @@ public class DamageCalculation {
 
 
 
-
+        getDBElmMod(MV_Names[counter]);
+        
+        
+        
         if(MotionCheck == 0){
             if(ui.AirborneCheck.isChecked() && ui.SkillCheck && (MV_Names[counter].contains("Jump")
                     || MV_Names[counter].contains("Aerial"))){
@@ -367,9 +415,243 @@ public class DamageCalculation {
         return 1;
     }
 
-    private float getDBElmMod(){
+    private void getDBElmMod(String MoveName){
 
-        return 1f;
+        if ((DualElement) && (MotionCheck == 0)){
+            if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
+                ElementalDamage *= 2.7f;
+                SubElementalDamage *= 2.7f;
+            }
+            else if (MoveName.equals("Demon Dodge Jump Attack (4 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("     -Follow Up (6 hits)")) {
+                ElementalDamage *= 2.1f;
+                SubElementalDamage *= 2.1f;
+            }
+            else if (MoveName.equals("Upward Slash")) {
+                ElementalDamage *= 0;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Demon Combo (6 hits)")) {
+                ElementalDamage *= 2.1f;
+                SubElementalDamage *= 2.1f;
+            }
+            else if (MoveName.equals("Demon Flurry Rush (6 hits)")) {
+                ElementalDamage *= 2.1f;
+                SubElementalDamage *= 2.1f;
+            }
+            else if (MoveName.equals("     -Off Ledge (4 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Left Jumping Slash (3 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("     -Second Jump[L] (3 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Right Jumping Slash (3 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("     -Second Jump[R] (3 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Jump Attack (2 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Vault Attack (4 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Devil's Dance (12 hits)")) {
+                ElementalDamage *= 5.7f;
+                SubElementalDamage *= 5.7f;
+            }
+            else if (MoveName.equals("Adept Evade (4 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Idle Slash (2 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Reverse Slash (2 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Circle Slash (3 hits)")) {
+                ElementalDamage *= 1.7f;
+                SubElementalDamage *= 0.7f;
+            }
+            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+                ElementalDamage *= 0;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 0;
+            }
+            else if (MoveName.equals("Demon Flurry (7 hits)")) {
+                ElementalDamage *= 3.7f;
+                SubElementalDamage *= 2.7f;
+            }
+
+            //Normal Mode If Statment
+
+            if (MoveName.equals("Draw Attack (4 hits)")) {
+                ElementalDamage *= 1.4f;
+                SubElementalDamage *= 1.4f;
+            }
+            else if (MoveName.equals("Dash Attack (4 hits)")) {
+                ElementalDamage *= 1.4f;
+                SubElementalDamage *= 1.4f;
+            }
+            else if (MoveName.equals("Upward Slash")) {
+                ElementalDamage *= 0;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Idle Slash (2 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Reverse Slash (2 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+                ElementalDamage *= 0;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Jumping Slash - Left (3 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 0;
+            }
+            else if (MoveName.equals("Jumping Slash - Right (3 hits)")) {
+                ElementalDamage *= 2;
+                SubElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Mid-Air Attack (2 hits)")) {
+                ElementalDamage *= 1;
+                SubElementalDamage *= 1;
+            }
+        }
+        else if ((!DualElement) && (MotionCheck == 0)){
+            SubElementalDamage = 0;
+            if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
+                ElementalDamage *= 5.4f;
+            }
+            else if (MoveName.equals("Demon Dodge Jump Attack (4 hits)")) {
+                ElementalDamage *= 4;
+            }
+            else if (MoveName.equals("     -Follow Up (6 hits)")) {
+                ElementalDamage *= 4.2f;
+            }
+            else if (MoveName.equals("Upward Slash")) {
+                ElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Demon Combo (6 hits)")) {
+                ElementalDamage *= 4.2f;
+            }
+            else if (MoveName.equals("Demon Flurry Rush (6 hits)")) {
+                ElementalDamage *= 4.2f;
+            }
+            else if (MoveName.equals("     -Off Ledge (4 hits)")) {
+                ElementalDamage *= 4;
+            }
+            else if (MoveName.equals("Left Jumping Slash (3 hits)")) {
+                ElementalDamage *= 3;
+            }
+            else if (MoveName.equals("     -Second Jump[L] (3 hits)")) {
+                ElementalDamage *= 3;
+            }
+            else if (MoveName.equals("Right Jumping Slash (3 hits)")) {
+                ElementalDamage *= 3;
+            }
+            else if (MoveName.equals("     -Second Jump[R] (3 hits)")) {
+                ElementalDamage *= 3;
+            }
+            else if (MoveName.equals("Jump Attack (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Vault Attack (4 hits)")) {
+                ElementalDamage *= 4;
+            }
+            else if (MoveName.equals("Devil's Dance (12 hits)")) {
+                ElementalDamage *= 11.4f;
+            }
+            else if (MoveName.equals("Adept Evade (4 hits)")) {
+                ElementalDamage *= 4;
+            }
+            else if (MoveName.equals("Idle Slash (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Reverse Slash (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Circle Slash (3 hits)")) {
+                ElementalDamage *= 2.4f;
+            }
+            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Demon Flurry (7 hits)")) {
+                ElementalDamage *= 6.4f;
+            }
+
+            //Normal Mode If Statment
+
+            if (MoveName.equals("Draw Attack (4 hits)")) {
+                ElementalDamage *= 2.8f;
+            }
+            else if (MoveName.equals("Dash Attack (4 hits)")) {
+                ElementalDamage *= 2.8f;
+            }
+            else if (MoveName.equals("Upward Slash")) {
+                ElementalDamage *= 1;
+            }
+            else if (MoveName.equals("Idle Slash (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Jumping Slash - Left (3 hits)")) {
+                ElementalDamage *= 3;
+            }
+            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+            else if (MoveName.equals("Jumping Slash - Right (3 hits)")) {
+                ElementalDamage *= 3;
+            }
+            else if (MoveName.equals("Mid-Air Attack (2 hits)")) {
+                ElementalDamage *= 2;
+            }
+        }
+        else if (MotionCheck == 1){
+            if(DualElement) {
+                ElementalDamage /= 2;
+                SubElementalDamage /= 2;
+            }
+            else{
+                ElementalDamage *= 1;
+                SubElementalDamage *= 0;
+            }
+        }
     }
 
     private void setHA_MV(){
