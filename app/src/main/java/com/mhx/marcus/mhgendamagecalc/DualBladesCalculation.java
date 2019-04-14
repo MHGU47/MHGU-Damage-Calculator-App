@@ -173,7 +173,7 @@ public class DualBladesCalculation extends AppCompatActivity implements AdapterV
             /*A*/"Horizontal Slash - Left (2 hits)","Left Jumping Slash (3 hits)","     -Second Jump[L] (3 hits)",
             "Horizontal Slash - Right (2 hits)","Right Jumping Slash (3 hits)","     -Second Jump[R] (3 hits)",
             "Demon Flurry Rush (6 hits)","     -Off Ledge (4 hits)","     -Follow up (6 hits)",
-            "Demon Flurry (7 hits)","Valor Gaurd Point (4 hits)","True Devil's Dance (13 hits)",
+            "Demon Flurry (7 hits)","Valor Guard Point (4 hits)","True Devil's Dance (13 hits)",
             "Jump Attack (2 hits)"};
     String[][] ValorStyleNames = {ValorStyleNamesNormal, ValorStyleNamesArchdemon};
     Float[][] ValorStyleMotion = {ValorStyleMotionNormal, ValorStyleMotionArchdemon};

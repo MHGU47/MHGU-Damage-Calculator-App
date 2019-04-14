@@ -172,7 +172,7 @@ public class BowCalculation extends AppCompatActivity implements AdapterView.OnI
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter10 = ArrayAdapter.createFromResource(this,R.array.Bow,
+        ArrayAdapter adapter10 = ArrayAdapter.createFromResource(this,R.array.Bow_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter10);

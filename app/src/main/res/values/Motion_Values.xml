@@ -865,12 +865,655 @@
         <item>9</item>
     </integer-array>
 
+    <integer-array name="DB_Guild_MV">
+        <item>28</item>
+        <item>28</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>30</item>
+
+        <item>17</item>
+        <item>30</item>
+        <item>23</item>
+    </integer-array><!--Normal-->
+    <string-array name="DB_Guild_Names">
+        <item>Draw Attack (4 hits)</item>
+        <item>Dash Attack (4 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Jumping Slash - Left (3 hits)</item>
+
+        <item>Horizontal Slash - Right (2 hits)</item>
+        <item>Jumping Slash - Right (3 hits)</item>
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--Normal-->
+
+    <integer-array name="DB_Guild_MV2">
+        <item>18</item>
+        <item>34</item>
+        <item>46</item>
+
+        <item>28</item>
+        <item>32</item>
+
+        <item>28</item>
+        <item>32</item>
+
+        <item>48</item>
+        <item>103</item>
+        <item>54</item>
+
+        <item>68</item>
+    </integer-array><!--Demon-->
+    <string-array name="DB_Guild_Names2">
+        <item>Upward Slash</item>
+        <item>Circle Slash (3 hits)</item>
+        <item>Demon Combo (6 hits)</item>
+
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+
+        <item>Demon Flurry Rush (6 hits)</item>
+        <item>Devil's Dance (12 hits)</item>
+        <item>Demon Dodge Jump Attack (4 hits)</item>
+
+        <item>     -Follow Up (6 hits)</item>
+    </string-array><!--Demon-->
+
+    <integer-array name="DB_Guild_MV3">
+        <item>48</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>17</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>48</item>
+        <item>78</item>
+        <item>54</item>
+
+        <item>68</item>
+    </integer-array><!--ArchDemon-->
+    <string-array name="DB_Guild_Names3">
+        <item>Draw/Dash Attack (6 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Horizontal Slash - Right (2 hits)</item>
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+
+        <item>Demon Flurry Rush (6 hits)</item>
+        <item>Demon Flurry (7 hits)</item>
+        <item>Demon Dodge Jump Attack (4 hits)</item>
+
+        <item>     -Follow Up (6 hits)</item>
+    </string-array><!--ArchDemon-->
+
+    <integer-array name="DB_Striker_MV">
+        <item>28</item>
+        <item>28</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>17</item>
+        <item>21</item>
+        <item>30</item>
+
+        <item>23</item>
+    </integer-array><!--Normal-->
+    <string-array name="DB_Striker_Names">
+        <item>Draw Attack (4 hits)</item>
+        <item>Dash Attack (4 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Horizontal Slash - Right (2 hits)</item>
+        <item>Jumping Slash - Right (3 hits)</item>
+
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--Normal-->
+
+    <integer-array name="DB_Striker_MV2">
+
+        0.18f, 0.34f, 0.46f, /*A button*/0.28f, 0.32f, 0.28f, /*space*/
+        0.32f, 0.48f, 1.03f, /*space*/0.54f, 0.68f
+
+        <item>18</item>
+        <item>34</item>
+        <item>46</item>
+
+        <item>28</item>
+        <item>32</item>
+        <item>28</item>
+
+        <item>32</item>
+        <item>48</item>
+        <item>103</item>
+
+        <item>54</item>
+        <item>68</item>
+    </integer-array><!--Demon-->
+    <string-array name="DB_Striker_Names2">
+        <item>Upward Slash</item>
+        <item>Circle Slash (3 hits)</item>
+        <item>Demon Combo (6 hits)</item>
+
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+        <item>Right Jumping Slash (3 hits)</item>
+
+        <item>     -Second Jump[R] (3 hits)</item>
+        <item>Demon Flurry Rush (6 hits)</item>
+        <item>Devil's Dance (12 hits)</item>
+
+        <item>Demon Dodge Jump Attack (4 hits)</item>
+        <item>     -Follow Up (6 hits)</item>
+    </string-array><!--Demon-->
+
+    <integer-array name="DB_Aerial_MV">
+        <item>28</item>
+        <item>28</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>30</item>
+        <item>17</item>
+
+        <item>30</item>
+        <item>23</item>
+    </integer-array><!--Normal-->
+    <string-array name="DB_Aerial_Names">
+        <item>Draw Attack (4 hits)</item>
+        <item>Dash Attack (4 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Jumping Slash - Left (3 hits)</item>
+        <item>Horizontal Slash - Right (2 hits)</item>
+
+        <item>Jumping Slash - Right (3 hits)</item>
+        <item>Mid-Air Attack (2 hits)</item>
+    </string-array><!--Normal-->
+
+    <integer-array name="DB_Aerial_MV2">
+        <item>18</item>
+        <item>34</item>
+        <item>46</item>
+
+        <item>28</item>
+        <item>32</item>
+
+        <item>28</item>
+        <item>32</item>
+        <item>48</item>
+
+        <item>54</item>
+        <item>68</item>
+        <item>54</item>
+
+        <item>68</item>
+    </integer-array><!--Demon-->
+    <string-array name="DB_Aerial_Names2">
+        <item>Upward Slash</item>
+        <item>Circle Slash (3 hits)</item>
+        <item>Demon Combo (6 hits)</item>
+
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+        <item>Demon Flurry Rush (6 hits)</item>
+
+        <item>     -Off Ledge (4 hits)</item>
+        <item>     -Follow up (6 hits)</item>
+        <item>Vault Attack (4 hits)</item>
+
+        <item>     -Follow Up (6 hits)</item>
+    </string-array><!--Demon-->
+
+    <integer-array name="DB_Aerial_MV3">
+        <item>48</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>17</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>48</item>
+        <item>54</item>
+        <item>68</item>
+
+        <item>78</item>
+        <item>54</item>
+        <item>23</item>
+    </integer-array><!--ArchDemon-->
+    <string-array name="DB_Aerial_Names3">
+        <item>Draw/Dash Attack (6 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Horizontal Slash - Right (2 hits)</item>
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+
+        <item>Demon Flurry Rush (6 hits)</item>
+        <item>     -Off Ledge (4 hits)</item>
+        <item>     -Follow Up (6 hits)</item>
+
+        <item>Demon Flurry (7 hits)</item>
+        <item>Vault Attack (4 hits)</item>
+        <item>     -Follow Up (6 hits)</item>
+    </string-array><!--ArchDemon-->
+
+    <integer-array name="DB_Adept_MV">
+        <item>28</item>
+        <item>28</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>30</item>
+        <item>17</item>
+
+        <item>30</item>
+        <item>23</item>
+    </integer-array><!--Normal-->
+    <string-array name="DB_Adept_Names">
+        <item>Draw Attack (4 hits)</item>
+        <item>Dash Attack (4 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Jumping Slash - Left (3 hits)</item>
+        <item>Horizontal Slash - Right (2 hits)</item>
+
+        <item>Jumping Slash - Right (3 hits)</item>
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--Normal-->
+
+    <integer-array name="DB_Adept_MV2">
+        <item>18</item>
+        <item>34</item>
+        <item>46</item>
+
+        <item>28</item>
+        <item>32</item>
+
+        <item>28</item>
+        <item>32</item>
+
+        <item>42</item>
+        <item>103</item>
+        <item>23</item>
+        <item>55</item>
+    </integer-array><!--Demon-->
+    <string-array name="DB_Adept_Names2">
+        <item>Upward Slash</item>
+        <item>Circle Slash (3 hits)</item>
+        <item>Demon Combo (6 hits)</item>
+
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+
+        <item>Demon Flurry Rush (6 hits)</item>
+        <item>Devil's Dance (12 hits)</item>
+        <item>Jump Attack (2 hits)</item>
+
+        <item>Adept Evade (4 hits)</item>
+    </string-array><!--Demon-->
+
+    <integer-array name="DB_Adept_MV3">
+        <item>40</item>
+        <item>18</item>
+        <item>20</item>
+
+        <item>17</item>
+        <item>34</item>
+        <item>21</item>
+
+        <item>28</item>
+        <item>32</item>
+        <item>17</item>
+
+        <item>28</item>
+        <item>32</item>
+        <item>40</item>
+
+        <item>78</item>
+        <item>23</item>
+        <item>48</item>
+    </integer-array><!--ArchDemon-->
+    <string-array name="DB_Adept_Names3">
+        <item>Draw/Dash Attack (6 hits)</item>
+        <item>Upward Slash</item>
+        <item>Idle Slash (2 hits)</item>
+
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+        <item>Horizontal Slash - Left (2 hits)</item>
+
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+        <item>Horizontal Slash - Right (2 hits)</item>
+
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+        <item>Demon Flurry Rush (6 hits)</item>
+
+        <item>Demon Flurry (7 hits)</item>
+        <item>Jump Attack (2 hits)</item>
+        <item>Adept Evade (4 hits)</item>
+    </string-array><!--ArchDemon-->
+
+    <integer-array name="DB_Valor_MV">
+        <item>28</item>
+        <item>28</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>30</item>
+        <item>17</item>
+
+        <item>30</item>
+        <item>78</item>
+        <item>23</item>
+    </integer-array><!--Normal-->
+    <string-array name="DB_Valor_Names">
+        <item>Draw Attack (4 hits)</item>
+        <item>Dash Attack (4 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Jumping Slash - Left (3 hits)</item>
+        <item>Horizontal Slash - Right (2 hits)</item>
+
+        <item>Jumping Slash - Right (3 hits)</item>
+        <item>Valor Stance - Demon Flurry (7 hits)</item>
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--Normal-->
+
+    <integer-array name="DB_Valor_MV3">
+        <item>40</item>
+        <item>18</item>
+        <item>20</item>
+
+        <item>17</item>
+        <item>34</item>
+        <item>48</item>
+
+        <item>21</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>17</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>48</item>
+        <item>54</item>
+        <item>58</item>
+
+        <item>78</item>
+        <item>34</item>
+        <item>116</item>
+
+        <item>23</item>
+    </integer-array><!--ArchDemon-->
+    <string-array name="DB_Valor_Names3">
+        <item>Draw/Dash Attack (6 hits)</item>
+        <item>Upward Slash</item>
+        <item>Idle Slash (2 hits)</item>
+
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+        <item>Demon Combo (6 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Horizontal Slash - Right (2 hits)</item>
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+
+        <item>Demon Flurry Rush (6 hits)</item>
+        <item>     -Off Ledge (4 hits)</item>
+        <item>     -Follow up (6 hits)</item>
+
+        <item>Demon Flurry (7 hits)</item>
+        <item>Valor Guard Point (4 hits)</item>
+        <item>True Devil's Dance (13 hits)</item>
+
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--ArchDemon-->
+
+    <integer-array name="DB_Alchemy_MV">
+        <item>28</item>
+        <item>28</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>30</item>
+
+        <item>17</item>
+        <item>30</item>
+        <item>23</item>
+    </integer-array><!--Normal-->
+    <string-array name="DB_Alchemy_Names">
+        <item>Draw Attack (4 hits)</item>
+        <item>Dash Attack (4 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Jumping Slash - Left (3 hits)</item>
+
+        <item>Horizontal Slash - Right (2 hits)</item>
+        <item>Jumping Slash - Right (3 hits)</item>
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--Normal-->
+
+    <integer-array name="DB_Alchemy_MV2">
+        <item>18</item>
+        <item>34</item>
+        <item>46</item>
+
+        <item>28</item>
+        <item>32</item>
+
+        <item>28</item>
+        <item>32</item>
+        <item>103</item>
+
+        <item>23</item>
+    </integer-array><!--Demon-->
+    <string-array name="DB_Alchemy_Names2">
+        <item>Upward Slash</item>
+        <item>Circle Slash (3 hits)</item>
+        <item>Demon Combo (6 hits)</item>
+
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+        <item>Devil's Dance (12 hits)</item>
+
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--Demon-->
+
+    <integer-array name="DB_Alchemy_MV3">
+        <item>28</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>17</item>
+        <item>34</item>
+
+        <item>21</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>17</item>
+        <item>28</item>
+        <item>32</item>
+
+        <item>48</item>
+        <item>78</item>
+        <item>54</item>
+
+        <item>68</item>
+        <item>23</item>
+    </integer-array><!--ArchDemon-->
+    <string-array name="DB_Alchemy_Names3">
+        <item>Draw/Dash Attack (6 hits)</item>
+        <item>Upward Slash</item>
+
+        <item>Idle Slash (2 hits)</item>
+        <item>Reverse Slash (2 hits)</item>
+        <item>Circle Slash (3 hits)</item>
+
+        <item>Horizontal Slash - Left (2 hits)</item>
+        <item>Left Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[L] (3 hits)</item>
+
+        <item>Horizontal Slash - Right (2 hits)</item>
+        <item>Right Jumping Slash (3 hits)</item>
+        <item>     -Second Jump[R] (3 hits)</item>
+
+        <item>Demon Flurry Rush (6 hits)</item>
+        <item>Demon Flurry (7 hits)</item>
+        <item>Demon Dodge Jump Attack (4 hits)</item>
+
+        <item>     -Follow Up (6 hits)</item>
+        <item>Jump Attack (2 hits)</item>
+    </string-array><!--ArchDemon-->
+
     <string-array name="DB_HA_Names">
         <item>-None-</item>
         <item>Blood Wind</item>
         <item>Aerial Slam</item>
         <item>Spiral Rend</item>
     </string-array>
+
+    <integer-array name="DB_HA_BloodWind_MV">
+        <item>216</item>
+        <item>268</item>
+        <item>320</item>
+    </integer-array>
+    <integer-array name="DB_HA_BloodWind_ElmCheck">
+        <item>1340</item>
+        <item>31740</item>
+        <item>2140</item>
+    </integer-array>
+
+    <integer-array name="DB_HA_AerialSlam_MV">
+        <item>170</item>
+        <item>200</item>
+        <item>240</item>
+    </integer-array>
+    <integer-array name="DB_HA_AerialSlam_ElmCheck">
+        <item>700</item>
+        <item>700</item>
+        <item>700</item>
+    </integer-array>
+
+    <integer-array name="DB_HA_SpiralRend_MV">
+        <item>64</item>
+        <item>114</item>
+        <item>134</item>
+    </integer-array>
+    <integer-array name="DB_HA_SpiralRend_ElmCheck">
+        <item>240</item>
+        <item>520</item>
+        <item>660</item>
+    </integer-array>
+
     <string-array name="Hammer_HA_Names">
         <item>-None-</item>
         <item>Spinning Meteor</item>
