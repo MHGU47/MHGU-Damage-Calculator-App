@@ -882,14 +882,21 @@
         <item>Tail Tip</item>
     </string-array>
     <string-array name="CrystalbeardUragaanHitzones">
-        <item>Head</item>
-        <item>Chin</item>
+        <item>Head/Chin</item>
+        <item>Head/Chin - Wounded</item>
+
         <item>Neck</item>
-        <item>Forelegs</item>
         <item>Back</item>
+        <item>Back - Wounded</item>
+        <item>Forelegs</item>
+        <item>Forelegs - Wounded</item>
+
         <item>Stomach</item>
         <item>Hind Legs</item>
+        <item>Hind Legs - Wounded</item>
+
         <item>Tail</item>
+        <item>Tail - Wounded</item>
         <item>Tail Tip</item>
     </string-array>
     <string-array name="ValstraxHitzones">

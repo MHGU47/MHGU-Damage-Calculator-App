@@ -212,7 +212,7 @@ public class InsectGlaiveCalculation extends AppCompatActivity implements Adapte
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter6 = ArrayAdapter.createFromResource(this,R.array.InsectGlaive,
+        ArrayAdapter adapter6 = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter6);
@@ -1013,7 +1013,7 @@ public class InsectGlaiveCalculation extends AppCompatActivity implements Adapte
                     }
                     else if(ChosenArt.equals("Bug Blow")){
                         ChosenHunterArt = HunterArts[2];
-                        HunterArtElementCheck = new int[] {3, 2, 2, 1, 1, 1};
+                        HunterArtElementCheck = new int[] {3, 3, 3, 1, 1, 1};
                     }
                 }
                 //-End-

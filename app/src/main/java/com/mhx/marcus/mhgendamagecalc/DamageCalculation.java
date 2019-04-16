@@ -16,11 +16,11 @@ public class DamageCalculation {
     private String Weapon, Style, ChosenElement, ChosenSubElement, Monster, HitzoneGroup, Hitzone, Sharpness;
     private float RawDamage, ElementalDamage, SubElementalDamage, Affinity;
     private Context context;
-    private int MV_Array, MV_Names_Array, HA_Levels_Array, HA_ElementCheck_Array;
+    private int MV_Array, MV_Names_Array, MV_HA_Array, HA_Levels_Array, HA_ElementCheck_Array;
     private float SharpnessModifier_Atk, SharpnessModifier_Elm;
-    private int[] MV, HA_ElementCheck;
+    private int[] MV, HA_MV, HA_ElementCheck;
     private String[] MV_Names, HA_Levels;
-    private boolean DualElement = false;
+    private boolean DualElement = false, HA = false;
     private List<String> HA_List = Arrays.asList("Ground Slash","Lions Maw (Wide Slash)",
             "Brimstone Slash","Moon Breaker",
 
@@ -30,7 +30,7 @@ public class DamageCalculation {
             "Deadeye Yian Garuga","Malfestio","Nightcloak Malfestio");
 
 
-    public DamageCalculation(Context context, UI ui, String Weapon, String Style, String Sharpness,
+    public DamageCalculation(Context context, UI ui, String Weapon, Boolean HA, String Style, String Sharpness,
                              float RawDamage, String ChosenElement, float ElementalDamage,
                              float Affinity, String Monster, String HitzoneGroup, String Hitzone){
 
@@ -41,13 +41,18 @@ public class DamageCalculation {
 
 
         Stats = new StatsValidation(RawDamage,ChosenElement,ElementalDamage,Affinity);
+
         this.ui = ui;
         this.context = context;
+
         this.RawDamage = RawDamage;
         this.ElementalDamage = ElementalDamage;
         this.ChosenElement = ChosenElement;
         this.Affinity = Affinity;
+
         this.Weapon = Weapon;
+        this.HA = HA;
+
         this.Monster = Monster;
         /*this.HitzoneGroup = HitzoneGroup;
         this.Hitzone = Hitzone;
@@ -67,9 +72,25 @@ public class DamageCalculation {
         SharpnessModifier_Elm /= 100;
         MV_Array = context.getResources().getIdentifier(Weapon + "_" + Style, "array", context.getPackageName());
         setHA_MV();
-    }
+    }//Standard Blademaster
 
-    public DamageCalculation(Context context, UI ui, String Weapon, String Style, String Sharpness,
+    /**
+     * @param context Weapon context
+     * @param ui UI class instance
+     * @param Weapon Selected weapon
+     * @param Style Selected Style
+     * @param Sharpness Selected Sharpness
+     * @param RawDamage Inputted damage ONLY
+     * @param ChosenElement Selected element
+     * @param ElementalDamage Inputted elemental damage ONLY
+     * @param ChosenSubElement Selected subelement
+     * @param SubElementalDamage Inputted subelemental damage ONLY
+     * @param Affinity Inputted affinity
+     * @param Monster Selected monster
+     * @param HitzoneGroup Hitzone group of selected monster
+     * @param Hitzone Selected hitzone of the selected monster
+     */
+    public DamageCalculation(Context context, UI ui, String Weapon, Boolean HA, String Style, String Sharpness,
                              float RawDamage, String ChosenElement, float ElementalDamage,
                              String ChosenSubElement, float SubElementalDamage,
                              float Affinity, String Monster, String HitzoneGroup, String Hitzone){
@@ -81,28 +102,35 @@ public class DamageCalculation {
 
 
         Stats = new StatsValidation(RawDamage,ChosenElement,ElementalDamage,Affinity);
+
         this.ui = ui;
         this.context = context;
+
         this.RawDamage = RawDamage;
         this.ElementalDamage = ElementalDamage;
         this.ChosenElement = ChosenElement;
         this.SubElementalDamage = SubElementalDamage;
         this.ChosenSubElement = ChosenSubElement;
         this.Affinity = Affinity;
+
         this.Weapon = Weapon;
+        this.HA = HA;
+
         this.Monster = Monster;
         DualElement = SubElementalDamage > 0;
         /*this.HitzoneGroup = HitzoneGroup;
         this.Hitzone = Hitzone;
         this.Style = Style;
         this.Sharpness = Sharpness;*/
+
         M = new MonsterCalculation(context,
                 Monster + "RawHitzones_Cut",
                 Monster + "ElmHitzones_" + ChosenElement,
                 Monster + "ElmHitzones_" + ChosenSubElement,
                 Monster + "_StaggerLimits",
                 HitzoneGroup + "Hitzones",
-                Hitzone);
+                Hitzone,
+                "Dual Blades");
 
         M.getHitzones(context, ChosenElement, ChosenSubElement, Skills, ui.WeaknessExploitCheck.isChecked());
         SharpnessModifier_Atk = context.getResources().getIdentifier(Sharpness + "_Raw","integer", context.getPackageName());
@@ -111,7 +139,7 @@ public class DamageCalculation {
         SharpnessModifier_Elm /= 100;
         MV_Array = context.getResources().getIdentifier(Weapon + "_" + Style, "array", context.getPackageName());
         setHA_MV();
-    }
+    }//Dual Blades
 
     public boolean CalculateSkills(){
         if(!Weapon.equals("Prowler")){
@@ -150,12 +178,12 @@ public class DamageCalculation {
 
 
 
-
-        getDBElmMod(MV_Names[counter]);
+        if (Weapon.equals("DB"))
+            getDBElmMod(MV_Names[counter]);
         
         
         
-        if(MotionCheck == 0){
+        if(!HA){
             if(ui.AirborneCheck.isChecked() && ui.SkillCheck && (MV_Names[counter].contains("Jump")
                     || MV_Names[counter].contains("Aerial"))){
                 Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
@@ -201,35 +229,35 @@ public class DamageCalculation {
         //textviews[i].setText(String.format("%s", Math.round(TrueAttack)));
         //textviews[i].setVisibility(View.VISIBLE);
         if ((ModifiedRawHitzone * 100) < 25){
-            textviews[i].setTextColor(Color.argb(255, 242, 16, 16));
-            Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+//            textviews[i].setTextColor(Color.argb(255, 242, 16, 16));
+//            Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show();
         }
         else{
-            textviews[i].setTextColor(Color.BLACK);
+//            textviews[i].setTextColor(Color.BLACK);
         }
 
         //textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsNames[i], "id", getPackageName()));
-        if(MotionCheck == 0){
-            textviews[i].setText(MV_Names[i]);
-            Banner.setText("Attacks");
+        if(!HA){
+//            textviews[i].setText(MV_Names[i]);
+//            Banner.setText("Attacks");
         }
         else{
             if(ui.ChosenArt.equals("Brimstone Slash")){
-                textviews[i].setText(HA_Levels[counter]);
+//                textviews[i].setText(HA_Levels[counter]);
             }
             else{
-                textviews[i].setText(HA_Levels[i]);
+//                textviews[i].setText(HA_Levels[i]);
             }
-            Banner.setText(ui.ChosenArt);
+//            Banner.setText(ui.ChosenArt);
         }
         //textviews[i].setVisibility(View.VISIBLE);
 
                 if(!ui.ChosenMonster.equals("None")){
-        StaggerBanner.setText("Stagger/Break Limit: " + M.getStaggerValue());
-        StaggerBanner.setVisibility(View.VISIBLE);
+//        StaggerBanner.setText("Stagger/Break Limit: " + M.getStaggerValue());
+//        StaggerBanner.setVisibility(View.VISIBLE);
     }
-                Info.setVisibility(View.VISIBLE);
+//                Info.setVisibility(View.VISIBLE);
 
 
 
@@ -252,7 +280,7 @@ public class DamageCalculation {
     }
 
     private float BrimstoneCounterModifier(int counter){
-        if(MotionCheck == 1 && HA_Levels[counter].contains("Counter") && ui.ChosenArt.equals("Brimstone Slash"))
+        if(HA && HA_Levels[counter].contains("Counter") && ui.ChosenArt.equals("Brimstone Slash"))
             return 1.5f;
         else return 1f;
     }
@@ -265,7 +293,7 @@ public class DamageCalculation {
         if(MV_Names[counter].contains("Slap"))
             M.alterHitzones(context, Monster, MV_Names[counter], "", false);
         M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
-        if(MotionCheck == 0){
+        if(!HA){
             if (MV_Names[counter].equals("   - Lv. 1 Strong Charge") || MV_Names[counter].equals("Lv. 1 Strong Charge")) {
                 return 1.1f;
             }
@@ -342,7 +370,7 @@ public class DamageCalculation {
         if(MV_Names[counter].contains("Slap"))
             M.alterHitzones(context, Monster, MV_Names[counter], "", false);
         M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
-        if(MotionCheck == 0){
+        if(!HA){
             if (MV_Names[counter].equals("   - Lv. 1 Strong Charge") || MV_Names[counter].equals("Lv. 1 Strong Charge")) {
                 return 1.8f;
             }
@@ -417,7 +445,7 @@ public class DamageCalculation {
 
     private void getDBElmMod(String MoveName){
 
-        if ((DualElement) && (MotionCheck == 0)){
+        if ((DualElement) && (!HA)){
             if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
                 ElementalDamage *= 2.7f;
                 SubElementalDamage *= 2.7f;
@@ -546,7 +574,7 @@ public class DamageCalculation {
                 SubElementalDamage *= 1;
             }
         }
-        else if ((!DualElement) && (MotionCheck == 0)){
+        else if ((!DualElement) && (!HA)){
             SubElementalDamage = 0;
             if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
                 ElementalDamage *= 5.4f;
@@ -642,7 +670,7 @@ public class DamageCalculation {
                 ElementalDamage *= 2;
             }
         }
-        else if (MotionCheck == 1){
+        else if (HA){
             if(DualElement) {
                 ElementalDamage /= 2;
                 SubElementalDamage /= 2;
@@ -657,8 +685,24 @@ public class DamageCalculation {
     private void setHA_MV(){
         switch(String.valueOf(ui.HunterArtSelect.getSelectedItem())){
             case "Brimstone Slash":
+                MV_HA_Array = context.getResources().getIdentifier("GS_HA_BrimstoneSlash_MV", "array", context.getPackageName());
                 HA_Levels_Array = context.getResources().getIdentifier("GS_HA_BrimstoneSlash_Levels", "array", context.getPackageName());
                 HA_ElementCheck_Array = context.getResources().getIdentifier("GS_HA_BrimstoneSlash_ElmCheck", "array", context.getPackageName());
+                break;
+            case "Ground Slash":
+                MV_HA_Array = context.getResources().getIdentifier("GS_HA_GroundSlash_MV", "array", context.getPackageName());
+                HA_Levels_Array = context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName());
+                HA_ElementCheck_Array = context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName());
+                break;
+            case "Lions Maw":
+                MV_HA_Array = context.getResources().getIdentifier("GS_HA_LionsMaw_MV", "array", context.getPackageName());
+                HA_Levels_Array = context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName());
+                HA_ElementCheck_Array = context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName());
+                break;
+            case "Moon Breaker":
+                MV_HA_Array = context.getResources().getIdentifier("GS_HA_MoonBreaker_MV", "array", context.getPackageName());
+                HA_Levels_Array = context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName());
+                HA_ElementCheck_Array = context.getResources().getIdentifier("GS_HA_MoonBreaker_ElmCheck", "array", context.getPackageName());
                 break;
             default:
                 HA_Levels_Array = context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName());

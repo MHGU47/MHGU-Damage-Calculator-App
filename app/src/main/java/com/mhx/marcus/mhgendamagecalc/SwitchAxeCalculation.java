@@ -189,7 +189,7 @@ public class SwitchAxeCalculation extends AppCompatActivity implements AdapterVi
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.SwitchAxe,
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter5);

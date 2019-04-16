@@ -1,7 +1,5 @@
 package com.mhx.marcus.mhgendamagecalc;
 
-import android.widget.RelativeLayout;
-
 /**
  * Created by b7010863 on 07/02/2018.
  */
@@ -161,7 +159,7 @@ public class SkillsCalculation {
         return getCalculatedElement(Elm) * ElmAffinity;
     }
 
-    public float getTrueSubElm(float SubElm, boolean Check){
+    float getTrueSubElm(float SubElm, boolean Check){
         SkillCheck(Check);
         return getCalculatedSubElement(SubElm) * ElmAffinity;
     }
@@ -180,11 +178,11 @@ public class SkillsCalculation {
         GroupD = D;
     }
 
-    public void setGroupDSharp(float D){
+    void setGroupDSharp(float D){
         GroupDSharp = D;
     }
 
-    public float getGroupDSharp(){
+    float getGroupDSharp(){
         return GroupDSharp;
     }
 
@@ -216,20 +214,15 @@ public class SkillsCalculation {
         GroupK = J;
     }
 
-    public void setArtilleryModifier(float A){
+    void setArtilleryModifier(float A){
         ArtilleryModifier = A;
     }
 
-    public boolean ArtilleryCheck(){
-        if (ArtilleryModifier > 1){
-            return true;
-        }
-        else{
-            return false;
-        }
+    boolean ArtilleryCheck(){
+        return ArtilleryModifier > 1;
     }//For Bowgun use
 
-    public float getArtilleryModifier(){
+    float getArtilleryModifier(){
         return ArtilleryModifier;
     }
 
@@ -311,7 +304,7 @@ public class SkillsCalculation {
                 AtkCoatingModifier;
     }
 
-    public void setCentreBladeModifier(boolean Check){
+    void setCentreBladeModifier(boolean Check){
         if(Check){
             CentreBladeModifier = 1.05f;
         }
@@ -320,7 +313,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setLionsMawModifier(boolean Check, int Level){
+    void setLionsMawModifier(boolean Check, int Level){
         if(Check){
             if(Level == 1){
                 LionsMawModifier = 1.1f;
@@ -337,7 +330,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setMaxSpiritGaugeModifier(boolean Check){
+    void setMaxSpiritGaugeModifier(boolean Check){
         if(Check){
             MaxSpiritGaugeModifier = 1.13f;
         }
@@ -346,7 +339,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setSpiritGaugeLevelModifier(String Colour){
+    void setSpiritGaugeLevelModifier(String Colour){
         switch (Colour){
             case "-White-":
                 SpiritGaugeLevelModifier = 1.05f;
@@ -366,7 +359,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setSacrificialBladeModifier(boolean Check, int Level){
+    void setSacrificialBladeModifier(boolean Check, int Level){
         if(Check){
             if(Level == 1){
                 SacrificialBladeModifier = 1.1f;
@@ -383,7 +376,11 @@ public class SkillsCalculation {
         }
     }
 
-    public void setShieldModifier(boolean isRed, boolean isStriker, boolean isAxe, String MorphTo_){
+    /*void setShieldStatus(){
+
+    }*/
+
+    void setShieldModifier(boolean isRed, boolean isStriker, boolean isAxe, String MorphTo_){
         if((!isAxe && !MorphTo_.equals("Morph to Axe")) || MorphTo_.equals("Morph to Sword")){
            RedShieldModifier = 1f;
         }
@@ -399,7 +396,7 @@ public class SkillsCalculation {
 
     }
 
-    public void setCBPhialModifier(boolean isCharged){
+    void setCBPhialModifier(boolean isCharged){
         if(isCharged){
             CBPhialModifier = 1.35f;
         }
@@ -408,7 +405,7 @@ public class SkillsCalculation {
         }
     }
 
-    public float getCBPhialAtk(boolean isImpact, float RawAtk, float Element){
+    float getCBPhialAtk(boolean isImpact, float RawAtk, float Element){
         if(isImpact){
             if((FelyneBombardier * ArtilleryModifier) > 1.4){
                 return ((((RawAtk + additiveRaw) * multiplicativeRaw) * 1.4f) * CBPhialModifier);
@@ -420,11 +417,11 @@ public class SkillsCalculation {
         }
     }
 
-    public float getCBPhialModifier(){
+    float getCBPhialModifier(){
         return CBPhialModifier;
     }
 
-    public void setFelyneBombardierModifier(boolean Check){
+    void setFelyneBombardierModifier(boolean Check){
         if(Check){
             FelyneBombardier = 1.1f;
         }
@@ -433,11 +430,11 @@ public class SkillsCalculation {
         }
     }
 
-    public float getFelyneBombardierModifier(){
+    float getFelyneBombardierModifier(){
         return FelyneBombardier;
     }
 
-    public void setEnragedGuardModifier(boolean Check, int Level){
+    void setEnragedGuardModifier(boolean Check, int Level){
         if(Check){
             if(Level == 1){
                 EnragedGuardModifier = 1.1f;
@@ -454,47 +451,51 @@ public class SkillsCalculation {
         }
     }
 
-    public float getShellingModifier(){
+    float getShellingModifier(){
         return ArtilleryModifier * FelyneBombardier;
     }
 
-    public void setSAPhialModifier(String Phial){
-        if(Phial.equals("Power Phial")){
-            SAAtkPhialModifier = 1.2f;
-            SAElmPhialModifier = 1;
-            SAPhialType = Phial;
-        } else if(Phial.equals("Element Phial")){
-            SAAtkPhialModifier = 1;
-            SAElmPhialModifier = 1.25f;
-            SAPhialType = Phial;
-        } else if((Phial.equals("Dragon Phial")) || (Phial.equals("Other"))){
-            SAAtkPhialModifier = 1;
-            SAElmPhialModifier = 1;
-            SAPhialType = Phial;
+    void setSAPhialModifier(String Phial){
+        switch(Phial){
+            case "Power Phial":
+                SAAtkPhialModifier = 1.2f;
+                SAElmPhialModifier = 1;
+                SAPhialType = Phial;
+                break;
+            case "Element Phial":
+                SAAtkPhialModifier = 1;
+                SAElmPhialModifier = 1.25f;
+                SAPhialType = Phial;
+                break;
+            default:
+                SAAtkPhialModifier = 1;
+                SAElmPhialModifier = 1;
+                SAPhialType = Phial;
+                break;
         }
     }
 
-    public float getSAPhialAtkModifier(){
+    float getSAPhialAtkModifier(){
         return SAAtkPhialModifier;
     }
 
-    public float getSAPhialElmModifier(){
+    float getSAPhialElmModifier(){
         return SAElmPhialModifier;
     }
 
-    public String SAPhialType(){
+    String SAPhialType(){
         return SAPhialType;
     }
 
-    public void setHeatGaugeModifier(float HG){
+    void setHeatGaugeModifier(float HG){
         HeatGaugeModifier = HG;
     }
 
-    public float getHeatGaugeModifier(){
+    float getHeatGaugeModifier(){
         return HeatGaugeModifier;
     }
 
-    public float getDragonBreathModifier(Boolean Check){
+    float getDragonBreathModifier(Boolean Check){
         if(Check){
             return 10;
         }
@@ -503,11 +504,11 @@ public class SkillsCalculation {
         }
     }
 
-    public void setIGExtractModifier(float Modifier){
+    void setIGExtractModifier(float Modifier){
         IGExtractModifier = Modifier;
     }
 
-    public void setGunpowderInfusionModiifer(Boolean Check){
+    void setGunpowderInfusionModiifer(Boolean Check){
         if (Check){
             GunpowderInfusionModifier = 1.1f;
         }
@@ -516,11 +517,11 @@ public class SkillsCalculation {
         }
     }
 
-    public void setShotModifier(float Modifier){
+    void setShotModifier(float Modifier){
         ShotModifier = Modifier;
     }
 
-    public void setReloadModifier(Boolean Check){
+    void setReloadModifier(Boolean Check){
         if(Check) {
             ReloadModifier = 1.05f;
         }
@@ -529,7 +530,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setFelyneTemperModifier(Boolean Check){
+    void setFelyneTemperModifier(Boolean Check){
         if(Check) {
             FelyneTemperModifier = 1.05f;
         }
@@ -538,7 +539,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setFelyneSharpshooterModifer(Boolean Check){
+    void setFelyneSharpshooterModifer(Boolean Check){
         if(Check) {
             FelyneSharpshooterModifer = 1.05f;
         }
@@ -547,16 +548,18 @@ public class SkillsCalculation {
         }
     }
 
-    public void setRapidFireModifier(Boolean Check, String ShotType){
+    void setRapidFireModifier(Boolean Check, String ShotType){
         if(Check) {
-            if(ShotType.equals("Normal")){
-                RapidFireModifier = 0.8f;
-            }
-            else if(ShotType.equals("Pierce")){
-                RapidFireModifier = 0.7f;
-            }
-            else{
-                RapidFireModifier = 0.6f;
+            switch (ShotType){
+                case "Normal":
+                    RapidFireModifier = 0.8f;
+                    break;
+                case "Pierce":
+                    RapidFireModifier = 0.7f;
+                    break;
+                default:
+                    RapidFireModifier = 0.6f;
+                    break;
             }
         }
         else{
@@ -564,7 +567,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setCoatingModifier(float RawModifier, float ElmModifier){
+    void setCoatingModifier(float RawModifier, float ElmModifier){
         AtkCoatingModifier = RawModifier;
         ElmCoatingModifier = ElmModifier;
     }
@@ -619,7 +622,7 @@ public class SkillsCalculation {
         }
     } //Was a float method
 
-    public void setAffinityOilModifier(boolean Check){
+    void setAffinityOilModifier(boolean Check){
         if(Check){
             AffinityOilModifier = 30;
         }
@@ -628,7 +631,7 @@ public class SkillsCalculation {
         }
     } //Was a float method
 
-    public void setChaosOilModifier(boolean Check, int Level){
+    void setChaosOilModifier(boolean Check, int Level){
         if(Check){
             if(Level == 1){
                 ChaosOilModifier = 1.15f;
@@ -644,7 +647,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setOilSynergyState(boolean Check){
+    void setOilSynergyState(boolean Check){
         OilSynergyState = Check;
     }
 
@@ -665,7 +668,7 @@ public class SkillsCalculation {
         else CritBoostModifier = 0;
     } //Was a float method
 
-    public void setStingerModifier(Boolean Check){
+    void setStingerModifier(Boolean Check){
         if(Check){
             StingerModifier = 100;
         }
@@ -674,7 +677,7 @@ public class SkillsCalculation {
         }
     }
 
-    public void setEvasiveManeuversModifier(boolean Check, int Level){
+    void setEvasiveManeuversModifier(boolean Check, int Level){
         if(Check){
             if(Level == 2) EvasiveManeuversModifier = 20;
             else EvasiveManeuversModifier = 35;
@@ -682,7 +685,7 @@ public class SkillsCalculation {
         else EvasiveManeuversModifier = 0;
     }
 
-    public void setWeaknessExploitModifier(boolean Check){
+    void setWeaknessExploitModifier(boolean Check){
         if(Check) WeaknessExploitModifier = 50f;
         else WeaknessExploitModifier = 0f;
     }
@@ -736,7 +739,7 @@ public class SkillsCalculation {
         GroupPMulti = multi;
     }
 
-    public void setGroupP_Sub(float addSub, float multiSub){
+    void setGroupP_Sub(float addSub, float multiSub){
         GroupPAddSub = addSub;
         GroupPMultiSub = multiSub;
     }

@@ -9518,114 +9518,184 @@
     </integer-array>
 
     <integer-array name="CrystalbeardUragaanRawHitzones_Cut">
-        <item>24</item>
         <item>19</item>
+        <item>55</item>
+
         <item>24</item>
         <item>21</item>
-        <item>30</item>
+        <item>35</item>
         <item>42</item>
         <item>24</item>
+
+        <item>30</item>
+        <item>24</item>
+        <item>24</item>
+
+        <item>30</item>
         <item>30</item>
         <item>19</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaanRawHitzones_Impact">
-        <item>24</item>
         <item>20</item>
+        <item>50</item>
+
         <item>24</item>
         <item>35</item>
-        <item>24</item>
+        <item>41</item>
         <item>45</item>
         <item>30</item>
+
+        <item>24</item>
+        <item>30</item>
+        <item>30</item>
+
+        <item>24</item>
         <item>24</item>
         <item>20</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaanRawHitzones_Shot">
+        <item>19</item>
+        <item>40</item>
+
         <item>30</item>
         <item>19</item>
-        <item>30</item>
-        <item>19</item>
-        <item>30</item>
+        <item>10</item>
         <item>38</item>
-        <item>24</item>
+        <item>10</item>
+
         <item>30</item>
+        <item>24</item>
+        <item>19</item>
+
+        <item>30</item>
+        <item>19</item>
         <item>19</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaanElmHitzones_Fire">
         <item>0</item>
         <item>0</item>
+
         <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
+        <item>0</item>
+
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+
         <item>0</item>
         <item>0</item>
         <item>0</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaanElmHitzones_Water">
+        <item>20</item>
+        <item>10</item>
+
         <item>15</item>
         <item>20</item>
+        <item>10</item>
         <item>15</item>
+        <item>15</item>
+
         <item>20</item>
+        <item>15</item>
+        <item>15</item>
+
         <item>20</item>
-        <item>15</item>
-        <item>15</item>
         <item>20</item>
         <item>20</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaanElmHitzones_Ice">
+        <item>0</item>
+        <item>30</item>
+
         <item>10</item>
         <item>0</item>
-        <item>10</item>
-        <item>0</item>
+        <item>20</item>
+        <item>5</item>
+        <item>5</item>
+
         <item>15</item>
         <item>5</item>
         <item>5</item>
+
+        <item>0</item>
         <item>0</item>
         <item>0</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaanElmHitzones_Thunder">
+        <item>10</item>
+        <item>15</item>
+
         <item>0</item>
         <item>10</item>
+        <item>15</item>
         <item>0</item>
-        <item>10</item>
+        <item>0</item>
+
         <item>5</item>
         <item>0</item>
+        <item>0</item>
+
         <item>0</item>
         <item>0</item>
         <item>10</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaanElmHitzones_Dragon">
+        <item>15</item>
+        <item>20</item>
+
         <item>10</item>
+        <item>10</item>
+        <item>20</item>
+        <item>10</item>
+        <item>10</item>
+
         <item>15</item>
         <item>10</item>
         <item>10</item>
-        <item>15</item>
-        <item>10</item>
+
         <item>10</item>
         <item>10</item>
         <item>15</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaan_StaggerLimits">
-        <item>300</item>
         <item>400</item>
+        <item>400</item>
+
+        <item>300</item>
         <item>300</item>
         <item>300</item>
         <item>500</item>
         <item>500</item>
+
+        <item>300</item>
         <item>250</item>
-        <item>350</item><!--Sever Limit: 300-->
-        <item>100</item>
+        <item>250</item>
+
+        <item>350</item>
+        <item>350</item>
+        <item>350</item>
     </integer-array>
     <integer-array name="CrystalbeardUragaan_Extracts">
-        <item>4</item>
         <item>1</item>
+        <item>1</item>
+
         <item>4</item>
+        <item>2</item>
         <item>2</item>
         <item>3</item>
         <item>3</item>
+
         <item>2</item>
+        <item>2</item>
+        <item>2</item>
+
         <item>1</item>
-        <item>4</item>
+        <item>1</item>
+        <item>1</item>
     </integer-array>
 
     <integer-array name="ValstraxRawHitzones_Cut">

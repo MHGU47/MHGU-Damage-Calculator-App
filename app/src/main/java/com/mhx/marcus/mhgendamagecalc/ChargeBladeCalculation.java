@@ -131,7 +131,7 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
             "Morph to Sword","Jump Attack"};
 
 
-    Float[] StrikerStyleMotionSword = {0.18f, 0.18f, 0.14f, 0.15f, 0.3f, /*space*/0.5f, 0.16f, 0.42f, 0.22f,};
+    Float[] StrikerStyleMotionSword = {0.18f, 0.18f, 0.14f, 0.15f, 0.3f, /*space*/0.5f, 0.16f, 0.42f, 0.22f};
     String[] StrikerStyleNamesSword = {"Draw Attack","Dash Attack","Idle Slash","Upward Slash","Round Slash",
             "Charge Slash (2 hits)","Charge Slash (Over/Under charge)","Morph to Axe","Jump Attack"};
     Float[] StrikerStyleMotionAxe = {0.42f, 0.42f, 0.33f, 0.4f, /*space*/0.18f, 0.2f, 0.65f/*50 if empty*/,
@@ -274,7 +274,7 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter7 = ArrayAdapter.createFromResource(this,R.array.ChargeBlade,
+        ArrayAdapter adapter7 = ArrayAdapter.createFromResource(this,R.array.CB_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter7);

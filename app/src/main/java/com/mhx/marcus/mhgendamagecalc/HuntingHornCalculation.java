@@ -88,13 +88,13 @@ public class HuntingHornCalculation extends AppCompatActivity implements Adapter
 
     Float[] AdeptStyleMotion = {0.33f, 0.3f, 0.27f,/*space*/0.3f, 0.3f, 0.45f, 0.6f,
             /*space*/0.1f, 0.35f, 0.2f, 0.3f, /*space*/0.3f, 0.68f, 0.68f, /*space*/0.7f, 1.02f,
-            /*space*/0.15f, 0.2f, 0.2f, 0.34f};
+            /*space*/0.15f, 0.2f, 0.2f, 0.36f};
     String[] AdeptStyleNames = {"Draw Attack - 20, 20","Forward Slam - 20, 15","   -After an Attack - 20, 15",
             "Left Swing - 20, 15","Right Swing - 20, 15","Backward Slam - 25, 20","Super Slam (2 hits) - 20, 55",
             "Handle Hit","Idle Recital - 22, 22","Forward Recital - 15, 22","Backward Recital - 22, 25",
             "Forward Encore - 22, 25","Left Encore (2 hits) - 44, 49","Right Encore (2 hits) - 44, 49",
             "2-Note Backward Encore (2 hits) - 50, 44","3-Note Backward Encore (3 hits) - 69, 71",
-            "Adept Evade Attack","     -Follow Up","     -Follow Up Finisher","Jump Attack - 20, 22"};
+            "Adept Evade Attack","     -Follow Up","     -Follow Up Finisher","Jump Attack - 20, 20"};
 
     Float[] ValorStyleMotion =  {0.33f, 0.3f, 0.27f,/*space*/0.3f, 0.3f, 0.27f,
             /*space*/0.45f, 0.6f, 0.1f, 0.35f, /*space*/0.2f, 0.3f, 0.4f,/*space*/0.3f, 0.68f, 0.68f,
@@ -166,7 +166,7 @@ public class HuntingHornCalculation extends AppCompatActivity implements Adapter
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.HuntingHorn,
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.HH_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter5);

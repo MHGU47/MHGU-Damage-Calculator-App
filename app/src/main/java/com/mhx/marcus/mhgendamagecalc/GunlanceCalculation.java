@@ -205,7 +205,7 @@ public class GunlanceCalculation extends AppCompatActivity implements AdapterVie
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter8 = ArrayAdapter.createFromResource(this,R.array.Gunlance,
+        ArrayAdapter adapter8 = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter8);

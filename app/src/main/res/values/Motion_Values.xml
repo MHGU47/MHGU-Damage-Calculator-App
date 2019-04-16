@@ -21,6 +21,7 @@
     </integer-array>
 
 
+
     <integer-array name="GS_Guild_MV">
         <item>48</item>
         <item>48</item>
@@ -65,7 +66,6 @@
         <item>Jump Attack</item>
         <item>   -Follow Up</item>
     </string-array>
-
 
     <integer-array name="GS_Striker_MV">
         <item>48</item><!--Draw Attack-->
@@ -272,21 +272,19 @@
         <item>Brimstone Slash</item>
         <item>Moon Breaker</item>
     </string-array>
+
     <integer-array name="GS_HA_GroundSlash_MV">
         <item>70</item>
         <item>94</item>
         <item>138</item>
     </integer-array>
+
     <integer-array name="GS_HA_LionsMaw_MV">
         <item>48</item>
         <item>52</item>
         <item>66</item>
     </integer-array>
-    <integer-array name="GS_HA_LionsMaw_ElmCheck">
-        <item>1</item>
-        <item>1</item>
-        <item>1</item>
-    </integer-array>
+
     <string-array name="GS_HA_BrimstoneSlash_Levels">
         <item>Level 0 (No charge)</item>
         <item>     -Strong Attack Counter Hit</item>
@@ -317,6 +315,7 @@
         <item>1</item>
         <item>1</item>
     </integer-array>
+    
     <integer-array name="GS_HA_MoonBreaker_MV">
         <item>60</item>
         <item>82</item>
@@ -549,6 +548,7 @@
         <item>140</item>
         <item>180</item>
     </integer-array>
+
 
 
     <integer-array name="SNS_Guild_MV">
@@ -864,6 +864,8 @@
         <item>7</item>
         <item>9</item>
     </integer-array>
+
+
 
     <integer-array name="DB_Guild_MV">
         <item>28</item>
@@ -1514,42 +1516,2650 @@
         <item>660</item>
     </integer-array>
 
+
+
+    <integer-array name="Hammer_Guild_MV">
+        <item>20</item>
+        <item>42</item>
+
+        <item>20</item>
+        <item>90</item>
+
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>91</item>
+
+        <item>60</item>
+        <item>60</item>
+
+        <item>90</item>
+        <item>60</item>
+
+        <item>42</item>
+        <item>65</item>
+
+        <item>70</item>
+        <item>80</item>
+    </integer-array>
+    <string-array name="Hammer_Guild_Names">
+        <item>Draw Attack - 15, 10</item>
+        <item>Idle Pound - 15, 15</item>
+
+        <item>Second Pound - 15, 15</item>
+        <item>Finisher Swing - 50, 50</item>
+
+        <item>Side Smack - 22, 5</item>
+        <item>Lv. 1 Charge - 15, 15</item>
+
+        <item>Lv. 2 Charge - 40, 10</item>
+        <item>Lv. 3 Charge (Both hits) - 32, 45</item>
+
+        <item>     -Moving - All hits - 12, 12</item>
+        <item>     -Finisher (Early) - 40, 10</item>
+
+        <item>     -Finisher - 50, 10</item>
+        <item>     -Finisher (Late) - 40, 10</item>
+
+        <item>Jump Attack - 15, 10</item>
+        <item>     -Lv. 1 Charge - 40, 10</item>
+
+        <item>     -Lv. 2 Charge - 40, 10</item>
+        <item>     -Lv. 3 Charge - 40, 10</item>
+    </string-array>
+
+    <integer-array name="Hammer_Striker_MV">
+        <item>20</item>
+        <item>42</item>
+
+        <item>20</item>
+        <item>60</item>
+
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>105</item>
+
+        <item>60</item>
+
+        <item>90</item>
+        <item>60</item>
+
+        <item>42</item>
+        <item>65</item>
+
+        <item>70</item>
+        <item>80</item>
+    </integer-array>
+    <string-array name="Hammer_Striker_Names">
+        <item>Draw Attack - 15, 10</item>
+        <item>Idle Pound - 15, 15</item>
+
+        <item>Second Pound - 15, 15</item>
+        <item>Finisher Pound - 50, 50</item>
+
+        <item>Side Smack - 22, 5</item>
+        <item>Lv. 1 Charge - 15, 15</item>
+
+        <item>Lv. 2 Charge - 40, 10</item>
+        <item>Lv. 3 Charge (Both hits) - 32, 45</item>
+
+        <item>Lv. 3 Charge (Moving - All hits) - 12, 12</item>
+
+        <item>     -Finisher - 50, 10</item>
+        <item>     -Finisher (Late) - 40, 10</item>
+
+        <item>Jump Attack - 15, 10</item>
+        <item>     -Lv. 1 Charge - 40, 10</item>
+
+        <item>     -Lv. 2 Charge - 40, 10</item>
+        <item>     -Lv. 3 Charge - 40, 10</item>
+    </string-array>
+
+    <integer-array name="Hammer_Aerial_MV">
+        <item>20</item>
+        <item>42</item>
+
+        <item>20</item>
+        <item>90</item>
+
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>91</item>
+
+        <item>60</item>
+
+        <item>42</item>
+        <item>95</item>
+
+        <item>42</item>
+        <item>65</item>
+
+        <item>70</item>
+        <item>80</item>
+    </integer-array>
+    <string-array name="Hammer_Aerial_Names">
+        <item>Draw Attack - 15, 10</item>
+        <item>Idle Pound - 15, 15</item>
+
+        <item>Second Pound - 15, 15</item>
+        <item>Finisher Pound - 50, 50</item>
+
+        <item>Side Smack - 22, 5</item>
+        <item>Lv. 1 Charge - 15, 15</item>
+
+        <item>Lv. 2 Charge - 40, 10</item>
+        <item>Lv. 3 Charge (Both hits) - 32, 45</item>
+
+        <item>     -Moving - All hits - 12, 12</item>
+
+        <item>Normal Aerial Attack - 25, 15</item>
+        <item>Double Hit Aerial Attack - 45, 25</item>
+
+        <item>Jump Attack - 15, 10</item>
+        <item>     -Lv. 1 Charge - 40, 10</item>
+
+        <item>     -Lv. 2 Charge - 40, 10</item>
+        <item>     -Lv. 3 Charge - 40, 10</item>
+    </string-array>
+
+    <integer-array name="Hammer_Adept_MV">
+        <item>20</item>
+        <item>42</item>
+
+        <item>20</item>
+        <item>90</item>
+
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>91</item>
+
+        <item>60</item>
+        <item>60</item>
+
+        <item>90</item>
+        <item>60</item>
+
+        <item>50</item>
+        <item>75</item>
+
+        <item>60</item>
+        <item>80</item>
+
+        <item>110</item>
+
+        <item>100</item>
+        <item>90</item>
+
+        <item>42</item>
+        <item>65</item>
+
+        <item>70</item>
+        <item>80</item>
+    </integer-array>
+    <string-array name="Hammer_Adept_Names">
+        <item>Draw Attack - 15, 10</item>
+        <item>Idle Pound - 15, 15</item>
+
+        <item>Second Pound - 15, 15</item>
+        <item>Finisher Pound - 50, 50</item>
+
+        <item>Side Smack - 22, 5</item>
+        <item>Lv. 1 Charge - 15, 15</item>
+
+        <item>Lv. 2 Charge - 40, 10</item>
+        <item>Lv. 3 Charge (Both hits) - 32, 45</item>
+
+        <item>     -Moving (All hits) - 12, 12</item>
+        <item>     -Finisher (Early) - 40, 10</item>
+
+        <item>     -Finisher - 50, 10</item>
+        <item>     -Finisher (Late) - 40, 10</item>
+
+        <item>Adept Lv. 1 Charge - 45, 10</item>
+        <item>     -Jump - 45, 10</item>
+
+        <item>Adept Lv. 2 Charge - 55, 10</item>
+        <item>     -Jump - 45, 10</item>
+
+        <item>Adept Lv. 3 Charge - 55, 10</item>
+
+        <item>     -Moving (All hits) - 37, 55</item>
+        <item>     -Jump - 45, 10</item>
+
+        <item>Jump Attack - 15, 10</item>
+        <item>     -Lv. 1 Charge - 40, 10</item>
+
+        <item>     -Lv. 2 Charge - 40, 10</item>
+        <item>     -Lv. 3 Charge - 40, 10</item>
+    </string-array>
+
+    <integer-array name="Hammer_Valor_MV">
+        <item>20</item>
+        <item>42</item>
+        <item>20</item>
+
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+
+        <item>15</item>
+        <item>70</item>
+        <item>24</item>
+
+        <item>40</item>
+        <item>45</item>
+        <item>60</item>
+
+        <item>100</item>
+        <item>125</item>
+
+        <item>42</item>
+        <item>65</item>
+        <item>70</item>
+    </integer-array>
+    <string-array name="Hammer_Valor_Names">
+        <item>Draw Attack - 15, 10</item>
+        <item>Idle Pound - 15, 15</item>
+        <item>Second Pound - 15, 15</item>
+
+        <item>Side Smack - 22, 5</item>
+        <item>Lv. 1 Charge - 15, 15</item>
+        <item>Lv. 2 Charge - 40, 10</item>
+
+        <item>Valor Stance - Side Smack - 22, 5</item>
+        <item>Valor Stance - Finisher Swing - 40, 10</item>
+        <item>Charge Lv. 1 (Valor State) - 15, 15</item>
+
+        <item>   -Full Charge - 40, 10</item>
+        <item>Charge Lv. 2 (Valor State) - 35, 10</item>
+        <item>   -Full Charge - 45, 15</item>
+
+        <item>Charge Lv. 3 (2 hits) (Valor State) - 60, 30</item>
+        <item>   -Full Charge (2 hits) - 70, 35</item>
+
+        <item>Jump Attack - 15, 10</item>
+        <item>     -Lv. 1 Charge - 40, 10</item>
+        <item>     -Lv. 2 Charge - 40, 10</item>
+    </string-array>
+
+    <integer-array name="Hammer_Alchemy_MV">
+        <item>20</item>
+        <item>42</item>
+
+        <item>20</item>
+        <item>90</item>
+
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>91</item>
+
+        <item>42</item>
+        <item>65</item>
+
+        <item>70</item>
+        <item>80</item>
+    </integer-array>
+    <string-array name="Hammer_Alchemy_Names">
+        <item>Draw Attack - 15, 10</item>
+        <item>Idle Pound - 15, 15</item>
+
+        <item>Second Pound - 15, 15</item>
+        <item>Finisher Swing - 50, 50</item>
+
+        <item>Side Smack - 22, 5</item>
+        <item>Lv. 1 Charge - 15, 15</item>
+
+        <item>Lv. 2 Charge - 40, 10</item>
+        <item>Lv. 3 Charge (Both hits) - 32, 45</item>
+
+        <item>Jump Attack - 15, 10</item>
+        <item>     -Lv. 1 Charge - 40, 10</item>
+
+        <item>     -Lv. 2 Charge - 40, 10</item>
+        <item>     -Lv. 3 Charge - 40, 10</item>
+    </string-array>
+
     <string-array name="Hammer_HA_Names">
         <item>-None-</item>
         <item>Spinning Meteor</item>
         <item>Provoke</item>
         <item>Typhoon Trigger</item>
     </string-array>
+
+    <string-array name="Hammer_HA_SpinningMeteor_Names">
+        <item>Level I - 60, 45</item>
+        <item>Level II - 70, 50</item>
+        <item>Level III - 85, 110</item>
+    </string-array>
+    <integer-array name="Hammer_HA_SpinningMeteor_MV">
+        <item>165</item>
+        <item>190</item>
+        <item>260</item>
+    </integer-array>
+    <integer-array name="Hammer_HA_SpinningMeteor_ElmCheck">
+        <item>3</item>
+        <item>5</item>
+        <item>6</item>
+    </integer-array>
+
+    <string-array name="Hammer_HA_TyphoonTrigger_Names">
+        <item>Level I - Red Glow - 102, 44</item>
+        <item>Level II - Yellow Glow - 142, 49</item>
+        <item>Level III - Orange Glow - 162, 54</item>
+    </string-array>
+    <integer-array name="Hammer_HA_TyphoonTrigger_MV">
+        <item>45</item>
+        <item>45</item>
+        <item>45</item>
+    </integer-array>
+    <integer-array name="Hammer_HA_TyphoonTrigger_ElmCheck">
+        <item>9</item>
+        <item>9</item>
+        <item>9</item>
+    </integer-array>
+
+    <integer-array name="Hammer_HA_Provoke_MV">
+        <item>165</item>
+        <item>190</item>
+        <item>260</item>
+    </integer-array>
+
+
+
+    <integer-array name="HH_Guild_MV">
+        <item>33</item>
+        <item>30</item>
+        <item>27</item>
+
+        <item>30</item>
+        <item>30</item>
+        <item>27</item>
+
+        <item>45</item>
+        <item>60</item>
+        <item>10</item>
+        <item>35</item>
+
+        <item>20</item>
+        <item>30</item>
+        <item>30</item>
+
+        <item>68</item>
+        <item>68</item>
+
+        <item>70</item>
+        <item>102</item>
+
+        <item>36</item>
+    </integer-array>
+    <string-array name="HH_Guild_Names">
+        <item>Draw Attack - 20, 20</item>
+        <item>Forward Slam - 20, 15</item>
+        <item>   -After an Attack - 20, 15</item>
+
+        <item>Left Swing - 20, 15</item>
+        <item>Right Swing - 20, 15</item>
+        <item>Double Swing (2 hits) - 14, 14</item>
+
+        <item>Backward Slam - 25, 20</item>
+        <item>Super Slam (2 hits) - 20, 55</item>
+        <item>Handle Hit</item>
+        <item>Idle Recital - 22, 22</item>
+
+        <item>Forward Recital - 15, 22</item>
+        <item>Backward Recital - 22, 25</item>
+        <item>Forward Encore - 22, 25</item>
+
+        <item>Left Encore (2 hits) - 44, 49</item>
+        <item>Right Encore (2 hits) - 44, 49</item>
+
+        <item>2-Note Backward Encore (2 hits) - 50, 44</item>
+        <item>3-Note Backward Encore (3 hits) - 69, 71</item>
+
+        <item>Jump Attack - 20, 20</item>
+    </string-array>
+
+    <integer-array name="HH_Striker_MV">
+        <item>33</item>
+        <item>30</item>
+        <item>30</item>
+
+        <item>60</item>
+        <item>10</item>
+        <item>35</item>
+        <item>20</item>
+
+        <item>30</item>
+        <item>30</item>
+        <item>68</item>
+
+        <item>68</item>
+        <item>70</item>
+
+        <item>102</item>
+        <item>36</item>
+    </integer-array>
+    <string-array name="HH_Striker_Names">
+        <item>Draw Attack - 20, 20</item>
+        <item>Left Swing - 20, 15</item>
+        <item>Right Swing - 20, 15</item>
+
+        <item>Super Slam (2 hits) - 20, 55</item>
+        <item>Handle Hit</item>
+        <item>Idle Recital - 22, 22</item>
+        <item>Forward Recital - 15, 22</item>
+
+        <item>Backward Recital - 22, 25</item>
+        <item>Forward Encore - 22, 25</item>
+        <item>Left Encore (2 hits) - 44, 49</item>
+
+        <item>Right Encore (2 hits) - 44, 49</item>
+        <item>2-Note Backward Encore (2 hits) - 50, 44</item>
+
+        <item>3-Note Backward Encore (3 hits) - 69, 71</item>
+        <item>Jump Attack - 20, 20</item>
+    </string-array>
+
+    <integer-array name="HH_Aerial_MV">
+        <item>33</item>
+        <item>30</item>
+        <item>27</item>
+
+        <item>30</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+
+        <item>10</item>
+        <item>35</item>
+        <item>20</item>
+        <item>30</item>
+
+        <item>30</item>
+        <item>68</item>
+        <item>68</item>
+
+        <item>70</item>
+        <item>102</item>
+
+        <item>24</item>
+    </integer-array>
+    <string-array name="HH_Aerial_Names">
+        <item>Draw Attack - 20, 20</item>
+        <item>Forward Slam - 20, 15</item>
+        <item>   -After an Attack - 20, 15</item>
+
+        <item>Left Swing - 20, 15</item>
+        <item>Right Swing - 20, 15</item>
+        <item>Backward Slam - 25, 20</item>
+        <item>Super Slam (2 hits) - 20, 55</item>
+
+        <item>Handle Hit</item>
+        <item>Idle Recital - 22, 22</item>
+        <item>Forward Recital - 15, 22</item>
+        <item>Backward Recital - 22, 25</item>
+
+        <item>Forward Encore - 22, 25</item>
+        <item>Left Encore (2 hits) - 22, 22</item>
+        <item>Right Encore (2 hits) - 22, 22</item>
+
+        <item>2-Note Backward Encore (2 hits) - 50, 44</item>
+        <item>3-Note Backward Encore (3 hits) - 69, 71</item>
+
+        <item>Aerial Attack (2 hits) - 20, 20</item>
+    </string-array>
+
+    <integer-array name="HH_Adept_MV">
+        <item>33</item>
+        <item>30</item>
+        <item>27</item>
+
+        <item>30</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+
+        <item>10</item>
+        <item>35</item>
+        <item>20</item>
+        <item>30</item>
+
+        <item>30</item>
+        <item>68</item>
+        <item>68</item>
+
+        <item>70</item>
+        <item>102</item>
+
+        <item>15</item>
+        <item>20</item>
+        <item>20</item>
+        <item>36</item>
+    </integer-array>
+    <string-array name="HH_Adept_Names">
+        <item>Draw Attack - 20, 20</item>
+        <item>Forward Slam - 20, 15</item>
+        <item>   -After an Attack - 20, 15</item>
+
+        <item>Left Swing - 20, 15</item>
+        <item>Right Swing - 20, 15</item>
+        <item>Backward Slam - 25, 20</item>
+        <item>Super Slam (2 hits) - 20, 55</item>
+
+        <item>Handle Hit</item>
+        <item>Idle Recital - 22, 22</item>
+        <item>Forward Recital - 15, 22</item>
+        <item>Backward Recital - 22, 25</item>
+
+        <item>Forward Encore - 22, 25</item>
+        <item>Left Encore (2 hits) - 44, 49</item>
+        <item>Right Encore (2 hits) - 44, 49</item>
+
+        <item>2-Note Backward Encore (2 hits) - 50, 44</item>
+        <item>3-Note Backward Encore (3 hits) - 69, 71</item>
+
+        <item>Adept Evade Attack</item>
+        <item>     -Follow Up</item>
+        <item>     -Follow Up Finisher</item>
+        <item>Jump Attack - 20, 20</item>
+    </string-array>
+
+    <integer-array name="HH_Valor_MV">
+        <item>33</item>
+        <item>30</item>
+        <item>27</item>
+
+        <item>30</item>
+        <item>30</item>
+        <item>27</item>
+
+        <item>45</item>
+        <item>60</item>
+        <item>10</item>
+        <item>35</item>
+
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+
+        <item>30</item>
+        <item>68</item>
+        <item>68</item>
+
+        <item>70</item>
+        <item>102</item>
+
+        <item>60</item>
+        <item>36</item>
+    </integer-array>
+    <string-array name="HH_Valor_Names">
+        <item>Draw Attack - 20, 20</item>
+        <item>Forward Slam - 20, 15</item>
+        <item>   -After an Attack - 20, 15</item>
+
+        <item>Left Swing - 20, 15</item>
+        <item>Right Swing - 20, 15</item>
+        <item>Valor Stance - Double Swing\n(2 hits) - 14, 14</item>
+
+        <item>Backward Slam - 25, 20</item>
+        <item>Super Slam (2 hits) - 20, 55</item>
+        <item>Handle Hit</item>
+        <item>Idle Recital - 22, 22</item>
+
+        <item>Forward Recital - 15, 22</item>
+        <item>Backward Recital - 22, 25</item>
+        <item>Valor Step Recital (2 hits) - 30, 30</item>
+
+        <item>Forward Encore - 22, 25</item>
+        <item>Left Encore (2 hits) - 44, 49</item>
+        <item>Right Encore (2 hits) - 44, 49</item>
+
+        <item>2-Note Backward Encore (2 hits) - 50, 44</item>
+        <item>3-Note Backward Encore (3 hits) - 69, 71</item>
+
+        <item>Valor Step Encore (2 hits) - 40, 40</item>
+        <item>Jump Attack - 20, 20</item>
+    </string-array>
+
+    <integer-array name="HH_Alchemy_MV">
+        <item>33</item>
+        <item>30</item>
+        <item>27</item>
+
+        <item>30</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+
+        <item>10</item>
+        <item>35</item>
+        <item>20</item>
+        <item>30</item>
+
+        <item>30</item>
+        <item>68</item>
+        <item>68</item>
+
+        <item>70</item>
+        <item>102</item>
+
+        <item>36</item>
+    </integer-array>
+    <string-array name="HH_Alchemy_Names">
+        <item>Draw Attack - 20, 20</item>
+        <item>Forward Slam - 20, 15</item>
+        <item>   -After an Attack - 20, 15</item>
+
+        <item>Left Swing - 20, 15</item>
+        <item>Right Swing - 20, 15</item>
+        <item>Valor Stance - Double Swing\n(2 hits) - 14, 14</item>
+
+        <item>Backward Slam - 25, 20</item>
+        <item>Super Slam (2 hits) - 20, 55</item>
+        <item>Handle Hit</item>
+        <item>Idle Recital - 22, 22</item>
+
+        <item>Forward Recital - 15, 22</item>
+        <item>Backward Recital - 22, 25</item>
+        <item>Valor Step Recital (2 hits) - 30, 30</item>
+
+        <item>Forward Encore - 22, 25</item>
+        <item>Left Encore (2 hits) - 44, 49</item>
+        <item>Right Encore (2 hits) - 44, 49</item>
+
+        <item>2-Note Backward Encore (2 hits) - 50, 44</item>
+        <item>3-Note Backward Encore (3 hits) - 69, 71</item>
+
+        <item>Valor Step Encore (2 hits) - 40, 40</item>
+        <item>Jump Attack - 20, 20</item>
+    </string-array>
+
     <string-array name="HH_HA_Names">
         <item>-None-</item>
         <item>Sonic Smash</item>
     </string-array>
+
+    <string-array name="HH_HA_SonicSmash_Names">
+        <item>Level I</item>
+        <item>     -Fixed Damage</item>
+        <item>Level II</item>
+        <item>     -Fixed Damage</item>
+        <item>Level III</item>
+        <item>     -Fixed Damage</item>
+    </string-array>
+    <integer-array name="HH_HA_SonicSmash_MV">
+        <item>10</item>
+        <item>8000</item>
+        <item>10</item>
+        <item>15000</item>
+        <item>20</item>
+        <item>15000</item>
+    </integer-array>
+    <integer-array name="HH_HA_SonicSmash_ElmCheck">
+        <item>2</item>
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+        <item>4</item>
+        <item>1</item>
+    </integer-array>
+
+
+
+    <integer-array name="Lance_Guild_MV">
+        <item>27</item>
+        <item>20</item>
+        <item>22</item>
+
+        <item>45</item>
+        <item>20</item>
+        <item>20</item>
+
+        <item>20</item>
+        <item>22</item>
+        <item>60</item>
+
+        <item>66</item>
+        <item>50</item>
+        <item>150</item>
+
+        <item>14</item>
+        <item>16</item>
+        <item>50</item>
+
+        <item>50</item>
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="Lance_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrusts</item>
+        <item>Upward Thrusts</item>
+
+        <item>Strong Thrust (3 hits)</item>
+        <item>Swipe</item>
+        <item>Thrust from Shield</item>
+
+        <item>Counter (Forward)</item>
+        <item>Counter (Upward)</item>
+        <item>Counter (Counter Hit - Forward)</item>
+
+        <item>Counter (Counter Hit - Upward)</item>
+        <item>      - Full Charge</item>
+        <item>      - Full Charge (Counter Hit)</item>
+
+        <item>Shield Smack - 27 KO</item>
+        <item>Running Charge (Per hit)</item>
+        <item>     -Finisher</item>
+
+        <item>     -Jumping Finisher</item>
+        <item>     -Turn Around Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="Lance_Striker_MV">
+        <item>27</item>
+        <item>20</item>
+        <item>22</item>
+
+        <item>25</item>
+        <item>27</item>
+        <item>20</item>
+
+        <item>20</item>
+        <item>22</item>
+        <item>60</item>
+
+        <item>66</item>
+        <item>50</item>
+        <item>150</item>
+
+        <item>14</item>
+        <item>16</item>
+        <item>70</item>
+
+        <item>30</item>
+    </integer-array>
+    <string-array name="Lance_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrusts</item>
+        <item>Upward Thrusts</item>
+
+        <item>Finisher Thrust (Forward)</item>
+        <item>Finisher Thrust (Upward)</item>
+        <item>Thrust from Shield</item>
+
+        <item>Counter (Forward)</item>
+        <item>Counter (Upward)</item>
+        <item>Counter (Counter Hit - Forward)</item>
+
+        <item>Counter (Counter Hit - Upward)</item>
+        <item>      - Full Charge</item>
+        <item>      - Full Charge (Counter Hit)</item>
+
+        <item>Shield Smack - 27 KO</item>
+        <item>Running Charge (Per hit)</item>
+        <item>     -Finisher</item>
+
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="Lance_Aerial_MV">
+        <item>27</item>
+        <item>20</item>
+        <item>22</item>
+
+        <item>45</item>
+        <item>20</item>
+        <item>20</item>
+
+        <item>20</item>
+        <item>22</item>
+        <item>60</item>
+
+        <item>66</item>
+        <item>50</item>
+        <item>150</item>
+
+        <item>14</item>
+        <item>16</item>
+        <item>50</item>
+
+        <item>50</item>
+        <item>50</item>
+        <item>30</item>
+
+        <item>46</item>
+    </integer-array>
+    <string-array name="Lance_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrusts</item>
+        <item>Upward Thrusts</item>
+
+        <item>Finisher Thrust (Forward)</item>
+        <item>Finisher Thrust (Upward)</item>
+        <item>Thrust from Shield</item>
+
+        <item>Counter (Forward)</item>
+        <item>Counter (Upward)</item>
+        <item>Counter (Counter Hit - Forward)</item>
+
+        <item>Counter (Counter Hit - Upward)</item>
+        <item>      - Full Charge</item>
+        <item>      - Full Charge (Counter Hit)</item>
+
+        <item>Shield Smack - 27 KO</item>
+        <item>Running Charge (Per hit)</item>
+        <item>     -Finisher</item>
+
+        <item>     -Jumping Finisher</item>
+        <item>     -Turn Around Finisher</item>
+        <item>Jump Attack</item>
+
+        <item>Aerial Attack after Vault (3 hits)</item>
+    </string-array>
+
+    <integer-array name="Lance_Adept_MV">
+        <item>27</item>
+        <item>20</item>
+        <item>22</item>
+
+        <item>45</item>
+        <item>20</item>
+        <item>20</item>
+
+        <item>14</item>
+        <item>16</item>
+        <item>50</item>
+
+        <item>50</item>
+        <item>50</item>
+        <item>30</item>
+
+        <item>45</item>
+    </integer-array>
+    <string-array name="Lance_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrusts</item>
+        <item>Upward Thrusts</item>
+
+        <item>Strong Thrust (3 hits)</item>
+        <item>Swipe</item>
+        <item>Thrust from Shield</item>
+
+        <item>Shield Smack - 27 KO</item>
+        <item>Running Charge (Per hit)</item>
+        <item>     -Finisher</item>
+
+        <item>     -Jumping Finisher</item>
+        <item>     -Turn Around Finisher</item>
+        <item>Jump Attack</item>
+
+        <item>Adept Counter (2 hits)</item>
+    </string-array>
+
+    <integer-array name="Lance_Valor_MV">
+        <item>27</item>
+        <item>20</item>
+        <item>22</item>
+        <item>45</item>
+
+        <item>20</item>
+        <item>20</item>
+        <item>50</item>
+
+        <item>20</item>
+        <item>22</item>
+        <item>60</item>
+
+        <item>66</item>
+        <item>50</item>
+        <item>150</item>
+
+        <item>20</item>
+        <item>16</item>
+        <item>50</item>
+
+        <item>50</item>
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="Lance_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrusts</item>
+        <item>Upward Thrusts</item>
+        <item>Strong Thrust (3 hits)</item>
+
+        <item>Swipe (Valor State)</item>
+        <item>Thrust from Shield</item>
+        <item>Valor Stance - Double Swipes (2 hits)</item>
+
+        <item>Counter (Forward) (Valor State)</item>
+        <item>Counter (Upward) (Valor State)</item>
+        <item>Counter (Counter Hit - Forward)</item>
+
+        <item>     -Turn Around Finisher</item>
+        <item>Jump Attack</item>
+        <item>Adept Counter (2 hits)</item>
+
+        <item>Counter (Counter Hit - Upward)</item>
+        <item>      - Full Charge</item>
+        <item>      - Full Charge (Counter Hit)</item>
+
+        <item>Shield Smack - 27 KO</item>
+        <item>Running Charge (Per hit) (Valor State)</item>
+        <item>     -Finisher</item>
+
+        <item>     -Jumping Finisher</item>
+        <item>     -Turn Around Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="Lance_Alchemy_MV">
+        <item>27</item>
+        <item>20</item>
+        <item>22</item>
+        <item>45</item>
+
+        <item>20</item>
+        <item>14</item>
+        <item>16</item>
+        <item>50</item>
+
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="Lance_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrusts</item>
+        <item>Upward Thrusts</item>
+        <item>Strong Thrust (3 hits)</item>
+
+        <item>Thrust from Shield</item>
+        <item>Shield Smack - 27 KO</item>
+        <item>Running Charge (Per hit)</item>
+        <item>     -Finisher</item>
+
+        <item>     -Jumping Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
     <string-array name="Lance_HA_Names">
         <item>-None-</item>
         <item>Shield Assault</item>
         <item>Corkscrew Jab</item>
     </string-array>
+
+    <string-array name="Lance_HA_ShieldAssault_Names">
+        <item>Start Up - 27, 27</item>
+        <item>Run  (Per Hit) - 2, 3</item>
+        <item>     -Natural Stop - 27, 27</item>
+        <item>     -Finisher</item>
+    </string-array>
+    <integer-array name="Lance_HA_ShieldAssault_MV">
+        <item>10</item>
+        <item>10</item>
+        <item>30</item>
+        <item>50</item>
+    </integer-array>
+
+    <integer-array name="Lance_HA_CorkscrewJab_MV">
+        <item>135</item>
+        <item>160</item>
+        <item>189</item>
+    </integer-array>
+    <integer-array name="Lance_HA_CorkscrewJab_MV_ElmCheck">
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+    </integer-array>
+
+
+
+    <integer-array name="GL_Guild_MV">
+        <item>21</item>
+        <item>21</item>
+        <item>21</item>
+        <item>36</item>
+        <item>25</item>
+
+        <item>16</item>
+        <item>28</item>
+        <item>39</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="GL_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Idle Thrust</item>
+        <item>Follow Up Thrust</item>
+        <item>Slam</item>
+        <item>Upward Strike</item>
+
+        <item>Upward Thrust</item>
+        <item>Run-In Thrust</item>
+        <item>Jump Attack Slam</item>
+        <item>Jump Attack Thrust</item>
+    </string-array>
+
+    <integer-array name="GL_Striker_MV">
+        <item>21</item>
+        <item>21</item>
+        <item>21</item>
+        <item>24</item>
+
+        <item>25</item>
+        <item>16</item>
+        <item>28</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="GL_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Idle Thrust</item>
+        <item>Follow Up Thrust</item>
+        <item>Ending Thrust</item>
+
+        <item>Upward Strike</item>
+        <item>Upward Thrust</item>
+        <item>Run-In Thrust</item>
+        <item>Jump Attack Thrust</item>
+    </string-array>
+
+    <integer-array name="GL_Aerial_MV">
+        <item>21</item>
+        <item>21</item>
+        <item>21</item>
+        <item>24</item>
+
+        <item>25</item>
+        <item>16</item>
+        <item>28</item>
+        <item>36</item>
+    </integer-array>
+    <string-array name="GL_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Idle Thrust</item>
+        <item>Follow Up Thrust</item>
+        <item>Ending Thrust</item>
+
+        <item>Upward Strike</item>
+        <item>Upward Thrust</item>
+        <item>Run-In Thrust</item>
+        <item>Vault Attack</item>
+    </string-array>
+
+    <integer-array name="GL_Adept_MV">
+        <item>21</item>
+        <item>21</item>
+        <item>21</item>
+        <item>36</item>
+        <item>25</item>
+
+        <item>16</item>
+        <item>28</item>
+        <item>40</item>
+        <item>50</item>
+        <item>39</item>
+
+        <item>22</item>
+    </integer-array>
+    <string-array name="GL_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Idle Thrust</item>
+        <item>Follow Up Thrust</item>
+        <item>Slam</item>
+        <item>Upward Strike</item>
+
+        <item>Upward Thrust</item>
+        <item>Run-In Thrust</item>
+        <item>Adept Guard - Thrust</item>
+        <item>Adept Guard - Slam</item>
+        <item>Jump Attack Slam</item>
+
+        <item>Jump Attack Thrust</item>
+    </string-array>
+
+    <integer-array name="GL_Valor_MV">
+        <item>21</item>
+        <item>21</item>
+        <item>21</item>
+        <item>36</item>
+        <item>25</item>
+
+        <item>16</item>
+        <item>28</item>
+        <item>36</item>
+        <item>40</item>
+
+        <item>39</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="GL_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Idle Thrust</item>
+        <item>Follow Up Thrust</item>
+        <item>Slam</item>
+        <item>Upward Strike</item>
+
+        <item>Upward Thrust</item>
+        <item>Run-In Thrust</item>
+        <item>Valor Stance - Reload Upward Strike</item>
+        <item>   -Full Clip</item>
+
+        <item>Jump Attack Slam</item>
+        <item>Jump Attack Thrust</item>
+    </string-array>
+
+    <integer-array name="GL_Alchemy_MV">
+        <item>21</item>
+        <item>21</item>
+        <item>21</item>
+        <item>36</item>
+
+        <item>16</item>
+        <item>28</item>
+        <item>39</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="GL_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Idle Thrust</item>
+        <item>Follow Up Thrust</item>
+        <item>Slam</item>
+
+        <item>Upward Thrust</item>
+        <item>Run-In Thrust</item>
+        <item>Jump Attack Slam</item>
+        <item>Jump Attack Thrust</item>
+    </string-array>
+
     <string-array name="GL_HA_Names">
         <item>-None-</item>
         <item>Dragon Blast</item>
         <item>Blast Dash</item>
     </string-array>
+
+    <integer-array name="GL_HA_DragonBlast_MV">
+        <!--Dragon Blast I (830 [1196 SP]) = {48 x (1+(Raw x 0.007))} + 3 x {10 x (1+(Raw x 0.002))} true damage
+        Dragon Blast II (1000 [1400 SP]) = {49 x (1+(Raw x 0.007))} + 6 x {10 x (1+(Raw x 0.002))} true damage
+        Dragon Blast III (1250 [1700 SP]) = {49 x (1+(Raw x 0.007))} + 9 x {10 x (1+(Raw x 0.002))} true damage-->
+
+        <item>130</item>
+        <item>170</item>
+        <item>210</item>
+    </integer-array>
+
+    <integer-array name="GL_HA_BlastDash_MV">
+        <item>74</item>
+        <item>74</item>
+        <item>74</item>
+    </integer-array>
+
+    <string-array name="GL_Shelling_Names">
+        <item>Shells</item>
+        <item>     -Fire Damage</item>
+        <item>Charged Shot</item>
+        <item>     -Charged Fire Damage</item>
+        <item>Wyverns Fire (All hits)</item>
+        <item>Full Burst</item>
+    </string-array>
+    <integer-array name="GL_Shelling_Normal_MV">
+        <item>10</item><!--Fixed-->
+        <item>4</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>120</item><!--Fixed-->
+        <item>110</item><!--Multiplier-->
+
+        <item>14</item><!--Fixed-->
+        <item>5</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>140</item><!--Fixed-->
+        <item>110</item><!--Multiplier-->
+
+        <item>18</item><!--Fixed-->
+        <item>6</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>160</item><!--Fixed-->
+        <item>110</item><!--Multiplier-->
+
+        <item>21</item><!--Fixed-->
+        <item>7</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>180</item><!--Fixed-->
+        <item>110</item><!--Multiplier-->
+
+        <item>24</item><!--Fixed-->
+        <item>8</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>200</item><!--Fixed-->
+        <item>110</item><!--Multiplier-->
+    </integer-array>
+    <integer-array name="GL_Shelling_Long_MV">
+        <item>15</item><!--Fixed-->
+        <item>9</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>144</item><!--Fixed-->
+        <item>100</item><!--Multiplier-->
+
+        <item>21</item><!--Fixed-->
+        <item>11</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>168</item><!--Fixed-->
+        <item>100</item><!--Multiplier-->
+
+        <item>28</item><!--Fixed-->
+        <item>14</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>192</item><!--Fixed-->
+        <item>100</item><!--Multiplier-->
+
+        <item>32</item><!--Fixed-->
+        <item>16</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>216</item><!--Fixed-->
+        <item>100</item><!--Multiplier-->
+
+        <item>38</item><!--Fixed-->
+        <item>18</item><!---->
+        <item>120</item><!--Multiplier-->
+        <item>0</item>
+        <item>240</item><!--Fixed-->
+        <item>100</item><!--Multiplier-->
+    </integer-array>
+    <integer-array name="GL_Shelling_Wide_MV">
+        <item>20</item><!--Fixed-->
+        <item>6</item><!---->
+        <item>145</item><!--Multiplier-->
+        <item>0</item>
+        <item>120</item><!--Fixed-->
+        <item>85</item><!--Multiplier-->
+
+        <item>30</item><!--Fixed-->
+        <item>8</item><!---->
+        <item>145</item><!--Multiplier-->
+        <item>0</item>
+        <item>140</item><!--Fixed-->
+        <item>85</item><!--Multiplier-->
+
+        <item>40</item><!--Fixed-->
+        <item>10</item><!---->
+        <item>145</item><!--Multiplier-->
+        <item>0</item>
+        <item>160</item><!--Fixed-->
+        <item>85</item><!--Multiplier-->
+
+        <item>44</item><!--Fixed-->
+        <item>11</item><!---->
+        <item>145</item><!--Multiplier-->
+        <item>0</item>
+        <item>180</item><!--Fixed-->
+        <item>85</item><!--Multiplier-->
+
+        <item>48</item><!--Fixed-->
+        <item>12</item><!---->
+        <item>145</item><!--Multiplier-->
+        <item>0</item>
+        <item>200</item><!--Fixed-->
+        <item>85</item><!--Multiplier-->
+    </integer-array>
+
+    <string-array name="GL_Shelling_Valor_Mods_Names">
+        <item>First Shot</item>
+        <item>Second Shot</item>
+        <item>Third Shot</item>
+        <item>Fourth Shot</item>
+        <item>Fifth Shot</item>
+        <item>Sixth Shot</item>
+    </string-array>
+    <integer-array name="GL_Shelling_Valor_Mods_MV">
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+        <item>140</item>
+        <item>150</item>
+        <item>160</item>
+    </integer-array>
+
+
+
+    <integer-array name="SA_Axe_Guild_MV">
+        <item>23</item>
+        <item>19</item>
+        <item>48</item>
+        <item>23</item>
+
+        <item>32</item>
+        <item>24</item>
+        <item>95</item>
+
+        <item>70</item>
+        <item>44</item>
+        <item>40</item>
+    </integer-array>
+    <string-array name="SA_Axe_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrust</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+
+        <item>Upward Swing</item>
+        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Hack 'n' Slash Finisher (3 hits)</item>
+
+        <item>Tempest Axe Finisher (X) (2 hits)</item>
+        <item>Tempest Axe Start-Up Slashes (2 hits)</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="SA_Sword_Guild_MV">
+        <item>32</item>
+        <item>32</item>
+        <item>25</item>
+        <item>28</item>
+
+        <item>64</item>
+        <item>28</item>
+        <item>13</item>
+
+        <item>80</item>
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="SA_Sword_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Downward Slash</item>
+        <item>Upward Slash</item>
+        <item>Side Slash</item>
+
+        <item>Double Slash (2 hits)</item>
+        <item>Elemental Discharge (Thrust)</item>
+        <item>     -Bursts - per hit (7 max)</item>
+
+        <item>Elemental Discharge (Finisher)</item>
+        <item>     -Early Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="SA_Axe_Striker_MV">
+    <item>23</item>
+    <item>19</item>
+    <item>48</item>
+    <item>23</item>
+
+    <item>32</item>
+    <item>24</item>
+    <item>70</item>
+
+    <item>44</item>
+    <item>40</item>
+</integer-array>
+    <string-array name="SA_Axe_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrust</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+
+        <item>Upward Swing</item>
+        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Tempest Axe Finisher (X) (2 hits)</item>
+
+        <item>Tempest Axe Start-Up Slashes (2 hits)</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="SA_Sword_Striker_MV">
+        <item>32</item>
+        <item>32</item>
+        <item>25</item>
+        <item>28</item>
+
+        <item>28</item>
+        <item>13</item>
+        <item>80</item>
+
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="SA_Sword_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Downward Slash</item>
+        <item>Upward Slash</item>
+        <item>Side Slash</item>
+
+        <item>Elemental Discharge (Thrust)</item>
+        <item>     -Bursts - per hit (7 max)</item>
+        <item>Elemental Discharge (Finisher)</item>
+
+        <item>     -Early Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="SA_Axe_Aerial_MV">
+        <item>23</item>
+        <item>48</item>
+        <item>23</item>
+        <item>32</item>
+
+        <item>24</item>
+        <item>95</item>
+        <item>70</item>
+
+        <item>44</item>
+        <item>40</item>
+    </integer-array>
+    <string-array name="SA_Axe_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+        <item>Upward Swing</item>
+
+        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Hack 'n' Slash Finisher (3 hits)</item>
+        <item>Tempest Axe Finisher (X) (2 hits)</item>
+
+        <item>Tempest Axe Start-Up Slashes (2 hits)</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="SA_Sword_Aerial_MV">
+        <item>32</item>
+        <item>32</item>
+        <item>25</item>
+        <item>28</item>
+
+        <item>64</item>
+        <item>28</item>
+        <item>13</item>
+
+        <item>80</item>
+        <item>50</item>
+        <item>35</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="SA_Sword_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Downward Slash</item>
+        <item>Upward Slash</item>
+        <item>Side Slash</item>
+
+        <item>Double Slash (2 hits)</item>
+        <item>Elemental Discharge (Thrust)</item>
+        <item>     -Bursts - per hit (7 max)</item>
+
+        <item>Elemental Discharge (Finisher)</item>
+        <item>     -Early Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="SA_Axe_Adept_MV">
+        <item>23</item>
+        <item>19</item>
+        <item>48</item>
+        <item>23</item>
+        <item>32</item>
+
+        <item>24</item>
+        <item>70</item>
+        <item>44</item>
+
+        <item>95</item>
+        <item>40</item>
+    </integer-array>
+    <string-array name="SA_Axe_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrust</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+        <item>Upward Swing</item>
+
+        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Tempest Axe Finisher (X) (2 hits)</item>
+        <item>Tempest Axe Start-Up Slashes (2 hits)</item>
+
+        <item>Adept Evade Attack (3 hits)</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="SA_Sword_Adept_MV">
+        <item>32</item>
+        <item>32</item>
+        <item>28</item>
+        <item>64</item>
+
+        <item>28</item>
+        <item>13</item>
+        <item>80</item>
+
+        <item>50</item>
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="SA_Sword_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Downward Slash</item>
+        <item>Side Slash</item>
+        <item>Double Slash (2 hits)</item>
+
+        <item>Elemental Discharge (Thrust)</item>
+        <item>     -Bursts - per hit (7 max)</item>
+        <item>Elemental Discharge (Finisher)</item>
+
+        <item>     -Early Finisher</item>
+        <item>Adept Evade Attack (2 hits)</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="SA_Axe_Valor_MV">
+        <item>23</item>
+        <item>19</item>
+        <item>48</item>
+        <item>23</item>
+
+        <item>32</item>
+        <item>24</item>
+        <item>95</item>
+
+        <item>70</item>
+        <item>44</item>
+        <item>40</item>
+    </integer-array>
+    <string-array name="SA_Axe_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrust</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+
+        <item>Upward Swing</item>
+        <item>Hack 'n' Slash (Per hit)</item>
+        <item>   -Finisher (3 hits)\n(Valor State/Stance)</item>
+
+        <item>Tempest Axe Finisher (X) (2 hits)</item>
+        <item>Tempest Axe Start-Up Slashes (2 hits)</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="SA_Sword_Valor_MV">
+        <item>32</item>
+        <item>32</item>
+        <item>25</item>
+        <item>28</item>
+
+        <item>64</item>
+        <item>28</item>
+
+        <item>13</item>
+        <item>100</item>
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="SA_Sword_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Downward Slash</item>
+        <item>Upward Slash</item>
+        <item>Side Slash</item>
+
+        <item>Double Slash (2 hits) (Valor Stance/State)</item>
+        <item>Elemental Discharge (Thrust) (Valor State)</item>
+
+        <item>     -Bursts - per hit (7 max)</item>
+        <item>Elemental Discharge (Finisher)</item>
+        <item>     -Early Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="SA_Axe_Alchemy_MV">
+        <item>23</item>
+        <item>19</item>
+        <item>48</item>
+        <item>23</item>
+
+        <item>32</item>
+        <item>24</item>
+        <item>95</item>
+
+        <item>70</item>
+        <item>44</item>
+        <item>40</item>
+    </integer-array>
+    <string-array name="SA_Axe_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Forward Thrust</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+
+        <item>Upward Swing</item>
+        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Hack 'n' Slash Finisher (3 hits)</item>
+
+        <item>Tempest Axe Finisher (X) (2 hits)</item>
+        <item>Tempest Axe Start-Up Slashes (2 hits)</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="SA_Sword_Alchemy_MV">
+        <item>32</item>
+        <item>32</item>
+        <item>25</item>
+        <item>28</item>
+
+        <item>64</item>
+        <item>28</item>
+
+        <item>13</item>
+        <item>80</item>
+        <item>25</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="SA_Sword_Alcehmy_Names">
+        <item>Draw Attack</item>
+        <item>Downward Slash</item>
+        <item>Upward Slash</item>
+        <item>Side Slash</item>
+
+        <item>Double Slash (2 hits) (Valor Stance/State)</item>
+        <item>Elemental Discharge (Thrust) (Valor State)</item>
+        <item>     -Bursts - per hit (7 max)</item>
+
+        <item>Elemental Discharge (Finisher)</item>
+        <item>     -Early Finisher</item>
+        <item>Jump Attack</item>
+    </string-array>
+
     <string-array name="SA_HA_Names">
         <item>-None-</item>
         <item>Trance Slash</item>
         <item>Energy Charge (Side Slash)</item>
     </string-array>
+
+    <integer-array name="SA_HA_TranceSlash_MV">
+        <item>263</item>
+        <item>332</item>
+        <item>384</item>
+    </integer-array>
+    <integer-array name="SA_HA_TranceSlash_MV_ElmCheck">
+        <item>11</item>
+        <item>11</item>
+        <item>11</item>
+    </integer-array>
+    <integer-array name="SA_HA_TranceSlash_DR_MV">
+        <item>273</item>
+        <item>352</item>
+        <item>414</item>
+    </integer-array>
+    <integer-array name="SA_HA_TranceSlash_DR_MV_ElmCheck">
+        <item>12</item>
+        <item>12</item>
+        <item>12</item>
+    </integer-array>
+    <integer-array name="SA_HA_TranceSlash_TA_MV">
+        <item>295</item>
+        <item>358</item>
+        <item>401</item>
+    </integer-array>
+    <integer-array name="SA_HA_TranceSlash_TA_MV_ElmCheck">
+        <item>13</item>
+        <item>13</item>
+        <item>13</item>
+    </integer-array>
+    <integer-array name="SA_HA_TranceSlash_All_MV">
+        <item>305</item>
+        <item>378</item>
+        <item>431</item>
+    </integer-array>
+    <integer-array name="SA_HA_TranceSlash_All_MV_ElmCheck">
+        <item>14</item>
+        <item>14</item>
+        <item>14</item>
+    </integer-array>
+
+    <integer-array name="SA_HA_EnergyCharge_MV">
+        <item>25</item>
+        <item>25</item>
+        <item>25</item>
+    </integer-array>
+
+
+
+    <integer-array name="CB_Sword_Guild_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>15</item>
+        <item>30</item>
+
+        <item>50</item>
+        <item>16</item>
+        <item>20</item>
+
+        <item>42</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="CB_Sword_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Dash Attack</item>
+        <item>Idle Slash</item>
+        <item>Upward Slash</item>
+        <item>Round Slash</item>
+
+        <item>Charge Slash (2 hits)</item>
+        <item>Charge Slash (Over/Under charge)</item>
+        <item>Shield Thrust (2 hits)</item>
+
+        <item>Morph to Axe</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="CB_Axe_Guild_MV">
+        <item>42</item>
+        <item>42</item>
+        <item>33</item>
+        <item>40</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>65</item>
+
+        <item>75</item>
+        <item>105</item>
+
+        <item>30</item>
+        <item>42</item>
+    </integer-array>
+    <string-array name="CB_Axe_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Forward Slam</item>
+        <item>Upward Swing</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+
+        <item>Side Chop Burst</item>
+        <item>Double Swing Burst (2 hits)</item>
+
+        <item>Super Burst</item>
+        <item>Ultra Burst (2 hits)</item>
+        <item>Morph to Sword</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="CB_Sword_Striker_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>15</item>
+        <item>30</item>
+
+        <item>50</item>
+        <item>16</item>
+
+        <item>42</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="CB_Sword_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Dash Attack</item>
+        <item>Idle Slash</item>
+        <item>Upward Slash</item>
+        <item>Round Slash</item>
+
+        <item>Charge Slash (2 hits)</item>
+        <item>Charge Slash (Over/Under charge)</item>
+
+        <item>Morph to Axe</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="CB_Axe_Striker_MV">
+        <item>42</item>
+        <item>42</item>
+        <item>33</item>
+        <item>40</item>
+
+        <item>18</item>
+        <item>20</item>
+        <item>65</item>
+
+        <item>75</item>
+        <item>105</item>
+
+        <item>30</item>
+        <item>42</item>
+    </integer-array>
+    <string-array name="CB_Axe_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Forward Slam</item>
+        <item>Upward Swing</item>
+        <item>Downward Chop</item>
+
+        <item>Side Chop</item>
+        <item>Side Chop Burst</item>
+        <item>Double Swing Burst (2 hits)</item>
+
+        <item>Super Burst</item>
+        <item>Ultra Burst (2 hits)</item>
+        <item>Morph to Sword</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="CB_Sword_Aerial_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>15</item>
+        <item>30</item>
+
+        <item>16</item>
+        <item>20</item>
+        <item>42</item>
+        <item>35</item>
+    </integer-array>
+    <string-array name="CB_Sword_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Dash Attack</item>
+        <item>Idle Slash</item>
+        <item>Upward Slash</item>
+        <item>Round Slash</item>
+
+        <item>Charge Slash</item>
+        <item>Shield Thrust (2 hits)</item>
+        <item>Morph to Axe</item>
+        <item>Aerial Charge Slash</item>
+    </string-array>
+    <integer-array name="CB_Axe_Aerial_MV">
+        <item>42</item>
+        <item>42</item>
+        <item>33</item>
+        <item>40</item>
+
+        <item>18</item>
+        <item>20</item>
+        <item>65</item>
+
+        <item>75</item>
+        <item>90</item>
+        <item>105</item>
+        <item>100</item>
+
+        <item>30</item>
+        <item>42</item>
+    </integer-array>
+    <string-array name="CB_Axe_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Forward Slam</item>
+        <item>Upward Swing</item>
+        <item>Downward Chop</item>
+
+        <item>Side Chop</item>
+        <item>Side Chop Burst</item>
+        <item>Double Swing Burst (2 hits)</item>
+
+        <item>Super Burst</item>
+        <item>Aerial Super Burst</item>
+        <item>Ultra Burst (2 hits)</item>
+        <item>Aerial Ultra Burst</item>
+
+        <item>Morph to Sword</item>
+        <item>Aerial Attack</item>
+    </string-array>
+
+    <integer-array name="CB_Sword_Adept_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>15</item>
+        <item>30</item>
+
+        <item>50</item>
+        <item>16</item>
+        <item>20</item>
+
+        <item>42</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="CB_Sword_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Dash Attack</item>
+        <item>Idle Slash</item>
+        <item>Upward Slash</item>
+        <item>Round Slash</item>
+
+        <item>Charge Slash (2 hits)</item>
+        <item>Charge Slash (Over/Under charge)</item>
+        <item>Shield Thrust (2 hits)</item>
+
+        <item>Morph to Axe</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="CB_Axe_Adept_MV">
+        <item>42</item>
+        <item>42</item>
+        <item>33</item>
+        <item>40</item>
+
+        <item>18</item>
+        <item>20</item>
+        <item>65</item>
+
+        <item>75</item>
+        <item>105</item>
+        <item>30</item>
+        <item>42</item>
+    </integer-array>
+    <string-array name="CB_Axe_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Forward Slam</item>
+        <item>Upward Swing</item>
+        <item>Downward Chop</item>
+
+        <item>Side Chop</item>
+        <item>Side Chop Burst</item>
+        <item>Double Swing Burst (2 hits)</item>
+
+        <item>Super Burst</item>
+        <item>Ultra Burst (2 hits)</item>
+        <item>Morph to Sword</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="CB_Sword_Valor_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>15</item>
+        <item>30</item>
+
+        <item>16</item>
+        <item>50</item>
+        <item>20</item>
+        <item>42</item>
+
+        <item>22</item>
+    </integer-array>
+    <string-array name="CB_Sword_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Dash Attack</item>
+        <item>Idle Slash</item>
+        <item>Upward Slash</item>
+        <item>Round Slash</item>
+
+        <item>Charge Slash</item>
+        <item>   -Valor State/Stance (2 hits)</item>
+        <item>Shield Thrust (2 hits)</item>
+        <item>Morph to Axe</item>
+
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="CB_Axe_Valor_MV">
+        <item>42</item>
+        <item>42</item>
+        <item>33</item>
+        <item>40</item>
+
+        <item>18</item>
+        <item>20</item>
+        <item>65</item>
+        <item>65</item>
+
+        <item>70</item>
+        <item>115</item>
+        <item>85</item>
+
+        <item>30</item>
+        <item>42</item>
+    </integer-array>
+    <string-array name="CB_Axe_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Forward Slam</item>
+        <item>Upward Swing</item>
+        <item>Downward Chop</item>
+
+        <item>Side Chop</item>
+        <item>Side Chop Burst</item>
+        <item>Double Swing Burst (2 hits)</item>
+        <item>EX Double Swing Burst (2 hits) (Valor State)</item>
+
+        <item>Super Burst</item>
+        <item>Ultra Burst (2 hits) (Valor State)</item>
+        <item>Valor Stance - Ultra Burst (2 hits)</item>
+
+        <item>Morph to Sword</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="CB_Sword_Alchemy_MV">
+        <item>18</item>
+        <item>18</item>
+        <item>14</item>
+        <item>15</item>
+        <item>30</item>
+
+        <item>50</item>
+        <item>42</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="CB_Sword_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Dash Attack</item>
+        <item>Idle Slash</item>
+        <item>Upward Slash</item>
+        <item>Round Slash</item>
+
+        <item>Charge Slash (2 hits)</item>
+        <item>Morph to Axe</item>
+        <item>Jump Attack</item>
+    </string-array>
+    <integer-array name="CB_Axe_Alchemy_MV">
+        <item>42</item>
+        <item>42</item>
+        <item>33</item>
+        <item>40</item>
+        <item>18</item>
+
+        <item>20</item>
+        <item>65</item>
+
+        <item>75</item>
+        <item>30</item>
+        <item>42</item>
+    </integer-array>
+    <string-array name="CB_Axe_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Forward Slam</item>
+        <item>Upward Swing</item>
+        <item>Downward Chop</item>
+        <item>Side Chop</item>
+
+        <item>Side Chop Burst</item>
+        <item>Double Swing Burst (2 hits)</item>
+        <item>Super Burst</item>
+        <item>Morph to Sword</item>
+        <item>Jump Attack</item>
+    </string-array>
+
+    <integer-array name="CB_ImpactBurst_MV">
+    <item>5</item>
+    <item>30</item>
+    <item>5</item><!--Divide by 2-->
+    <item>5</item><!--Divide by 2-->
+    <item>5</item>
+    <item>10</item>
+</integer-array>
+    <integer-array name="CB_ElementBurst_MV">
+        <item>300</item>
+        <item>1350</item>
+        <item>150</item><!--Divide by 2-->
+        <item>150</item><!--Divide by 2-->
+        <item>300</item>
+        <item>450</item>
+    </integer-array>
+    <integer-array name="CB_ImpactBurst_NoCharge_MV">
+        <item>5</item>
+        <item>30</item>
+    </integer-array>
+    <integer-array name="CB_ElementBurst_NoCharge_MV">
+        <item>300</item>
+        <item>1350</item>
+    </integer-array>
+    <string-array name="CB_Burst_Names">
+        <item>(L)Normal Axe Bursts</item>
+        <item>Super Axe Bursts (All three)</item>
+        <item>(S)Rising Slash from Phial Charge</item>
+        <item>(S)Shield Thrust Bursts</item>
+        <item>(L)Guard Bursts</item>
+        <item>Ultra Axe Burst (All Phials)</item>
+    </string-array>
+
     <string-array name="CB_HA_Names">
         <item>-None-</item>
         <item>Energy Blade</item>
         <item>Ripper Shield</item>
     </string-array>
+
+    <integer-array name="CB_HA_EnergyBlade_MV">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+
+        <!--
+
+        if(EnergyBladePhials == 0){
+                        EnergyBlade[0] = 0.1f;
+                        EnergyBlade[1] = 0.2f;
+                        EnergyBlade[2] = 0.3f;
+                    }
+                    else if(EnergyBladePhials == 3){
+                        EnergyBlade[0] = 0.8f;
+                        EnergyBlade[1] = 1f;
+                        EnergyBlade[2] = 1.3f;
+                    }
+                    else if(EnergyBladePhials == 6){
+                        EnergyBlade[0] = 1.3f;
+                        EnergyBlade[1] = 1.5f;
+                        EnergyBlade[2] = 1.8f;
+                    }
+                    else if(EnergyBladePhials == 9){
+                        EnergyBlade[0] = 1.6f;
+                        EnergyBlade[1] = 1.8f;
+                        EnergyBlade[2] = 2f;
+                    }
+                    else if(EnergyBladePhials == 10){
+                        EnergyBlade[0] = 2f;
+                        EnergyBlade[1] = 2.2f;
+                        EnergyBlade[2] = 2.5f;
+                    }
+
+        -->
+    </integer-array>
+    <integer-array name="CB_HA_RipperShield_MV">
+        <item>80</item>
+        <item>100</item>
+        <item>120</item>
+    </integer-array>
+    <integer-array name="CB_HA_RipperShield_MV_ElmCheck">
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </integer-array>
+
+
+
+    <integer-array name="IG_NoExtract_Guild_MV">
+    <item>28</item>
+    <item>40</item>
+    <item>21</item>
+
+    <item>36</item>
+    <item>12</item>
+    <item>17</item>
+    <item>28</item>
+    <item>27</item>
+
+    <item>23</item>
+    <item>10</item>
+    <item>21</item>
+    <item>22</item>
+
+    <item>60</item>
+</integer-array>
+    <string-array name="IG_NoExtract_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (Both hits)</item>
+        <item>Downward Strike - Right</item>
+
+        <item>Reverse Smack (Both hits)</item>
+        <item>Forward Thrust</item>
+        <item>Back Flip</item>
+        <item>Forward Slam</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack</item>
+        <item>Kinsect Shot</item>
+
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+    <integer-array name="IG_Extract_Guild_MV">
+        <item>28</item>
+        <item>53</item>
+        <item>78</item>
+
+        <item>24</item>
+        <item>49</item>
+        <item>12</item>
+
+        <item>56</item>
+        <item>42</item>
+        <item>27</item>
+
+        <item>56</item>
+        <item>10</item>
+        <item>24</item>
+
+        <item>22</item>
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_Extract_Guild_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (All hits)</item>
+        <item>     -During Combo</item>
+
+        <item>Downward Strike - Right (Both hits)</item>
+        <item>Reverse Smack (All hits)</item>
+        <item>Forward Thrust</item>
+
+        <item>Back Flip (Both hits)</item>
+        <item>Forward Slam (Both hits)</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left (Both hits)</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack (Both hits)</item>
+
+        <item>Kinsect Shot</item>
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+
+    <integer-array name="IG_NoExtract_Striker_MV">
+        <item>28</item>
+        <item>40</item>
+        <item>21</item>
+
+        <item>36</item>
+        <item>12</item>
+        <item>17</item>
+        <item>27</item>
+        <item>10</item>
+
+        <item>21</item>
+        <item>22</item>
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_NoExtract_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (Both hits)</item>
+        <item>Downward Strike - Right</item>
+
+        <item>Reverse Smack (Both hits)</item>
+        <item>Forward Thrust</item>
+        <item>Back Flip</item>
+        <item>Forward Slam</item>
+        <item>Marking Strike</item>
+
+        <item>Pole Vault/Jump Attack</item>
+        <item>Kinsect Shot</item>
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+    <integer-array name="IG_Extract_Striker_MV">
+        <item>28</item>
+        <item>53</item>
+
+        <item>24</item>
+        <item>49</item>
+        <item>12</item>
+
+        <item>56</item>
+        <item>42</item>
+        <item>10</item>
+
+        <item>24</item>
+        <item>22</item>
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_Extract_Striker_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (All hits)</item>
+
+        <item>Downward Strike - Right (Both hits)</item>
+        <item>Reverse Smack (All hits)</item>
+        <item>Forward Thrust</item>
+
+        <item>Back Flip (Both hits)</item>
+        <item>Forward Slam (Both hits)</item>
+        <item>Marking Strike</item>
+
+        <item>Pole Vault/Jump Attack (Both hits)</item>
+        <item>Kinsect Shot</item>
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+
+    <integer-array name="IG_NoExtract_Aerial_MV">
+        <item>28</item>
+        <item>40</item>
+        <item>21</item>
+
+        <item>36</item>
+        <item>17</item>
+        <item>28</item>
+        <item>27</item>
+
+        <item>23</item>
+        <item>10</item>
+        <item>24</item>
+        <item>22</item>
+
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_NoExtract_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (Both hits)</item>
+        <item>Downward Strike - Right</item>
+
+        <item>Reverse Smack (Both hits)</item>
+        <item>Back Flip</item>
+        <item>Forward Slam</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack</item>
+        <item>Kinsect Shot</item>
+
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+    <integer-array name="IG_Extract_Aerial_MV">
+        <item>28</item>
+        <item>53</item>
+        <item>78</item>
+
+        <item>24</item>
+        <item>49</item>
+
+        <item>56</item>
+        <item>42</item>
+        <item>27</item>
+
+        <item>56</item>
+        <item>10</item>
+        <item>17</item>
+
+        <item>22</item>
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_Extract_Aerial_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (All hits)</item>
+        <item>     -During Combo</item>
+
+        <item>Downward Strike - Right (Both hits)</item>
+        <item>Reverse Smack (All hits)</item>
+
+        <item>Back Flip (Both hits)</item>
+        <item>Forward Slam (Both hits)</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left (Both hits)</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack (Both hits)</item>
+
+        <item>Kinsect Shot</item>
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+
+    <integer-array name="IG_NoExtract_Adept_MV">
+        <item>28</item>
+        <item>40</item>
+        <item>21</item>
+
+        <item>36</item>
+        <item>12</item>
+        <item>17</item>
+        <item>28</item>
+        <item>27</item>
+
+        <item>23</item>
+        <item>10</item>
+        <item>21</item>
+        <item>22</item>
+
+        <item>60</item>
+        <item>30</item>
+        <item>35</item>
+    </integer-array>
+    <string-array name="IG_NoExtract_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (Both hits)</item>
+        <item>Downward Strike - Right</item>
+
+        <item>Reverse Smack (Both hits)</item>
+        <item>Forward Thrust</item>
+        <item>Back Flip</item>
+        <item>Forward Slam</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack</item>
+        <item>Kinsect Shot</item>
+
+        <item>Kinsect Shot - Charge</item>
+        <item>Adept Evade Extract Attack</item>
+        <item>Adept Evade Lunge Attack</item>
+    </string-array>
+    <integer-array name="IG_Extract_Adept_MV">
+        <item>28</item>
+        <item>53</item>
+        <item>78</item>
+
+        <item>24</item>
+        <item>49</item>
+        <item>12</item>
+
+        <item>56</item>
+        <item>42</item>
+        <item>27</item>
+
+        <item>56</item>
+        <item>10</item>
+        <item>24</item>
+
+        <item>30</item>
+        <item>35</item>
+        <item>22</item>
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_Extract_Adept_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (All hits)</item>
+        <item>     -During Combo</item>
+
+        <item>Downward Strike - Right (Both hits)</item>
+        <item>Reverse Smack (All hits)</item>
+        <item>Forward Thrust</item>
+
+        <item>Back Flip (Both hits)</item>
+        <item>Forward Slam (Both hits)</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left (Both hits)</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack (Both hits)</item>
+
+        <item>Adept Evade Extract Attack</item>
+        <item>Adept Evade Lunge Attack</item>
+        <item>Kinsect Shot</item>
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+
+    <integer-array name="IG_NoExtract_Valor_MV">
+        <item>28</item>
+        <item>40</item>
+        <item>21</item>
+
+        <item>36</item>
+        <item>12</item>
+        <item>17</item>
+        <item>28</item>
+        <item>27</item>
+
+        <item>23</item>
+        <item>10</item>
+        <item>21</item>
+        <item>22</item>
+
+        <item>28</item>
+        <item>22</item>
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_NoExtract_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (Both hits)</item>
+        <item>Downward Strike - Right</item>
+
+        <item>Reverse Smack (Both hits)</item>
+        <item>Forward Thrust</item>
+        <item>Back Flip</item>
+        <item>Forward Slam</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack</item>
+        <item>Kinsect Auto Attack (Valor State)</item>
+
+        <item>Strong Kinsect Auto Attack (Valor State)</item>
+        <item>Kinsect Shot</item>
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+    <integer-array name="IG_Extract_Valor_MV">
+        <item>28</item>
+        <item>53</item>
+        <item>78</item>
+
+        <item>24</item>
+        <item>49</item>
+        <item>12</item>
+
+        <item>56</item>
+        <item>42</item>
+        <item>27</item>
+
+        <item>56</item>
+        <item>10</item>
+        <item>24</item>
+
+        <item>22</item>
+        <item>28</item>
+
+        <item>22</item>
+        <item>60</item>
+    </integer-array>
+    <string-array name="IG_Extract_Valor_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (All hits)</item>
+        <item>     -During Combo</item>
+
+        <item>Downward Strike - Right (Both hits)</item>
+        <item>Reverse Smack (All hits)</item>
+        <item>Forward Thrust</item>
+
+        <item>Back Flip (Both hits)</item>
+        <item>Forward Slam (Both hits)</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left (Both hits)</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack (Both hits)</item>
+
+        <item>Kinsect Auto Attack (Valor State)</item>
+        <item>Strong Kinsect Auto Attack (Valor State)</item>
+
+        <item>Kinsect Shot</item>
+        <item>Kinsect Shot - Charge</item>
+    </string-array>
+
+    <integer-array name="IG_NoExtract_Alchemy_MV">
+        <item>28</item>
+        <item>40</item>
+        <item>21</item>
+
+        <item>36</item>
+        <item>12</item>
+        <item>28</item>
+        <item>27</item>
+
+        <item>23</item>
+        <item>10</item>
+        <item>21</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="IG_NoExtract_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (Both hits)</item>
+        <item>Downward Strike - Right</item>
+
+        <item>Reverse Smack (Both hits)</item>
+        <item>Forward Thrust</item>
+        <item>Forward Slam</item>
+        <item>Forward Slam - Follow Up</item>
+
+        <item>Downward Strike - Left</item>
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack</item>
+        <item>Kinsect Shot</item>
+    </string-array>
+    <integer-array name="IG_Extract_Alchemy_MV">
+        <item>28</item>
+        <item>53</item>
+        <item>78</item>
+
+        <item>24</item>
+        <item>49</item>
+        <item>12</item>
+
+        <item>42</item>
+        <item>27</item>
+        <item>56</item>
+
+        <item>10</item>
+        <item>24</item>
+        <item>22</item>
+    </integer-array>
+    <string-array name="IG_Extract_Alchemy_Names">
+        <item>Draw Attack</item>
+        <item>Idle Attack (All hits)</item>
+        <item>     -During Combo</item>
+
+        <item>Downward Strike - Right (Both hits)</item>
+        <item>Reverse Smack (All hits)</item>
+        <item>Forward Thrust</item>
+
+        <item>Forward Slam (Both hits)</item>
+        <item>Forward Slam - Follow Up</item>
+        <item>Downward Strike - Left (Both hits)</item>
+
+        <item>Marking Strike</item>
+        <item>Pole Vault/Jump Attack (Both hits)</item>
+        <item>Kinsect Shot</item>
+    </string-array>
+
     <string-array name="IG_HA_Names">
         <item>-None-</item>
         <item>Extract Hunter</item>
         <item>Swarm</item>
         <item>Bug Blow</item>
     </string-array>
+
+    <integer-array name="IG_HA_ExtractHunter_MV">
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+    </integer-array>
+
+    <integer-array name="IG_HA_Swarm_MV">
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+    </integer-array>
+
+    <string-array name="IG_HA_BugBlow_Names">
+        <item>Level I</item>
+        <item>Level II</item>
+        <item>Level III</item>
+        <item>Swarm I Bonus Damage</item>
+        <item>Swarm II Bonus Damage</item>
+        <item>Swarm III Bonus Damage</item>
+    </string-array>
+    <integer-array name="IG_HA_BugBlow_MV">
+        <item>100</item>
+        <item>115</item>
+        <item>130</item>
+        <item>90</item>
+        <item>120</item>
+        <item>150</item>
+    </integer-array>
+    <integer-array name="IG_HA_BugBlow_MV_ElmCheck">
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
+
     <string-array name="LBG_HA_Names">
         <item>-None-</item>
         <item>Bullet Geyser</item>
@@ -1565,6 +4175,86 @@
         <item>Triple Volley</item>
         <item>Blade Wire</item>
     </string-array>
+
+
+
+    <integer-array name="Prowler_Normal_MV">
+        <item>14</item>
+        <item>14</item>
+        <item>10</item>
+        <item>14</item>
+
+        <item>16</item>
+        <item>18</item>
+        <item>12</item>
+        <item>8</item>
+
+        <item>9</item>
+        <item>34</item>
+        <item>20</item>
+        <item>24</item>
+        <item>8</item>
+
+        <item>30</item>
+    </integer-array>
+    <string-array name="Prowler_Normal_Names">
+        <item>Draw Attack</item>
+        <item>Forward Attack</item>
+        <item>Idle Attack</item>
+        <item>Left Slash</item>
+
+        <item>Downward Slash</item>
+        <item>Upward Slash</item>
+        <item>Spinning Finisher - Per hit</item>
+        <item>Boomerang</item>
+
+        <item>Charged Boomerang</item>
+        <item>Boomerang Finisher</item>
+        <item>Lung Attack</item>
+        <item>Jump Attack</item>
+        <item>Fury Attack (per hit)</item>
+
+        <item>Fury Attack Finisher</item>
+    </string-array>
+    <integer-array name="Prowler_Beast_MV">
+        <item>20</item>
+        <item>24</item>
+        <item>22</item>
+        <item>10</item>
+
+        <item>24</item>
+        <item>24</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>12</item>
+        <item>8</item>
+        <item>9</item>
+        <item>34</item>
+        <item>8</item>
+
+        <item>30</item>
+    </integer-array>
+    <string-array name="Prowler_Beast_Names">
+        <item>Forward Claws (2 hits)</item>
+        <item>Triple Hook</item>
+        <item>Backflip</item>
+        <item>Finisher (per hit)</item>
+
+        <item>Frontflip (per hit)</item>
+        <item>Forward Thrust</item>
+        <item>Super Finisher (per hit)</item>
+        <item>Ledge Attack (per hit)</item>
+
+        <item>   -Finisher</item>
+        <item>Boomerang</item>
+        <item>Charged Boomerang</item>
+        <item>Boomerang Finisher</item>
+        <item>Fury Attack (per hit)</item>
+
+        <item>Fury Attack Finisher</item>
+    </string-array>
+
     <string-array name="Prowler_HA_Names">
         <item>-None-</item>
         <item>Anti-Monster Mine</item>
@@ -1581,4 +4271,64 @@
         <item>Rath-of-Meow</item>
         <item>Shock Tripper</item>
     </string-array>
+
+    <string-array name="Prowler_HA_MV_Names">
+        <item>Attack Damage</item>
+        <item>Fixed Damage</item>
+    </string-array>
+    <integer-array name="Prowler_HA_AntiMonsterMine_MV">
+        <item>12</item>
+        <item>3000</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_AntiMonsterMine2_MV">
+        <item>24</item>
+        <item>6000</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_ClawDance_MV">
+        <item>156</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_ExplosiveRoll_MV">
+        <item>2</item>
+        <item>500</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_FelyneComet_MV">
+        <item>60</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_MiniBarrelBombay_MV">
+        <item>2</item>
+        <item>500</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_BarrelBombay_MV">
+        <item>6</item>
+        <item>1500</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_BounceBombay_MV">
+        <item>8</item>
+        <item>2000</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_BigBarrelBombay_MV">
+        <item>12</item>
+        <item>3000</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_MegaBarrelBombay_MV">
+        <item>24</item>
+        <item>6000</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_GigaBarrelBombay_MV">
+        <item>44</item>
+        <item>11000</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_RathofMeow_MV">
+        <item>2</item>
+        <item>1000</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_ShockTripper_MV">
+        <item>2</item>
+        <item>120</item>
+    </integer-array>
+    <integer-array name="Prowler_HA_BomerangType_MV">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
 </resources>

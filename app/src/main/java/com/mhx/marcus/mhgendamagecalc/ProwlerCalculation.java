@@ -130,7 +130,7 @@ public class ProwlerCalculation extends AppCompatActivity implements AdapterView
 
         SupportSkillsSelect = (Spinner) findViewById(R.id.SupportSkillsSelect);
 
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.Prowler,
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.Prowler_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         SupportSkillsSelect.setAdapter(adapter5);

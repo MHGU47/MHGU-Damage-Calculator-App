@@ -42,7 +42,7 @@ public class UI extends AppCompatActivity {
 
     //Skill and Hunter Art Selection variables - Start
     Switch SkillSwitch;
-    Boolean SkillCheck = false, SynergyCheck = false;
+    Boolean SkillCheck = false, SynergyCheck = false, isImpact = true;
     Spinner GroupC_1Select, GroupC_2Select, GroupDSelect, GroupFSelect, GroupGSelect, GroupHSelect,
             GroupISelect, GroupJSelect, GroupKSelect, GroupOSelect, GroupPSelect, GroupSSelect;
     CheckBox AffinityOilCheck, PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck,
@@ -62,6 +62,7 @@ public class UI extends AppCompatActivity {
             WolfsMawLevel1Check, WolfsMawLevel2Check, WolfsMawLevel3Check, WolfsMawOffCheck;
     Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
+    int SelectedPhialCharge, SelectedPhialNoCharge;
     //-End-
 
     @Override
@@ -227,6 +228,7 @@ public class UI extends AppCompatActivity {
         PowercharmCheck = findViewById(R.id.PowercharmCheckBox);
         PowertalonCheck = findViewById(R.id.PowertalonCheckBox);
 
+        //Prowler/Hunter specific skills set up
         if(!SelectedWpn.equals("Prowler")){
             /*Gives the variable for the spinner 'StyleSelect' the actual value for a spinner.*/
             StyleSelect = findViewById(R.id.StyleSelect);
@@ -502,6 +504,7 @@ public class UI extends AppCompatActivity {
             HunterArtSelect = findViewById(R.id.SupportSkillsSelect);
         }
 
+        //Sharpness/Element Spinner set up
         if(!SelectedWpn.equals("LBG") || !SelectedWpn.equals("HBG")){
             if(!SelectedWpn.equals("Bow")){
                 SharpnessSelect = findViewById(R.id.SharpnessSelect);
@@ -651,154 +654,177 @@ public class UI extends AppCompatActivity {
             }
         }
 
-        if(SelectedWpn.equals("CB") || SelectedWpn.equals("GL")){
-            if(SelectedWpn.equals("CB")){
-                PhialSelect = findViewById(R.id.CBPhialSelect);
-                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                PhialSelect.setAdapter(PhialAdapter);
-                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        switch(String.valueOf(PhialSelect.getSelectedItem())){
-                            case "Impact":
-                                SelectedPhial = ImpactBurstMotion;
-                                isImpact(true);
-                                break;
-                            default:
-                                SelectedPhial = ElmBurstMotion;
-                                isImpact(false);
-                                break;
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
-                ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
-                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        switch(Integer.parseInt(String.valueOf(NumberofPhialsSelect.getSelectedItem()))){
-                            case 0:
-                                break;
-                            case 1:
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            case 4:
-                                break;
-                            case 5:
-                                break;
-                            case 6:
-                                break;
-                            case 7:
-                                break;
-                            case 8:
-                                break;
-                            case 9:
-                                break;
-                            default:
-                                break;
-                        }
-
-                        TextView Phial = (TextView) view;
-                        final String PhialNumber = Phial.getText().toString();
-                        if (PhialNumber.equals("0")) {
-                            getNumberofPhials(0);
-                            getEnergyBladePhials(0);
-                        } else if (PhialNumber.equals("1")) {
-                            getNumberofPhials(1);
-                            getEnergyBladePhials(3);
-                        } else if (PhialNumber.equals("2")) {
-                            getNumberofPhials(2);
-                            getEnergyBladePhials(3);
-                        } else if (PhialNumber.equals("3")) {
-                            getNumberofPhials(2);
-                            getEnergyBladePhials(3);
-                        } else if (PhialNumber.equals("4")) {
-                            getNumberofPhials(3);
-                            getEnergyBladePhials(6);
-                        } else if (PhialNumber.equals("5")) {
-                            getNumberofPhials(3);
-                            getEnergyBladePhials(6);
-                        } else if (PhialNumber.equals("6")) {
-                            getNumberofPhials(4);
-                            getEnergyBladePhials(6);
-                        } else if (PhialNumber.equals("7")) {
-                            getNumberofPhials(4);
-                            getEnergyBladePhials(9);
-                        } else if (PhialNumber.equals("8")) {
-                            getNumberofPhials(5);
-                            getEnergyBladePhials(9);
-                        } else if (PhialNumber.equals("9")) {
-                            getNumberofPhials(5);
-                            getEnergyBladePhials(9);
-                        } else if (PhialNumber.equals("10")) {
-                            getNumberofPhials(6);
-                            getEnergyBladePhials(10);
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                ShieldChargeSelect = (Spinner) findViewById(R.id.ShieldChargeSelect);
-                ArrayAdapter ShieldChargeAdapter = ArrayAdapter.createFromResource(this,R.array.CBShieldCharge,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                ShieldChargeSelect.setAdapter(ShieldChargeAdapter);
-                ShieldChargeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        switch(String.valueOf(SharpnessSelect.getSelectedItem())){
-                            case "No Charge":
-                                Skills.setCBPhialModifier(false);
-                                getChargeModifier(1f);
-                                getRedCheck(false);
-                                getYellowCheck(false);
-                                break;
-                            case "Yellow Charge":
-                                Skills.setCBPhialModifier(true);
-                                getChargeModifier(1f);
-                                getRedCheck(false);
-                                getYellowCheck(true);
-                                break;
-                            case "Red Charge":
-                                Skills.setCBPhialModifier(true);
-                                getRedCheck(true);
-                                getYellowCheck(false);
-                                break;
-                            default:
-                                Skills.setCBPhialModifier(true);
-                                getRedCheck(true);
-                                getYellowCheck(false);
-                                break;
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-            }
+        //Set Artillery spinner and FelyneBombardier check box
+        if(SelectedWpn.equals("CB") || SelectedWpn.equals("GL")|| SelectedWpn.equals("LBG")
+                || SelectedWpn.equals("HBG")){
+//            if(SelectedWpn.equals("CB")){
+//                PhialSelect = findViewById(R.id.CBPhialSelect);
+//                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//
+//                PhialSelect.setAdapter(PhialAdapter);
+//                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                        SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
+//                                + String.valueOf(PhialSelect.getSelectedItem()) +
+//                                "Burst_NoCharge_MV", "integer", UI.this.getPackageName());
+//
+//                        SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
+//                                + String.valueOf(PhialSelect.getSelectedItem()) +
+//                                "Burst_Charge_MV", "integer", UI.this.getPackageName());
+//
+//                        isImpact = String.valueOf(PhialSelect.getSelectedItem()).equals("Impact");
+////                        switch(String.valueOf(PhialSelect.getSelectedItem())){
+////                            case "Impact":
+////
+////                                HA_ElementCheck = UI.this.getResources().getIntArray(HA_ElementCheck_Array);
+////
+////
+////                                /*SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
+////                                        + PhialSelect.getSelectedItem().toString() + "Burst_NoCharge_MV",
+////                                        "integer", UI.this.getPackageName());
+////
+////                                SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
+////                                                + PhialSelect.getSelectedItem().toString() + "Burst_Charge_MV",
+////                                        "integer", UI.this.getPackageName());*/
+////                                isImpact = true;
+////                                break;
+////                            default:
+////                                SelectedPhial = ElmBurstMotion;
+////                                isImpact = false;
+////                                break;
+////                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+//
+//                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
+//                ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//
+//                NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
+////                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+////                    @Override
+////                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+////
+////                        switch(Integer.parseInt(String.valueOf(NumberofPhialsSelect.getSelectedItem()))){
+////                            case 0:
+////                                break;
+////                            case 1:
+////                                break;
+////                            case 2:
+////                                break;
+////                            case 3:
+////                                break;
+////                            case 4:
+////                                break;
+////                            case 5:
+////                                break;
+////                            case 6:
+////                                break;
+////                            case 7:
+////                                break;
+////                            case 8:
+////                                break;
+////                            case 9:
+////                                break;
+////                            default:
+////                                break;
+////                        }
+////
+////                        TextView Phial = (TextView) view;
+////                        final String PhialNumber = Phial.getText().toString();
+////                        if (PhialNumber.equals("0")) {
+////                            getNumberofPhials(0);
+////                            getEnergyBladePhials(0);
+////                        } else if (PhialNumber.equals("1")) {
+////                            getNumberofPhials(1);
+////                            getEnergyBladePhials(3);
+////                        } else if (PhialNumber.equals("2")) {
+////                            getNumberofPhials(2);
+////                            getEnergyBladePhials(3);
+////                        } else if (PhialNumber.equals("3")) {
+////                            getNumberofPhials(2);
+////                            getEnergyBladePhials(3);
+////                        } else if (PhialNumber.equals("4")) {
+////                            getNumberofPhials(3);
+////                            getEnergyBladePhials(6);
+////                        } else if (PhialNumber.equals("5")) {
+////                            getNumberofPhials(3);
+////                            getEnergyBladePhials(6);
+////                        } else if (PhialNumber.equals("6")) {
+////                            getNumberofPhials(4);
+////                            getEnergyBladePhials(6);
+////                        } else if (PhialNumber.equals("7")) {
+////                            getNumberofPhials(4);
+////                            getEnergyBladePhials(9);
+////                        } else if (PhialNumber.equals("8")) {
+////                            getNumberofPhials(5);
+////                            getEnergyBladePhials(9);
+////                        } else if (PhialNumber.equals("9")) {
+////                            getNumberofPhials(5);
+////                            getEnergyBladePhials(9);
+////                        } else if (PhialNumber.equals("10")) {
+////                            getNumberofPhials(6);
+////                            getEnergyBladePhials(10);
+////                        }
+////                    }
+////
+////                    @Override
+////                    public void onNothingSelected(AdapterView<?> adapterView) {
+////
+////                    }
+////                });
+//
+//                ShieldChargeSelect = findViewById(R.id.ShieldChargeSelect);
+//                ArrayAdapter ShieldChargeAdapter = ArrayAdapter.createFromResource(this,R.array.CBShieldCharge,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//
+//                ShieldChargeSelect.setAdapter(ShieldChargeAdapter);
+//                ShieldChargeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                        Skills.setCBPhialModifier(!String.valueOf(ShieldChargeSelect.getSelectedItem())
+//                                .equals("No Charge"));
+////                        String Charge = String.valueOf(ShieldChargeSelect.getSelectedItem());
+////                        switch(Charge){
+////                            case "No Charge":
+////                                Skills.setCBPhialModifier(false);
+////                                /*getChargeModifier(1f);
+////                                getRedCheck(false);
+////                                getYellowCheck(false);*/
+////                                break;
+////                            case "Yellow Charge":
+////                                Skills.setCBPhialModifier(true);
+////                                /*getChargeModifier(1f);
+////                                getRedCheck(false);
+////                                getYellowCheck(true);*/
+////                                break;
+////                            case "Red Charge":
+////                                Skills.setCBPhialModifier(true);
+////                                /*getRedCheck(true);
+////                                getYellowCheck(false);*/
+////                                break;
+////                            default:
+////                                Skills.setCBPhialModifier(true);
+////                                /*getRedCheck(true);
+////                                getYellowCheck(false);*/
+////                                break;
+////                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+//            }
             FelyneBombardierCheck = findViewById(R.id.FelyneBombardierCheckBox);
 
             GroupSSelect = findViewById(R.id.GroupSSelect);
@@ -832,226 +858,66 @@ public class UI extends AppCompatActivity {
             });
         }
 
-        switch(SelectedWpn){
-            case "GS":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GS_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "LS":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LS_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "SNS":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SNS_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "DB":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "Hammer":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Hammer_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "HH":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HH_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "Lance":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Lance_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "GL":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "SA":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "CB":
-                PhialSelect = findViewById(R.id.CBPhialSelect);
-                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                PhialSelect.setAdapter(PhialAdapter);
-                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        switch(String.valueOf(PhialSelect.getSelectedItem())){
-                            case "Impact":
-                                SelectedPhial = ImpactBurstMotion;
-                                isImpact(true);
-                                break;
-                            default:
-                                SelectedPhial = ElmBurstMotion;
-                                isImpact(false);
-                                break;
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
-                ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
-                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        switch(Integer.parseInt(String.valueOf(NumberofPhialsSelect.getSelectedItem()))){
-                            case 0:
-                                break;
-                            case 1:
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            case 4:
-                                break;
-                            case 5:
-                                break;
-                            case 6:
-                                break;
-                            case 7:
-                                break;
-                            case 8:
-                                break;
-                            case 9:
-                                break;
-                            default:
-                                break;
-                        }
-
-                        TextView Phial = (TextView) view;
-                        final String PhialNumber = Phial.getText().toString();
-                        if (PhialNumber.equals("0")) {
-                            getNumberofPhials(0);
-                            getEnergyBladePhials(0);
-                        } else if (PhialNumber.equals("1")) {
-                            getNumberofPhials(1);
-                            getEnergyBladePhials(3);
-                        } else if (PhialNumber.equals("2")) {
-                            getNumberofPhials(2);
-                            getEnergyBladePhials(3);
-                        } else if (PhialNumber.equals("3")) {
-                            getNumberofPhials(2);
-                            getEnergyBladePhials(3);
-                        } else if (PhialNumber.equals("4")) {
-                            getNumberofPhials(3);
-                            getEnergyBladePhials(6);
-                        } else if (PhialNumber.equals("5")) {
-                            getNumberofPhials(3);
-                            getEnergyBladePhials(6);
-                        } else if (PhialNumber.equals("6")) {
-                            getNumberofPhials(4);
-                            getEnergyBladePhials(6);
-                        } else if (PhialNumber.equals("7")) {
-                            getNumberofPhials(4);
-                            getEnergyBladePhials(9);
-                        } else if (PhialNumber.equals("8")) {
-                            getNumberofPhials(5);
-                            getEnergyBladePhials(9);
-                        } else if (PhialNumber.equals("9")) {
-                            getNumberofPhials(5);
-                            getEnergyBladePhials(9);
-                        } else if (PhialNumber.equals("10")) {
-                            getNumberofPhials(6);
-                            getEnergyBladePhials(10);
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                ShieldChargeSelect = (Spinner) findViewById(R.id.ShieldChargeSelect);
-                ArrayAdapter ShieldChargeAdapter = ArrayAdapter.createFromResource(this,R.array.CBShieldCharge,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                ShieldChargeSelect.setAdapter(ShieldChargeAdapter);
-                ShieldChargeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        switch(String.valueOf(SharpnessSelect.getSelectedItem())){
-                            case "No Charge":
-                                Skills.setCBPhialModifier(false);
-                                getChargeModifier(1f);
-                                getRedCheck(false);
-                                getYellowCheck(false);
-                                break;
-                            case "Yellow Charge":
-                                Skills.setCBPhialModifier(true);
-                                getChargeModifier(1f);
-                                getRedCheck(false);
-                                getYellowCheck(true);
-                                break;
-                            case "Red Charge":
-                                Skills.setCBPhialModifier(true);
-                                getRedCheck(true);
-                                getYellowCheck(false);
-                                break;
-                            default:
-                                Skills.setCBPhialModifier(true);
-                                getRedCheck(true);
-                                getYellowCheck(false);
-                                break;
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-                break;
-            case "IG":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "LBG":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LBG_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "HBG":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HBG_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "Bow":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Bow_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            default:
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Prowler_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//        switch(SelectedWpn){
+//            case "GS":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GS_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "LS":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LS_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "SNS":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SNS_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "DB":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "Hammer":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Hammer_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "HH":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HH_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "Lance":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Lance_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "GL":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "SA":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "CB":
+//                break;
+//            case "IG":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "LBG":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LBG_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "HBG":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HBG_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            case "Bow":
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Bow_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//            default:
+//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Prowler_HA_Names,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//                break;
+//        }
 
         ArrayAdapter HunterArtsAdapter;
 
@@ -1080,10 +946,10 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "DB":
-                WolfsMawOffCheck = (RadioButton) findViewById(R.id.WolfsMawOffCheck);
-                WolfsMawLevel1Check = (RadioButton) findViewById(R.id.WolfsMawLevel1Check);
-                WolfsMawLevel2Check = (RadioButton) findViewById(R.id.WolfsMawLevel2Check);
-                WolfsMawLevel3Check = (RadioButton) findViewById(R.id.WolfsMawLevel3Check);
+                WolfsMawOffCheck = findViewById(R.id.WolfsMawOffCheck);
+                WolfsMawLevel1Check = findViewById(R.id.WolfsMawLevel1Check);
+                WolfsMawLevel2Check = findViewById(R.id.WolfsMawLevel2Check);
+                WolfsMawLevel3Check = findViewById(R.id.WolfsMawLevel3Check);
 
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
@@ -1101,6 +967,38 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "GL":
+                FelyneBombardierCheck = findViewById(R.id.FelyneBombardierCheckBox);
+
+//                GroupSSelect = findViewById(R.id.GroupSSelect);
+//
+//                ArrayAdapter GroupSAdapter = ArrayAdapter.createFromResource(this,R.array.GroupS,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//
+//                GroupSSelect.setAdapter(GroupSAdapter);
+//
+//                GroupSSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                        switch(String.valueOf(GroupSSelect.getSelectedItem())){
+//                            case "Artillery Novice":
+//                                Skills.setArtilleryModifier(1.3f);
+//                                break;
+//                            case "Artillery Expert":
+//                                Skills.setArtilleryModifier(1.35f);
+//                                break;
+//                            default:
+//                                Skills.setArtilleryModifier(1f);
+//                                break;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
@@ -1109,6 +1007,205 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "CB":
+                PhialSelect = findViewById(R.id.CBPhialSelect);
+                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                PhialSelect.setAdapter(PhialAdapter);
+                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
+                                        + String.valueOf(PhialSelect.getSelectedItem()) +
+                                        "Burst_NoCharge_MV", "integer", UI.this.getPackageName());
+
+                        SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
+                                        + String.valueOf(PhialSelect.getSelectedItem()) +
+                                        "Burst_Charge_MV", "integer", UI.this.getPackageName());
+
+                        isImpact = String.valueOf(PhialSelect.getSelectedItem()).equals("Impact");
+//                        switch(String.valueOf(PhialSelect.getSelectedItem())){
+//                            case "Impact":
+//
+//                                HA_ElementCheck = UI.this.getResources().getIntArray(HA_ElementCheck_Array);
+//
+//
+//                                /*SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
+//                                        + PhialSelect.getSelectedItem().toString() + "Burst_NoCharge_MV",
+//                                        "integer", UI.this.getPackageName());
+//
+//                                SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
+//                                                + PhialSelect.getSelectedItem().toString() + "Burst_Charge_MV",
+//                                        "integer", UI.this.getPackageName());*/
+//                                isImpact = true;
+//                                break;
+//                            default:
+//                                SelectedPhial = ElmBurstMotion;
+//                                isImpact = false;
+//                                break;
+//                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
+                ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
+//                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                        switch(Integer.parseInt(String.valueOf(NumberofPhialsSelect.getSelectedItem()))){
+//                            case 0:
+//                                break;
+//                            case 1:
+//                                break;
+//                            case 2:
+//                                break;
+//                            case 3:
+//                                break;
+//                            case 4:
+//                                break;
+//                            case 5:
+//                                break;
+//                            case 6:
+//                                break;
+//                            case 7:
+//                                break;
+//                            case 8:
+//                                break;
+//                            case 9:
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//
+//                        TextView Phial = (TextView) view;
+//                        final String PhialNumber = Phial.getText().toString();
+//                        if (PhialNumber.equals("0")) {
+//                            getNumberofPhials(0);
+//                            getEnergyBladePhials(0);
+//                        } else if (PhialNumber.equals("1")) {
+//                            getNumberofPhials(1);
+//                            getEnergyBladePhials(3);
+//                        } else if (PhialNumber.equals("2")) {
+//                            getNumberofPhials(2);
+//                            getEnergyBladePhials(3);
+//                        } else if (PhialNumber.equals("3")) {
+//                            getNumberofPhials(2);
+//                            getEnergyBladePhials(3);
+//                        } else if (PhialNumber.equals("4")) {
+//                            getNumberofPhials(3);
+//                            getEnergyBladePhials(6);
+//                        } else if (PhialNumber.equals("5")) {
+//                            getNumberofPhials(3);
+//                            getEnergyBladePhials(6);
+//                        } else if (PhialNumber.equals("6")) {
+//                            getNumberofPhials(4);
+//                            getEnergyBladePhials(6);
+//                        } else if (PhialNumber.equals("7")) {
+//                            getNumberofPhials(4);
+//                            getEnergyBladePhials(9);
+//                        } else if (PhialNumber.equals("8")) {
+//                            getNumberofPhials(5);
+//                            getEnergyBladePhials(9);
+//                        } else if (PhialNumber.equals("9")) {
+//                            getNumberofPhials(5);
+//                            getEnergyBladePhials(9);
+//                        } else if (PhialNumber.equals("10")) {
+//                            getNumberofPhials(6);
+//                            getEnergyBladePhials(10);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+
+                ShieldChargeSelect = findViewById(R.id.ShieldChargeSelect);
+                ArrayAdapter ShieldChargeAdapter = ArrayAdapter.createFromResource(this,R.array.CBShieldCharge,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                ShieldChargeSelect.setAdapter(ShieldChargeAdapter);
+                ShieldChargeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        Skills.setCBPhialModifier(!String.valueOf(ShieldChargeSelect.getSelectedItem())
+                                .equals("No Charge"));
+//                        String Charge = String.valueOf(ShieldChargeSelect.getSelectedItem());
+//                        switch(Charge){
+//                            case "No Charge":
+//                                Skills.setCBPhialModifier(false);
+//                                /*getChargeModifier(1f);
+//                                getRedCheck(false);
+//                                getYellowCheck(false);*/
+//                                break;
+//                            case "Yellow Charge":
+//                                Skills.setCBPhialModifier(true);
+//                                /*getChargeModifier(1f);
+//                                getRedCheck(false);
+//                                getYellowCheck(true);*/
+//                                break;
+//                            case "Red Charge":
+//                                Skills.setCBPhialModifier(true);
+//                                /*getRedCheck(true);
+//                                getYellowCheck(false);*/
+//                                break;
+//                            default:
+//                                Skills.setCBPhialModifier(true);
+//                                /*getRedCheck(true);
+//                                getYellowCheck(false);*/
+//                                break;
+//                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                FelyneBombardierCheck = findViewById(R.id.FelyneBombardierCheckBox);
+
+//                GroupSSelect = findViewById(R.id.GroupSSelect);
+//
+//                ArrayAdapter GroupSAdapter = ArrayAdapter.createFromResource(this,R.array.GroupS,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//
+//                GroupSSelect.setAdapter(GroupSAdapter);
+//
+//                GroupSSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                        switch(String.valueOf(GroupSSelect.getSelectedItem())){
+//                            case "Artillery Novice":
+//                                Skills.setArtilleryModifier(1.3f);
+//                                break;
+//                            case "Artillery Expert":
+//                                Skills.setArtilleryModifier(1.35f);
+//                                break;
+//                            default:
+//                                Skills.setArtilleryModifier(1f);
+//                                break;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.CB_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
@@ -1854,7 +1951,7 @@ public class UI extends AppCompatActivity {
                             SubElement.setText("0");
                         }
 
-                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e",
+                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e", false,
                                 String.valueOf(StyleSelect.getSelectedItem()),
                                 String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
@@ -1884,7 +1981,7 @@ public class UI extends AppCompatActivity {
                         break;
 
                     default:
-                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e",
+                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e", false,
                                 String.valueOf(StyleSelect.getSelectedItem()),
                                 String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,

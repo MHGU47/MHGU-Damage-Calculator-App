@@ -182,7 +182,7 @@ public class HammerCalculation extends AppCompatActivity implements AdapterView.
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.Hammer,
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.Hammer_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter5);

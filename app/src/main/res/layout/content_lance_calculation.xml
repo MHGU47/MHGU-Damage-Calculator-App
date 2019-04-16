@@ -255,18 +255,18 @@
                     android:text="Enraged Guard Red Aura (+10%)" />
 
                 <RadioButton
-                    android:id="@+id/EnragedGuardYellow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Enraged Guard Yellow Aura (+20%)" />
-
-                <RadioButton
                     android:id="@+id/EnragedGuardOrange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Enraged Guard Orange Aura (+30%)" />
+                    android:text="Enraged Guard Orange Aura (+20%)" />
+
+                <RadioButton
+                    android:id="@+id/EnragedGuardYellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Enraged Guard Yellow Aura (+30%)" />
             </RadioGroup>
 
         </RelativeLayout>
