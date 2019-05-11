@@ -929,7 +929,7 @@
         <item>     -Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
-        <item>Devil's Dance (12 hits)</item>
+        <item>Devil\'s Dance (12 hits)</item>
         <item>Demon Dodge Jump Attack (4 hits)</item>
 
         <item>     -Follow Up (6 hits)</item>
@@ -1042,7 +1042,7 @@
 
         <item>     -Second Jump[R] (3 hits)</item>
         <item>Demon Flurry Rush (6 hits)</item>
-        <item>Devil's Dance (12 hits)</item>
+        <item>Devil\'s Dance (12 hits)</item>
 
         <item>Demon Dodge Jump Attack (4 hits)</item>
         <item>     -Follow Up (6 hits)</item>
@@ -1228,7 +1228,7 @@
         <item>     -Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
-        <item>Devil's Dance (12 hits)</item>
+        <item>Devil\'s Dance (12 hits)</item>
         <item>Jump Attack (2 hits)</item>
 
         <item>Adept Evade (4 hits)</item>
@@ -1362,7 +1362,7 @@
 
         <item>Demon Flurry (7 hits)</item>
         <item>Valor Guard Point (4 hits)</item>
-        <item>True Devil's Dance (13 hits)</item>
+        <item>True Devil\'s Dance (13 hits)</item>
 
         <item>Jump Attack (2 hits)</item>
     </string-array><!--ArchDemon-->
@@ -1424,7 +1424,7 @@
 
         <item>Right Jumping Slash (3 hits)</item>
         <item>     -Second Jump[R] (3 hits)</item>
-        <item>Devil's Dance (12 hits)</item>
+        <item>Devil\'s Dance (12 hits)</item>
 
         <item>Jump Attack (2 hits)</item>
     </string-array><!--Demon-->
@@ -2855,8 +2855,8 @@
         <item>Side Chop</item>
 
         <item>Upward Swing</item>
-        <item>Hack 'n' Slash (Per hit)</item>
-        <item>Hack 'n' Slash Finisher (3 hits)</item>
+        <item>Hack \'n\' Slash (Per hit)</item>
+        <item>Hack \'n\' Slash Finisher (3 hits)</item>
 
         <item>Tempest Axe Finisher (X) (2 hits)</item>
         <item>Tempest Axe Start-Up Slashes (2 hits)</item>
@@ -2911,7 +2911,7 @@
         <item>Side Chop</item>
 
         <item>Upward Swing</item>
-        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Hack \'n\' Slash (Per hit)</item>
         <item>Tempest Axe Finisher (X) (2 hits)</item>
 
         <item>Tempest Axe Start-Up Slashes (2 hits)</item>
@@ -2963,8 +2963,8 @@
         <item>Side Chop</item>
         <item>Upward Swing</item>
 
-        <item>Hack 'n' Slash (Per hit)</item>
-        <item>Hack 'n' Slash Finisher (3 hits)</item>
+        <item>Hack \'n\' Slash (Per hit)</item>
+        <item>Hack \'n\' Slash Finisher (3 hits)</item>
         <item>Tempest Axe Finisher (X) (2 hits)</item>
 
         <item>Tempest Axe Start-Up Slashes (2 hits)</item>
@@ -3021,7 +3021,7 @@
         <item>Side Chop</item>
         <item>Upward Swing</item>
 
-        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Hack \'n\' Slash (Per hit)</item>
         <item>Tempest Axe Finisher (X) (2 hits)</item>
         <item>Tempest Axe Start-Up Slashes (2 hits)</item>
 
@@ -3078,7 +3078,7 @@
         <item>Side Chop</item>
 
         <item>Upward Swing</item>
-        <item>Hack 'n' Slash (Per hit)</item>
+        <item>Hack \'n\' Slash (Per hit)</item>
         <item>   -Finisher (3 hits)\n(Valor State/Stance)</item>
 
         <item>Tempest Axe Finisher (X) (2 hits)</item>
@@ -3135,8 +3135,8 @@
         <item>Side Chop</item>
 
         <item>Upward Swing</item>
-        <item>Hack 'n' Slash (Per hit)</item>
-        <item>Hack 'n' Slash Finisher (3 hits)</item>
+        <item>Hack \'n\' Slash (Per hit)</item>
+        <item>Hack \'n\' Slash Finisher (3 hits)</item>
 
         <item>Tempest Axe Finisher (X) (2 hits)</item>
         <item>Tempest Axe Start-Up Slashes (2 hits)</item>

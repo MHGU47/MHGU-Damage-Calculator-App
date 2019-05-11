@@ -103,7 +103,7 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter10 = ArrayAdapter.createFromResource(this,R.array.HeavyBowgun,
+        ArrayAdapter adapter10 = ArrayAdapter.createFromResource(this,R.array.HBG_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter10);

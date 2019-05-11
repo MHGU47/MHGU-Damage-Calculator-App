@@ -2,6 +2,7 @@ package com.mhx.marcus.mhgendamagecalc;
 
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,6 +12,8 @@ public class DamageCalculation {
     private MonsterCalculation M;
     private UI ui;
     private SkillsCalculation Skills = new SkillsCalculation();
+    private List<Float> MVs = new ArrayList<>();
+    private List<String> MV_NamesList = new ArrayList<>();
 
     //Stat Variables
     private String Weapon, Style, ChosenElement, ChosenSubElement, Monster, HitzoneGroup, Hitzone, Sharpness;
@@ -70,7 +73,14 @@ public class DamageCalculation {
         SharpnessModifier_Elm = context.getResources().getIdentifier(Sharpness + "_Elm","integer", context.getPackageName());
         SharpnessModifier_Atk /= 100;
         SharpnessModifier_Elm /= 100;
-        MV_Array = context.getResources().getIdentifier(Weapon + "_" + Style, "array", context.getPackageName());
+
+        MV_Array = context.getResources().getIdentifier(Weapon + "_" + Style + "_MV", "array", context.getPackageName());
+        MV_Names_Array = context.getResources().getIdentifier(Weapon + "_" + Style + "_Names", "array", context.getPackageName());
+
+        MV = context.getResources().getIntArray(MV_Array);
+        MV_Names = context.getResources().getStringArray(MV_Names_Array);
+        //HA_Levels = context.getResources().getStringArray(HA_Levels_Array);
+        //HA_ElementCheck = context.getResources().getIntArray(HA_ElementCheck_Array);
         setHA_MV();
     }//Standard Blademaster
 
@@ -166,20 +176,22 @@ public class DamageCalculation {
         return false;
     }
 
-    public int Calculate(int counter){
+    public void Calculate(int counter){
         float TrueRaw;
 
-        MV = context.getResources().getIntArray(MV_Array);
-        MV_Names = context.getResources().getStringArray(MV_Names_Array);
-        HA_Levels = context.getResources().getStringArray(HA_Levels_Array);
-        HA_ElementCheck = context.getResources().getIntArray(HA_ElementCheck_Array);
+//        MV = context.getResources().getIntArray(MV_Array);
+//        MV_Names = context.getResources().getStringArray(MV_Names_Array);
+//        HA_Levels = context.getResources().getStringArray(HA_Levels_Array);
+//        HA_ElementCheck = context.getResources().getIntArray(HA_ElementCheck_Array);
 
 
 
 
-
-        if (Weapon.equals("DB"))
-            getDBElmMod(MV_Names[counter]);
+//        MVs.add(1.0f);
+//        if(MV.length > 0){
+//            return 0;
+//        }
+        if (Weapon.equals("DB")) getDBElmMod(MV_Names[counter]);
         
         
         
@@ -195,18 +207,18 @@ public class DamageCalculation {
         }
         else{
             TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) *
-                    (MV[counter] * BrimstoneCounterModifier(counter));
+                    (MV[counter]/* * BrimstoneCounterModifier(counter)*/);
 
         }
 
         float ModifiedRawHitzone = (M.getRawHitzoneValue() * (SharpnessModifier_Atk *
-                GSChargeMod_Atk(counter) * Skills.getGroupDSharp())) / 100;
+                /*GSChargeMod_Atk(counter) **/ Skills.getGroupDSharp())) / 100;
 
 
         float HitzoneRaw = TrueRaw * ModifiedRawHitzone;
 
         float ModifiedElmHitzone = (M.getElmHitzoneValue() * (SharpnessModifier_Elm *
-                GSChargeMod_Elm(counter) * Skills.getGroupDSharp())) / 100;
+                /*GSChargeMod_Elm(counter) **/ Skills.getGroupDSharp())) / 100;
         float HitzoneElm = Skills.getTrueElm(ElementalDamage, ui.SkillCheck) * ModifiedElmHitzone;
 
         //Hitzone Modification - End
@@ -275,8 +287,9 @@ public class DamageCalculation {
 
 
 
-        String.format("%s", Math.round(TrueAttack));
-        return Math.round(TrueAttack);
+        //String.format("%s", Math.round(TrueAttack));
+        //return Math.round(TrueAttack);
+        MVs.add(TrueAttack);
     }
 
     private float BrimstoneCounterModifier(int counter){
@@ -287,6 +300,19 @@ public class DamageCalculation {
 
     private int CalculateMonters(){
         return 1;
+    }
+
+    public int getAtkPwr(int counter){
+        return Math.round(MVs.get(counter));
+    }
+
+    public String getMVName(int counter){
+        //return String.valueOf(MV_NamesList.get(counter));
+        return "a";
+    }
+
+    public int getMVSize(){
+        return MV.length;
     }
 
     private float GSChargeMod_Atk(int counter){

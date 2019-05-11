@@ -34,6 +34,8 @@ public class SkillsCalculation {
     private float AtkCoatingModifier = 1;
     private float ElmCoatingModifier = 1;
     private int EvasiveManeuversModifier = 0;
+    private float ProwlerModifier = 1f;
+    private int NineLivesModifier = 0;
 
     //TODO: *NOTE* Universal
     private float CritBoostModifier = 0;
@@ -570,6 +572,68 @@ public class SkillsCalculation {
     void setCoatingModifier(float RawModifier, float ElmModifier){
         AtkCoatingModifier = RawModifier;
         ElmCoatingModifier = ElmModifier;
+    }
+
+    void setProwlerModifier(String Prowler){
+        switch (Prowler){
+            case "Protection":
+                ProwlerModifier = 1.1f;
+                break;
+            case "Fighting":
+            case "Assisting":
+                ProwlerModifier = 0.9f;
+                break;
+            case "Bombing":
+                ProwlerModifier = 1.2f;
+                break;
+            case "Healing":
+            case "Gathering":
+                ProwlerModifier = 0.7f;
+                break;
+            default:
+                ProwlerModifier = 1;
+                break;
+        }
+    }
+
+    float getProwlerModifier(){
+        return ProwlerModifier;
+    }
+
+    void setNineLivesModifier(String Revive){
+        switch (Revive){
+            case "First Revive (+3)":
+                NineLivesModifier = 3;
+                break;
+            case "Second Revive (+6)":
+                NineLivesModifier = 6;
+                break;
+            case "Third Revive (+9)":
+                NineLivesModifier = 9;
+                break;
+            case "Fourth Revive (+12)":
+                NineLivesModifier = 12;
+                break;
+            case "Fifth Revive (+15)":
+                NineLivesModifier = 15;
+                break;
+            case "Sixth Revive (+18":
+                NineLivesModifier = 18;
+                break;
+            case "Seventh Revive (+21)":
+                NineLivesModifier = 21;
+                break;
+            case "Eighth Revive (+24)":
+                NineLivesModifier = 24;
+                break;
+            default:
+                NineLivesModifier = 0;
+                break;
+        }
+    }
+
+    float getNineLivesModifier(){
+        return ProwlerModifier;
     }
 
     //TODO: *NOTE* Affinity related methods

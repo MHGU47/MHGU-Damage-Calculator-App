@@ -362,7 +362,7 @@
     </string>
     <string name="credit_feedback">
         If you have any suggestions on what could be improved or what you think needs to be
-        changed/added, feel free to contact me using the &apos;Feedback&apos; option.
+        changed/added, feel free to contact me using the \'Feedback\' option.
     </string>
     <string name="title_activity_ui">UI_Base</string>
 </resources>

@@ -104,7 +104,7 @@ public class LightBowgunCalculation extends AppCompatActivity implements Adapter
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter10 = ArrayAdapter.createFromResource(this,R.array.LightBowgun,
+        ArrayAdapter adapter10 = ArrayAdapter.createFromResource(this,R.array.LBG_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter10);

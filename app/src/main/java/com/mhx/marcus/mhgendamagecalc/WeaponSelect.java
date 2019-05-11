@@ -19,167 +19,182 @@ public class WeaponSelect extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ImageButton GreatSwordCalculations = (ImageButton) findViewById(R.id.GreatSwordSelect);
+        ImageButton GreatSwordCalculations = findViewById(R.id.GreatSwordSelect);
         GreatSwordCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, UI.class);
+                intent.putExtra("Weapon", "GS");
                 startActivity(intent);
             }
         });
 
-        ImageButton LongSwordCalculations = (ImageButton) findViewById(R.id.LongSwordSelect);
+        ImageButton LongSwordCalculations = findViewById(R.id.LongSwordSelect);
         LongSwordCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, LongSwordCalculation.class);
+                intent.putExtra("Weapon", "LS");
                 startActivity(intent);
             }
         });
 
-        ImageButton SwordandShieldCalculations = (ImageButton) findViewById(R.id.SwordandShieldSelect);
+        ImageButton SwordandShieldCalculations = findViewById(R.id.SwordandShieldSelect);
         SwordandShieldCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, SwordandShieldCalculation.class);
+                intent.putExtra("Weapon", "SNS");
                 startActivity(intent);
             }
         });
 
-        ImageButton DualBladesCalculations = (ImageButton) findViewById(R.id.DualBladesSelect);
+        ImageButton DualBladesCalculations = findViewById(R.id.DualBladesSelect);
         DualBladesCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, DualBladesCalculation.class);
+                intent.putExtra("Weapon", "DB");
                 startActivity(intent);
             }
         });
 
-        ImageButton HammerCalculations = (ImageButton) findViewById(R.id.HammerSelect);
+        ImageButton HammerCalculations = findViewById(R.id.HammerSelect);
         HammerCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, HammerCalculation.class);
+                intent.putExtra("Weapon", "Hammer");
                 startActivity(intent);
             }
         });
 
-        ImageButton HuntingHornCalculations = (ImageButton) findViewById(R.id.HuntingHornSelect);
+        ImageButton HuntingHornCalculations = findViewById(R.id.HuntingHornSelect);
         HuntingHornCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, HuntingHornCalculation.class);
+                intent.putExtra("Weapon", "HH");
                 startActivity(intent);
             }
         });
 
-        ImageButton LanceCalculations = (ImageButton) findViewById(R.id.LanceSelect);
+        ImageButton LanceCalculations = findViewById(R.id.LanceSelect);
         LanceCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, LanceCalculation.class);
+                intent.putExtra("Weapon", "Lance");
                 startActivity(intent);
             }
         });
 
-        ImageButton GunlanceCalculations = (ImageButton) findViewById(R.id.GunlanceSelect);
+        ImageButton GunlanceCalculations = findViewById(R.id.GunlanceSelect);
         GunlanceCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, GunlanceCalculation.class);
+                intent.putExtra("Weapon", "GL");
                 startActivity(intent);
             }
         });
 
-        ImageButton SwitchAxeCalculations = (ImageButton) findViewById(R.id.SwitchAxeSelect);
+        ImageButton SwitchAxeCalculations = findViewById(R.id.SwitchAxeSelect);
         SwitchAxeCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, SwitchAxeCalculation.class);
+                intent.putExtra("Weapon", "SA");
                 startActivity(intent);
             }
         });
 
-        ImageButton ChargeBladeCalculations = (ImageButton) findViewById(R.id.ChargeBladeSelect);
+        ImageButton ChargeBladeCalculations = findViewById(R.id.ChargeBladeSelect);
         ChargeBladeCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, ChargeBladeCalculation.class);
+                intent.putExtra("Weapon", "CB");
                 startActivity(intent);
             }
         });
 
-        ImageButton InsectGlaiveCalculations = (ImageButton) findViewById(R.id.InsectGlaiveSelect);
+        ImageButton InsectGlaiveCalculations = findViewById(R.id.InsectGlaiveSelect);
         InsectGlaiveCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, InsectGlaiveCalculation.class);
+                intent.putExtra("Weapon", "IG");
                 startActivity(intent);
             }
         });
 
-        ImageButton BowCalculations = (ImageButton) findViewById(R.id.BowSelect);
+        ImageButton BowCalculations = findViewById(R.id.BowSelect);
         BowCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, BowCalculation.class);
+                intent.putExtra("Weapon", "Bow");
                 startActivity(intent);
 
             }
         });
 
-        ImageButton LightBowgunCalculations = (ImageButton) findViewById(R.id.LightBowgunSelect);
+        ImageButton LightBowgunCalculations = findViewById(R.id.LightBowgunSelect);
         LightBowgunCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, LightBowgunCalculation.class);
+                intent.putExtra("Weapon", "LBG");
                 startActivity(intent);
             }
         });
 
-        ImageButton HeavyBowgunCalculations = (ImageButton) findViewById(R.id.HeavyBowgunSelect);
+        ImageButton HeavyBowgunCalculations = findViewById(R.id.HeavyBowgunSelect);
         HeavyBowgunCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, HeavyBowgunCalculation.class);
+                intent.putExtra("Weapon", "HBG");
                 startActivity(intent);
             }
         });
 
-        ImageButton ProwlerCalculations = (ImageButton) findViewById(R.id.ProwlerSelect);
+        ImageButton ProwlerCalculations = findViewById(R.id.ProwlerSelect);
         ProwlerCalculations.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, ProwlerCalculation.class);
+                intent.putExtra("Weapon", "Prowler");
                 startActivity(intent);
             }
         });

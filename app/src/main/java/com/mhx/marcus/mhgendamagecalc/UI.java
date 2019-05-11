@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -32,13 +33,14 @@ public class UI extends AppCompatActivity {
     Button Calculate;
 
 
-    static String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, MonsterType, ChosenArt;
-    static float SelectedSharpnessElmModifier, SelectedSharpnessAtkModifier;
+    public String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, MonsterType, ChosenArt;
+    private float SelectedSharpnessElmModifier, SelectedSharpnessAtkModifier;
 
     SkillsCalculation Skills = new SkillsCalculation();
     //Creates an instance of 'SkillsCalculation' so it's functions for calculating skills can be used
 
     DamageCalculation DmgCalc;
+    RelativeLayout AttackInfo;
 
     //Skill and Hunter Art Selection variables - Start
     Switch SkillSwitch;
@@ -63,6 +65,42 @@ public class UI extends AppCompatActivity {
     Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
     int SelectedPhialCharge, SelectedPhialNoCharge;
+
+    String[] TextViewIDsAttacks = new String[]{"Attack_1", "Attack_2", "Attack_3",
+            "Attack_4", "Attack_5", "Attack_6", "Attack_7", "Attack_8",
+            "Attack_9", "Attack_10", "Attack_11", "Attack_12", "Attack_13",
+            "Attack_14", "Attack_15", "Attack_16", "Attack_17", "Attack_18",
+            "Attack_19", "Attack_20", "Attack_21", "Attack_22", "Attack_23",
+            "BurstAttack_1", "BurstAttack_2", "BurstAttack_3", "BurstAttack_4",
+            "BurstAttack_5", "BurstAttack_6"};
+
+    String[] TextViewIDsNames = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
+            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name",
+            "Attack_8_Name", "Attack_9_Name", "Attack_10_Name", "Attack_11_Name",
+            "Attack_12_Name", "Attack_13_Name", "Attack_14_Name", "Attack_15_Name",
+            "Attack_16_Name", "Attack_17_Name", "Attack_18_Name", "Attack_19_Name",
+            "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
+            "BurstAttack_1_Name", "BurstAttack_2_Name", "BurstAttack_3_Name",
+            "BurstAttack_4_Name", "BurstAttack_5_Name", "BurstAttack_6_Name",
+            "BurstAttack_Extend"};
+
+    String[] AllTextViewIDs = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
+            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name",
+            "Attack_8_Name", "Attack_9_Name", "Attack_10_Name", "Attack_11_Name",
+            "Attack_12_Name", "Attack_13_Name", "Attack_14_Name", "Attack_15_Name",
+            "Attack_16_Name", "Attack_17_Name", "Attack_18_Name", "Attack_19_Name",
+            "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
+            "Attack_1", "Attack_2", "Attack_3", "Attack_4", "Attack_5",
+            "Attack_6", "Attack_7", "Attack_8", "Attack_9", "Attack_10",
+            "Attack_11", "Attack_12", "Attack_13", "Attack_14", "Attack_15",
+            "Attack_16", "Attack_17", "Attack_18", "Attack_19", "Attack_20",
+            "Attack_21", "Attack_22", "Attack_23", "BurstAttack_1",
+            "BurstAttack_2", "BurstAttack_3", "BurstAttack_4", "BurstAttack_5",
+            "BurstAttack_6", "BurstAttack_1_Name", "BurstAttack_2_Name",
+            "BurstAttack_3_Name", "BurstAttack_4_Name", "BurstAttack_5_Name",
+            "BurstAttack_6_Name", "BurstAttack_Extend"};
+
+    TextView textviews[];
     //-End-
 
     @Override
@@ -71,34 +109,35 @@ public class UI extends AppCompatActivity {
         setContentView(R.layout.activity_ui_base);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        Stubs();
-        SetUp();
+        Stubs(getIntent().getStringExtra("Weapon"));
+        SetUp(getIntent().getStringExtra("Weapon"));
         Toast.makeText(this, "Values vary depending on the hitzone",Toast.LENGTH_LONG).show();
-        Calculate();
+        Calculate(getIntent().getStringExtra("Weapon"));
 
     }
 
-    private void Stubs() {
-        ViewStub AttackInfoStub, BaseStatsStub, MonsterHitzonesStub, HunterArtsStub, SkillsStub;
-        //String SelectedWpn = getIntent().getStringExtra("Weapon");
+    private void Stubs(String Wpn) {
+        ImageButton Icon = findViewById(R.id.WeaponIcon);
+        TextView Banner = findViewById(R.id.NameBanner);
 
-        BaseStatsStub = findViewById(R.id.BaseStatsStub);
-        MonsterHitzonesStub = findViewById(R.id.MonsterHitzonesStub);
-        HunterArtsStub = findViewById(R.id.HunterArtsStub);
-        SkillsStub = findViewById(R.id.SkillsStub);
-        AttackInfoStub = findViewById(R.id.AttackInfoStub);
+        ViewStub BaseStatsStub = findViewById(R.id.BaseStatsStub);
+        ViewStub MonsterHitzonesStub = findViewById(R.id.MonsterHitzonesStub);
+        ViewStub HunterArtsStub = findViewById(R.id.HunterArtsStub);
+        ViewStub SkillsStub = findViewById(R.id.SkillsStub);
+        ViewStub AttackInfoStub = findViewById(R.id.AttackInfoStub);
 
         MonsterHitzonesStub.setLayoutResource(R.layout.content_monster_hitzones);
 
         String SelectedWpn = "GS";
-        switch (SelectedWpn) {
+        switch (Wpn) {
             case "GS":
                 AttackInfoStub.setLayoutResource(R.layout.content_attack_info);
                 BaseStatsStub.setLayoutResource(R.layout.content_stats_input_gs);
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Great Sword");
+                Icon.setImageResource(R.drawable.great_sword_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "LS":
@@ -107,6 +146,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_ls);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Long Sword");
+                Icon.setImageResource(R.drawable.long_sword_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "SNS":
@@ -115,6 +156,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_sns);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Sword and Shield");
+                Icon.setImageResource(R.drawable.sword_and_shield_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "DB":
@@ -123,6 +166,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_db);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Dual Blades");
+                Icon.setImageResource(R.drawable.dual_blades_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "Hammer":
@@ -131,6 +176,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Hammer");
+                Icon.setImageResource(R.drawable.hammer_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "HH":
@@ -139,6 +186,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Hunting Horn");
+                Icon.setImageResource(R.drawable.hunting_horn_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "Lance":
@@ -147,6 +196,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_lance);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Lance");
+                Icon.setImageResource(R.drawable.lance_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "GL":
@@ -155,6 +206,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
                 SkillsStub.setLayoutResource(R.layout.content_skills_cb);
                 this.setTitle("Gunlance");
+                Icon.setImageResource(R.drawable.gunlance_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "SA":
@@ -163,6 +216,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_sa);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Switch Axe");
+                Icon.setImageResource(R.drawable.switch_axe_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "CB":
@@ -171,6 +226,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
                 SkillsStub.setLayoutResource(R.layout.content_skills_cb);
                 this.setTitle("Charge Blade");
+                Icon.setImageResource(R.drawable.charge_blade_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "IG":
@@ -179,6 +236,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Insect Glaive");
+                Icon.setImageResource(R.drawable.insect_glaive_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "LBG":
@@ -187,6 +246,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
                 SkillsStub.setLayoutResource(R.layout.content_skills_bg);
                 this.setTitle("Light Bowgun");
+                Icon.setImageResource(R.drawable.light_bowgun_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "HBG":
@@ -195,6 +256,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_hbg);
                 SkillsStub.setLayoutResource(R.layout.content_skills_bg);
                 this.setTitle("Heavy Bowgun");
+                Icon.setImageResource(R.drawable.heavy_bowgun_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             case "Bow":
@@ -203,6 +266,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_bow);
                 SkillsStub.setLayoutResource(R.layout.content_skills_bow);
                 this.setTitle("Bow");
+                Icon.setImageResource(R.drawable.bow_icon);
+                Banner.setText(this.getTitle());
                 break;
 
             default:
@@ -211,6 +276,8 @@ public class UI extends AppCompatActivity {
                 HunterArtsStub.setLayoutResource(R.layout.content_support_skills);
                 SkillsStub.setLayoutResource(R.layout.content_skills_prowler);
                 this.setTitle("Prowler");
+                Icon.setImageResource(R.drawable.prowler_icon);
+                Banner.setText(this.getTitle());
                 break;
         }
 
@@ -219,9 +286,11 @@ public class UI extends AppCompatActivity {
         MonsterHitzonesStub.inflate();
         HunterArtsStub.inflate();
         SkillsStub.inflate();
+
+        AttackInfo = findViewById(R.id.AttackInfo);
     }
 
-    private void SetUp() {
+    private void SetUp(String Wpn) {
 
         String SelectedWpn = getIntent().getStringExtra("Weapon");
 
@@ -405,33 +474,7 @@ public class UI extends AppCompatActivity {
             ProwlerTypeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                    switch (String.valueOf(ProwlerTypeSelect.getSelectedItem())){
-                        case "Charisma":
-                            getProwler(1);
-                            break;
-                        case "Fighting":
-                            getProwler(0.9f);
-                            break;
-                        case "Protection":
-                            getProwler(1.1f);
-                            break;
-                        case "Assisting":
-                            getProwler(0.9f);
-                            break;
-                        case "Healing":
-                            getProwler(0.7f);
-                            break;
-                        case "Bombing":
-                            getProwler(1.2f);
-                            break;
-                        case "Gathering":
-                            getProwler(0.7f);
-                            break;
-                        default:
-                            getProwler(1);
-                            break;
-                    }
+                    Skills.setProwlerModifier(String.valueOf(ProwlerTypeSelect.getSelectedItem()));
                 }
 
                 @Override
@@ -447,36 +490,7 @@ public class UI extends AppCompatActivity {
             NineLivesAttackSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                    switch(String.valueOf(NineLivesAttackSelect.getSelectedItem())){
-                        case "First Revive (+3)":
-                            getNineLives(3);
-                            break;
-                        case "Second Revive (+6)":
-                            getNineLives(6);
-                            break;
-                        case "Third Revive (+9)":
-                            getNineLives(9);
-                            break;
-                        case "Fourth Revive (+12)":
-                            getNineLives(12);
-                            break;
-                        case "Fifth Revive (+15)":
-                            getNineLives(15);
-                            break;
-                        case "Sixth Revive (+18":
-                            getNineLives(18);
-                            break;
-                        case "Seventh Revive (+21)":
-                            getNineLives(21);
-                            break;
-                        case "Eighth Revive (+24)":
-                            getNineLives(24);
-                            break;
-                        default:
-                            getNineLives(0);
-                            break;
-                    }
+                    Skills.setNineLivesModifier(String.valueOf(NineLivesAttackSelect.getSelectedItem()));
                 }
 
                 @Override
@@ -1912,11 +1926,9 @@ public class UI extends AppCompatActivity {
         });
     }
 
-    private void Calculate(){
+    private void Calculate(final String Wpn){
         Calculate = findViewById(R.id.CalculateButton);
         Calculate.setOnClickListener(new View.OnClickListener() {
-
-            TextView[] textviews = new TextView[(62)];
 
             @Override
             public void onClick(View view) {
@@ -1925,6 +1937,8 @@ public class UI extends AppCompatActivity {
 
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
+
+                AttackInfo.setVisibility(View.GONE);
 
                 TextView Damage = findViewById(R.id.DamageInput);
                 TextView Element = findViewById(R.id.ElementInput);
@@ -1944,14 +1958,15 @@ public class UI extends AppCompatActivity {
                 //if(getIntent().getStringExtra("Weapon").equals("DB"))
                     //SubElement = findViewById(R.id.SubElementInputDB);
 
-                switch(getIntent().getStringExtra("Weapon")){
+                switch(Wpn){
                     case "DB":
                         SubElement = findViewById(R.id.SubElementInputDB);
                         if(TextUtils.isEmpty(SubElement.getText().toString())){
                             SubElement.setText("0");
                         }
 
-                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e", false,
+                        DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
+                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
                                 String.valueOf(StyleSelect.getSelectedItem()),
                                 String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
@@ -1981,7 +1996,8 @@ public class UI extends AppCompatActivity {
                         break;
 
                     default:
-                        DmgCalc = new DamageCalculation(UI.this,UI.this, "e", false,
+                        DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
+                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
                                 String.valueOf(StyleSelect.getSelectedItem()),
                                 String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
@@ -2006,52 +2022,65 @@ public class UI extends AppCompatActivity {
                         break;
                 }
 
-
-
                 if (DmgCalc.CalculateSkills()){
                     Snackbar.make(view, "Please check your inputted element/skills", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     return;
                 }
 
-
+                textviews = new TextView[(DmgCalc.getMVSize() * 2)];
+                for (int i = 0; i < DmgCalc.getMVSize(); i++) {
+                    AttackInfo.setVisibility(View.VISIBLE);
+                    DmgCalc.Calculate(i);
+                    DisplayTextViews(i);
+                }
             }
         });
     }
 
-    public static float getAtk(float i) {
+    private void DisplayTextViews(int counter){
+        textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsNames[counter], "id", getPackageName()));
+        textviews[counter].setText(DmgCalc.getMVName(counter));
+        textviews[counter].setVisibility(View.VISIBLE);
+
+        textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsAttacks[counter], "id", getPackageName()));
+        textviews[counter].setText(String.format("%s", Math.round(DmgCalc.getAtkPwr(counter))));
+        textviews[counter].setVisibility(View.VISIBLE);
+    }
+
+    private float getAtk(float i) {
         SelectedSharpnessAtkModifier = i;
         return SelectedSharpnessAtkModifier;
     }
-    public static float getElm(float i) {
+    private float getElm(float i) {
         SelectedSharpnessElmModifier = i;
         return SelectedSharpnessElmModifier;
     }
-    public static String getChosenElement(String i) {
+    private String getChosenElement(String i) {
         ChosenElement = i;
         return ChosenElement;
     }
-    public static String getChosenSubElement(String i) {
+    private String getChosenSubElement(String i) {
         ChosenSubElement = i;
         return ChosenSubElement;
     }
-    public static String getMonster(String i) {
+    private String getMonster(String i) {
         ChosenMonster = i;
         return ChosenMonster;
     }
-    public static String getHitzoneGroup(String i) {
+    private String getHitzoneGroup(String i) {
         HitzoneGroup = i;
         return HitzoneGroup;
     }
-    public static String getHitzone(String i) {
+    private String getHitzone(String i) {
         ChosenHitzone = i;
         return ChosenHitzone;
     }
-    public static String getMonsterType(String i) {
+    private String getMonsterType(String i) {
         MonsterType = i;
         return MonsterType;
     }
-    public static String getHunterArt(String i) {
+    private String getHunterArt(String i) {
         ChosenArt = i;
         return ChosenArt;
     }
