@@ -395,7 +395,6 @@ public class SkillsCalculation {
                 RedShieldModifier = 1f;
             }
         }
-
     }
 
     void setCBPhialModifier(boolean isCharged){
@@ -409,7 +408,7 @@ public class SkillsCalculation {
 
     float getCBPhialAtk(boolean isImpact, float RawAtk, float Element){
         if(isImpact){
-            if((FelyneBombardier * ArtilleryModifier) > 1.4){
+            if((FelyneBombardier * ArtilleryModifier) > 1.4f){
                 return ((((RawAtk + additiveRaw) * multiplicativeRaw) * 1.4f) * CBPhialModifier);
             }
             return ((((RawAtk + additiveRaw) * multiplicativeRaw) * (FelyneBombardier * ArtilleryModifier)) * CBPhialModifier);

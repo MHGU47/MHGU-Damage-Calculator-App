@@ -125,8 +125,10 @@ public class MonsterCalculation {
         // their corresponding values in their xml files are all listed in specific orders
         // to make sure they match up properly.
 
-        if(SelectedRawHitzoneValue >= 45) Skills.setWeaknessExploitModifier(WE);
-        else Skills.setWeaknessExploitModifier(false);
+        //if(SelectedRawHitzoneValue >= 45) Skills.setWeaknessExploitModifier(WE);
+        //else Skills.setWeaknessExploitModifier(false);
+
+        Skills.setWeaknessExploitModifier(WE && SelectedRawHitzoneValue >= 45);
     }//Blademaster and Bow
 
     public void getHitzones(Context context, String ChosenElement, String ChosenSubElement, SkillsCalculation Skills, boolean WE){

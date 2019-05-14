@@ -1463,6 +1463,9 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
                     /*Integer 'ii' used to store the value of 'ForLoopCarry' and adds one to it to
                     carry on from where the last for loop left off in order to fill the TextViews in
                     the correct order.*/
+//                    if(SelectedStyleAxe[i].equals("Jump Attack"))
+//                        Snackbar.make(view, "Reached", Snackbar.LENGTH_LONG)
+//                                .setAction("Action", null).show();
 
                     if ((SelectedStyleAxe[i].equals("Ultra Burst (2 hits)")) && Skills.getCBPhialModifier() == 1f)
                         i = i + 1;
@@ -1559,7 +1562,9 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
                     getForLoopCarryBursts((ii + MoveCheck));
                 }
 
-                int iigg = ForLoopCarryBursts + 1;
+                int iigg = ForLoopCarryBursts;
+//                if(!String.valueOf(StyleSelect.getSelectedItem()).equals("Aerial"))
+//                    iigg += 1;
                 getForLoopCarryBursts(iigg);
 
                 Float[] TruePhial;
@@ -1569,8 +1574,10 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
                 on whether the effect modifier, found by what shield charge is selected. TruePhial
                 will then contain the corresponding array of motion values.*/
 
-                if (MotionAxe.length == 10) MoveCheck = 3;
-                else if (MotionAxe.length == 11) MoveCheck = 2;
+                if (MotionAxe.length == 10) MoveCheck = 4;
+                else if (MotionAxe.length == 11) MoveCheck = 3;
+                else MoveCheck = 1;
+
                 /*MoveCheck used to make sure the textviews for the moves are displayed correctly
                 to compensate for the extra banner for the axe moves. MoveCheck is added to iig
                 in order to make sure the textviews are all used accordingly. This is done so that

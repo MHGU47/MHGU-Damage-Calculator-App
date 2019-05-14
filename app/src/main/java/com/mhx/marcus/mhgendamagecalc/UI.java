@@ -1,5 +1,6 @@
 package com.mhx.marcus.mhgendamagecalc;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -22,25 +23,26 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class UI extends AppCompatActivity {
 
-    Spinner StyleSelect, SharpnessSelect, ElementSelect, SubElementSelect, MonsterSelect, HitzoneSelect,
+    private Spinner StyleSelect, SharpnessSelect, ElementSelect, SubElementSelect, MonsterSelect, HitzoneSelect,
             HunterArtSelect, PhialSelect, ShieldChargeSelect, NumberofPhialsSelect, ProwlerTypeSelect,
             NineLivesAttackSelect, SupportSkillsSelect, BoomerangSelect;
-    Button Calculate;
+    private Button Calculate;
 
 
-    public String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, MonsterType, ChosenArt;
+    private String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, MonsterType, ChosenArt;
     private float SelectedSharpnessElmModifier, SelectedSharpnessAtkModifier;
 
-    SkillsCalculation Skills = new SkillsCalculation();
+    private SkillsCalculation Skills = new SkillsCalculation();
     //Creates an instance of 'SkillsCalculation' so it's functions for calculating skills can be used
 
-    DamageCalculation DmgCalc;
-    RelativeLayout AttackInfo;
+    private DamageCalculation DmgCalc;
+    private RelativeLayout AttackInfo;
 
     //Skill and Hunter Art Selection variables - Start
     Switch SkillSwitch;
@@ -66,39 +68,34 @@ public class UI extends AppCompatActivity {
     Float[] BoomerangType;
     int SelectedPhialCharge, SelectedPhialNoCharge;
 
-    String[] TextViewIDsAttacks = new String[]{"Attack_1", "Attack_2", "Attack_3",
-            "Attack_4", "Attack_5", "Attack_6", "Attack_7", "Attack_8",
-            "Attack_9", "Attack_10", "Attack_11", "Attack_12", "Attack_13",
-            "Attack_14", "Attack_15", "Attack_16", "Attack_17", "Attack_18",
-            "Attack_19", "Attack_20", "Attack_21", "Attack_22", "Attack_23",
-            "BurstAttack_1", "BurstAttack_2", "BurstAttack_3", "BurstAttack_4",
-            "BurstAttack_5", "BurstAttack_6"};
+    // StaggerBanner, AttackBanner;
 
-    String[] TextViewIDsNames = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
-            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name",
-            "Attack_8_Name", "Attack_9_Name", "Attack_10_Name", "Attack_11_Name",
-            "Attack_12_Name", "Attack_13_Name", "Attack_14_Name", "Attack_15_Name",
-            "Attack_16_Name", "Attack_17_Name", "Attack_18_Name", "Attack_19_Name",
-            "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
-            "BurstAttack_1_Name", "BurstAttack_2_Name", "BurstAttack_3_Name",
-            "BurstAttack_4_Name", "BurstAttack_5_Name", "BurstAttack_6_Name",
-            "BurstAttack_Extend"};
+    List<TextView> Banners = new ArrayList<>();
+    String[] TextViewIDsAttacks, TextViewIDsNames, AllTextViewIDs;
 
-    String[] AllTextViewIDs = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
-            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name",
-            "Attack_8_Name", "Attack_9_Name", "Attack_10_Name", "Attack_11_Name",
-            "Attack_12_Name", "Attack_13_Name", "Attack_14_Name", "Attack_15_Name",
-            "Attack_16_Name", "Attack_17_Name", "Attack_18_Name", "Attack_19_Name",
-            "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
-            "Attack_1", "Attack_2", "Attack_3", "Attack_4", "Attack_5",
-            "Attack_6", "Attack_7", "Attack_8", "Attack_9", "Attack_10",
-            "Attack_11", "Attack_12", "Attack_13", "Attack_14", "Attack_15",
-            "Attack_16", "Attack_17", "Attack_18", "Attack_19", "Attack_20",
-            "Attack_21", "Attack_22", "Attack_23", "BurstAttack_1",
-            "BurstAttack_2", "BurstAttack_3", "BurstAttack_4", "BurstAttack_5",
-            "BurstAttack_6", "BurstAttack_1_Name", "BurstAttack_2_Name",
-            "BurstAttack_3_Name", "BurstAttack_4_Name", "BurstAttack_5_Name",
-            "BurstAttack_6_Name", "BurstAttack_Extend"};
+    String[] TextViewIDsAttacks_ = new String[]{"Attack_1", "Attack_2", "Attack_3", "Attack_4",
+            "Attack_5", "Attack_6", "Attack_7", "Attack_8", "Attack_9", "Attack_10",
+            "Attack_11", "Attack_12", "Attack_13", "Attack_14", "Attack_15", "Attack_16",
+            "Attack_17", "Attack_18", "Attack_19", "Attack_20", "Attack_21", "Attack_22",
+            "Attack_23", "Attack_24"};
+
+    String[] TextViewIDsNames_ = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
+            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name", "Attack_8_Name",
+            "Attack_9_Name", "Attack_10_Name", "Attack_11_Name", "Attack_12_Name", "Attack_13_Name",
+            "Attack_14_Name", "Attack_15_Name", "Attack_16_Name", "Attack_17_Name", "Attack_18_Name",
+            "Attack_19_Name", "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
+            "Attack_24_Name"};
+
+    String[] AllTextViewIDs_ = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
+            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name", "Attack_8_Name",
+            "Attack_9_Name", "Attack_10_Name", "Attack_11_Name", "Attack_12_Name", "Attack_13_Name",
+            "Attack_14_Name", "Attack_15_Name", "Attack_16_Name", "Attack_17_Name", "Attack_18_Name",
+            "Attack_19_Name", "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
+            "Attack_24_Name",
+            "Attack_1", "Attack_2", "Attack_3", "Attack_4", "Attack_5", "Attack_6", "Attack_7",
+            "Attack_8", "Attack_9", "Attack_10", "Attack_11", "Attack_12", "Attack_13", "Attack_14",
+            "Attack_15", "Attack_16", "Attack_17", "Attack_18", "Attack_19", "Attack_20", "Attack_21",
+            "Attack_22", "Attack_23", "Attack_24"};
 
     TextView textviews[];
     //-End-
@@ -111,7 +108,8 @@ public class UI extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Stubs(getIntent().getStringExtra("Weapon"));
         SetUp(getIntent().getStringExtra("Weapon"));
-        Toast.makeText(this, "Values vary depending on the hitzone",Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Values vary depending on the hitzone",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "-BETA CALCULATION PROCESS IN USE-",Toast.LENGTH_LONG).show();
         Calculate(getIntent().getStringExtra("Weapon"));
 
     }
@@ -128,7 +126,10 @@ public class UI extends AppCompatActivity {
 
         MonsterHitzonesStub.setLayoutResource(R.layout.content_monster_hitzones);
 
-        String SelectedWpn = "GS";
+        TextViewIDsAttacks = getResources().getStringArray(getResources().getIdentifier("TextViewIDsAttacks","array", getPackageName()));
+        TextViewIDsNames = getResources().getStringArray(getResources().getIdentifier("TextViewIDsNames","array", getPackageName()));
+        AllTextViewIDs = getResources().getStringArray(getResources().getIdentifier("AllTextViewIDs","array", getPackageName()));
+
         switch (Wpn) {
             case "GS":
                 AttackInfoStub.setLayoutResource(R.layout.content_attack_info);
@@ -228,6 +229,10 @@ public class UI extends AppCompatActivity {
                 this.setTitle("Charge Blade");
                 Icon.setImageResource(R.drawable.charge_blade_icon);
                 Banner.setText(this.getTitle());
+
+                TextViewIDsAttacks = getResources().getStringArray(getResources().getIdentifier("TextViewIDsAttacks_CB","string", getPackageName()));
+                TextViewIDsNames = getResources().getStringArray(getResources().getIdentifier("TextViewIDsNames_CB","string", getPackageName()));
+                AllTextViewIDs = getResources().getStringArray(getResources().getIdentifier("AllTextViewIDs_CB","string", getPackageName()));
                 break;
 
             case "IG":
@@ -288,8 +293,10 @@ public class UI extends AppCompatActivity {
         SkillsStub.inflate();
 
         AttackInfo = findViewById(R.id.AttackInfo);
-    }
 
+        Banners.add((TextView)findViewById(R.id.AttackBanner));
+        Banners.add((TextView)findViewById(R.id.StaggerBanner));
+    }
     private void SetUp(String Wpn) {
 
         String SelectedWpn = getIntent().getStringExtra("Weapon");
@@ -1895,15 +1902,15 @@ public class UI extends AppCompatActivity {
         //the 'SkillCheck' variable to either '1' or '0' depending on the state of the switch in order
         //to make sure that none of the  values from the spinners affect the overall calculation if
         //the switch is set to 'Off'.
-        SkillSwitch = (Switch) findViewById(R.id.SkillsSwitch);
+        SkillSwitch = findViewById(R.id.SkillsSwitch);
         SkillSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                RelativeLayout SkillsLayout = (RelativeLayout) findViewById(getResources().getIdentifier("Skills", "id", getPackageName()));
+                RelativeLayout SkillsLayout = findViewById(getResources().getIdentifier("Skills", "id", getPackageName()));
                 if(isChecked){
                     SkillsLayout.setVisibility(View.VISIBLE);
 
-                    Calculate = (Button) findViewById(R.id.CalculateButton);
+                    Calculate = findViewById(R.id.CalculateButton);
                     ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) Calculate.getLayoutParams();
                     Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Visible),
                             0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
@@ -1914,7 +1921,7 @@ public class UI extends AppCompatActivity {
                 else{
                     SkillsLayout.setVisibility(View.GONE);
 
-                    Calculate = (Button) findViewById(R.id.CalculateButton);
+                    Calculate = findViewById(R.id.CalculateButton);
                     ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) Calculate.getLayoutParams();
                     Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Hidden),
                             0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
@@ -1933,10 +1940,10 @@ public class UI extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 InputMethodManager inputManager = (InputMethodManager)
-                        getSystemService(UI.this.INPUT_METHOD_SERVICE);
-
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                        getSystemService(UI.INPUT_METHOD_SERVICE);
+                if(inputManager != null)
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
 
                 AttackInfo.setVisibility(View.GONE);
 
@@ -1955,9 +1962,6 @@ public class UI extends AppCompatActivity {
                     Affinity.setText("0");
                 }
 
-                //if(getIntent().getStringExtra("Weapon").equals("DB"))
-                    //SubElement = findViewById(R.id.SubElementInputDB);
-
                 switch(Wpn){
                     case "DB":
                         SubElement = findViewById(R.id.SubElementInputDB);
@@ -1967,6 +1971,7 @@ public class UI extends AppCompatActivity {
 
                         DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
                                 String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
+                                String.valueOf(HunterArtSelect.getSelectedItem()),
                                 String.valueOf(StyleSelect.getSelectedItem()),
                                 String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
@@ -1994,10 +1999,10 @@ public class UI extends AppCompatActivity {
                             }
                         }
                         break;
-
                     default:
                         DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
                                 String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
+                                String.valueOf(HunterArtSelect.getSelectedItem()),
                                 String.valueOf(StyleSelect.getSelectedItem()),
                                 String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
@@ -2028,24 +2033,67 @@ public class UI extends AppCompatActivity {
                     return;
                 }
 
-                textviews = new TextView[(DmgCalc.getMVSize() * 2)];
+                RefreshTextViews();
+                DisplayBanners();
+
+                DmgCalc.setHitzone();
                 for (int i = 0; i < DmgCalc.getMVSize(); i++) {
                     AttackInfo.setVisibility(View.VISIBLE);
                     DmgCalc.Calculate(i);
-                    DisplayTextViews(i);
+                    DisplayTextViews(i, view);
                 }
             }
         });
     }
 
-    private void DisplayTextViews(int counter){
+    private void RefreshTextViews(){
+        textviews = new TextView[AllTextViewIDs.length];
+
+        for (TextView Banner : Banners) {
+            Banner.setVisibility(View.GONE);
+        }
+
+        for(int i = 0; i < AllTextViewIDs.length; i++){
+            textviews[i] = findViewById(getResources().getIdentifier(AllTextViewIDs[i], "id", getPackageName()));
+            textviews[i].setVisibility(View.GONE);
+        }
+
+        for(int i = 0; i < AllTextViewIDs.length; i++){
+            textviews[i] = findViewById(getResources().getIdentifier(AllTextViewIDs[i], "id", getPackageName()));
+            textviews[i].setVisibility(View.GONE);
+        }
+    }
+
+    private void DisplayTextViews(int counter, View view){
         textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsNames[counter], "id", getPackageName()));
         textviews[counter].setText(DmgCalc.getMVName(counter));
         textviews[counter].setVisibility(View.VISIBLE);
+        if(DmgCalc.getBounce() && !ChosenMonster.equals("None")) {
+            textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
+            Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
+        else
+            textviews[counter].setTextColor(Color.BLACK);
 
         textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsAttacks[counter], "id", getPackageName()));
         textviews[counter].setText(String.format("%s", Math.round(DmgCalc.getAtkPwr(counter))));
         textviews[counter].setVisibility(View.VISIBLE);
+        if(DmgCalc.getBounce() && !ChosenMonster.equals("None"))
+            textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
+        else
+            textviews[counter].setTextColor(Color.BLACK);
+    }
+
+    private void DisplayBanners(){
+        if(ChosenArt.equals("-None-")) Banners.get(0).setText("Attacks");
+        else Banners.get(0).setText(ChosenArt);
+        Banners.get(0).setVisibility(View.VISIBLE);
+
+        if(!ChosenMonster.equals("None")) {
+            Banners.get(1).setText(DmgCalc.getStagger());
+            Banners.get(1).setVisibility(View.VISIBLE);
+        }
     }
 
     private float getAtk(float i) {

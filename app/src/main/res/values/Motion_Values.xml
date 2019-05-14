@@ -5,6 +5,11 @@
         <item>Level II</item>
         <item>Level III</item>
     </string-array>
+    <integer-array name="HA_MV">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
     <integer-array name="HA_ElementCheck">
         <item>1</item>
         <item>1</item>
@@ -51,20 +56,20 @@
         <item>Lv. 2 Charge</item>
         <item>Lv. 3 Charge</item>
         <item>Lv. 0 Strong Charge</item>
-        <item>   -Follow Up</item>
+        <item>\u0020\u0020\u0020-Follow Up</item>
         <item>Lv. 1 Strong Charge</item>
-        <item>   -Follow Up </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020</item>
         <item>Lv. 2 Strong Charge</item>
-        <item>   -Follow Up  </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020</item>
         <item>Lv. 3 Strong Charge</item>
-        <item>   -Follow Up   </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020\u0020</item>
         <item>Side Slap (22 KO)</item>
         <item>Wide Slash</item>
         <item>Wide Slash (after evade)</item>
         <item>Reverse Overhead Slash</item>
         <item>Kick</item>
         <item>Jump Attack</item>
-        <item>   -Follow Up</item>
+        <item>\u0020\u0020\u0020-Follow Up</item>
     </string-array>
 
     <integer-array name="GS_Striker_MV">
@@ -114,13 +119,13 @@
     <string-array name="GS_Aerial_Names">
         <item>Draw Attack</item>
         <item>Aerial Lv. 0 Charge No Charge)</item>
-        <item>   -Follow Up</item>
+        <item>\u0020\u0020\u0020-Follow Up</item>
         <item>Aerial Lv. 1 Charge</item>
-        <item>   -Follow Up </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020</item>
         <item>Aerial Lv. 2 Charge</item>
-        <item>   -Follow Up  </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020</item>
         <item>Aerial Lv. 3 Charge</item>
-        <item>   -Follow Up   </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020\u0020</item>
         <item>Side Slap (22 KO)</item>
         <item>Wide Slash</item>
         <item>Wide Slash (after evade)</item>
@@ -165,15 +170,15 @@
         <item>Kick</item>
         <item>Adept Evade Lv. 0 Dash Charge</item>
         <item>Adept Evade Lv. 1 Dash Charge</item>
-        <item>   -Lv. 1 Strong Charge</item>
+        <item>\u0020\u0020\u0020-Lv. 1 Strong Charge</item>
         <item>Adept Evade Lv. 1 Dash Charge</item>
-        <item>   -Follow Up </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020</item>
         <item>Adept Evade Lv. 2 Dash Charge</item>
-        <item>   -Lv. 2 Strong Charge</item>
-        <item>   -Follow Up  </item>
+        <item>\u0020\u0020\u0020-Lv. 2 Strong Charge</item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020</item>
         <item>Adept Evade Lv. 3 Dash Charge</item>
-        <item>   -Lv. 3 Strong Charge</item>
-        <item>   -Follow Up   </item>
+        <item>\u0020\u0020\u0020-Lv. 3 Strong Charge</item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020\u0020</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -218,24 +223,24 @@
         <item>Valor Stance - Lv.3 Charge</item>
         <item>Valor Stance - Overcharge</item>
         <item>Draw Slash (Valor State)</item>
-        <item>   -Follow Up</item>
+        <item>\u0020\u0020\u0020-Follow Up</item>
         <item>Draw Slash Lv.1 (Valor State)</item>
-        <item>   -Follow Up </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020</item>
         <item>Draw Slash Lv.2 (Valor State)</item>
-        <item>   -Follow Up  </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020</item>
         <item>Draw Slash Lv.3 (Valor State)</item>
-        <item>   -Follow Up   </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020\u0020</item>
         <item>Blue Charge Lv.0 (Valor State)</item>
-        <item>   -Follow Up</item>
+        <item>\u0020\u0020\u0020-Follow Up</item>
         <item>Blue Charge Lv.1 (Valor State)</item>
-        <item>   -Follow Up </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020</item>
         <item>Blue Charge Lv.2 (Valor State)</item>
-        <item>   -Follow Up  </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020</item>
         <item>Blue Charge Lv.3 (Valor State)</item>
-        <item>   -Follow Up   </item>
+        <item>\u0020\u0020\u0020-Follow Up\u0020\u0020\u0020</item>
         <item>Kick</item>
         <item>Jump Attack</item>
-        <item>   -Follow Up (Valor State)</item>
+        <item>\u0020\u0020\u0020-Follow Up (Valor State)</item>
     </string-array>
 
     <integer-array name="GS_Alchemy_MV">
@@ -287,13 +292,13 @@
 
     <string-array name="GS_HA_BrimstoneSlash_Levels">
         <item>Level 0 (No charge)</item>
-        <item>     -Strong Attack Counter Hit</item>
+        <item>\u0020\u0020\u0020-Strong Attack Counter Hit</item>
         <item>Level I</item>
-        <item>     -Strong Attack Counter Hit </item>
+        <item>\u0020\u0020\u0020-Strong Attack Counter Hit </item>
         <item>Level II</item>
-        <item>     -Strong Attack Counter Hit  </item>
+        <item>\u0020\u0020\u0020-Strong Attack Counter Hit  </item>
         <item>Level III</item>
-        <item>     -Strong Attack Counter Hit   </item>
+        <item>\u0020\u0020\u0020-Strong Attack Counter Hit   </item>
     </string-array>
     <integer-array name="GS_HA_BrimstoneSlash_MV">
         <item>130</item>
@@ -359,7 +364,7 @@
         <item>Charge-In Slash (With Spirit Energy)</item>
         <item>Jump Attack</item>
         <item>Jump Spirit SLash (No Spirit Energy)</item>
-        <item>   -(With Spirit Energy)</item>
+        <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
     <integer-array name="LS_Striker_MV">
@@ -388,7 +393,7 @@
         <item>Spirit Slash Finisher</item>
         <item>Jump Attack</item>
         <item>Jump Spirit SLash (No Spirit Energy)</item>
-        <item>   -(With Spirit Energy)</item>
+        <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
     <integer-array name="LS_Aerial_MV">
@@ -419,7 +424,7 @@
         <item>Spirit Slash Finisher</item>
         <item>Jump Attack</item>
         <item>Jump Spirit SLash (No Spirit Energy)</item>
-        <item>   -(With Spirit Energy)</item>
+        <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
     <integer-array name="LS_Adept_MV">
@@ -451,10 +456,10 @@
         <item>Charge-In Slash</item>
         <item>Charge-In Slash (With Spirit Energy)</item>
         <item>Adept Evade Attack</item>
-        <item>   -Spirit Attack (2 hits)</item>
+        <item>\u0020\u0020\u0020-Spirit Attack (2 hits)</item>
         <item>Jump Attack</item>
         <item>Jump Spirit SLash (No Spirit Energy)</item>
-        <item>   -(With Spirit Energy)</item>
+        <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
     <integer-array name="LS_Valor_MV">
@@ -482,14 +487,14 @@
         <item>Fade Slash</item>
         <item>Valor Stance - Side Slash</item>
         <item>Spirit Slash 1</item>
-        <item>   -Counter</item>
+        <item>\u0020\u0020\u0020-Counter</item>
         <item>Spirit Slash 2</item>
         <item>Spirit Slash 3 (3 hits)</item>
         <item>Spirit Slash Finisher (Valor State) (2 hits)</item>
         <item>Charge-In Slash (Valor State)</item>
         <item>Jump Attack</item>
         <item>Jump Spirit SLash (No Spirit Energy)</item>
-        <item>   -(With Spirit Energy)</item>
+        <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
     <integer-array name="LS_Alchemy_MV">
@@ -516,7 +521,7 @@
         <item>Spirit Slash 3 (3 hits)</item>
         <item>Jump Attack</item>
         <item>Jump Spirit SLash (No Spirit Energy)</item>
-        <item>   -(With Spirit Energy)</item>
+        <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
     <string-array name="LS_HA_Names">
@@ -726,12 +731,12 @@
         <item>Dash Attack - Off ledge</item>
         <item>Dash Attack - Up ledge</item>
         <item>Adept Evade Jump Attack</item>
-        <item>   -Mid-Air Follow Up</item>
-        <item>   -Ground Follow Up 1</item>
-        <item>   -Ground Follow Up 2</item>
-        <item>   -Ground Follow Up Finisher</item>
+        <item>\u0020\u0020\u0020-Mid-Air Follow Up</item>
+        <item>\u0020\u0020\u0020-Ground Follow Up 1</item>
+        <item>\u0020\u0020\u0020-Ground Follow Up 2</item>
+        <item>\u0020\u0020\u0020-Ground Follow Up Finisher</item>
         <item>Adept Evade Lunge Attack</item>
-        <item>   -Mid-Air Follow Up</item>
+        <item>\u0020\u0020\u0020-Mid-Air Follow Up</item>
         <item>Adept Back Step Evade Attack</item>
     </string-array>
 
@@ -774,9 +779,9 @@
         <item>Valor Stance - Charge Slash (3 hits)</item>
         <item>Valor Stance - Spinning Slash</item>
         <item>Flip Attack (Valor State)</item>
-        <item>   -Run In Slash</item>
-        <item>   -True Slash (2 hits)</item>
-        <item>   -Charge Slash (3 hits)</item>
+        <item>\u0020\u0020\u0020-Run In Slash</item>
+        <item>\u0020\u0020\u0020-True Slash (2 hits)</item>
+        <item>\u0020\u0020\u0020-Charge Slash (3 hits)</item>
         <item>Side Slash - From guard</item>
         <item>Upward Slash - From guard</item>
         <item>Jump Attack</item>
@@ -923,16 +928,16 @@
         <item>Demon Combo (6 hits)</item>
 
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
         <item>Devil\'s Dance (12 hits)</item>
         <item>Demon Dodge Jump Attack (4 hits)</item>
 
-        <item>     -Follow Up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--Demon-->
 
     <integer-array name="DB_Guild_MV3">
@@ -967,17 +972,17 @@
 
         <item>Horizontal Slash - Left (2 hits)</item>
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Horizontal Slash - Right (2 hits)</item>
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
         <item>Demon Flurry (7 hits)</item>
         <item>Demon Dodge Jump Attack (4 hits)</item>
 
-        <item>     -Follow Up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--ArchDemon-->
 
     <integer-array name="DB_Striker_MV">
@@ -1037,15 +1042,15 @@
         <item>Demon Combo (6 hits)</item>
 
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
         <item>Right Jumping Slash (3 hits)</item>
 
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
         <item>Demon Flurry Rush (6 hits)</item>
         <item>Devil\'s Dance (12 hits)</item>
 
         <item>Demon Dodge Jump Attack (4 hits)</item>
-        <item>     -Follow Up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--Demon-->
 
     <integer-array name="DB_Aerial_MV">
@@ -1105,17 +1110,17 @@
         <item>Demon Combo (6 hits)</item>
 
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
         <item>Demon Flurry Rush (6 hits)</item>
 
-        <item>     -Off Ledge (4 hits)</item>
-        <item>     -Follow up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Off Ledge (4 hits)</item>
+        <item>\u0020\u0020\u0020-Follow up (6 hits)</item>
         <item>Vault Attack (4 hits)</item>
 
-        <item>     -Follow Up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--Demon-->
 
     <integer-array name="DB_Aerial_MV3">
@@ -1152,19 +1157,19 @@
 
         <item>Horizontal Slash - Left (2 hits)</item>
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Horizontal Slash - Right (2 hits)</item>
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
-        <item>     -Off Ledge (4 hits)</item>
-        <item>     -Follow Up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Off Ledge (4 hits)</item>
+        <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
 
         <item>Demon Flurry (7 hits)</item>
         <item>Vault Attack (4 hits)</item>
-        <item>     -Follow Up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--ArchDemon-->
 
     <integer-array name="DB_Adept_MV">
@@ -1222,10 +1227,10 @@
         <item>Demon Combo (6 hits)</item>
 
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
         <item>Devil\'s Dance (12 hits)</item>
@@ -1265,11 +1270,11 @@
         <item>Horizontal Slash - Left (2 hits)</item>
 
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
         <item>Horizontal Slash - Right (2 hits)</item>
 
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
         <item>Demon Flurry Rush (6 hits)</item>
 
         <item>Demon Flurry (7 hits)</item>
@@ -1350,15 +1355,15 @@
 
         <item>Horizontal Slash - Left (2 hits)</item>
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Horizontal Slash - Right (2 hits)</item>
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
-        <item>     -Off Ledge (4 hits)</item>
-        <item>     -Follow up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Off Ledge (4 hits)</item>
+        <item>\u0020\u0020\u0020-Follow up (6 hits)</item>
 
         <item>Demon Flurry (7 hits)</item>
         <item>Valor Guard Point (4 hits)</item>
@@ -1420,10 +1425,10 @@
         <item>Demon Combo (6 hits)</item>
 
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
         <item>Devil\'s Dance (12 hits)</item>
 
         <item>Jump Attack (2 hits)</item>
@@ -1462,17 +1467,17 @@
 
         <item>Horizontal Slash - Left (2 hits)</item>
         <item>Left Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[L] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[L] (3 hits)</item>
 
         <item>Horizontal Slash - Right (2 hits)</item>
         <item>Right Jumping Slash (3 hits)</item>
-        <item>     -Second Jump[R] (3 hits)</item>
+        <item>\u0020\u0020\u0020-Second Jump[R] (3 hits)</item>
 
         <item>Demon Flurry Rush (6 hits)</item>
         <item>Demon Flurry (7 hits)</item>
         <item>Demon Dodge Jump Attack (4 hits)</item>
 
-        <item>     -Follow Up (6 hits)</item>
+        <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
         <item>Jump Attack (2 hits)</item>
     </string-array><!--ArchDemon-->
 
@@ -1555,17 +1560,17 @@
         <item>Lv. 2 Charge - 40, 10</item>
         <item>Lv. 3 Charge (Both hits) - 32, 45</item>
 
-        <item>     -Moving - All hits - 12, 12</item>
-        <item>     -Finisher (Early) - 40, 10</item>
+        <item>\u0020\u0020\u0020-Moving - All hits - 12, 12</item>
+        <item>\u0020\u0020\u0020-Finisher (Early) - 40, 10</item>
 
-        <item>     -Finisher - 50, 10</item>
-        <item>     -Finisher (Late) - 40, 10</item>
+        <item>\u0020\u0020\u0020-Finisher - 50, 10</item>
+        <item>\u0020\u0020\u0020-Finisher (Late) - 40, 10</item>
 
         <item>Jump Attack - 15, 10</item>
-        <item>     -Lv. 1 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 1 Charge - 40, 10</item>
 
-        <item>     -Lv. 2 Charge - 40, 10</item>
-        <item>     -Lv. 3 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 2 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 3 Charge - 40, 10</item>
     </string-array>
 
     <integer-array name="Hammer_Striker_MV">
@@ -1606,14 +1611,14 @@
 
         <item>Lv. 3 Charge (Moving - All hits) - 12, 12</item>
 
-        <item>     -Finisher - 50, 10</item>
-        <item>     -Finisher (Late) - 40, 10</item>
+        <item>\u0020\u0020\u0020-Finisher - 50, 10</item>
+        <item>\u0020\u0020\u0020-Finisher (Late) - 40, 10</item>
 
         <item>Jump Attack - 15, 10</item>
-        <item>     -Lv. 1 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 1 Charge - 40, 10</item>
 
-        <item>     -Lv. 2 Charge - 40, 10</item>
-        <item>     -Lv. 3 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 2 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 3 Charge - 40, 10</item>
     </string-array>
 
     <integer-array name="Hammer_Aerial_MV">
@@ -1652,16 +1657,16 @@
         <item>Lv. 2 Charge - 40, 10</item>
         <item>Lv. 3 Charge (Both hits) - 32, 45</item>
 
-        <item>     -Moving - All hits - 12, 12</item>
+        <item>\u0020\u0020\u0020-Moving - All hits - 12, 12</item>
 
         <item>Normal Aerial Attack - 25, 15</item>
         <item>Double Hit Aerial Attack - 45, 25</item>
 
         <item>Jump Attack - 15, 10</item>
-        <item>     -Lv. 1 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 1 Charge - 40, 10</item>
 
-        <item>     -Lv. 2 Charge - 40, 10</item>
-        <item>     -Lv. 3 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 2 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 3 Charge - 40, 10</item>
     </string-array>
 
     <integer-array name="Hammer_Adept_MV">
@@ -1712,28 +1717,28 @@
         <item>Lv. 2 Charge - 40, 10</item>
         <item>Lv. 3 Charge (Both hits) - 32, 45</item>
 
-        <item>     -Moving (All hits) - 12, 12</item>
-        <item>     -Finisher (Early) - 40, 10</item>
+        <item>\u0020\u0020\u0020-Moving (All hits) - 12, 12</item>
+        <item>\u0020\u0020\u0020-Finisher (Early) - 40, 10</item>
 
-        <item>     -Finisher - 50, 10</item>
-        <item>     -Finisher (Late) - 40, 10</item>
+        <item>\u0020\u0020\u0020-Finisher - 50, 10</item>
+        <item>\u0020\u0020\u0020-Finisher (Late) - 40, 10</item>
 
         <item>Adept Lv. 1 Charge - 45, 10</item>
-        <item>     -Jump - 45, 10</item>
+        <item>\u0020\u0020\u0020-Jump - 45, 10</item>
 
         <item>Adept Lv. 2 Charge - 55, 10</item>
-        <item>     -Jump - 45, 10</item>
+        <item>\u0020\u0020\u0020-Jump - 45, 10</item>
 
         <item>Adept Lv. 3 Charge - 55, 10</item>
 
-        <item>     -Moving (All hits) - 37, 55</item>
-        <item>     -Jump - 45, 10</item>
+        <item>\u0020\u0020\u0020-Moving (All hits) - 37, 55</item>
+        <item>\u0020\u0020\u0020-Jump - 45, 10</item>
 
         <item>Jump Attack - 15, 10</item>
-        <item>     -Lv. 1 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 1 Charge - 40, 10</item>
 
-        <item>     -Lv. 2 Charge - 40, 10</item>
-        <item>     -Lv. 3 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 2 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 3 Charge - 40, 10</item>
     </string-array>
 
     <integer-array name="Hammer_Valor_MV">
@@ -1773,16 +1778,16 @@
         <item>Valor Stance - Finisher Swing - 40, 10</item>
         <item>Charge Lv. 1 (Valor State) - 15, 15</item>
 
-        <item>   -Full Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Full Charge - 40, 10</item>
         <item>Charge Lv. 2 (Valor State) - 35, 10</item>
-        <item>   -Full Charge - 45, 15</item>
+        <item>\u0020\u0020\u0020-Full Charge - 45, 15</item>
 
         <item>Charge Lv. 3 (2 hits) (Valor State) - 60, 30</item>
-        <item>   -Full Charge (2 hits) - 70, 35</item>
+        <item>\u0020\u0020\u0020-Full Charge (2 hits) - 70, 35</item>
 
         <item>Jump Attack - 15, 10</item>
-        <item>     -Lv. 1 Charge - 40, 10</item>
-        <item>     -Lv. 2 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 1 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 2 Charge - 40, 10</item>
     </string-array>
 
     <integer-array name="Hammer_Alchemy_MV">
@@ -1817,10 +1822,10 @@
         <item>Lv. 3 Charge (Both hits) - 32, 45</item>
 
         <item>Jump Attack - 15, 10</item>
-        <item>     -Lv. 1 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 1 Charge - 40, 10</item>
 
-        <item>     -Lv. 2 Charge - 40, 10</item>
-        <item>     -Lv. 3 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 2 Charge - 40, 10</item>
+        <item>\u0020\u0020\u0020-Lv. 3 Charge - 40, 10</item>
     </string-array>
 
     <string-array name="Hammer_HA_Names">
@@ -1899,7 +1904,7 @@
     <string-array name="HH_Guild_Names">
         <item>Draw Attack - 20, 20</item>
         <item>Forward Slam - 20, 15</item>
-        <item>   -After an Attack - 20, 15</item>
+        <item>\u0020\u0020\u0020-After an Attack - 20, 15</item>
 
         <item>Left Swing - 20, 15</item>
         <item>Right Swing - 20, 15</item>
@@ -1991,7 +1996,7 @@
     <string-array name="HH_Aerial_Names">
         <item>Draw Attack - 20, 20</item>
         <item>Forward Slam - 20, 15</item>
-        <item>   -After an Attack - 20, 15</item>
+        <item>\u0020\u0020\u0020-After an Attack - 20, 15</item>
 
         <item>Left Swing - 20, 15</item>
         <item>Right Swing - 20, 15</item>
@@ -2043,7 +2048,7 @@
     <string-array name="HH_Adept_Names">
         <item>Draw Attack - 20, 20</item>
         <item>Forward Slam - 20, 15</item>
-        <item>   -After an Attack - 20, 15</item>
+        <item>\u0020\u0020\u0020-After an Attack - 20, 15</item>
 
         <item>Left Swing - 20, 15</item>
         <item>Right Swing - 20, 15</item>
@@ -2063,8 +2068,8 @@
         <item>3-Note Backward Encore (3 hits) - 69, 71</item>
 
         <item>Adept Evade Attack</item>
-        <item>     -Follow Up</item>
-        <item>     -Follow Up Finisher</item>
+        <item>\u0020\u0020\u0020-Follow Up</item>
+        <item>\u0020\u0020\u0020-Follow Up Finisher</item>
         <item>Jump Attack - 20, 20</item>
     </string-array>
 
@@ -2099,7 +2104,7 @@
     <string-array name="HH_Valor_Names">
         <item>Draw Attack - 20, 20</item>
         <item>Forward Slam - 20, 15</item>
-        <item>   -After an Attack - 20, 15</item>
+        <item>\u0020\u0020\u0020-After an Attack - 20, 15</item>
 
         <item>Left Swing - 20, 15</item>
         <item>Right Swing - 20, 15</item>
@@ -2152,7 +2157,7 @@
     <string-array name="HH_Alchemy_Names">
         <item>Draw Attack - 20, 20</item>
         <item>Forward Slam - 20, 15</item>
-        <item>   -After an Attack - 20, 15</item>
+        <item>\u0020\u0020\u0020-After an Attack - 20, 15</item>
 
         <item>Left Swing - 20, 15</item>
         <item>Right Swing - 20, 15</item>
@@ -2185,11 +2190,11 @@
 
     <string-array name="HH_HA_SonicSmash_Names">
         <item>Level I</item>
-        <item>     -Fixed Damage</item>
+        <item>\u0020\u0020\u0020-Fixed Damage</item>
         <item>Level II</item>
-        <item>     -Fixed Damage</item>
+        <item>\u0020\u0020\u0020-Fixed Damage</item>
         <item>Level III</item>
-        <item>     -Fixed Damage</item>
+        <item>\u0020\u0020\u0020-Fixed Damage</item>
     </string-array>
     <integer-array name="HH_HA_SonicSmash_MV">
         <item>10</item>
@@ -2249,15 +2254,15 @@
         <item>Counter (Counter Hit - Forward)</item>
 
         <item>Counter (Counter Hit - Upward)</item>
-        <item>      - Full Charge</item>
-        <item>      - Full Charge (Counter Hit)</item>
+        <item>\u0020\u0020\u0020- Full Charge</item>
+        <item>\u0020\u0020\u0020- Full Charge (Counter Hit)</item>
 
         <item>Shield Smack - 27 KO</item>
         <item>Running Charge (Per hit)</item>
-        <item>     -Finisher</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
 
-        <item>     -Jumping Finisher</item>
-        <item>     -Turn Around Finisher</item>
+        <item>\u0020\u0020\u0020-Jumping Finisher</item>
+        <item>\u0020\u0020\u0020-Turn Around Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -2298,12 +2303,12 @@
         <item>Counter (Counter Hit - Forward)</item>
 
         <item>Counter (Counter Hit - Upward)</item>
-        <item>      - Full Charge</item>
-        <item>      - Full Charge (Counter Hit)</item>
+        <item>\u0020\u0020\u0020- Full Charge</item>
+        <item>\u0020\u0020\u0020- Full Charge (Counter Hit)</item>
 
         <item>Shield Smack - 27 KO</item>
         <item>Running Charge (Per hit)</item>
-        <item>     -Finisher</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
 
         <item>Jump Attack</item>
     </string-array>
@@ -2349,15 +2354,15 @@
         <item>Counter (Counter Hit - Forward)</item>
 
         <item>Counter (Counter Hit - Upward)</item>
-        <item>      - Full Charge</item>
-        <item>      - Full Charge (Counter Hit)</item>
+        <item>\u0020\u0020\u0020- Full Charge</item>
+        <item>\u0020\u0020\u0020- Full Charge (Counter Hit)</item>
 
         <item>Shield Smack - 27 KO</item>
         <item>Running Charge (Per hit)</item>
-        <item>     -Finisher</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
 
-        <item>     -Jumping Finisher</item>
-        <item>     -Turn Around Finisher</item>
+        <item>\u0020\u0020\u0020-Jumping Finisher</item>
+        <item>\u0020\u0020\u0020-Turn Around Finisher</item>
         <item>Jump Attack</item>
 
         <item>Aerial Attack after Vault (3 hits)</item>
@@ -2393,10 +2398,10 @@
 
         <item>Shield Smack - 27 KO</item>
         <item>Running Charge (Per hit)</item>
-        <item>     -Finisher</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
 
-        <item>     -Jumping Finisher</item>
-        <item>     -Turn Around Finisher</item>
+        <item>\u0020\u0020\u0020-Jumping Finisher</item>
+        <item>\u0020\u0020\u0020-Turn Around Finisher</item>
         <item>Jump Attack</item>
 
         <item>Adept Counter (2 hits)</item>
@@ -2442,20 +2447,20 @@
         <item>Counter (Upward) (Valor State)</item>
         <item>Counter (Counter Hit - Forward)</item>
 
-        <item>     -Turn Around Finisher</item>
+        <item>\u0020\u0020\u0020-Turn Around Finisher</item>
         <item>Jump Attack</item>
         <item>Adept Counter (2 hits)</item>
 
         <item>Counter (Counter Hit - Upward)</item>
-        <item>      - Full Charge</item>
-        <item>      - Full Charge (Counter Hit)</item>
+        <item>\u0020\u0020\u0020- Full Charge</item>
+        <item>\u0020\u0020\u0020- Full Charge (Counter Hit)</item>
 
         <item>Shield Smack - 27 KO</item>
         <item>Running Charge (Per hit) (Valor State)</item>
-        <item>     -Finisher</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
 
-        <item>     -Jumping Finisher</item>
-        <item>     -Turn Around Finisher</item>
+        <item>\u0020\u0020\u0020-Jumping Finisher</item>
+        <item>\u0020\u0020\u0020-Turn Around Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -2482,9 +2487,9 @@
         <item>Thrust from Shield</item>
         <item>Shield Smack - 27 KO</item>
         <item>Running Charge (Per hit)</item>
-        <item>     -Finisher</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
 
-        <item>     -Jumping Finisher</item>
+        <item>\u0020\u0020\u0020-Jumping Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -2497,8 +2502,8 @@
     <string-array name="Lance_HA_ShieldAssault_Names">
         <item>Start Up - 27, 27</item>
         <item>Run  (Per Hit) - 2, 3</item>
-        <item>     -Natural Stop - 27, 27</item>
-        <item>     -Finisher</item>
+        <item>\u0020\u0020\u0020-Natural Stop - 27, 27</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
     </string-array>
     <integer-array name="Lance_HA_ShieldAssault_MV">
         <item>10</item>
@@ -2647,7 +2652,7 @@
         <item>Upward Thrust</item>
         <item>Run-In Thrust</item>
         <item>Valor Stance - Reload Upward Strike</item>
-        <item>   -Full Clip</item>
+        <item>\u0020\u0020\u0020-Full Clip</item>
 
         <item>Jump Attack Slam</item>
         <item>Jump Attack Thrust</item>
@@ -2700,9 +2705,9 @@
 
     <string-array name="GL_Shelling_Names">
         <item>Shells</item>
-        <item>     -Fire Damage</item>
+        <item>\u0020\u0020\u0020-Fire Damage</item>
         <item>Charged Shot</item>
-        <item>     -Charged Fire Damage</item>
+        <item>\u0020\u0020\u0020-Charged Fire Damage</item>
         <item>Wyverns Fire (All hits)</item>
         <item>Full Burst</item>
     </string-array>
@@ -2884,10 +2889,10 @@
 
         <item>Double Slash (2 hits)</item>
         <item>Elemental Discharge (Thrust)</item>
-        <item>     -Bursts - per hit (7 max)</item>
+        <item>\u0020\u0020\u0020-Bursts - per hit (7 max)</item>
 
         <item>Elemental Discharge (Finisher)</item>
-        <item>     -Early Finisher</item>
+        <item>\u0020\u0020\u0020-Early Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -2937,10 +2942,10 @@
         <item>Side Slash</item>
 
         <item>Elemental Discharge (Thrust)</item>
-        <item>     -Bursts - per hit (7 max)</item>
+        <item>\u0020\u0020\u0020-Bursts - per hit (7 max)</item>
         <item>Elemental Discharge (Finisher)</item>
 
-        <item>     -Early Finisher</item>
+        <item>\u0020\u0020\u0020-Early Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -2993,10 +2998,10 @@
 
         <item>Double Slash (2 hits)</item>
         <item>Elemental Discharge (Thrust)</item>
-        <item>     -Bursts - per hit (7 max)</item>
+        <item>\u0020\u0020\u0020-Bursts - per hit (7 max)</item>
 
         <item>Elemental Discharge (Finisher)</item>
-        <item>     -Early Finisher</item>
+        <item>\u0020\u0020\u0020-Early Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -3049,10 +3054,10 @@
         <item>Double Slash (2 hits)</item>
 
         <item>Elemental Discharge (Thrust)</item>
-        <item>     -Bursts - per hit (7 max)</item>
+        <item>\u0020\u0020\u0020-Bursts - per hit (7 max)</item>
         <item>Elemental Discharge (Finisher)</item>
 
-        <item>     -Early Finisher</item>
+        <item>\u0020\u0020\u0020-Early Finisher</item>
         <item>Adept Evade Attack (2 hits)</item>
         <item>Jump Attack</item>
     </string-array>
@@ -3079,7 +3084,7 @@
 
         <item>Upward Swing</item>
         <item>Hack \'n\' Slash (Per hit)</item>
-        <item>   -Finisher (3 hits)\n(Valor State/Stance)</item>
+        <item>\u0020\u0020\u0020-Finisher (3 hits)\n(Valor State/Stance)</item>
 
         <item>Tempest Axe Finisher (X) (2 hits)</item>
         <item>Tempest Axe Start-Up Slashes (2 hits)</item>
@@ -3108,9 +3113,9 @@
         <item>Double Slash (2 hits) (Valor Stance/State)</item>
         <item>Elemental Discharge (Thrust) (Valor State)</item>
 
-        <item>     -Bursts - per hit (7 max)</item>
+        <item>\u0020\u0020\u0020-Bursts - per hit (7 max)</item>
         <item>Elemental Discharge (Finisher)</item>
-        <item>     -Early Finisher</item>
+        <item>\u0020\u0020\u0020-Early Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -3164,10 +3169,10 @@
 
         <item>Double Slash (2 hits) (Valor Stance/State)</item>
         <item>Elemental Discharge (Thrust) (Valor State)</item>
-        <item>     -Bursts - per hit (7 max)</item>
+        <item>\u0020\u0020\u0020-Bursts - per hit (7 max)</item>
 
         <item>Elemental Discharge (Finisher)</item>
-        <item>     -Early Finisher</item>
+        <item>\u0020\u0020\u0020-Early Finisher</item>
         <item>Jump Attack</item>
     </string-array>
 
@@ -3486,7 +3491,7 @@
         <item>Round Slash</item>
 
         <item>Charge Slash</item>
-        <item>   -Valor State/Stance (2 hits)</item>
+        <item>\u0020\u0020\u0020-Valor State/Stance (2 hits)</item>
         <item>Shield Thrust (2 hits)</item>
         <item>Morph to Axe</item>
 
@@ -3725,7 +3730,7 @@
     <string-array name="IG_Extract_Guild_Names">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
-        <item>     -During Combo</item>
+        <item>\u0020\u0020\u0020-During Combo</item>
 
         <item>Downward Strike - Right (Both hits)</item>
         <item>Reverse Smack (All hits)</item>
@@ -3862,7 +3867,7 @@
     <string-array name="IG_Extract_Aerial_Names">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
-        <item>     -During Combo</item>
+        <item>\u0020\u0020\u0020-During Combo</item>
 
         <item>Downward Strike - Right (Both hits)</item>
         <item>Reverse Smack (All hits)</item>
@@ -3944,7 +3949,7 @@
     <string-array name="IG_Extract_Adept_Names">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
-        <item>     -During Combo</item>
+        <item>\u0020\u0020\u0020-During Combo</item>
 
         <item>Downward Strike - Right (Both hits)</item>
         <item>Reverse Smack (All hits)</item>
@@ -4030,7 +4035,7 @@
     <string-array name="IG_Extract_Valor_Names">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
-        <item>     -During Combo</item>
+        <item>\u0020\u0020\u0020-During Combo</item>
 
         <item>Downward Strike - Right (Both hits)</item>
         <item>Reverse Smack (All hits)</item>
@@ -4101,7 +4106,7 @@
     <string-array name="IG_Extract_Alchemy_Names">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
-        <item>     -During Combo</item>
+        <item>\u0020\u0020\u0020-During Combo</item>
 
         <item>Downward Strike - Right (Both hits)</item>
         <item>Reverse Smack (All hits)</item>
@@ -4246,7 +4251,7 @@
         <item>Super Finisher (per hit)</item>
         <item>Ledge Attack (per hit)</item>
 
-        <item>   -Finisher</item>
+        <item>\u0020\u0020\u0020-Finisher</item>
         <item>Boomerang</item>
         <item>Charged Boomerang</item>
         <item>Boomerang Finisher</item>
