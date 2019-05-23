@@ -12,7 +12,7 @@
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInputSA"
+            android:id="@+id/DamageInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -36,17 +36,17 @@
             android:id="@+id/ElementSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ElementInputSA"
-            android:layout_alignBottom="@+id/ElementInputSA"
+            android:layout_alignTop="@+id/ElementInput"
+            android:layout_alignBottom="@+id/ElementInput"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInputSA" />
+            android:layout_toLeftOf="@+id/ElementInput" />
 
         <EditText
-            android:id="@+id/ElementInputSA"
+            android:id="@+id/ElementInput"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInputSA"
+            android:layout_below="@+id/DamageInput"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:ems="10"
@@ -58,9 +58,9 @@
             android:id="@+id/ElementDisclaimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ElementInputSA"
+            android:layout_below="@+id/ElementInput"
             android:layout_alignLeft="@+id/ElementSelect"
-            android:layout_alignRight="@+id/ElementInputSA"
+            android:layout_alignRight="@+id/ElementInput"
             android:gravity="center"
             android:text="Unawakened elements are still active in Sword mode with a Dragon/Element Phial"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -68,7 +68,7 @@
             android:textStyle="italic" />
 
         <EditText
-            android:id="@+id/AffinityInputSA"
+            android:id="@+id/AffinityInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ElementDisclaimer"
@@ -93,8 +93,9 @@
             android:id="@+id/PhialSelectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInputSA"
+            android:layout_below="@+id/AffinityInput"
             android:layout_alignStart="@+id/PhialSelect"
+            android:layout_alignLeft="@+id/PhialSelect"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="10dp"
             android:text="@string/phial_select" />
@@ -123,6 +124,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/StyleLabel"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:gravity="center"
             android:prompt="@string/style_select_label"
             android:spinnerMode="dropdown" />

@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -25,18 +26,22 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UI extends AppCompatActivity {
 
-    private Spinner StyleSelect, SharpnessSelect, ElementSelect, SubElementSelect, MonsterSelect, HitzoneSelect,
-            HunterArtSelect, PhialSelect, ShieldChargeSelect, NumberofPhialsSelect, ProwlerTypeSelect,
-            NineLivesAttackSelect, SupportSkillsSelect, BoomerangSelect;
-    private Button Calculate;
+    Spinner StyleSelect, SharpnessSelect, ElementSelect, SubElementSelect, MonsterSelect, HitzoneSelect,
+            HunterArtSelect, PhialSelect, ShieldChargeSelect, NumberofPhialsSelect, SpiritGaugeColourSelect,
+            DBModeSelect, ShotTypeSelect, ShotLevelSelect, HeatGaugeSelect, NumberofShellsSelect,
+            ExtractSelect, ShotSelect, DistanceSelect,
+            ProwlerTypeSelect, NineLivesAttackSelect, SupportSkillsSelect, BoomerangSelect;
+    Button Calculate;
 
 
-    private String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, MonsterType, ChosenArt;
-    private float SelectedSharpnessElmModifier, SelectedSharpnessAtkModifier;
+    String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, Sharpness,
+            ChosenStyle, MonsterType, ChosenArt, DBMode, SpiritGaugeColour;
 
     private SkillsCalculation Skills = new SkillsCalculation();
     //Creates an instance of 'SkillsCalculation' so it's functions for calculating skills can be used
@@ -53,50 +58,40 @@ public class UI extends AppCompatActivity {
             FurorCheck, BludgeonerCheck, RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck,
             ElementalAtkUpCheck, AirborneCheck, FelyneBombardierCheck, WeaknessExploitCheck,
 
+            CentreBladeBonusCheck,//Great/Long Sword
+
+            MaxSpiritGaugeCheck,//Long Sword
+
+            DragonBreathCheck,//Gunlance
+
+            TempestAxeCheck, AwakenedCheck,//Switch Axe
+
+            AerialShotSelect, PowerReloadCheck,//Light/Heavy Bowgun
+
+            RapidFireCheck,//Light Bowgun
+
+            GunpowderInfusionCheck,//Heavy Bowgun
+
             //Prowler
             AttackUpSCheck, AttackUpLCheck, TriforceCheck, AffinityUpSCheck, AffinityUpLCheck,
             DemonHornCheck, RangedAttackUpCheck, LastStandCheck, FanalisCheck, UniversalCheck,
             FuryStateCheck, BeastModeCheck,WorldsStrongestCheck, BaddestCatEverCheck, WeaponUpgradeCheck;
 
-    CheckBox CentreBladeBonusCheck;
-
     RadioButton ChaosOilLevel1_2Radio, ChaosOilLevel3Radio, ChaosOilOffRadio,
             LionsMawLevel1Check, LionsMawLevel2Check, LionsMawLevel3Check, LionsMawOffCheck,
             EvasiveManeuversOffCheck, EvasiveManeuversLevel2Check, EvasiveManeuversLevel3Check,
-            WolfsMawLevel1Check, WolfsMawLevel2Check, WolfsMawLevel3Check, WolfsMawOffCheck;
+            WolfsMawLevel1Check, WolfsMawLevel2Check, WolfsMawLevel3Check, WolfsMawOffCheck,
+            SacrificialBladeLevel1Check, SacrificialBladeLevel2Check, SacrificialBladeLevel3Check,
+            SacrificialBladeOffCheck, EnragedGuardRed, EnragedGuardYellow, EnragedGuardOrange,
+            NoEnragedGuardAura, DemonRiotLevel1Check, DemonRiotLevel2Check, DemonRiotLevel3Check,
+            DemonRiotOffCheck, EnergyChargeLevel2Check, EnergyChargeLevel3Check, EnergyChargeOffCheck,
+            NoShotUpRadio, NormalUpRadio, PelletUpRadio, PierceUpRadio, HeavyUpRadio,TrueShotUpRadio;
     Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
     int SelectedPhialCharge, SelectedPhialNoCharge;
 
-    // StaggerBanner, AttackBanner;
-
     List<TextView> Banners = new ArrayList<>();
     String[] TextViewIDsAttacks, TextViewIDsNames, AllTextViewIDs;
-
-    String[] TextViewIDsAttacks_ = new String[]{"Attack_1", "Attack_2", "Attack_3", "Attack_4",
-            "Attack_5", "Attack_6", "Attack_7", "Attack_8", "Attack_9", "Attack_10",
-            "Attack_11", "Attack_12", "Attack_13", "Attack_14", "Attack_15", "Attack_16",
-            "Attack_17", "Attack_18", "Attack_19", "Attack_20", "Attack_21", "Attack_22",
-            "Attack_23", "Attack_24"};
-
-    String[] TextViewIDsNames_ = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
-            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name", "Attack_8_Name",
-            "Attack_9_Name", "Attack_10_Name", "Attack_11_Name", "Attack_12_Name", "Attack_13_Name",
-            "Attack_14_Name", "Attack_15_Name", "Attack_16_Name", "Attack_17_Name", "Attack_18_Name",
-            "Attack_19_Name", "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
-            "Attack_24_Name"};
-
-    String[] AllTextViewIDs_ = new String[]{"Attack_1_Name", "Attack_2_Name", "Attack_3_Name",
-            "Attack_4_Name", "Attack_5_Name", "Attack_6_Name", "Attack_7_Name", "Attack_8_Name",
-            "Attack_9_Name", "Attack_10_Name", "Attack_11_Name", "Attack_12_Name", "Attack_13_Name",
-            "Attack_14_Name", "Attack_15_Name", "Attack_16_Name", "Attack_17_Name", "Attack_18_Name",
-            "Attack_19_Name", "Attack_20_Name", "Attack_21_Name", "Attack_22_Name", "Attack_23_Name",
-            "Attack_24_Name",
-            "Attack_1", "Attack_2", "Attack_3", "Attack_4", "Attack_5", "Attack_6", "Attack_7",
-            "Attack_8", "Attack_9", "Attack_10", "Attack_11", "Attack_12", "Attack_13", "Attack_14",
-            "Attack_15", "Attack_16", "Attack_17", "Attack_18", "Attack_19", "Attack_20", "Attack_21",
-            "Attack_22", "Attack_23", "Attack_24"};
-
     TextView textviews[];
     //-End-
 
@@ -298,14 +293,11 @@ public class UI extends AppCompatActivity {
         Banners.add((TextView)findViewById(R.id.StaggerBanner));
     }
     private void SetUp(String Wpn) {
-
-        String SelectedWpn = getIntent().getStringExtra("Weapon");
-
         PowercharmCheck = findViewById(R.id.PowercharmCheckBox);
         PowertalonCheck = findViewById(R.id.PowertalonCheckBox);
 
-        //Prowler/Hunter specific skills set up
-        if(!SelectedWpn.equals("Prowler")){
+        //Set Prowler/Hunter specific skills
+        if(!Wpn.equals("Prowler")){
             /*Gives the variable for the spinner 'StyleSelect' the actual value for a spinner.*/
             StyleSelect = findViewById(R.id.StyleSelect);
 
@@ -321,6 +313,8 @@ public class UI extends AppCompatActivity {
             StyleSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    ChosenStyle = String.valueOf(StyleSelect.getSelectedItem());
 
                     switch (String.valueOf(StyleSelect.getSelectedItem())) {
                         case "Guild":
@@ -525,9 +519,26 @@ public class UI extends AppCompatActivity {
             HunterArtSelect = findViewById(R.id.SupportSkillsSelect);
         }
 
+        //Set gunner weapon specific checkboxes
+        if(Wpn.equals("Bow") || Wpn.equals("LBG") || Wpn.equals("HBG")){
+            if(!Wpn.equals("Bow")){
+                if(Wpn.equals("LBG")) RapidFireCheck = findViewById(R.id.RapidFireCheckBox);
+                PowerReloadCheck = findViewById(R.id.PowerReloadCheckBox);
+                AerialShotSelect = findViewById(R.id.AerialShotSelect);
+
+                NoShotUpRadio = findViewById(R.id.NoShotUpRadio);
+                NormalUpRadio = findViewById(R.id.NormalUpRadio);
+                PelletUpRadio = findViewById(R.id.PelletUpRadio);
+                HeavyUpRadio = findViewById(R.id.HeavyUpRadio);
+                PierceUpRadio = findViewById(R.id.PierceUpRadio);
+                TrueShotUpRadio = findViewById(R.id.TrueShotUpRadio);
+            }
+            DistanceSelect = findViewById(R.id.DistanceSelect);
+        }
+
         //Sharpness/Element Spinner set up
-        if(!SelectedWpn.equals("LBG") || !SelectedWpn.equals("HBG")){
-            if(!SelectedWpn.equals("Bow")){
+        if(!Wpn.equals("LBG") || !Wpn.equals("HBG")){
+            if(!Wpn.equals("Bow")){
                 SharpnessSelect = findViewById(R.id.SharpnessSelect);
                 ArrayAdapter SharpnessAdapter = ArrayAdapter.createFromResource(this,R.array.Sharpness,
                         android.R.layout.simple_spinner_dropdown_item);
@@ -535,6 +546,8 @@ public class UI extends AppCompatActivity {
                 SharpnessSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        Sharpness = String.valueOf(SharpnessSelect.getSelectedItem());
 
                         switch (String.valueOf(SharpnessSelect.getSelectedItem())) {
                             case "Red":
@@ -561,17 +574,17 @@ public class UI extends AppCompatActivity {
                                 Skills.getBludgeonerModifier(15f);
                                 break;
 
-                            case "Blue":
-                                //getAtk(SharpModAtk[4]);
-                                //getElm(SharpModElm[4]);
-                                Skills.getBludgeonerModifier(0f);
-                                break;
-
-                            case "White":
-                                //getAtk(SharpModAtk[5]);
-                                //getElm(SharpModElm[5]);
-                                Skills.getBludgeonerModifier(0f);
-                                break;
+//                            case "Blue":
+//                                //getAtk(SharpModAtk[4]);
+//                                //getElm(SharpModElm[4]);
+//                                Skills.getBludgeonerModifier(0f);
+//                                break;
+//
+//                            case "White":
+//                                //getAtk(SharpModAtk[5]);
+//                                //getElm(SharpModElm[5]);
+//                                Skills.getBludgeonerModifier(0f);
+//                                break;
 
                             default:
                                 //getAtk(SharpModAtk[6]);
@@ -595,32 +608,32 @@ public class UI extends AppCompatActivity {
             ElementSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                    switch (String.valueOf(ElementSelect.getSelectedItem())) {
-                        case "Fire":
-                            getChosenElement("Fire");
-                            break;
-
-                        case "Water":
-                            getChosenElement("Water");
-                            break;
-
-                        case "Ice":
-                            getChosenElement("Ice");
-                            break;
-
-                        case "Thunder":
-                            getChosenElement("Thunder");
-                            break;
-
-                        case "Dragon":
-                            getChosenElement("Dragon");
-                            break;
-
-                        default:
-                            getChosenElement("NONE");
-                            break;
-                    }
+                    ChosenElement = String.valueOf(ElementSelect.getSelectedItem());
+//                    switch (String.valueOf(ElementSelect.getSelectedItem())) {
+//                        case "Fire":
+//                            getChosenElement("Fire");
+//                            break;
+//
+//                        case "Water":
+//                            getChosenElement("Water");
+//                            break;
+//
+//                        case "Ice":
+//                            getChosenElement("Ice");
+//                            break;
+//
+//                        case "Thunder":
+//                            getChosenElement("Thunder");
+//                            break;
+//
+//                        case "Dragon":
+//                            getChosenElement("Dragon");
+//                            break;
+//
+//                        default:
+//                            getChosenElement("NONE");
+//                            break;
+//                    }
                 }
 
                 @Override
@@ -629,42 +642,40 @@ public class UI extends AppCompatActivity {
                 }
             });
 
-            if(SelectedWpn.equals("DB")){
+            if(Wpn.equals("DB")){
                 SubElementSelect = findViewById(R.id.SubElementSelect);
 
-                ArrayAdapter SubElementAdapter = ArrayAdapter.createFromResource(this,R.array.SubElement,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                SubElementSelect.setAdapter(SubElementAdapter);
+                SubElementSelect.setAdapter(ElementAdapter);
 
                 SubElementSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        switch (String.valueOf(ElementSelect.getSelectedItem())) {
-                            case "[Fire]":
-                                getChosenSubElement("Fire");
-                                break;
-
-                            case "[Water]":
-                                getChosenSubElement("Water");
-                                break;
-
-                            case "[Ice]":
-                                getChosenSubElement("Ice");
-                                break;
-
-                            case "[Thunder]":
-                                getChosenSubElement("Thunder");
-                                break;
-
-                            case "[Dragon]":
-                                getChosenSubElement("Dragon");
-                                break;
-
-                            default:
-                                getChosenSubElement("NONE");
-                                break;
-                        }
+                        ChosenSubElement = String.valueOf(ElementSelect.getSelectedItem());
+//                        switch (String.valueOf(ElementSelect.getSelectedItem())) {
+//                            case "[Fire]":
+//                                ChosenSubElement = "Fire";
+//                                break;
+//
+//                            case "[Water]":
+//                                ChosenSubElement = "Water";
+//                                break;
+//
+//                            case "[Ice]":
+//                                ChosenSubElement = "Ice";
+//                                break;
+//
+//                            case "[Thunder]":
+//                                ChosenSubElement = "Thunder";
+//                                break;
+//
+//                            case "[Dragon]":
+//                                ChosenSubElement = "Dragon";
+//                                break;
+//
+//                            default:
+//                                ChosenSubElement = "NONE";
+//                                break;
+//                        }
                     }
 
                     @Override
@@ -676,176 +687,8 @@ public class UI extends AppCompatActivity {
         }
 
         //Set Artillery spinner and FelyneBombardier check box
-        if(SelectedWpn.equals("CB") || SelectedWpn.equals("GL")|| SelectedWpn.equals("LBG")
-                || SelectedWpn.equals("HBG")){
-//            if(SelectedWpn.equals("CB")){
-//                PhialSelect = findViewById(R.id.CBPhialSelect);
-//                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//
-//                PhialSelect.setAdapter(PhialAdapter);
-//                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                        SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
-//                                + String.valueOf(PhialSelect.getSelectedItem()) +
-//                                "Burst_NoCharge_MV", "integer", UI.this.getPackageName());
-//
-//                        SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
-//                                + String.valueOf(PhialSelect.getSelectedItem()) +
-//                                "Burst_Charge_MV", "integer", UI.this.getPackageName());
-//
-//                        isImpact = String.valueOf(PhialSelect.getSelectedItem()).equals("Impact");
-////                        switch(String.valueOf(PhialSelect.getSelectedItem())){
-////                            case "Impact":
-////
-////                                HA_ElementCheck = UI.this.getResources().getIntArray(HA_ElementCheck_Array);
-////
-////
-////                                /*SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
-////                                        + PhialSelect.getSelectedItem().toString() + "Burst_NoCharge_MV",
-////                                        "integer", UI.this.getPackageName());
-////
-////                                SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
-////                                                + PhialSelect.getSelectedItem().toString() + "Burst_Charge_MV",
-////                                        "integer", UI.this.getPackageName());*/
-////                                isImpact = true;
-////                                break;
-////                            default:
-////                                SelectedPhial = ElmBurstMotion;
-////                                isImpact = false;
-////                                break;
-////                        }
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
-//
-//                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
-//                ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//
-//                NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
-////                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-////                    @Override
-////                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-////
-////                        switch(Integer.parseInt(String.valueOf(NumberofPhialsSelect.getSelectedItem()))){
-////                            case 0:
-////                                break;
-////                            case 1:
-////                                break;
-////                            case 2:
-////                                break;
-////                            case 3:
-////                                break;
-////                            case 4:
-////                                break;
-////                            case 5:
-////                                break;
-////                            case 6:
-////                                break;
-////                            case 7:
-////                                break;
-////                            case 8:
-////                                break;
-////                            case 9:
-////                                break;
-////                            default:
-////                                break;
-////                        }
-////
-////                        TextView Phial = (TextView) view;
-////                        final String PhialNumber = Phial.getText().toString();
-////                        if (PhialNumber.equals("0")) {
-////                            getNumberofPhials(0);
-////                            getEnergyBladePhials(0);
-////                        } else if (PhialNumber.equals("1")) {
-////                            getNumberofPhials(1);
-////                            getEnergyBladePhials(3);
-////                        } else if (PhialNumber.equals("2")) {
-////                            getNumberofPhials(2);
-////                            getEnergyBladePhials(3);
-////                        } else if (PhialNumber.equals("3")) {
-////                            getNumberofPhials(2);
-////                            getEnergyBladePhials(3);
-////                        } else if (PhialNumber.equals("4")) {
-////                            getNumberofPhials(3);
-////                            getEnergyBladePhials(6);
-////                        } else if (PhialNumber.equals("5")) {
-////                            getNumberofPhials(3);
-////                            getEnergyBladePhials(6);
-////                        } else if (PhialNumber.equals("6")) {
-////                            getNumberofPhials(4);
-////                            getEnergyBladePhials(6);
-////                        } else if (PhialNumber.equals("7")) {
-////                            getNumberofPhials(4);
-////                            getEnergyBladePhials(9);
-////                        } else if (PhialNumber.equals("8")) {
-////                            getNumberofPhials(5);
-////                            getEnergyBladePhials(9);
-////                        } else if (PhialNumber.equals("9")) {
-////                            getNumberofPhials(5);
-////                            getEnergyBladePhials(9);
-////                        } else if (PhialNumber.equals("10")) {
-////                            getNumberofPhials(6);
-////                            getEnergyBladePhials(10);
-////                        }
-////                    }
-////
-////                    @Override
-////                    public void onNothingSelected(AdapterView<?> adapterView) {
-////
-////                    }
-////                });
-//
-//                ShieldChargeSelect = findViewById(R.id.ShieldChargeSelect);
-//                ArrayAdapter ShieldChargeAdapter = ArrayAdapter.createFromResource(this,R.array.CBShieldCharge,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//
-//                ShieldChargeSelect.setAdapter(ShieldChargeAdapter);
-//                ShieldChargeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                        Skills.setCBPhialModifier(!String.valueOf(ShieldChargeSelect.getSelectedItem())
-//                                .equals("No Charge"));
-////                        String Charge = String.valueOf(ShieldChargeSelect.getSelectedItem());
-////                        switch(Charge){
-////                            case "No Charge":
-////                                Skills.setCBPhialModifier(false);
-////                                /*getChargeModifier(1f);
-////                                getRedCheck(false);
-////                                getYellowCheck(false);*/
-////                                break;
-////                            case "Yellow Charge":
-////                                Skills.setCBPhialModifier(true);
-////                                /*getChargeModifier(1f);
-////                                getRedCheck(false);
-////                                getYellowCheck(true);*/
-////                                break;
-////                            case "Red Charge":
-////                                Skills.setCBPhialModifier(true);
-////                                /*getRedCheck(true);
-////                                getYellowCheck(false);*/
-////                                break;
-////                            default:
-////                                Skills.setCBPhialModifier(true);
-////                                /*getRedCheck(true);
-////                                getYellowCheck(false);*/
-////                                break;
-////                        }
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
-//            }
+        if(Wpn.equals("CB") || Wpn.equals("GL")|| Wpn.equals("LBG")
+                || Wpn.equals("HBG")){
             FelyneBombardierCheck = findViewById(R.id.FelyneBombardierCheckBox);
 
             GroupSSelect = findViewById(R.id.GroupSSelect);
@@ -879,70 +722,9 @@ public class UI extends AppCompatActivity {
             });
         }
 
-//        switch(SelectedWpn){
-//            case "GS":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GS_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "LS":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LS_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "SNS":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SNS_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "DB":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "Hammer":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Hammer_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "HH":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HH_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "Lance":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Lance_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "GL":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "SA":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "CB":
-//                break;
-//            case "IG":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "LBG":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LBG_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "HBG":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HBG_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            case "Bow":
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Bow_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//            default:
-//                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Prowler_HA_Names,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//                break;
-//        }
-
+        //Set HAs and weapon specific Spinners and RadioButtons
         ArrayAdapter HunterArtsAdapter;
-
-        switch(SelectedWpn){
+        switch(Wpn){
             case "GS":
                 LionsMawOffCheck = findViewById(R.id.LionsMawOffCheck);
                 LionsMawLevel1Check = findViewById(R.id.LionsMawLevel1Check);
@@ -954,6 +736,41 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "LS":
+                SpiritGaugeColourSelect = findViewById(R.id.SpiritGaugeColourSelect);
+                ArrayAdapter SpiritGaugeAdapter = ArrayAdapter.createFromResource(this,R.array.Spirit_Gauge,
+                        android.R.layout.simple_spinner_dropdown_item);
+                SpiritGaugeColourSelect.setAdapter(SpiritGaugeAdapter);
+                SpiritGaugeColourSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        SpiritGaugeColour = String.valueOf(SpiritGaugeColourSelect.getSelectedItem());
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+//                SpiritGaugeColourSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+
+                CentreBladeBonusCheck = findViewById(R.id.CentreBladeCheck);
+                MaxSpiritGaugeCheck = findViewById(R.id.MaxSpiritGauge);
+
+                SacrificialBladeOffCheck = findViewById(R.id.SacrificialBladeOffCheck);
+                SacrificialBladeLevel1Check = findViewById(R.id.SacrificialBladeLevel1Check);
+                SacrificialBladeLevel2Check = findViewById(R.id.SacrificialBladeLevel2Check);
+                SacrificialBladeLevel3Check = findViewById(R.id.SacrificialBladeLevel3Check);
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LS_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
@@ -967,6 +784,23 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "DB":
+                DBModeSelect = findViewById(R.id.ModeSelect);
+                ArrayAdapter DBModeAdapter = ArrayAdapter.createFromResource(this,R.array.DBModes,
+                     android.R.layout.simple_spinner_dropdown_item);
+
+                DBModeSelect.setAdapter(DBModeAdapter);
+                DBModeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        DBMode = DBModeSelect.getSelectedItem().toString();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
                 WolfsMawOffCheck = findViewById(R.id.WolfsMawOffCheck);
                 WolfsMawLevel1Check = findViewById(R.id.WolfsMawLevel1Check);
                 WolfsMawLevel2Check = findViewById(R.id.WolfsMawLevel2Check);
@@ -984,46 +818,51 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "Lance":
+                NoEnragedGuardAura = findViewById(R.id.NoEnragedGuardAura);
+                EnragedGuardRed = findViewById(R.id.EnragedGuardRed);
+                EnragedGuardYellow = findViewById(R.id.EnragedGuardYellow);
+                EnragedGuardOrange = findViewById(R.id.EnragedGuardOrange);
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Lance_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "GL":
-                FelyneBombardierCheck = findViewById(R.id.FelyneBombardierCheckBox);
+                DragonBreathCheck = findViewById(R.id.DragonBreathCheckBox);
 
-//                GroupSSelect = findViewById(R.id.GroupSSelect);
-//
-//                ArrayAdapter GroupSAdapter = ArrayAdapter.createFromResource(this,R.array.GroupS,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//
-//                GroupSSelect.setAdapter(GroupSAdapter);
-//
-//                GroupSSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                        switch(String.valueOf(GroupSSelect.getSelectedItem())){
-//                            case "Artillery Novice":
-//                                Skills.setArtilleryModifier(1.3f);
-//                                break;
-//                            case "Artillery Expert":
-//                                Skills.setArtilleryModifier(1.35f);
-//                                break;
-//                            default:
-//                                Skills.setArtilleryModifier(1f);
-//                                break;
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
+                ShotLevelSelect = findViewById(R.id.ShotLevelSelect);
+                ShotTypeSelect = findViewById(R.id.ShotTypeSelect);
+                HeatGaugeSelect = findViewById(R.id.HeatGaugeSelect);
+                NumberofShellsSelect = findViewById(R.id.NumberofShellsSelect);
+
+                ArrayAdapter ShotLevel = ArrayAdapter.createFromResource(this,R.array.GLShotLevel,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(ShotLevel);
+
+                ArrayAdapter ShotType = ArrayAdapter.createFromResource(this,R.array.GLShotType,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(ShotType);
+
+                ArrayAdapter HeatGauge = ArrayAdapter.createFromResource(this,R.array.HeatGauge,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(HeatGauge);
+
+                ArrayAdapter NumberofShells = ArrayAdapter.createFromResource(this,R.array.GLShellNumber,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(NumberofShells);
 
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "SA":
+                AwakenedCheck = findViewById(R.id.AwakenedCheckBox);
+                TempestAxeCheck = findViewById(R.id.TempestAxeCheckBox);
+                PhialSelect = findViewById(R.id.PhialSelect);
+
+                DemonRiotOffCheck = findViewById(R.id.DemonRiotOffCheck);
+                DemonRiotLevel1Check = findViewById(R.id.DemonRiotLevel1Check);
+                DemonRiotLevel2Check = findViewById(R.id.DemonRiotLevel2Check);
+                DemonRiotLevel3Check = findViewById(R.id.DemonRiotLevel3Check);
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
@@ -1195,8 +1034,6 @@ public class UI extends AppCompatActivity {
                     }
                 });
 
-                FelyneBombardierCheck = findViewById(R.id.FelyneBombardierCheckBox);
-
 //                GroupSSelect = findViewById(R.id.GroupSSelect);
 //
 //                ArrayAdapter GroupSAdapter = ArrayAdapter.createFromResource(this,R.array.GroupS,
@@ -1231,6 +1068,8 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "IG":
+                ExtractSelect = findViewById(R.id.ExtractSelect);
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
@@ -1260,7 +1099,7 @@ public class UI extends AppCompatActivity {
         HunterArtSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                getHunterArt(String.valueOf(HunterArtSelect.getSelectedItem()));
+                ChosenArt = String.valueOf(HunterArtSelect.getSelectedItem());
                 SynergyCheck = !(String.valueOf(HunterArtSelect.getSelectedItem()).equals("Lions Maw (Wide Slash)"));
             }
 
@@ -1270,6 +1109,7 @@ public class UI extends AppCompatActivity {
             }
         });
 
+        //Set skills
         GroupC_1Select = findViewById(R.id.GroupC_1Select);
         ArrayAdapter GroupC_1Adapter = ArrayAdapter.createFromResource(this,R.array.GroupC_1,
                 android.R.layout.simple_spinner_dropdown_item);
@@ -1695,6 +1535,7 @@ public class UI extends AppCompatActivity {
             }
         });
 
+        //Set MonsterSelect spinner
         /*Gives the variable for the spinner 'MonsterSelect' the actual value for a spinner.*/
         MonsterSelect = findViewById(R.id.MonsterSelect);
         ArrayAdapter MonsterAdapter = ArrayAdapter.createFromResource(this,R.array.Monsters,android.R.layout.
@@ -1718,7 +1559,7 @@ public class UI extends AppCompatActivity {
 
                 if(MonsterCatchList.contains(SelectedMonster)){
                     if(SelectedMonster.contains("Lagombi") || SelectedMonster.contains("Arzuros")){
-                        getMonsterType("Beast");
+                        MonsterType = "Beast";
 
                         Snackbar.make(view, "Chosen Monster: " + SelectedMonster, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
@@ -1728,37 +1569,37 @@ public class UI extends AppCompatActivity {
                             || SelectedMonster.equals("Lavasioth") || SelectedMonster.equals("Gypceros")
                             || SelectedMonster.equals("Yian Kut Ku") || SelectedMonster.equals("Yian Garuga")
                             || SelectedMonster.equals("Deadeye Yian Garuga")){
-                        getMonsterType("FlyingWyvern");
+                        MonsterType = "FlyingWyvern";
 
                         Snackbar.make(view, "Chosen Monster: " + SelectedMonster, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
                     else if(SelectedMonster.equals("Gold Rathian") || SelectedMonster.equals("Silver Rathalos")){
-                        getMonsterType("FlyingWyvernWounded");
+                        MonsterType = "FlyingWyvernWounded";
 
                         Snackbar.make(view, "Chosen Monster: " + SelectedMonster, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                         SelectedMonster = Stripped;
                     }
                     else if(SelectedMonster.equals("Malfestio") || SelectedMonster.equals("Nightcloak Malfestio")){
-                        getMonsterType("Malfestio");
+                        MonsterType = "Malfestio";
 
                         Snackbar.make(view, "Chosen Monster: " + SelectedMonster, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                         SelectedMonster = Stripped;
                     }
                     else{
-                        getMonsterType("Raptor");
+                        MonsterType = "Raptor";
 
                         Snackbar.make(view, "Chosen Monster: " + SelectedMonster, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
                 }
                 else if(SelectedMonster.equals("None")){
-                    getMonsterType("None");
+                    MonsterType = "None";
                 }
                 else{
-                    getMonsterType(Stripped);
+                    MonsterType = Stripped;
 
                     Snackbar.make(view, "Chosen Monster: " + SelectedMonster, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
@@ -1780,7 +1621,7 @@ public class UI extends AppCompatActivity {
                         /*Sets the adapter (array) values to the drop down menu.*/
 
                         HitzoneSelect.setAdapter(adapter);
-                        getHitzoneGroup("Beast");
+                        HitzoneGroup = "Beast";
 
                         select();
 
@@ -1794,7 +1635,7 @@ public class UI extends AppCompatActivity {
                         /*Sets the adapter (array) values to the drop down menu.*/
 
                         HitzoneSelect.setAdapter(adapter2);
-                        getHitzoneGroup("FlyingWyvern");
+                        HitzoneGroup = "FlyingWyvern";
 
                         select();
 
@@ -1808,7 +1649,7 @@ public class UI extends AppCompatActivity {
                         /*Sets the adapter (array) values to the drop down menu.*/
 
                         HitzoneSelect.setAdapter(adapter3);
-                        getHitzoneGroup("FlyingWyvernWounded");
+                        HitzoneGroup = "FlyingWyvernWounded";
 
                         select();
 
@@ -1821,7 +1662,7 @@ public class UI extends AppCompatActivity {
                                 R.array.RaptorHitzones,R.layout.secondary_spinner);
                         /*Sets the adapter (array) values to the drop down menu.*/
                         HitzoneSelect.setAdapter(adapter4);
-                        getHitzoneGroup("Raptor");
+                        HitzoneGroup = "Raptor";
 
                         select();
 
@@ -1834,7 +1675,7 @@ public class UI extends AppCompatActivity {
                                 R.array.MalfestioHitzones,R.layout.secondary_spinner);
                         /*Sets the adapter (array) values to the drop down menu.*/
                         HitzoneSelect.setAdapter(adapter5);
-                        getHitzoneGroup("Malfestio");
+                        HitzoneGroup = "Malfestio";
 
                         select();
 
@@ -1847,7 +1688,7 @@ public class UI extends AppCompatActivity {
                                 R.array.NoneHitzones,R.layout.secondary_spinner);
                         /*Sets the adapter (array) values to the drop down menu.*/
                         HitzoneSelect.setAdapter(adapter6);
-                        getHitzoneGroup("None");
+                        HitzoneGroup = "None";
 
                         select();
 
@@ -1860,7 +1701,7 @@ public class UI extends AppCompatActivity {
                                 Counter,R.layout.secondary_spinner);
                         /*Sets the adapter (array) values to the drop down menu.*/
                         HitzoneSelect.setAdapter(adapter7);
-                        getHitzoneGroup(Stripped);
+                        HitzoneGroup = Stripped;
 
                         select();
 
@@ -1874,13 +1715,8 @@ public class UI extends AppCompatActivity {
                 HitzoneSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        final String Hitzone = String.valueOf(HitzoneSelect.getSelectedItem());
-
-                        String Stripped = SelectedMonster;
-                        String st = Stripped.replaceAll("\\s","");
-
-                        getMonster(st);
-                        getHitzone(Hitzone);
+                        ChosenMonster = SelectedMonster.replaceAll("\\s","");
+                        ChosenHitzone = String.valueOf(HitzoneSelect.getSelectedItem());
                     }
 
                     @Override
@@ -1896,7 +1732,7 @@ public class UI extends AppCompatActivity {
             }
         });
 
-        //Skill switch
+        //Set Skill display
         //Creates a method that checks for the state of the switch and is triggered whenever it is
         //changed, making the skills disappear and reappear as necessary. It also sets the value of
         //the 'SkillCheck' variable to either '1' or '0' depending on the state of the switch in order
@@ -1969,16 +1805,21 @@ public class UI extends AppCompatActivity {
                             SubElement.setText("0");
                         }
 
+//                        DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
+//                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
+//                                String.valueOf(HunterArtSelect.getSelectedItem()),
+//                                String.valueOf(StyleSelect.getSelectedItem()),
+//                                String.valueOf(SharpnessSelect.getSelectedItem()),
+//                                Float.parseFloat(Damage.getText().toString()), ChosenElement,
+//                                Float.parseFloat(SubElement.getText().toString()), ChosenSubElement,
+//                                Float.parseFloat(Element.getText().toString()),
+//                                Float.parseFloat(Affinity.getText().toString()),
+//                                ChosenMonster, HitzoneGroup, ChosenHitzone);
                         DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
-                                String.valueOf(HunterArtSelect.getSelectedItem()),
-                                String.valueOf(StyleSelect.getSelectedItem()),
-                                String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
                                 Float.parseFloat(SubElement.getText().toString()), ChosenSubElement,
                                 Float.parseFloat(Element.getText().toString()),
-                                Float.parseFloat(Affinity.getText().toString()),
-                                ChosenMonster, HitzoneGroup, ChosenHitzone);
+                                Float.parseFloat(Affinity.getText().toString()));
 
                         if(!DmgCalc.Stats.isValid()){
                             if(!DmgCalc.Stats.isValidAtk()){
@@ -2000,15 +1841,20 @@ public class UI extends AppCompatActivity {
                         }
                         break;
                     default:
+//                        DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
+//                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
+//                                String.valueOf(HunterArtSelect.getSelectedItem()),
+//                                String.valueOf(StyleSelect.getSelectedItem()),
+//                                String.valueOf(SharpnessSelect.getSelectedItem()),
+//                                Float.parseFloat(Damage.getText().toString()), ChosenElement,
+//                                Float.parseFloat(Element.getText().toString()),
+//                                Float.parseFloat(Affinity.getText().toString()),
+//                                ChosenMonster, HitzoneGroup, ChosenHitzone);
+
                         DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
-                                String.valueOf(HunterArtSelect.getSelectedItem()),
-                                String.valueOf(StyleSelect.getSelectedItem()),
-                                String.valueOf(SharpnessSelect.getSelectedItem()),
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
                                 Float.parseFloat(Element.getText().toString()),
-                                Float.parseFloat(Affinity.getText().toString()),
-                                ChosenMonster, HitzoneGroup, ChosenHitzone);
+                                Float.parseFloat(Affinity.getText().toString()));
 
                         if(!DmgCalc.Stats.isValid()){
                             if(!DmgCalc.Stats.isValidAtk()){
@@ -2036,22 +1882,33 @@ public class UI extends AppCompatActivity {
                 RefreshTextViews();
                 DisplayBanners();
 
+                if(/*check weapon inputs e.g. spirit gauge colours with valor*/DmgCalc.getBounce()) {
+                    Snackbar.make(view, "Blue Spirit Gauge is only available in Valor", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+
+                    Snackbar.make(view, "Please choose either 'No Colour' or '-Blue (Valor)-' for Valor Style", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+
+                    return;
+                }
+
+
                 DmgCalc.setHitzone();
                 for (int i = 0; i < DmgCalc.getMVSize(); i++) {
                     AttackInfo.setVisibility(View.VISIBLE);
                     DmgCalc.Calculate(i);
-                    DisplayTextViews(i, view);
+                    DisplayTextViews(i, view, Wpn);
                 }
             }
         });
     }
 
+    //TODO 19/05/2019: Add in functionality for LS
+
     private void RefreshTextViews(){
         textviews = new TextView[AllTextViewIDs.length];
 
-        for (TextView Banner : Banners) {
-            Banner.setVisibility(View.GONE);
-        }
+        for (TextView Banner : Banners) Banner.setVisibility(View.GONE);
 
         for(int i = 0; i < AllTextViewIDs.length; i++){
             textviews[i] = findViewById(getResources().getIdentifier(AllTextViewIDs[i], "id", getPackageName()));
@@ -2064,7 +1921,7 @@ public class UI extends AppCompatActivity {
         }
     }
 
-    private void DisplayTextViews(int counter, View view){
+    private void DisplayTextViews(int counter, View view, String Wpn){
         textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsNames[counter], "id", getPackageName()));
         textviews[counter].setText(DmgCalc.getMVName(counter));
         textviews[counter].setVisibility(View.VISIBLE);
@@ -2083,6 +1940,12 @@ public class UI extends AppCompatActivity {
             textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
         else
             textviews[counter].setTextColor(Color.BLACK);
+
+        if(Wpn.equals("LS") && !String.valueOf(SpiritGaugeColourSelect.getSelectedItem()).equals("No Colour") &&
+                DmgCalc.getMVName(counter).equals("   -(With Spirit Energy)")) {
+            TextView TextChange = findViewById(getResources().getIdentifier(TextViewIDsNames[counter - 1], "id", getPackageName()));
+            TextChange.setText("Jump Spirit Slash");
+        }
     }
 
     private void DisplayBanners(){
@@ -2096,41 +1959,31 @@ public class UI extends AppCompatActivity {
         }
     }
 
-    private float getAtk(float i) {
-        SelectedSharpnessAtkModifier = i;
-        return SelectedSharpnessAtkModifier;
-    }
-    private float getElm(float i) {
-        SelectedSharpnessElmModifier = i;
-        return SelectedSharpnessElmModifier;
-    }
-    private String getChosenElement(String i) {
-        ChosenElement = i;
-        return ChosenElement;
-    }
-    private String getChosenSubElement(String i) {
-        ChosenSubElement = i;
-        return ChosenSubElement;
-    }
-    private String getMonster(String i) {
-        ChosenMonster = i;
-        return ChosenMonster;
-    }
-    private String getHitzoneGroup(String i) {
-        HitzoneGroup = i;
-        return HitzoneGroup;
-    }
-    private String getHitzone(String i) {
-        ChosenHitzone = i;
-        return ChosenHitzone;
-    }
-    private String getMonsterType(String i) {
-        MonsterType = i;
-        return MonsterType;
-    }
-    private String getHunterArt(String i) {
-        ChosenArt = i;
-        return ChosenArt;
-    }
+    public enum PageType {
+        ABOUT(1),
+        CODING(2),
+        DATABASES(3);
 
+        private int value;
+        private static SparseArray<PageType> map = new SparseArray<>();
+
+
+        PageType(int value) {
+            this.value = value;
+        }
+
+        static {
+            for (PageType pageType : PageType.values()) {
+                map.put(pageType.value, pageType);
+            }
+        }
+
+        public static PageType valueOf(int pageType) {
+            return (PageType) map.get(pageType);
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
 }

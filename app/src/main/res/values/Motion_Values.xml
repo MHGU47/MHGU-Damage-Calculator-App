@@ -363,7 +363,7 @@
         <item>Charge-In Slash</item>
         <item>Charge-In Slash (With Spirit Energy)</item>
         <item>Jump Attack</item>
-        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>Jump Spirit Slash (No Spirit Energy)</item>
         <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
@@ -392,7 +392,7 @@
         <item>Spirit Slash 3 (3 hits)</item>
         <item>Spirit Slash Finisher</item>
         <item>Jump Attack</item>
-        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>Jump Spirit Slash (No Spirit Energy)</item>
         <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
@@ -423,7 +423,7 @@
         <item>Spirit Slash 3 (3 hits)</item>
         <item>Spirit Slash Finisher</item>
         <item>Jump Attack</item>
-        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>Jump Spirit Slash (No Spirit Energy)</item>
         <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
@@ -458,7 +458,7 @@
         <item>Adept Evade Attack</item>
         <item>\u0020\u0020\u0020-Spirit Attack (2 hits)</item>
         <item>Jump Attack</item>
-        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>Jump Spirit Slash (No Spirit Energy)</item>
         <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
@@ -493,7 +493,7 @@
         <item>Spirit Slash Finisher (Valor State) (2 hits)</item>
         <item>Charge-In Slash (Valor State)</item>
         <item>Jump Attack</item>
-        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>Jump Spirit Slash (No Spirit Energy)</item>
         <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
@@ -520,7 +520,7 @@
         <item>Spirit Slash 2</item>
         <item>Spirit Slash 3 (3 hits)</item>
         <item>Jump Attack</item>
-        <item>Jump Spirit SLash (No Spirit Energy)</item>
+        <item>Jump Spirit Slash (No Spirit Energy)</item>
         <item>\u0020\u0020\u0020-(With Spirit Energy)</item>
     </string-array>
 
