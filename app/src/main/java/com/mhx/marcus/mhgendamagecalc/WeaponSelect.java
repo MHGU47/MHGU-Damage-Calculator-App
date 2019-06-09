@@ -21,7 +21,7 @@ public class WeaponSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weapon_select);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         GreatSwordCalculations = findViewById(R.id.GreatSwordSelect);
@@ -67,7 +67,7 @@ public class WeaponSelect extends AppCompatActivity {
 
         ProwlerCalculations = findViewById(R.id.ProwlerSelect);
 
-        temp();
+        Selection();
     }
 
 
@@ -111,24 +111,15 @@ public class WeaponSelect extends AppCompatActivity {
         return true;
     }
 
-    private void temp(){
+    private void Selection(){
         GreatSwordCalculations.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, GreatSwordCalculation.class);
-                startActivity(intent);
-            }
-        });
-
-        GreatSwordCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
                 intent.putExtra("Weapon", "GS");
                 startActivity(intent);
-                return true;
             }
         });
 
@@ -143,16 +134,6 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        LongSwordCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "LS");
-                startActivity(intent);
-                return true;
-            }
-        });
-
         SwordandShieldCalculations.setOnClickListener(new View.OnClickListener() {
 
 
@@ -161,16 +142,6 @@ public class WeaponSelect extends AppCompatActivity {
                 Intent intent = new Intent(WeaponSelect.this, SwordandShieldCalculation.class);
                 intent.putExtra("Weapon", "SNS");
                 startActivity(intent);
-            }
-        });
-
-        SwordandShieldCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "SNS");
-                startActivity(intent);
-                return true;
             }
         });
 
@@ -185,16 +156,6 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        DualBladesCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "DB");
-                startActivity(intent);
-                return true;
-            }
-        });
-
         HammerCalculations.setOnClickListener(new View.OnClickListener() {
 
 
@@ -203,16 +164,6 @@ public class WeaponSelect extends AppCompatActivity {
                 Intent intent = new Intent(WeaponSelect.this, HammerCalculation.class);
                 intent.putExtra("Weapon", "Hammer");
                 startActivity(intent);
-            }
-        });
-
-        HammerCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "Hammer");
-                startActivity(intent);
-                return true;
             }
         });
 
@@ -227,16 +178,6 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        HuntingHornCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "HH");
-                startActivity(intent);
-                return true;
-            }
-        });
-
         LanceCalculations.setOnClickListener(new View.OnClickListener() {
 
 
@@ -245,16 +186,6 @@ public class WeaponSelect extends AppCompatActivity {
                 Intent intent = new Intent(WeaponSelect.this, LanceCalculation.class);
                 intent.putExtra("Weapon", "Lance");
                 startActivity(intent);
-            }
-        });
-
-        LanceCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "Lance");
-                startActivity(intent);
-                return true;
             }
         });
 
@@ -269,16 +200,6 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        GunlanceCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "GL");
-                startActivity(intent);
-                return true;
-            }
-        });
-
         SwitchAxeCalculations.setOnClickListener(new View.OnClickListener() {
 
 
@@ -287,16 +208,6 @@ public class WeaponSelect extends AppCompatActivity {
                 Intent intent = new Intent(WeaponSelect.this, SwitchAxeCalculation.class);
                 intent.putExtra("Weapon", "SA");
                 startActivity(intent);
-            }
-        });
-
-        SwitchAxeCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "SA");
-                startActivity(intent);
-                return true;
             }
         });
 
@@ -311,16 +222,6 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        ChargeBladeCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "CB");
-                startActivity(intent);
-                return true;
-            }
-        });
-
         InsectGlaiveCalculations.setOnClickListener(new View.OnClickListener() {
 
 
@@ -329,16 +230,6 @@ public class WeaponSelect extends AppCompatActivity {
                 Intent intent = new Intent(WeaponSelect.this, InsectGlaiveCalculation.class);
                 intent.putExtra("Weapon", "IG");
                 startActivity(intent);
-            }
-        });
-
-        InsectGlaiveCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "IG");
-                startActivity(intent);
-                return true;
             }
         });
 
@@ -354,16 +245,6 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        BowCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "Bow");
-                startActivity(intent);
-                return true;
-            }
-        });
-
         LightBowgunCalculations.setOnClickListener(new View.OnClickListener() {
 
 
@@ -372,16 +253,6 @@ public class WeaponSelect extends AppCompatActivity {
                 Intent intent = new Intent(WeaponSelect.this, LightBowgunCalculation.class);
                 intent.putExtra("Weapon", "LBG");
                 startActivity(intent);
-            }
-        });
-
-        LightBowgunCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "LBG");
-                startActivity(intent);
-                return true;
             }
         });
 
@@ -396,16 +267,6 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        HeavyBowgunCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "HBG");
-                startActivity(intent);
-                return true;
-            }
-        });
-
         ProwlerCalculations.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -416,14 +277,154 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        ProwlerCalculations.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Intent intent = new Intent(WeaponSelect.this, UI.class);
-                intent.putExtra("Weapon", "Prowler");
-                startActivity(intent);
-                return true;
-            }
-        });
+//        GreatSwordCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "GS");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        LongSwordCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "LS");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        SwordandShieldCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "SNS");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        DualBladesCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "DB");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        HammerCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "Hammer");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        HuntingHornCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "HH");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        LanceCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "Lance");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        GunlanceCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "GL");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        SwitchAxeCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "SA");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        ChargeBladeCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "CB");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        InsectGlaiveCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "IG");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        BowCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "Bow");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        LightBowgunCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "LBG");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        HeavyBowgunCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "HBG");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+
+//        ProwlerCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Intent intent = new Intent(WeaponSelect.this, UI.class);
+//                intent.putExtra("Weapon", "Prowler");
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
     }
 }

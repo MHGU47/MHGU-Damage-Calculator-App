@@ -639,30 +639,13 @@ public class SkillsCalculation {
 
     private float getCalculatedAffinity(float Affinity, boolean Check){
         float CritOverflow;
-        if(!Check){
+        if(!Check || Affinity == 0){
             TotalSkillCritModifier = 0;
             CritBoostModifier = 0;
-
-            /*if((Affinity + AffinityOilModifier) > 100){
-                Affinity -= AffinityOilModifier;
-            }
-            if((Affinity + EvasiveManeuversModifier) > 100){
-                Affinity -= EvasiveManeuversModifier;
-            }*/
         }
         else{
             TotalSkillCritModifier = RepeatOffenderModifier + WeaknessExploitModifier + GroupDCrit +
                     GroupJCrit + GroupO;
-
-            /*if((TotalSkillCritModifier + AffinityOilModifier + EvasiveManeuversModifier + Affinity) > 100){
-                if((Affinity + AffinityOilModifier) > 100){
-                    Affinity -= AffinityOilModifier;
-                }
-                if((Affinity + EvasiveManeuversModifier) > 100){
-                    Affinity -= EvasiveManeuversModifier;
-                }
-                TotalSkillCritModifier = 100 - (Affinity + AffinityOilModifier + EvasiveManeuversModifier);
-            }*/
         }
 
         CritOverflow = 1 + (CritBoostModifier + 0.25f) * ((TotalSkillCritModifier +

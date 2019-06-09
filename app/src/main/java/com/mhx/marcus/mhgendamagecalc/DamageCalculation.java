@@ -265,21 +265,21 @@ public class DamageCalculation {
         }
     }
 
-    public boolean InputCheck(String Wpn){
-        switch(Wpn){
-            case "LS":
-                if(ui.SpiritGaugeColour.equals("-Blue (Valor)-") && !ui.ChosenStyle.equals("Valor")){
-                    return false;
-                }else if((ui.SpiritGaugeColour.equals("-Red-") || ui.SpiritGaugeColour.equals("-Yellow-")
-                        || ui.SpiritGaugeColour.equals("-White-")) && ui.ChosenStyle.equals("Valor")){
-                    return false;
-                }
-        }
-    }
+//    public boolean InputCheck(String Wpn){
+//        switch(Wpn){
+//            case "LS":
+//                if(ui.SpiritGaugeColour.equals("-Blue (Valor)-") && !ui.ChosenStyle.equals("Valor")){
+//                    return false;
+//                }else if((ui.SpiritGaugeColour.equals("-Red-") || ui.SpiritGaugeColour.equals("-Yellow-")
+//                        || ui.SpiritGaugeColour.equals("-White-")) && ui.ChosenStyle.equals("Valor")){
+//                    return false;
+//                }
+//        }
+//    }
 
-    public int getError(){
-
-    }
+//    public int getError(){
+//
+//    }
 
     public boolean getBounce(){
         return Bounce;
