@@ -83,6 +83,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="10dp"
+                android:text="-Fixed an issue with Bowguns Artillery skills"
                 android:textSize="15dp"
                 android:textStyle="italic" />
 
@@ -139,17 +140,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="10dp"
                 android:text="-GS UI fixes"
-                android:textSize="15dp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/textView48"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView44"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="10dp"
                 android:textSize="15dp"
                 android:textStyle="italic" />
 

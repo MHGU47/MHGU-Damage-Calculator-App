@@ -1070,7 +1070,7 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
         else if(GroupSSkillsText.equals("Artillery Expert")) {
             Skills.setArtilleryModifier(1.3f);
         }
-        else if(GroupSSkillsText.equals("-Group S-")) {
+        else if(GroupSSkillsText.equals("-Artillery-")) {
             Skills.setArtilleryModifier(1);
         }
     }
@@ -1191,7 +1191,8 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
                     return;
                 }
 
-                if((FelyneBombardierCheck.isChecked() || Skills.ArtilleryCheck()) && (!ShotType.equals("Crag") || !ShotType.contains("Cannon"))){
+                if((FelyneBombardierCheck.isChecked() || Skills.ArtilleryCheck()) &&
+                        (!ShotType.equals("Crag") && !ShotType.equals("Cannon"))) {
                     Snackbar.make(view, "Please check shot/skill selection", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     return;
