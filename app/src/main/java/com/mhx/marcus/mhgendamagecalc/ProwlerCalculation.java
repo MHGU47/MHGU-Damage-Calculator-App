@@ -837,8 +837,8 @@ public class ProwlerCalculation extends AppCompatActivity implements AdapterView
                     else BaddestCatEverModifier = 1;
 
                     SkillAttackAddModifier = PowercharmModifier + PowertalonModifier + AttackUpLModifier +
-                            DemonHornModifier + LastStandModifier + UniversalModifier + FanalisModifier +
-                            WeaponUpgradeRawModifier + NineLivesModifier;
+                            AttackUpLModifier + DemonHornModifier + LastStandModifier + UniversalModifier +
+                            FanalisModifier + WeaponUpgradeRawModifier + NineLivesModifier;
 
                     if(AffinityUpSCheck.isChecked()) AffinityUpSModifier = 10;
                     else AffinityUpSModifier = 0;
