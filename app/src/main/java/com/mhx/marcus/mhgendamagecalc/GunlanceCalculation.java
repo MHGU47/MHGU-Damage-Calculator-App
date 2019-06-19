@@ -978,7 +978,7 @@ public class GunlanceCalculation extends AppCompatActivity implements AdapterVie
         else if(GroupSSkillsText.equals("Artillery Expert")) {
             Skills.setArtilleryModifier(1.2f);
         }
-        else if(GroupSSkillsText.equals("-Group S-")) {
+        else if(GroupSSkillsText.equals("-Artillery-")) {
             Skills.setArtilleryModifier(1f);
         }
     }
@@ -997,7 +997,6 @@ public class GunlanceCalculation extends AppCompatActivity implements AdapterVie
 
             @Override
             public void onClick(View view) {
-
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(GunlanceCalculation.this.INPUT_METHOD_SERVICE);
 
@@ -1264,6 +1263,8 @@ public class GunlanceCalculation extends AppCompatActivity implements AdapterVie
 
                 AttackInfo.setVisibility(View.VISIBLE);
                 ShellingInfo.setVisibility(View.VISIBLE);
+
+                Skills.setFelyneBombardierModifier(FelyneBombardierCheck.isChecked());
 
                 for (int i = 0; i < ShotNames.length; i++) {
                     int ii = ForLoopCarry + i;

@@ -19,13 +19,13 @@ public class DamageCalculation {
 
     //Stat Variables
     private String Weapon, /*Style,*/ ChosenElement, ChosenSubElement/*, Monster, HitzoneGroup, Hitzone, Sharpness, HunterArt*/;
-    private float RawDamage, ElementalDamage, SubElementalDamage, Affinity;
+    private float RawDamage, ElementalDamage, MainElm, SubElementalDamage, SubElm, Affinity;
     private Context context;
-    private int MV_Array, MV_Names_Array, MV_HA_Array, HA_Levels_Array, HA_ElementCheck_Array, ErrorNumber;
+    //private int MV_Array, MV_Names_Array, MV_HA_Array, HA_Levels_Array, HA_ElementCheck_Array, ErrorNumber;
     private float SharpnessModifier_Atk, SharpnessModifier_Elm;
     private int[] MV, HA_MV, HA_ElementCheck;
     private String[] MV_Names, HA_Levels;
-    private boolean DualElement = false, Bounce = false;
+    private boolean DualElement = false;//, Bounce = false;
 
     //TODO 19/05/2019: Add in functionality for LS
 
@@ -95,17 +95,11 @@ public class DamageCalculation {
                 ui.ChosenHitzone);
 
         M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
-        SharpnessModifier_Atk = context.getResources().getIdentifier(ui.Sharpness + "_Raw","integer", context.getPackageName());
-        SharpnessModifier_Elm = context.getResources().getIdentifier(ui.Sharpness + "_Elm","integer", context.getPackageName());
-        SharpnessModifier_Atk /= 100;
-        SharpnessModifier_Elm /= 100;
 
-        MV_Array = context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName());
-        MV_Names_Array = context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName());
+        MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+        MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
 
-        MV = context.getResources().getIntArray(MV_Array);
-        MV_Names = context.getResources().getStringArray(MV_Names_Array);
-
+        setSharpness();
         setHA_MV();
         MVs.clear();
         MV_NamesList.clear();
@@ -173,16 +167,19 @@ public class DamageCalculation {
     public DamageCalculation(Context context, UI ui, String Weapon, float RawDamage, String ChosenElement,
                              float ElementalDamage, String ChosenSubElement, float SubElementalDamage,
                              float Affinity){
-        Stats = new StatsValidation(RawDamage,ChosenElement,ElementalDamage,Affinity);
+        Stats = new StatsValidation(RawDamage, ChosenElement, ElementalDamage, ChosenSubElement,
+                SubElementalDamage, Affinity);
         this.ui = ui;
         this.context = context;
 
         this.RawDamage = RawDamage;
-        this.ElementalDamage = ElementalDamage;
+        this.MainElm = ElementalDamage;
         this.ChosenElement = ChosenElement;
-        this.SubElementalDamage = SubElementalDamage;
+        this.SubElm = SubElementalDamage;
         this.ChosenSubElement = ChosenSubElement;
         this.Affinity = Affinity;
+
+        this.Weapon = ui.getIntent().getStringExtra("Weapon");
 
         DualElement = SubElementalDamage > 0;
 
@@ -196,26 +193,26 @@ public class DamageCalculation {
                 "Dual Blades");
 
         M.getHitzones(context, ChosenElement, ChosenSubElement, Skills, ui.WeaknessExploitCheck.isChecked());
-        SharpnessModifier_Atk = context.getResources().getIdentifier(ui.Sharpness + "_Raw","integer", context.getPackageName());
-        SharpnessModifier_Elm = context.getResources().getIdentifier(ui.Sharpness + "_Elm","integer", context.getPackageName());
-        SharpnessModifier_Atk /= 100;
-        SharpnessModifier_Elm /= 100;
 
-        MV_Array = context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName());
-        MV_Names_Array = context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName());
+        MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV_" + ui.DBMode, "array", context.getPackageName()));
+        MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names_" + ui.DBMode, "array", context.getPackageName()));
 
-        MV = context.getResources().getIntArray(MV_Array);
-        MV_Names = context.getResources().getStringArray(MV_Names_Array);
-
+        setSharpness();
         setHA_MV();
         MVs.clear();
         MV_NamesList.clear();
     }//Dual Blades
 
     public void Calculate(int counter){
-        float TrueRaw, TrueAttack, HitzoneRaw, HitzoneElm, ModifiedRawHitzone, ModifiedElmHitzone;
+        float TrueRaw, TrueAttack, HitzoneRaw;
+        //, HitzoneElm, HitzoneSubElm, ModifiedRawHitzone,
+        //        ModifiedElmHitzone, ModifiedSubElmHitzone;
+
+        if(ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
+        else MV_NamesList.add(HA_Levels[counter]);
 
         if (Weapon.equals("DB")) getDBElmMod(MV_Names[counter]);
+        else if (Weapon.equals("LS")) LSMVCheck(counter);
 
         if(ui.ChosenArt.equals("-None-")){
             if(ui.AirborneCheck.isChecked() && ui.SkillCheck && (MV_Names[counter].contains("Jump")
@@ -223,34 +220,39 @@ public class DamageCalculation {
                 Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
             }
             else Skills.setAirborneModifier(false);
-            TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) * MV[counter];
+            TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) * MV[counter] * 0.01f;
         }
         else TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) *
-                    (MV[counter] * BrimstoneCounterModifier(counter));
+                    ((MV[counter]  * 0.01f) * BrimstoneCounterModifier(counter));
 
-        ModifiedRawHitzone = (M.getRawHitzoneValue() * (SharpnessModifier_Atk *
-                GSChargeMod_Atk(counter) * Skills.getGroupDSharp())) / 100;
-        HitzoneRaw = TrueRaw * ModifiedRawHitzone;
+//        ModifiedRawHitzone = (M.getRawHitzoneValue() * (SharpnessModifier_Atk * SNSSharpnessMod() *
+//                GSChargeMod_Atk(counter) * Skills.getGroupDSharp())) / 100;
+        HitzoneRaw = TrueRaw * getCalculatedRawHitzone(counter);
 
-        ModifiedElmHitzone = (M.getElmHitzoneValue() * (SharpnessModifier_Elm *
-                GSChargeMod_Elm(counter) * Skills.getGroupDSharp())) / 100;
-        HitzoneElm = Skills.getTrueElm(ElementalDamage, ui.SkillCheck) * ModifiedElmHitzone * HitMultiplier(counter);
+//        ModifiedElmHitzone = (M.getElmHitzoneValue() * (SharpnessModifier_Elm * SNSSharpnessMod() *
+//                GSChargeMod_Elm(counter) * Skills.getGroupDSharp())) / 100;
+//        HitzoneElm = Skills.getTrueElm(ElementalDamage * getWolfsMawModifier(), ui.SkillCheck) *
+//                ModifiedElmHitzone * HitMultiplier(counter);
+
+//        ModifiedSubElmHitzone = (M.getSubElmHitzoneValue() * (SharpnessModifier_Elm * Skills.getGroupDSharp())) / 100;
+//        HitzoneSubElm = Skills.getTrueSubElm(SubElementalDamage * getWolfsMawModifier(), ui.SkillCheck) *
+//                ModifiedSubElmHitzone;
 
         //Hitzone Modification - End
 
-        if (!ui.ChosenArt.equals("-None-")) TrueAttack = HitzoneRaw + (HitzoneElm * HA_ElementCheck[counter]);
+        if (!ui.ChosenArt.equals("-None-")) TrueAttack = HitzoneRaw + (getCalculatedElm(counter) * HA_ElementCheck[counter]);
         else{
             if(MV_Names[counter].equals("Kick")) TrueAttack = 2;
-            else TrueAttack = HitzoneRaw + HitzoneElm;
+            else TrueAttack = HitzoneRaw + getCalculatedElm(counter) + getCalculatedSubElm();
         }
 
-        Bounce = !((ModifiedRawHitzone * 100) < 25);
+        //Bounce = !((getCalculatedRawHitzone(counter) * 100) < 25);
 
         MVs.add(TrueAttack);
-
-        if(ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
-        else MV_NamesList.add(HA_Levels[counter]);
     }
+
+
+    //Private Calculations
 
     private int HitMultiplier(int counter){
         switch (Weapon){
@@ -265,44 +267,23 @@ public class DamageCalculation {
         }
     }
 
-//    public boolean InputCheck(String Wpn){
-//        switch(Wpn){
-//            case "LS":
-//                if(ui.SpiritGaugeColour.equals("-Blue (Valor)-") && !ui.ChosenStyle.equals("Valor")){
-//                    return false;
-//                }else if((ui.SpiritGaugeColour.equals("-Red-") || ui.SpiritGaugeColour.equals("-Yellow-")
-//                        || ui.SpiritGaugeColour.equals("-White-")) && ui.ChosenStyle.equals("Valor")){
-//                    return false;
-//                }
-//        }
-//    }
-
-//    public int getError(){
-//
-//    }
-
-    public boolean getBounce(){
-        return Bounce;
+    private float getCalculatedRawHitzone(int counter){
+        return ((M.getRawHitzoneValue() * (SharpnessModifier_Atk * SNSSharpnessMod() *
+                GSChargeMod_Atk(counter) * Skills.getGroupDSharp())) / 100);
     }
 
-    public String getStagger(){
-        return "Stagger/Break Limit: " + M.getStaggerValue();
+    private float getCalculatedElm(int counter){
+        return Skills.getTrueElm(ElementalDamage * getWolfsMawModifier(), ui.SkillCheck) *
+                ((M.getElmHitzoneValue() * (SharpnessModifier_Elm * SNSSharpnessMod() *
+                        GSChargeMod_Elm(counter) * Skills.getGroupDSharp())) / 100) *
+                HitMultiplier(counter);
     }
 
-    public int getAtkPwr(int counter){
-        return Math.round(MVs.get(counter));
-    }
-
-    public String getMVName(int counter){
-        return String.valueOf(MV_NamesList.get(counter));
-    }
-
-    public int getMVSize(){
-        return MV.length;
-    }
-
-    public void setHitzone(){
-        M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+    private float getCalculatedSubElm(){
+        if(Weapon.equals("DB"))
+            return Skills.getTrueSubElm(SubElementalDamage * getWolfsMawModifier(), ui.SkillCheck) *
+                    ((M.getSubElmHitzoneValue() * (SharpnessModifier_Elm * Skills.getGroupDSharp())) / 100);
+        else return 0;
     }
 
     private void setHA_MV(){
@@ -334,14 +315,14 @@ public class DamageCalculation {
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("LS_HA_SakuraSlash_ElmCheck", "array", context.getPackageName()));
                     break;
                 case "Unhinged Spirit":
-                    MV = context.getResources().getIntArray(context.getResources().getIdentifier("LS_HA_SakuraSlash_MV", "array", context.getPackageName()));
+                    MV = context.getResources().getIntArray(context.getResources().getIdentifier("LS_HA_UnhingedSpirit_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Critical Juncture":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("LS_HA_CriticalJuncture_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Shoryugeki":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("SNS_HA_Shoryugeki_MV", "array", context.getPackageName()));
@@ -386,7 +367,7 @@ public class DamageCalculation {
                 case "Provoke":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Hammer_HA_Provoke_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Sonic Smash":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("HH_HA_SonicSmash_MV", "array", context.getPackageName()));
@@ -396,7 +377,7 @@ public class DamageCalculation {
                 case "Shield Assault":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Lance_HA_ShieldAssault_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Lance_HA_ShieldAssault_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Corkscrew Jab":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Lance_HA_CorkscrewJab_MV", "array", context.getPackageName()));
@@ -406,12 +387,12 @@ public class DamageCalculation {
                 case "Dragon Blast":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("GL_HA_DragonBlast_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Blast Dash":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("GL_HA_BlastDash_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Trance Slash":
                     if(!ui.DemonRiotOffCheck.isChecked() && ui.TempestAxeCheck.isChecked()){//Demon Riot and Tempest Axe
@@ -438,12 +419,12 @@ public class DamageCalculation {
                 case "Energy Charge":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_EnergyCharge_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Energy Blade":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("CB_HA_EnergyBlade_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Ripper Shield":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("CB_HA_RipperShield_MV", "array", context.getPackageName()));
@@ -453,12 +434,12 @@ public class DamageCalculation {
                 case "Extract Hunter":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("IG_HA_ExtractHunter_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Swarm":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("IG_HA_Swarm_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Bug Blow":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("IG_HA_BugBlow_MV", "array", context.getPackageName()));
@@ -468,72 +449,72 @@ public class DamageCalculation {
                 case "Anti-Monster Mine":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_AntiMonsterMine_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Anti-Monster Mine+":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_AntiMonsterMine2_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Claw Dance":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_ClawDance_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Explosive Roll":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_ExplosiveRoll_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Felyne Comet":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_FelyneComet_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Mini Barrel Bombay":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_MiniBarrelBombay_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Barrel Bombay":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_BarrelBombay_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Bounce Bombay":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_BounceBombay_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Big Barrel Bombay":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_BigBarrelBombay_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Mega Barrel Bombay":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_MegaBarrelBombay_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Giga Barrel Bombay":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_GigaBarrelBombay_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Rath of Meow":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_RathofMeow_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Shock Tripper":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_ShockTripper_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Boomerang Type":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_BomerangType_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
-                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElmCheck", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 default:
                     //HA_MV = context.getResources().getIntArray(context.getResources().getIdentifier("GS_HA_MoonBreaker_MV", "array", context.getPackageName()));
@@ -542,11 +523,76 @@ public class DamageCalculation {
                     break;
             }
         }
-        else{
-            HA_MV = context.getResources().getIntArray(context.getResources().getIdentifier("HA_MV", "array", context.getPackageName()));
-            HA_Levels_Array = context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName());
-            HA_ElementCheck_Array = context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName());
+    }
+
+    private void setSharpness(){
+        int SharpnessRaw, SharpnessElm;
+        switch (ui.Sharpness){
+            case "Red":
+                SharpnessRaw = R.integer.Red_Raw;
+                SharpnessElm = R.integer.Red_Elm;
+                break;
+            case "Orange":
+                SharpnessRaw = R.integer.Orange_Raw;
+                SharpnessElm = R.integer.Orange_Elm;
+                break;
+            case "Yellow":
+                SharpnessRaw = R.integer.Yellow_Raw;
+                SharpnessElm = R.integer.Yellow_Elm;
+                break;
+            case "Green":
+                SharpnessRaw = R.integer.Green_Raw;
+                SharpnessElm = R.integer.Green_Elm;
+                break;
+            case "Blue":
+                SharpnessRaw = R.integer.Blue_Raw;
+                SharpnessElm = R.integer.Blue_Elm;
+                break;
+            case "White":
+                SharpnessRaw = R.integer.White_Raw;
+                SharpnessElm = R.integer.White_Elm;
+                break;
+            default:
+                SharpnessRaw = R.integer.Purple_Raw;
+                SharpnessElm = R.integer.Purple_Elm;
+                break;
         }
+
+        SharpnessModifier_Atk = context.getResources().getInteger(SharpnessRaw);
+        SharpnessModifier_Elm = context.getResources().getInteger(SharpnessElm);
+        SharpnessModifier_Atk /= 100;
+        SharpnessModifier_Elm /= 100;
+    }
+
+
+    //Public retrievers/usage
+
+    public boolean getBounce(int counter){
+        return !((getCalculatedRawHitzone(counter) * 100) < 25);
+    }
+
+    public String getStagger(){
+        return "Stagger/Break Limit: " + M.getStaggerValue();
+    }
+
+    public int getAtkPwr(int counter){
+        return Math.round(MVs.get(counter));
+    }
+
+    public String getMVName(int counter){
+        return String.valueOf(MV_NamesList.get(counter));
+    }
+
+    public int getMVSize(){
+        return MV.length;
+    }
+
+    public void setHitzone(){
+        M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+    }
+
+    public void setHitzone_DB(){
+        M.getHitzones(context, ChosenElement, ChosenSubElement, Skills, ui.WeaknessExploitCheck.isChecked());
     }
 
     public boolean CalculateSkills(){
@@ -573,6 +619,9 @@ public class DamageCalculation {
         }
         return false;
     }
+
+
+    //Weapon Specific things
 
     private float BrimstoneCounterModifier(int counter){
         if(Weapon.equals("GS")) {
@@ -660,13 +709,13 @@ public class DamageCalculation {
 //                }
             } else {
                 if ((HA_Levels[counter].equals("Level I") || HA_Levels[counter]
-                        .equals("     -Strong Attack Counter Hit ")) && ui.ChosenArt.equals("Brimstone Slash")) {
+                        .equals("   -Strong Attack Counter Hit ")) && ui.ChosenArt.equals("Brimstone Slash")) {
                     return 1.1f;
                 } else if ((HA_Levels[counter].equals("Level II") || HA_Levels[counter]
-                        .equals("     -Strong Attack Counter Hit  ")) && ui.ChosenArt.equals("Brimstone Slash")) {
+                        .equals("   -Strong Attack Counter Hit  ")) && ui.ChosenArt.equals("Brimstone Slash")) {
                     return 1.2f;
                 } else if ((HA_Levels[counter].equals("Level III") || HA_Levels[counter]
-                        .equals("     -Strong Attack Counter Hit   ")) && ui.ChosenArt.equals("Brimstone Slash")) {
+                        .equals("   -Strong Attack Counter Hit   ")) && ui.ChosenArt.equals("Brimstone Slash")) {
                     return 1.33f;
                 }
             }
@@ -752,11 +801,11 @@ public class DamageCalculation {
 //                    return 2.25f;
 //                }
             } else {
-                if ((HA_Levels[counter].equals("Level I") || HA_Levels[counter].equals("     -Strong Attack Counter Hit ")) && ui.ChosenArt.equals("Brimstone Slash")) {
+                if ((HA_Levels[counter].equals("Level I") || HA_Levels[counter].equals("   -Strong Attack Counter Hit ")) && ui.ChosenArt.equals("Brimstone Slash")) {
                     return 1;
-                } else if ((HA_Levels[counter].equals("Level II") || HA_Levels[counter].equals("     -Strong Attack Counter Hit  ")) && ui.ChosenArt.equals("Brimstone Slash")) {
+                } else if ((HA_Levels[counter].equals("Level II") || HA_Levels[counter].equals("   -Strong Attack Counter Hit  ")) && ui.ChosenArt.equals("Brimstone Slash")) {
                     return 1;
-                } else if ((HA_Levels[counter].equals("Level III") || HA_Levels[counter].equals("     -Strong Attack Counter Hit   ")) && ui.ChosenArt.equals("Brimstone Slash")) {
+                } else if ((HA_Levels[counter].equals("Level III") || HA_Levels[counter].equals("   -Strong Attack Counter Hit   ")) && ui.ChosenArt.equals("Brimstone Slash")) {
                     return 1;
                 }
             }
@@ -764,242 +813,425 @@ public class DamageCalculation {
         return 1;
     }
 
+    private void LSMVCheck(int counter){
+        if(!ui.SpiritGaugeColour.equals("No Colour") &&
+                getMVName(counter).contains("Jump Spirit Slash")){
+            MV[MV.length - 1] = 48;
+            MV[MV.length - 2] = 48;
+        }
+    }
+
+    private float SNSSharpnessMod(){
+        if(Weapon.equals("SNS")) return 1.06f;
+        else return 1;
+    }
+
     private void getDBElmMod(String MoveName){
 
-        if (DualElement && ui.ChosenArt.equals("-None-")){
-            if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
-                ElementalDamage *= 2.7f;
-                SubElementalDamage *= 2.7f;
-            }
-            else if (MoveName.equals("Demon Dodge Jump Attack (4 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("     -Follow Up (6 hits)")) {
-                ElementalDamage *= 2.1f;
-                SubElementalDamage *= 2.1f;
-            }
-            else if (MoveName.equals("Upward Slash")) {
-                ElementalDamage *= 0;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Demon Combo (6 hits)")) {
-                ElementalDamage *= 2.1f;
-                SubElementalDamage *= 2.1f;
-            }
-            else if (MoveName.equals("Demon Flurry Rush (6 hits)")) {
-                ElementalDamage *= 2.1f;
-                SubElementalDamage *= 2.1f;
-            }
-            else if (MoveName.equals("     -Off Ledge (4 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Left Jumping Slash (3 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("     -Second Jump[L] (3 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Right Jumping Slash (3 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("     -Second Jump[R] (3 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Jump Attack (2 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Vault Attack (4 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Devil's Dance (12 hits)")) {
-                ElementalDamage *= 5.7f;
-                SubElementalDamage *= 5.7f;
-            }
-            else if (MoveName.equals("Adept Evade (4 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Idle Slash (2 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Reverse Slash (2 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Circle Slash (3 hits)")) {
-                ElementalDamage *= 1.7f;
-                SubElementalDamage *= 0.7f;
-            }
-            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
-                ElementalDamage *= 0;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 0;
-            }
-            else if (MoveName.equals("Demon Flurry (7 hits)")) {
-                ElementalDamage *= 3.7f;
-                SubElementalDamage *= 2.7f;
-            }
-
-            //Normal Mode If Statment
-
-            if (MoveName.equals("Draw Attack (4 hits)")) {
-                ElementalDamage *= 1.4f;
-                SubElementalDamage *= 1.4f;
-            }
-            else if (MoveName.equals("Dash Attack (4 hits)")) {
-                ElementalDamage *= 1.4f;
-                SubElementalDamage *= 1.4f;
-            }
-            else if (MoveName.equals("Upward Slash")) {
-                ElementalDamage *= 0;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Idle Slash (2 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Reverse Slash (2 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
-                ElementalDamage *= 0;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Jumping Slash - Left (3 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 0;
-            }
-            else if (MoveName.equals("Jumping Slash - Right (3 hits)")) {
-                ElementalDamage *= 2;
-                SubElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Mid-Air Attack (2 hits)")) {
-                ElementalDamage *= 1;
-                SubElementalDamage *= 1;
+        if(DualElement && ui.ChosenArt.equals("-None-") && !ui.DBMode.equals("Normal")){
+            switch(MoveName){
+                case "Draw/Dash Attack (6 hits)":
+                    ElementalDamage = MainElm * 2.7f;
+                    SubElementalDamage = SubElm * 2.7f;
+                    break;
+                case "Demon Dodge Jump Attack (4 hits)":
+                case "   -Off Ledge (4 hits)":
+                case "Vault Attack (4 hits)":
+                case "Adept Evade (4 hits)":
+                    ElementalDamage = MainElm * 2;
+                    SubElementalDamage = SubElm * 2;
+                    break;
+                case "   -Follow Up (6 hits)":
+                case "Demon Combo (6 hits)":
+                case "Demon Flurry Rush (6 hits)":
+                    ElementalDamage = MainElm * 2.1f;
+                    SubElementalDamage = SubElm * 2.1f;
+                    break;
+                case "Upward Slash":
+                    ElementalDamage = MainElm * 0;
+                    SubElementalDamage = SubElm * 1;
+                    break;
+                case "Left Jumping Slash (3 hits)":
+                case "   -Second Jump[L] (3 hits)":
+                    ElementalDamage = MainElm * 1;
+                    SubElementalDamage = SubElm * 2;
+                    break;
+                case "Right Jumping Slash (3 hits)":
+                case "   -Second Jump[R] (3 hits)":
+                    ElementalDamage = MainElm * 2;
+                    SubElementalDamage = SubElm * 1;
+                    break;
+                case "Jump Attack (2 hits)":
+                case "Idle Slash (2 hits)":
+                case "Reverse Slash (2 hits)":
+                    ElementalDamage = MainElm * 1;
+                    SubElementalDamage = SubElm * 1;
+                    break;
+                case "Circle Slash (3 hits)":
+                    ElementalDamage = MainElm * 1.7f;
+                    SubElementalDamage = SubElm * 0.7f;
+                    break;
+                case "Horizontal Slash - Left (2 hits)":
+                    ElementalDamage = MainElm * 0;
+                    SubElementalDamage = SubElm * 2;
+                case "Horizontal Slash - Right (2 hits)":
+                    ElementalDamage = MainElm * 2;
+                    SubElementalDamage = SubElm * 0;
+                    break;
+                case "Demon Flurry (7 hits)":
+                    ElementalDamage = MainElm * 3.7f;
+                    SubElementalDamage = SubElm * 2.7f;
+                    break;
+                case "Devil's Dance (12 hits)":
+                    ElementalDamage = MainElm * 5.7f;
+                    SubElementalDamage = SubElm * 5.7f;
+                    break;
             }
         }
-        else if ((!DualElement) && (ui.ChosenArt.equals("-None-"))){
+        else if(DualElement && ui.ChosenArt.equals("-None-") && ui.DBMode.equals("Normal")){
+            switch(MoveName){
+                case "Draw Attack (4 hits)":
+                case "Dash Attack (4 hits)":
+                    ElementalDamage = MainElm * 1.4f;
+                    SubElementalDamage = SubElm * 1.4f;
+                    break;
+                case "Idle Slash (2 hits)":
+                case "Reverse Slash (2 hits)":
+                case "Mid-Air Attack (2 hits)":
+                    ElementalDamage = MainElm * 1;
+                    SubElementalDamage = SubElm * 1;
+                    break;
+                case "Upward Slash":
+                    ElementalDamage = MainElm * 0;
+                    SubElementalDamage = SubElm * 1;
+                    break;
+                case "Horizontal Slash - Left (2 hits)":
+                    ElementalDamage = MainElm * 0;
+                    SubElementalDamage = SubElm * 2;
+                    break;
+                case "Horizontal Slash - Right (2 hits)":
+                    ElementalDamage = MainElm * 2;
+                    SubElementalDamage = SubElm * 0;
+                    break;
+                case "Jumping Slash - Left (3 hits)":
+                    ElementalDamage = MainElm * 1;
+                    SubElementalDamage = SubElm * 2;
+                    break;
+                case "Jumping Slash - Right (3 hits)":
+                    ElementalDamage = MainElm * 2;
+                    SubElementalDamage = SubElm * 1;
+                    break;
+            }
+        }
+        else if(!DualElement && ui.ChosenArt.equals("-None-")){
             SubElementalDamage = 0;
-            if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
-                ElementalDamage *= 5.4f;
-            }
-            else if (MoveName.equals("Demon Dodge Jump Attack (4 hits)")) {
-                ElementalDamage *= 4;
-            }
-            else if (MoveName.equals("     -Follow Up (6 hits)")) {
-                ElementalDamage *= 4.2f;
-            }
-            else if (MoveName.equals("Upward Slash")) {
-                ElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Demon Combo (6 hits)")) {
-                ElementalDamage *= 4.2f;
-            }
-            else if (MoveName.equals("Demon Flurry Rush (6 hits)")) {
-                ElementalDamage *= 4.2f;
-            }
-            else if (MoveName.equals("     -Off Ledge (4 hits)")) {
-                ElementalDamage *= 4;
-            }
-            else if (MoveName.equals("Left Jumping Slash (3 hits)")) {
-                ElementalDamage *= 3;
-            }
-            else if (MoveName.equals("     -Second Jump[L] (3 hits)")) {
-                ElementalDamage *= 3;
-            }
-            else if (MoveName.equals("Right Jumping Slash (3 hits)")) {
-                ElementalDamage *= 3;
-            }
-            else if (MoveName.equals("     -Second Jump[R] (3 hits)")) {
-                ElementalDamage *= 3;
-            }
-            else if (MoveName.equals("Jump Attack (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Vault Attack (4 hits)")) {
-                ElementalDamage *= 4;
-            }
-            else if (MoveName.equals("Devil's Dance (12 hits)")) {
-                ElementalDamage *= 11.4f;
-            }
-            else if (MoveName.equals("Adept Evade (4 hits)")) {
-                ElementalDamage *= 4;
-            }
-            else if (MoveName.equals("Idle Slash (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Reverse Slash (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Circle Slash (3 hits)")) {
-                ElementalDamage *= 2.4f;
-            }
-            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Demon Flurry (7 hits)")) {
-                ElementalDamage *= 6.4f;
-            }
-
-            //Normal Mode If Statment
-
-            if (MoveName.equals("Draw Attack (4 hits)")) {
-                ElementalDamage *= 2.8f;
-            }
-            else if (MoveName.equals("Dash Attack (4 hits)")) {
-                ElementalDamage *= 2.8f;
-            }
-            else if (MoveName.equals("Upward Slash")) {
-                ElementalDamage *= 1;
-            }
-            else if (MoveName.equals("Idle Slash (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Jumping Slash - Left (3 hits)")) {
-                ElementalDamage *= 3;
-            }
-            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
-                ElementalDamage *= 2;
-            }
-            else if (MoveName.equals("Jumping Slash - Right (3 hits)")) {
-                ElementalDamage *= 3;
-            }
-            else if (MoveName.equals("Mid-Air Attack (2 hits)")) {
-                ElementalDamage *= 2;
+            switch(MoveName){
+                case "Draw/Dash Attack (6 hits)":
+                    ElementalDamage = MainElm * 5.4f;
+                    break;
+                case "Demon Dodge Jump Attack (4 hits)":
+                    ElementalDamage = MainElm * 4;
+                    break;
+                case "   -Follow Up (6 hits)":
+                case "Demon Combo (6 hits)":
+                case "Demon Flurry Rush (6 hits)":
+                    ElementalDamage = MainElm * 4.2f;
+                    break;
+                case "   -Off Ledge (4 hits)":
+                case "Vault Attack (4 hits)":
+                case "Adept Evade (4 hits)":
+                    ElementalDamage = MainElm * 4;
+                    break;
+                case "Left Jumping Slash (3 hits)":
+                case "   -Second Jump[L] (3 hits)":
+                case "Right Jumping Slash (3 hits)":
+                case "   -Second Jump[R] (3 hits)":
+                case "Jumping Slash - Left (3 hits)":
+                case "Jumping Slash - Right (3 hits)":
+                    ElementalDamage = MainElm * 3;
+                    break;
+                case "Jump Attack (2 hits)":
+                case "Idle Slash (2 hits)":
+                case "Reverse Slash (2 hits)":
+                case "Horizontal Slash - Left (2 hits)":
+                case "Horizontal Slash - Right (2 hits)":
+                //case "Idle Slash (2 hits)":
+                //case "Horizontal Slash - Left (2 hits)":
+                //case "Horizontal Slash - Right (2 hits)":
+                case "Mid-Air Attack (2 hits)":
+                    ElementalDamage = MainElm * 2;
+                    break;
+                case "Upward Slash":
+                    ElementalDamage = MainElm * 1;
+                    break;
+                case "Devil's Dance (12 hits)":
+                    ElementalDamage = MainElm * 11.4f;
+                    break;
+                case "Circle Slash (3 hits)":
+                    ElementalDamage = MainElm * 2.4f;
+                    break;
+                case "Demon Flurry (7 hits)":
+                    ElementalDamage = MainElm * 6.4f;
+                    break;
+                case "Draw Attack (4 hits)":
+                case "Dash Attack (4 hits)":
+                    ElementalDamage = MainElm * 2.8f;
+                    break;
             }
         }
         else if (!ui.ChosenArt.equals("-None-")){
             if(DualElement) {
-                ElementalDamage /= 2;
-                SubElementalDamage /= 2;
+                ElementalDamage = MainElm / 2;
+                SubElementalDamage = SubElm / 2;
             }
             else{
-                ElementalDamage *= 1;
-                SubElementalDamage *= 0;
+                ElementalDamage = MainElm * 1;
+                SubElementalDamage = SubElm * 0;
             }
         }
+
+//        if (DualElement && ui.ChosenArt.equals("-None-")){
+//            if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
+//                ElementalDamage = MainElm * 2.7f;
+//                SubElementalDamage = SubElm * 2.7f;
+//            }
+//            else if (MoveName.equals("Demon Dodge Jump Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("   -Follow Up (6 hits)")) {
+//                ElementalDamage = MainElm * 2.1f;
+//                SubElementalDamage = SubElm * 2.1f;
+//            }
+//            else if (MoveName.equals("Upward Slash")) {
+//                ElementalDamage = MainElm * 0;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Demon Combo (6 hits)")) {
+//                ElementalDamage = MainElm * 2.1f;
+//                SubElementalDamage = SubElm * 2.1f;
+//            }
+//            else if (MoveName.equals("Demon Flurry Rush (6 hits)")) {
+//                ElementalDamage = MainElm * 2.1f;
+//                SubElementalDamage = SubElm * 2.1f;
+//            }
+//            else if (MoveName.equals("   -Off Ledge (4 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("Left Jumping Slash (3 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("   -Second Jump[L] (3 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("Right Jumping Slash (3 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("   -Second Jump[R] (3 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Jump Attack (2 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Vault Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("Devil's Dance (12 hits)")) {
+//                ElementalDamage = MainElm * 5.7f;
+//                SubElementalDamage = SubElm * 5.7f;
+//            }
+//            else if (MoveName.equals("Adept Evade (4 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("Idle Slash (2 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Reverse Slash (2 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Circle Slash (3 hits)")) {
+//                ElementalDamage = MainElm * 1.7f;
+//                SubElementalDamage = SubElm * 0.7f;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+//                ElementalDamage = MainElm * 0;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 0;
+//            }
+//            else if (MoveName.equals("Demon Flurry (7 hits)")) {
+//                ElementalDamage = MainElm * 3.7f;
+//                SubElementalDamage = SubElm * 2.7f;
+//            }
+//
+//            //Normal Mode If Statment
+//
+//            if (MoveName.equals("Draw Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 1.4f;
+//                SubElementalDamage = SubElm * 1.4f;
+//            }
+//            else if (MoveName.equals("Dash Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 1.4f;
+//                SubElementalDamage = SubElm * 1.4f;
+//            }
+//            else if (MoveName.equals("Upward Slash")) {
+//                ElementalDamage = MainElm * 0;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Idle Slash (2 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Reverse Slash (2 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+//                ElementalDamage = MainElm * 0;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("Jumping Slash - Left (3 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 2;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 0;
+//            }
+//            else if (MoveName.equals("Jumping Slash - Right (3 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//            else if (MoveName.equals("Mid-Air Attack (2 hits)")) {
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 1;
+//            }
+//        }
+//        else if ((!DualElement) && (ui.ChosenArt.equals("-None-"))){
+//            SubElementalDamage = 0;
+//            if (MoveName.equals("Draw/Dash Attack (6 hits)")) {
+//                ElementalDamage = MainElm * 5.4f;
+//            }
+//            else if (MoveName.equals("Demon Dodge Jump Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 4;
+//            }
+//            else if (MoveName.equals("   -Follow Up (6 hits)")) {
+//                ElementalDamage = MainElm * 4.2f;
+//            }
+//            else if (MoveName.equals("Upward Slash")) {
+//                ElementalDamage = MainElm * 1;
+//            }
+//            else if (MoveName.equals("Demon Combo (6 hits)")) {
+//                ElementalDamage = MainElm * 4.2f;
+//            }
+//            else if (MoveName.equals("Demon Flurry Rush (6 hits)")) {
+//                ElementalDamage = MainElm * 4.2f;
+//            }
+//            else if (MoveName.equals("   -Off Ledge (4 hits)")) {
+//                ElementalDamage = MainElm * 4;
+//            }
+//            else if (MoveName.equals("Left Jumping Slash (3 hits)")) {
+//                ElementalDamage = MainElm * 3;
+//            }
+//            else if (MoveName.equals("   -Second Jump[L] (3 hits)")) {
+//                ElementalDamage = MainElm * 3;
+//            }
+//            else if (MoveName.equals("Right Jumping Slash (3 hits)")) {
+//                ElementalDamage = MainElm * 3;
+//            }
+//            else if (MoveName.equals("   -Second Jump[R] (3 hits)")) {
+//                ElementalDamage = MainElm * 3;
+//            }
+//            else if (MoveName.equals("Jump Attack (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Vault Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 4;
+//            }
+//            else if (MoveName.equals("Devil's Dance (12 hits)")) {
+//                ElementalDamage = MainElm * 11.4f;
+//            }
+//            else if (MoveName.equals("Adept Evade (4 hits)")) {
+//                ElementalDamage = MainElm * 4;
+//            }
+//            else if (MoveName.equals("Idle Slash (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Reverse Slash (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Circle Slash (3 hits)")) {
+//                ElementalDamage = MainElm * 2.4f;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Demon Flurry (7 hits)")) {
+//                ElementalDamage = MainElm * 6.4f;
+//            }
+//
+//            //Normal Mode If Statment
+//
+//            if (MoveName.equals("Draw Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 2.8f;
+//            }
+//            else if (MoveName.equals("Dash Attack (4 hits)")) {
+//                ElementalDamage = MainElm * 2.8f;
+//            }
+//            else if (MoveName.equals("Upward Slash")) {
+//                ElementalDamage = MainElm * 1;
+//            }
+//            else if (MoveName.equals("Idle Slash (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Left (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Jumping Slash - Left (3 hits)")) {
+//                ElementalDamage = MainElm * 3;
+//            }
+//            else if (MoveName.equals("Horizontal Slash - Right (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//            else if (MoveName.equals("Jumping Slash - Right (3 hits)")) {
+//                ElementalDamage = MainElm * 3;
+//            }
+//            else if (MoveName.equals("Mid-Air Attack (2 hits)")) {
+//                ElementalDamage = MainElm * 2;
+//            }
+//        }
+//        else if (!ui.ChosenArt.equals("-None-")){
+//            if(DualElement) {
+//                ElementalDamage /= 2;
+//                SubElementalDamage /= 2;
+//            }
+//            else{
+//                ElementalDamage = MainElm * 1;
+//                SubElementalDamage = SubElm * 0;
+//            }
+//        }
+    }
+
+    private float getWolfsMawModifier(){
+        if(ui.WolfsMawLevel1Check.isChecked()) return 1.2f;
+        else if(ui.WolfsMawLevel2Check.isChecked()) return 1.25f;
+        else if(ui.WolfsMawLevel3Check.isChecked()) return 1.3f;
+        else if(ui.WolfsMawOffCheck.isChecked()) return 1;
+        else return 1;
     }
 }

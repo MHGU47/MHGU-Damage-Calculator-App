@@ -52,25 +52,10 @@ public class StatsValidation {
     }
 
     public boolean isValidElm(){//Used to check whether the element and element type inputted are valid.
-        boolean Valid = true;
-        if (Elm_Type.equals("NONE") && ElmAtk > 0){
-            Valid = false;
-        }
-        else if (!Elm_Type.equals("NONE") && ElmAtk == 0){
-            Valid = false;
-        }
-        return Valid;
+        return (!Elm_Type.equals("NONE") && ElmAtk > 0) || (Elm_Type.equals("NONE") && ElmAtk == 0);
     }
 
     public boolean isValidSubElm(){//Used to check whether the inputted sub element for DB is valid.
-        boolean Valid = true;
-        if (SubElm_Type.equals("NONE") && ElmAtk_Sub > 0){
-            Valid = false;
-        }
-        else if (!SubElm_Type.equals("NONE") && ElmAtk_Sub == 0){
-            Valid = false;
-        }
-        //return Valid;
         return (!SubElm_Type.equals("NONE") && ElmAtk_Sub > 0) || (SubElm_Type.equals("NONE") && ElmAtk_Sub == 0);
     }
 

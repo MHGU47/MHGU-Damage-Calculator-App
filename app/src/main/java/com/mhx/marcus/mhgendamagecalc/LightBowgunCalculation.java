@@ -1201,25 +1201,25 @@ public class LightBowgunCalculation extends AppCompatActivity implements Adapter
                     return;
                 }
 
-                if((HeavyUpRadio.isChecked() && !ShotText.contains("Heavy")) ||
+                if(((HeavyUpRadio.isChecked() && !ShotText.contains("Heavy")) ||
                         (NormalUpRadio.isChecked() && !ShotText.contains("Normal")) ||
                         (PierceUpRadio.isChecked() && !ShotText.contains("Pierce")) ||
                         (PelletUpRadio.isChecked() && !ShotText.contains("Pellet")) ||
-                        (FelyneSharpshooterCheck.isChecked() && !ShotText.contains("Normal"))) {
+                        (FelyneSharpshooterCheck.isChecked() && !ShotText.contains("Normal"))) && SkillCheck) {
                     Snackbar.make(view, "Please check shot/skill selection", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     return;
                 }
 
-                if((ElementalAtkUpCheck.isChecked() || GroupPCheck || ElementalCritCheck.isChecked()) &&
-                        !ShotType.equals("Elemental")){
+                if(((ElementalAtkUpCheck.isChecked() || GroupPCheck || ElementalCritCheck.isChecked()) &&
+                        !ShotType.equals("Elemental")) && SkillCheck){
                     Snackbar.make(view, "Please check shot/element skill selection", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     return;
                 }
 
                 if((FelyneBombardierCheck.isChecked() || Skills.ArtilleryCheck()) &&
-                        (!ShotType.equals("Crag") && !ShotType.equals("Cannon"))) {
+                        (!ShotType.equals("Crag") && !ShotType.equals("Cannon")) && SkillCheck) {
                     Snackbar.make(view, "Please check shot/skill selection", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     return;
@@ -1247,9 +1247,9 @@ public class LightBowgunCalculation extends AppCompatActivity implements Adapter
                 Skills.setGroupJCrit(GroupJCritResrve);
                 Skills.setGroupO(GroupOCritResrve);
 
-                if(HeavyUpRadio.isChecked() || PierceUpRadio.isChecked() || NormalUpRadio.isChecked())
+                if((HeavyUpRadio.isChecked() || PierceUpRadio.isChecked() || NormalUpRadio.isChecked()) && SkillCheck)
                     Skills.setShotModifier(1.1f);
-                else if(TrueShotUpRadio.isChecked() || PelletUpRadio.isChecked())
+                else if((TrueShotUpRadio.isChecked() || PelletUpRadio.isChecked()) && SkillCheck)
                     Skills.setShotModifier(1.2f);
                 else Skills.setShotModifier(1);
 

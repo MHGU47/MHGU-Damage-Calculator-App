@@ -58,6 +58,7 @@ public class SkillsCalculation {
     private float ReloadModifier = 1;
     private float FelyneSharpshooterModifer = 1;
     private float FelyneTemperModifier = 1;
+    private float SkillSharpnessModifier = 1;
 
     private float GroupC_1 = 0;
     //Demondrug (+5), Mega Demondrug (+7)
@@ -121,6 +122,8 @@ public class SkillsCalculation {
             multiplicativeRaw = 1;
             additiveElm = 0;
             multiplicativeElm = 1;
+            additiveElm_Sub = 0;
+            multiplicativeElm_Sub = 1;
 
             AirborneModifier = 1;
         }
@@ -295,6 +298,15 @@ public class SkillsCalculation {
             BludgeonerModifier = BludgeonerTemp;
         }
     } //Was a float method
+
+//    public void setSkillSharpnessModifier(boolean Check){
+//        if(Check) SkillSharpnessModifier = 1.1f;
+//        else SkillSharpnessModifier = 1;
+//    }
+//
+//    public float getSkillSharpnessModifier(){
+//        return SkillSharpnessModifier;
+//    }
     
     //Weapon Specific
 

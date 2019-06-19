@@ -872,7 +872,7 @@
 
 
 
-    <integer-array name="DB_Guild_MV">
+    <integer-array name="DB_Guild_MV_Normal">
         <item>28</item>
         <item>28</item>
         <item>18</item>
@@ -888,7 +888,7 @@
         <item>30</item>
         <item>23</item>
     </integer-array><!--Normal-->
-    <string-array name="DB_Guild_Names">
+    <string-array name="DB_Guild_Names_Normal">
         <item>Draw Attack (4 hits)</item>
         <item>Dash Attack (4 hits)</item>
         <item>Upward Slash</item>
@@ -905,7 +905,7 @@
         <item>Jump Attack (2 hits)</item>
     </string-array><!--Normal-->
 
-    <integer-array name="DB_Guild_MV2">
+    <integer-array name="DB_Guild_MV_Demon">
         <item>18</item>
         <item>34</item>
         <item>46</item>
@@ -922,7 +922,7 @@
 
         <item>68</item>
     </integer-array><!--Demon-->
-    <string-array name="DB_Guild_Names2">
+    <string-array name="DB_Guild_Names_Demon">
         <item>Upward Slash</item>
         <item>Circle Slash (3 hits)</item>
         <item>Demon Combo (6 hits)</item>
@@ -940,7 +940,7 @@
         <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--Demon-->
 
-    <integer-array name="DB_Guild_MV3">
+    <integer-array name="DB_Guild_MV_Archdemon">
         <item>48</item>
         <item>18</item>
 
@@ -962,7 +962,7 @@
 
         <item>68</item>
     </integer-array><!--ArchDemon-->
-    <string-array name="DB_Guild_Names3">
+    <string-array name="DB_Guild_Names_Archdemon">
         <item>Draw/Dash Attack (6 hits)</item>
         <item>Upward Slash</item>
 
@@ -985,7 +985,7 @@
         <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--ArchDemon-->
 
-    <integer-array name="DB_Striker_MV">
+    <integer-array name="DB_Striker_MV_Normal">
         <item>28</item>
         <item>28</item>
         <item>18</item>
@@ -1000,7 +1000,7 @@
 
         <item>23</item>
     </integer-array><!--Normal-->
-    <string-array name="DB_Striker_Names">
+    <string-array name="DB_Striker_Names_Normal">
         <item>Draw Attack (4 hits)</item>
         <item>Dash Attack (4 hits)</item>
         <item>Upward Slash</item>
@@ -1016,7 +1016,7 @@
         <item>Jump Attack (2 hits)</item>
     </string-array><!--Normal-->
 
-    <integer-array name="DB_Striker_MV2">
+    <integer-array name="DB_Striker_MV_Demon">
 
         0.18f, 0.34f, 0.46f, /*A button*/0.28f, 0.32f, 0.28f, /*space*/
         0.32f, 0.48f, 1.03f, /*space*/0.54f, 0.68f
@@ -1036,7 +1036,7 @@
         <item>54</item>
         <item>68</item>
     </integer-array><!--Demon-->
-    <string-array name="DB_Striker_Names2">
+    <string-array name="DB_Striker_Names_Demon">
         <item>Upward Slash</item>
         <item>Circle Slash (3 hits)</item>
         <item>Demon Combo (6 hits)</item>
@@ -1053,7 +1053,7 @@
         <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--Demon-->
 
-    <integer-array name="DB_Aerial_MV">
+    <integer-array name="DB_Aerial_MV_Normal">
         <item>28</item>
         <item>28</item>
         <item>18</item>
@@ -1069,7 +1069,7 @@
         <item>30</item>
         <item>23</item>
     </integer-array><!--Normal-->
-    <string-array name="DB_Aerial_Names">
+    <string-array name="DB_Aerial_Names_Normal">
         <item>Draw Attack (4 hits)</item>
         <item>Dash Attack (4 hits)</item>
         <item>Upward Slash</item>
@@ -1086,7 +1086,7 @@
         <item>Mid-Air Attack (2 hits)</item>
     </string-array><!--Normal-->
 
-    <integer-array name="DB_Aerial_MV2">
+    <integer-array name="DB_Aerial_MV_Demon">
         <item>18</item>
         <item>34</item>
         <item>46</item>
@@ -1104,7 +1104,7 @@
 
         <item>68</item>
     </integer-array><!--Demon-->
-    <string-array name="DB_Aerial_Names2">
+    <string-array name="DB_Aerial_Names_Demon">
         <item>Upward Slash</item>
         <item>Circle Slash (3 hits)</item>
         <item>Demon Combo (6 hits)</item>
@@ -1123,7 +1123,7 @@
         <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--Demon-->
 
-    <integer-array name="DB_Aerial_MV3">
+    <integer-array name="DB_Aerial_MV_Archdemon">
         <item>48</item>
         <item>18</item>
 
@@ -1147,7 +1147,7 @@
         <item>54</item>
         <item>23</item>
     </integer-array><!--ArchDemon-->
-    <string-array name="DB_Aerial_Names3">
+    <string-array name="DB_Aerial_Names_Archdemon">
         <item>Draw/Dash Attack (6 hits)</item>
         <item>Upward Slash</item>
 
@@ -1172,7 +1172,7 @@
         <item>\u0020\u0020\u0020-Follow Up (6 hits)</item>
     </string-array><!--ArchDemon-->
 
-    <integer-array name="DB_Adept_MV">
+    <integer-array name="DB_Adept_MV_Normal">
         <item>28</item>
         <item>28</item>
         <item>18</item>
@@ -1188,7 +1188,7 @@
         <item>30</item>
         <item>23</item>
     </integer-array><!--Normal-->
-    <string-array name="DB_Adept_Names">
+    <string-array name="DB_Adept_Names_Normal">
         <item>Draw Attack (4 hits)</item>
         <item>Dash Attack (4 hits)</item>
         <item>Upward Slash</item>
@@ -1205,7 +1205,7 @@
         <item>Jump Attack (2 hits)</item>
     </string-array><!--Normal-->
 
-    <integer-array name="DB_Adept_MV2">
+    <integer-array name="DB_Adept_MV_Demon">
         <item>18</item>
         <item>34</item>
         <item>46</item>
@@ -1221,7 +1221,7 @@
         <item>23</item>
         <item>55</item>
     </integer-array><!--Demon-->
-    <string-array name="DB_Adept_Names2">
+    <string-array name="DB_Adept_Names_Demon">
         <item>Upward Slash</item>
         <item>Circle Slash (3 hits)</item>
         <item>Demon Combo (6 hits)</item>
@@ -1239,7 +1239,7 @@
         <item>Adept Evade (4 hits)</item>
     </string-array><!--Demon-->
 
-    <integer-array name="DB_Adept_MV3">
+    <integer-array name="DB_Adept_MV_Archdemon">
         <item>40</item>
         <item>18</item>
         <item>20</item>
@@ -1260,7 +1260,7 @@
         <item>23</item>
         <item>48</item>
     </integer-array><!--ArchDemon-->
-    <string-array name="DB_Adept_Names3">
+    <string-array name="DB_Adept_Names_Archdemon">
         <item>Draw/Dash Attack (6 hits)</item>
         <item>Upward Slash</item>
         <item>Idle Slash (2 hits)</item>
@@ -1282,7 +1282,7 @@
         <item>Adept Evade (4 hits)</item>
     </string-array><!--ArchDemon-->
 
-    <integer-array name="DB_Valor_MV">
+    <integer-array name="DB_Valor_MV_Normal">
         <item>28</item>
         <item>28</item>
         <item>18</item>
@@ -1299,7 +1299,7 @@
         <item>78</item>
         <item>23</item>
     </integer-array><!--Normal-->
-    <string-array name="DB_Valor_Names">
+    <string-array name="DB_Valor_Names_Normal">
         <item>Draw Attack (4 hits)</item>
         <item>Dash Attack (4 hits)</item>
         <item>Upward Slash</item>
@@ -1317,7 +1317,7 @@
         <item>Jump Attack (2 hits)</item>
     </string-array><!--Normal-->
 
-    <integer-array name="DB_Valor_MV3">
+    <integer-array name="DB_Valor_MV_Archdemon">
         <item>40</item>
         <item>18</item>
         <item>20</item>
@@ -1344,7 +1344,7 @@
 
         <item>23</item>
     </integer-array><!--ArchDemon-->
-    <string-array name="DB_Valor_Names3">
+    <string-array name="DB_Valor_Names_Archdemon">
         <item>Draw/Dash Attack (6 hits)</item>
         <item>Upward Slash</item>
         <item>Idle Slash (2 hits)</item>
@@ -1372,7 +1372,7 @@
         <item>Jump Attack (2 hits)</item>
     </string-array><!--ArchDemon-->
 
-    <integer-array name="DB_Alchemy_MV">
+    <integer-array name="DB_Alchemy_MV_Normal">
         <item>28</item>
         <item>28</item>
         <item>18</item>
@@ -1388,7 +1388,7 @@
         <item>30</item>
         <item>23</item>
     </integer-array><!--Normal-->
-    <string-array name="DB_Alchemy_Names">
+    <string-array name="DB_Alchemy_Names_Normal">
         <item>Draw Attack (4 hits)</item>
         <item>Dash Attack (4 hits)</item>
         <item>Upward Slash</item>
@@ -1405,7 +1405,7 @@
         <item>Jump Attack (2 hits)</item>
     </string-array><!--Normal-->
 
-    <integer-array name="DB_Alchemy_MV2">
+    <integer-array name="DB_Alchemy_MV_Demon">
         <item>18</item>
         <item>34</item>
         <item>46</item>
@@ -1419,7 +1419,7 @@
 
         <item>23</item>
     </integer-array><!--Demon-->
-    <string-array name="DB_Alchemy_Names2">
+    <string-array name="DB_Alchemy_Names_Demon">
         <item>Upward Slash</item>
         <item>Circle Slash (3 hits)</item>
         <item>Demon Combo (6 hits)</item>
@@ -1434,7 +1434,7 @@
         <item>Jump Attack (2 hits)</item>
     </string-array><!--Demon-->
 
-    <integer-array name="DB_Alchemy_MV3">
+    <integer-array name="DB_Alchemy_MV_Archdemon">
         <item>28</item>
         <item>18</item>
 
@@ -1457,7 +1457,7 @@
         <item>68</item>
         <item>23</item>
     </integer-array><!--ArchDemon-->
-    <string-array name="DB_Alchemy_Names3">
+    <string-array name="DB_Alchemy_Names_Archdemon">
         <item>Draw/Dash Attack (6 hits)</item>
         <item>Upward Slash</item>
 

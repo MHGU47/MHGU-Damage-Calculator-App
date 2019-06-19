@@ -369,7 +369,7 @@ public class UI extends AppCompatActivity {
             HunterArtSelect = findViewById(R.id.HunterArtSelect);
         }
         else{
-            BoomerangSelect = findViewById(R.id.BoomerangSelect);
+                       BoomerangSelect = findViewById(R.id.BoomerangSelect);
             ArrayAdapter BoomerangAdapter = ArrayAdapter.createFromResource(this,R.array.Boomerangs,android.R.layout.
                     simple_spinner_dropdown_item);
             BoomerangSelect.setAdapter(BoomerangAdapter);
@@ -650,7 +650,7 @@ public class UI extends AppCompatActivity {
                 SubElementSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        ChosenSubElement = String.valueOf(ElementSelect.getSelectedItem());
+                        ChosenSubElement = String.valueOf(SubElementSelect.getSelectedItem());
 //                        switch (String.valueOf(ElementSelect.getSelectedItem())) {
 //                            case "[Fire]":
 //                                ChosenSubElement = "Fire";
@@ -1788,40 +1788,22 @@ public class UI extends AppCompatActivity {
                 TextView SubElement;
                 TextView Affinity = findViewById(R.id.AffinityInput);
 
-                if(TextUtils.isEmpty(Damage.getText().toString())){
-                    Damage.setText("0");
-                }
-                if(TextUtils.isEmpty(Element.getText().toString())){
-                    Element.setText("0");
-                }
-                if(TextUtils.isEmpty(Affinity.getText().toString())){
-                    Affinity.setText("0");
-                }
+                if(TextUtils.isEmpty(Damage.getText().toString())) Damage.setText("0");
+                if(TextUtils.isEmpty(Element.getText().toString())) Element.setText("0");
+                if(TextUtils.isEmpty(Affinity.getText().toString())) Affinity.setText("0");
 
                 switch(Wpn){
                     case "DB":
-                        SubElement = findViewById(R.id.SubElementInputDB);
-                        if(TextUtils.isEmpty(SubElement.getText().toString())){
-                            SubElement.setText("0");
-                        }
+                        SubElement = findViewById(R.id.SubElementInput);
+                        if(TextUtils.isEmpty(SubElement.getText().toString())) SubElement.setText("0");
 
-//                        DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-//                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
-//                                String.valueOf(HunterArtSelect.getSelectedItem()),
-//                                String.valueOf(StyleSelect.getSelectedItem()),
-//                                String.valueOf(SharpnessSelect.getSelectedItem()),
-//                                Float.parseFloat(Damage.getText().toString()), ChosenElement,
-//                                Float.parseFloat(SubElement.getText().toString()), ChosenSubElement,
-//                                Float.parseFloat(Element.getText().toString()),
-//                                Float.parseFloat(Affinity.getText().toString()),
-//                                ChosenMonster, HitzoneGroup, ChosenHitzone);
                         DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
-                                Float.parseFloat(SubElement.getText().toString()), ChosenSubElement,
-                                Float.parseFloat(Element.getText().toString()),
+                                Float.parseFloat(Element.getText().toString()), ChosenSubElement,
+                                Float.parseFloat(SubElement.getText().toString()),
                                 Float.parseFloat(Affinity.getText().toString()));
 
-                        if(!DmgCalc.Stats.isValid()){
+                        if(!DmgCalc.Stats.isValid_DB()){
                             if(!DmgCalc.Stats.isValidAtk()){
                                 Damage.setError("Enter a valid attack");
                                 return;
@@ -1839,18 +1821,11 @@ public class UI extends AppCompatActivity {
                                 return;
                             }
                         }
+
+                        if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
+                                Float.parseFloat(SubElement.getText().toString()))) return;
                         break;
                     default:
-//                        DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-//                                String.valueOf(HunterArtSelect.getSelectedItem()).equals("-None-"),
-//                                String.valueOf(HunterArtSelect.getSelectedItem()),
-//                                String.valueOf(StyleSelect.getSelectedItem()),
-//                                String.valueOf(SharpnessSelect.getSelectedItem()),
-//                                Float.parseFloat(Damage.getText().toString()), ChosenElement,
-//                                Float.parseFloat(Element.getText().toString()),
-//                                Float.parseFloat(Affinity.getText().toString()),
-//                                ChosenMonster, HitzoneGroup, ChosenHitzone);
-
                         DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
                                 Float.parseFloat(Damage.getText().toString()), ChosenElement,
                                 Float.parseFloat(Element.getText().toString()),
@@ -1870,6 +1845,9 @@ public class UI extends AppCompatActivity {
                                 return;
                             }
                         }
+
+                        if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
+                                0)) return;
                         break;
                 }
 
@@ -1882,18 +1860,9 @@ public class UI extends AppCompatActivity {
                 RefreshTextViews();
                 DisplayBanners();
 
-                if(/*check weapon inputs e.g. spirit gauge colours with valor*/DmgCalc.getBounce()) {
-                    Snackbar.make(view, "Blue Spirit Gauge is only available in Valor", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                if(Wpn.equals("DB")) DmgCalc.setHitzone_DB();
+                else DmgCalc.setHitzone();
 
-                    Snackbar.make(view, "Please choose either 'No Colour' or '-Blue (Valor)-' for Valor Style", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-
-                    return;
-                }
-
-
-                DmgCalc.setHitzone();
                 for (int i = 0; i < DmgCalc.getMVSize(); i++) {
                     AttackInfo.setVisibility(View.VISIBLE);
                     DmgCalc.Calculate(i);
@@ -1903,7 +1872,7 @@ public class UI extends AppCompatActivity {
         });
     }
 
-    //TODO 19/05/2019: Add in functionality for LS
+    //TODO 18/06/2019: Add in functionality for Hammer
 
     private void RefreshTextViews(){
         textviews = new TextView[AllTextViewIDs.length];
@@ -1925,21 +1894,21 @@ public class UI extends AppCompatActivity {
         textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsNames[counter], "id", getPackageName()));
         textviews[counter].setText(DmgCalc.getMVName(counter));
         textviews[counter].setVisibility(View.VISIBLE);
-        if(DmgCalc.getBounce() && !ChosenMonster.equals("None")) {
+
+        if(DmgCalc.getBounce(counter) && !ChosenMonster.equals("None")) {
             textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
             Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
-        else
-            textviews[counter].setTextColor(Color.BLACK);
+        else textviews[counter].setTextColor(Color.BLACK);
 
         textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsAttacks[counter], "id", getPackageName()));
         textviews[counter].setText(String.format("%s", Math.round(DmgCalc.getAtkPwr(counter))));
         textviews[counter].setVisibility(View.VISIBLE);
-        if(DmgCalc.getBounce() && !ChosenMonster.equals("None"))
+
+        if(DmgCalc.getBounce(counter) && !ChosenMonster.equals("None"))
             textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
-        else
-            textviews[counter].setTextColor(Color.BLACK);
+        else textviews[counter].setTextColor(Color.BLACK);
 
         if(Wpn.equals("LS") && !String.valueOf(SpiritGaugeColourSelect.getSelectedItem()).equals("No Colour") &&
                 DmgCalc.getMVName(counter).equals("   -(With Spirit Energy)")) {
@@ -1957,6 +1926,33 @@ public class UI extends AppCompatActivity {
             Banners.get(1).setText(DmgCalc.getStagger());
             Banners.get(1).setVisibility(View.VISIBLE);
         }
+    }
+
+    private boolean ErrorCheck(View view, String Wpn, float RawElement, float RawSubElement){
+        switch(Wpn){
+            case "LS":
+                if(SpiritGaugeColour.equals("-Blue (Valor)-") && !ChosenStyle.equals("Valor")){
+                    Snackbar.make(view, "Please choose either 'No Colour' or '-Blue (Valor)-' for Valor Style", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return true;
+                }
+                else if(((SpiritGaugeColour.equals("-Red-") || SpiritGaugeColour.equals("-Yellow-") ||
+                        SpiritGaugeColour.equals("-White-")) && ChosenStyle.equals("Valor"))){
+                    Snackbar.make(view, "Blue Spirit Gauge is only available in Valor", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return true;
+                }
+                break;
+            case "DB":
+                if((RawElement == RawSubElement) && (ChosenElement.equals(ChosenSubElement)) && RawElement > 0){
+                    Snackbar.make(view, "Main and Sub element should be different", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return true;
+                }
+                break;
+        }
+
+        return false;
     }
 
     public enum PageType {

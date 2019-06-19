@@ -23,27 +23,27 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/MainElementLabel"
+            android:id="@+id/ElementLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/MainElementSelect"
+            android:layout_above="@+id/ElementSelect"
             android:layout_alignStart="@+id/ElementSelect"
-            android:layout_alignLeft="@+id/MainElementSelect"
+            android:layout_alignLeft="@+id/ElementSelect"
             android:text="Element"
             android:textStyle="bold|italic" />
 
         <Spinner
-            android:id="@+id/MainElementSelect"
+            android:id="@+id/ElementSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/MainElementInput"
-            android:layout_alignBottom="@+id/MainElementInput"
+            android:layout_alignTop="@+id/ElementInput"
+            android:layout_alignBottom="@+id/ElementInput"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/MainElementInput" />
+            android:layout_toLeftOf="@+id/ElementInput" />
 
         <EditText
-            android:id="@+id/MainElementInput"
+            android:id="@+id/ElementInput"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/DamageInput"
@@ -68,7 +68,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_alignStart="@+id/MainElementSelect"
-            android:layout_alignLeft="@+id/MainElementSelect"
+            android:layout_alignLeft="@+id/ElementSelect"
             android:layout_alignTop="@+id/SubElementInput"
             android:layout_alignBottom="@+id/SubElementInput"
             android:layout_alignParentLeft="true"
@@ -78,9 +78,9 @@
             android:id="@+id/SubElementInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/MainElementInput"
-            android:layout_alignStart="@+id/MainElementInput"
-            android:layout_alignLeft="@+id/MainElementInput"
+            android:layout_below="@+id/ElementInput"
+            android:layout_alignStart="@+id/ElementInput"
+            android:layout_alignLeft="@+id/ElementInput"
             android:layout_alignEnd="@+id/AffinityInput"
             android:layout_alignRight="@+id/AffinityInput"
             android:layout_marginTop="10dp"
