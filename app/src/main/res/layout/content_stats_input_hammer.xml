@@ -37,10 +37,12 @@
             android:layout_height="50dp"
             android:layout_alignStart="@+id/StyleLabel"
             android:layout_alignLeft="@+id/StyleLabel"
-            android:layout_alignTop="@+id/ElementInputH"
-            android:layout_alignBottom="@+id/ElementInputH"
+            android:layout_alignTop="@+id/ElementInput"
+            android:layout_alignBottom="@+id/ElementInput"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInputH" />
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/ElementInput"
+            android:layout_toStartOf="@+id/ElementInput"/>
 
         <EditText
             android:id="@+id/ElementInput"

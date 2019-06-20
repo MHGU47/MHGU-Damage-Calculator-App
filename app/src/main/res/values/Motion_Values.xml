@@ -1852,25 +1852,31 @@
     </integer-array>
 
     <string-array name="Hammer_HA_TyphoonTrigger_Names">
-        <item>Level I - Red Glow - 102, 44</item>
-        <item>Level II - Yellow Glow - 142, 49</item>
-        <item>Level III - Orange Glow - 162, 54</item>
+        <item>Spinning Hits (per hit) - 2, 20</item>
+        <item>Finisher (First hit) - 40, 10</item>
+        <item>\u0020\u0020\u0020Second hit (Level I) - Red Glow - 60, 20</item>
+        <item>\u0020\u0020\u0020Second hit (Level II) - Yellow Glow - 100, 25</item>
+        <item>\u0020\u0020\u0020Second hit (Level III) - Orange Glow - 120, 40</item>
     </string-array>
     <integer-array name="Hammer_HA_TyphoonTrigger_MV">
-        <item>45</item>
-        <item>45</item>
-        <item>45</item>
+        <item>5</item>
+        <item>20</item>
+        <item>50</item>
+        <item>60</item>
+        <item>80</item>
     </integer-array>
     <integer-array name="Hammer_HA_TyphoonTrigger_ElmCheck">
-        <item>9</item>
-        <item>9</item>
-        <item>9</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
     </integer-array>
 
     <integer-array name="Hammer_HA_Provoke_MV">
-        <item>165</item>
-        <item>190</item>
-        <item>260</item>
+        <item>45</item>
+        <item>45</item>
+        <item>45</item>
     </integer-array>
 
 
@@ -1922,8 +1928,8 @@
         <item>Left Encore (2 hits) - 44, 49</item>
         <item>Right Encore (2 hits) - 44, 49</item>
 
-        <item>2-Note Backward Encore (2 hits) - 50, 44</item>
-        <item>3-Note Backward Encore (3 hits) - 69, 71</item>
+        <item>2-Note Backward Encore (2 hits)\n- 50, 44</item>
+        <item>3-Note Backward Encore (3 hits)\n- 69, 71</item>
 
         <item>Jump Attack - 20, 20</item>
     </string-array>

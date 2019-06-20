@@ -21,6 +21,7 @@ public class SkillsCalculation {
     private float MaxSpiritGaugeModifier = 1;
     private float SpiritGaugeLevelModifier = 1;
     private float SacrificialBladeModifier = 1;
+    private int ProvokeModifier = 0;
     private float RedShieldModifier = 1;
     private float CBPhialModifier = 1;
     private float EnragedGuardModifier = 1;
@@ -110,15 +111,11 @@ public class SkillsCalculation {
     private float GroupO = 1;
     //Critical Eye +1, Critical Eye +2, Critical Eye +3
 
-    public SkillsCalculation() {
-
-    }//TODO:Empty constructor
-
     //TODO: Consider adding all the calculations into a single method
 
     private void SkillCheck(boolean Check){
         if(!Check){
-            additiveRaw = 0;
+            additiveRaw =  ProvokeModifier;
             multiplicativeRaw = 1;
             additiveElm = 0;
             multiplicativeElm = 1;
@@ -130,7 +127,7 @@ public class SkillsCalculation {
         else{
             additiveRaw = GroupC_1 + GroupC_2 + GroupD + GroupF + GroupJ_2 + GroupK  +
                     PowercharmModifier + PowertalonModifier + FelyneBoosterModifier +
-                    CrisisModifier + FurorModifier + BludgeonerModifier;
+                    CrisisModifier + FurorModifier + BludgeonerModifier + ProvokeModifier;
             multiplicativeRaw = GroupG * GroupH * GroupI * GroupJ_1 * AirborneModifier;
 
             additiveElm = GroupPAdd;
@@ -375,24 +372,12 @@ public class SkillsCalculation {
 
     void setSacrificialBladeModifier(boolean Check, int Level){
         if(Check){
-            if(Level == 1){
-                SacrificialBladeModifier = 1.1f;
-            }
-            else if(Level == 2){
-                SacrificialBladeModifier = 1.2f;
-            }
-            else{
-                SacrificialBladeModifier = 1.3f;
-            }
+            if(Level == 1) SacrificialBladeModifier = 1.1f;
+            else if(Level == 2) SacrificialBladeModifier = 1.2f;
+            else SacrificialBladeModifier = 1.3f;
         }
-        else{
-            SacrificialBladeModifier = 1f;
-        }
+        else SacrificialBladeModifier = 1f;
     }
-
-    /*void setShieldStatus(){
-
-    }*/
 
     void setShieldModifier(boolean isRed, boolean isStriker, boolean isAxe, String MorphTo_){
         if((!isAxe && !MorphTo_.equals("Morph to Axe")) || MorphTo_.equals("Morph to Sword")){
@@ -645,6 +630,11 @@ public class SkillsCalculation {
 
     float getNineLivesModifier(){
         return ProwlerModifier;
+    }
+
+    void setProvokeModifier(boolean Check){
+        if(Check) ProvokeModifier = 15;
+        else ProvokeModifier = 0;
     }
 
     //TODO: *NOTE* Affinity related methods

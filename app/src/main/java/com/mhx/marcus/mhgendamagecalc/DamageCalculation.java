@@ -11,7 +11,7 @@ public class DamageCalculation {
     public StatsValidation Stats;
     private MonsterCalculation M;
     private UI ui;
-    private SkillsCalculation Skills = new SkillsCalculation();
+    public SkillsCalculation Skills;// = new SkillsCalculation();
 
     //Lists
     private List<Float> MVs = new ArrayList<>();
@@ -76,6 +76,8 @@ public class DamageCalculation {
     public DamageCalculation(Context context, UI ui, String Weapon,float RawDamage, String ChosenElement,
                              float ElementalDamage, float Affinity){
         Stats = new StatsValidation(RawDamage,ChosenElement,ElementalDamage,Affinity);
+        Skills = ui.Skills;
+
 
         this.ui = ui;
         this.context = context;
@@ -169,6 +171,8 @@ public class DamageCalculation {
                              float Affinity){
         Stats = new StatsValidation(RawDamage, ChosenElement, ElementalDamage, ChosenSubElement,
                 SubElementalDamage, Affinity);
+        Skills = ui.Skills;
+
         this.ui = ui;
         this.context = context;
 
@@ -205,8 +209,6 @@ public class DamageCalculation {
 
     public void Calculate(int counter){
         float TrueRaw, TrueAttack, HitzoneRaw;
-        //, HitzoneElm, HitzoneSubElm, ModifiedRawHitzone,
-        //        ModifiedElmHitzone, ModifiedSubElmHitzone;
 
         if(ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
         else MV_NamesList.add(HA_Levels[counter]);
@@ -227,7 +229,7 @@ public class DamageCalculation {
 
 //        ModifiedRawHitzone = (M.getRawHitzoneValue() * (SharpnessModifier_Atk * SNSSharpnessMod() *
 //                GSChargeMod_Atk(counter) * Skills.getGroupDSharp())) / 100;
-        HitzoneRaw = TrueRaw * getCalculatedRawHitzone(counter);
+//        HitzoneRaw = TrueRaw * getCalculatedRawHitzone(counter, TrueRaw);
 
 //        ModifiedElmHitzone = (M.getElmHitzoneValue() * (SharpnessModifier_Elm * SNSSharpnessMod() *
 //                GSChargeMod_Elm(counter) * Skills.getGroupDSharp())) / 100;
@@ -239,16 +241,17 @@ public class DamageCalculation {
 //                ModifiedSubElmHitzone;
 
         //Hitzone Modification - End
+//
+//        if (!ui.ChosenArt.equals("-None-"))
+//            TrueAttack = getCalculatedRawHitzone(counter, TrueRaw) + (getCalculatedElm(counter) *
+//                    HA_ElementCheck[counter]);
+//        else{
+//            if(MV_Names[counter].equals("Kick")) TrueAttack = 2;
+//            else TrueAttack = getCalculatedRawHitzone(counter, TrueRaw) + getCalculatedElm(counter) + getCalculatedSubElm();
+//        }
 
-        if (!ui.ChosenArt.equals("-None-")) TrueAttack = HitzoneRaw + (getCalculatedElm(counter) * HA_ElementCheck[counter]);
-        else{
-            if(MV_Names[counter].equals("Kick")) TrueAttack = 2;
-            else TrueAttack = HitzoneRaw + getCalculatedElm(counter) + getCalculatedSubElm();
-        }
-
-        //Bounce = !((getCalculatedRawHitzone(counter) * 100) < 25);
-
-        MVs.add(TrueAttack);
+        MVs.add(getTrueAttack(counter, TrueRaw));
+        alterHA_MV(counter);
     }
 
 
@@ -263,12 +266,23 @@ public class DamageCalculation {
                 else if (MV_Names[counter].contains("3 hits")) return 3;
                 return 1;
             default:
+                if(MV_Names[counter].contains("Both hits") || MV_Names[counter].contains("2 hits")) return 2;
                 return 1;
         }
     }
 
-    private float getCalculatedRawHitzone(int counter){
-        return ((M.getRawHitzoneValue() * (SharpnessModifier_Atk * SNSSharpnessMod() *
+    private float getTrueAttack(int counter, float TrueRaw){
+        if (!ui.ChosenArt.equals("-None-"))
+            return getCalculatedRawHitzone(counter, TrueRaw) + (getCalculatedElm(counter) *
+                    HA_ElementCheck[counter]);
+        else{
+            if(MV_Names[counter].equals("Kick")) return 2;
+            else return getCalculatedRawHitzone(counter, TrueRaw) + getCalculatedElm(counter) + getCalculatedSubElm();
+        }
+    }
+
+    private float getCalculatedRawHitzone(int counter, float TrueRaw){
+        return TrueRaw * ((M.getRawHitzoneValue() * (SharpnessModifier_Atk * SNSSharpnessMod() *
                 GSChargeMod_Atk(counter) * Skills.getGroupDSharp())) / 100);
     }
 
@@ -284,6 +298,18 @@ public class DamageCalculation {
             return Skills.getTrueSubElm(SubElementalDamage * getWolfsMawModifier(), ui.SkillCheck) *
                     ((M.getSubElmHitzoneValue() * (SharpnessModifier_Elm * Skills.getGroupDSharp())) / 100);
         else return 0;
+    }
+
+    private void alterHA_MV(int counter){
+        if(!ui.ChosenArt.equals("-None-")) {
+            switch (ui.ChosenArt) {
+                case "Sonic Smash":
+                    if ((counter % 2) == 1) MVs.set(counter, MV[counter] / 100f);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     private void setHA_MV(){
@@ -567,8 +593,8 @@ public class DamageCalculation {
 
     //Public retrievers/usage
 
-    public boolean getBounce(int counter){
-        return !((getCalculatedRawHitzone(counter) * 100) < 25);
+    public boolean getBounce(int counter, int TrueRaw){
+        return (getCalculatedRawHitzone(counter, TrueRaw) * 100) < 25;
     }
 
     public String getStagger(){
@@ -597,12 +623,51 @@ public class DamageCalculation {
 
     public boolean CalculateSkills(){
         if(!Weapon.equals("Prowler")){
-            if(Weapon.equals("GS")){
-                Skills.setCentreBladeModifier(ui.CentreBladeBonusCheck.isChecked());
+            if(!(Weapon.equals("HBG") || Weapon.equals("LBG"))){
+                if(!Weapon.equals("Bow")) Skills.setBludgeonerModifier(ui.BludgeonerCheck.isChecked());
+
+                Skills.setElementAtkUp(ui.ElementalAtkUpCheck.isChecked());
+                Skills.setElementCrit(ui.ElementalCritCheck.isChecked(), Affinity);
             }
-            else if(Weapon.equals(("SNS"))){
-                Skills.setAffinityOilModifier(ui.AirborneCheck.isChecked());
+
+            switch(Weapon){
+                case "GS":
+                case "LS":
+                    if(Weapon.equals("LS")){
+                        Skills.setMaxSpiritGaugeModifier(ui.MaxSpiritGaugeCheck.isChecked());
+
+                        if(ui.SacrificialBladeLevel1Check.isChecked()) Skills.setSacrificialBladeModifier(true,1);
+                        else if(ui.SacrificialBladeLevel2Check.isChecked()) Skills.setSacrificialBladeModifier(true,2);
+                        else if(ui.SacrificialBladeLevel3Check.isChecked()) Skills.setSacrificialBladeModifier(true,3);
+                        else if(ui.SacrificialBladeOffCheck.isChecked()) Skills.setSacrificialBladeModifier(false,0);
+                    }
+                    Skills.setCentreBladeModifier(ui.CentreBladeBonusCheck.isChecked());
+                    break;
+                case "SNS":
+                    Skills.setAffinityOilModifier(ui.AirborneCheck.isChecked());
+                    break;
+                case "Hammer":
+                    Skills.setProvokeModifier(ui.ProvokeCheck.isChecked());
+                    break;
+                case "HBG":
+                    Skills.setGunpowderInfusionModiifer(ui.GunpowderInfusionCheck.isChecked());
+                    break;
             }
+
+//            if(Weapon.equals("GS") || Weapon.equals("LS")){
+//                if(Weapon.equals("LS")){
+//                    Skills.setMaxSpiritGaugeModifier(ui.MaxSpiritGaugeCheck.isChecked());
+//
+//                    if(ui.SacrificialBladeLevel1Check.isChecked()) Skills.setSacrificialBladeModifier(true,1);
+//                    else if(ui.SacrificialBladeLevel2Check.isChecked()) Skills.setSacrificialBladeModifier(true,2);
+//                    else if(ui.SacrificialBladeLevel3Check.isChecked()) Skills.setSacrificialBladeModifier(true,3);
+//                    else if(ui.SacrificialBladeOffCheck.isChecked()) Skills.setSacrificialBladeModifier(false,0);
+//                }
+//                Skills.setCentreBladeModifier(ui.CentreBladeBonusCheck.isChecked());
+//            }
+//            else if(Weapon.equals(("SNS"))) Skills.setAffinityOilModifier(ui.AirborneCheck.isChecked());
+//            else if(Weapon.equals("HBG")) Skills.setGunpowderInfusionModiifer(ui.GunpowderInfusionCheck.isChecked());
+
             Skills.setRepeatOffenderModifier(ui.RepeatOffenderCheck.isChecked());
             Skills.setCritBoostModifier(ui.CriticalBoostCheck.isChecked());
             Skills.setPowercharmModifier(ui.PowercharmCheck.isChecked());
@@ -610,10 +675,6 @@ public class DamageCalculation {
             Skills.setFelyneBoosterModifier(ui.FelyneBoosterCheck.isChecked());
             Skills.setCrisisModifier(ui.CrisisCheck.isChecked());
             Skills.setFurorModifier(ui.FurorCheck.isChecked());
-            Skills.setBludgeonerModifier(ui.BludgeonerCheck.isChecked());
-
-            Skills.setElementAtkUp(ui.ElementalAtkUpCheck.isChecked());
-            Skills.setElementCrit(ui.ElementalCritCheck.isChecked(), Affinity);
 
             return Skills.CheckElmSkill(ElementalDamage, ui.SkillCheck);
         }
@@ -1228,10 +1289,12 @@ public class DamageCalculation {
     }
 
     private float getWolfsMawModifier(){
-        if(ui.WolfsMawLevel1Check.isChecked()) return 1.2f;
-        else if(ui.WolfsMawLevel2Check.isChecked()) return 1.25f;
-        else if(ui.WolfsMawLevel3Check.isChecked()) return 1.3f;
-        else if(ui.WolfsMawOffCheck.isChecked()) return 1;
-        else return 1;
+        if(Weapon.equals("DB")){
+            if(ui.WolfsMawLevel1Check.isChecked()) return 1.2f;
+            else if(ui.WolfsMawLevel2Check.isChecked()) return 1.25f;
+            else if(ui.WolfsMawLevel3Check.isChecked()) return 1.3f;
+            else if(ui.WolfsMawOffCheck.isChecked()) return 1;
+        }
+        return 1;
     }
 }

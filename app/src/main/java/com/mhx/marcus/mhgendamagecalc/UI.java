@@ -43,7 +43,7 @@ public class UI extends AppCompatActivity {
     String ChosenMonster, ChosenHitzone, HitzoneGroup, ChosenElement, ChosenSubElement, Sharpness,
             ChosenStyle, MonsterType, ChosenArt, DBMode, SpiritGaugeColour;
 
-    private SkillsCalculation Skills = new SkillsCalculation();
+    public SkillsCalculation Skills = new SkillsCalculation();
     //Creates an instance of 'SkillsCalculation' so it's functions for calculating skills can be used
 
     private DamageCalculation DmgCalc;
@@ -61,6 +61,8 @@ public class UI extends AppCompatActivity {
             CentreBladeBonusCheck,//Great/Long Sword
 
             MaxSpiritGaugeCheck,//Long Sword
+
+            ProvokeCheck,//Hammer
 
             DragonBreathCheck,//Gunlance
 
@@ -86,7 +88,7 @@ public class UI extends AppCompatActivity {
             NoEnragedGuardAura, DemonRiotLevel1Check, DemonRiotLevel2Check, DemonRiotLevel3Check,
             DemonRiotOffCheck, EnergyChargeLevel2Check, EnergyChargeLevel3Check, EnergyChargeOffCheck,
             NoShotUpRadio, NormalUpRadio, PelletUpRadio, PierceUpRadio, HeavyUpRadio,TrueShotUpRadio;
-    Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
+    //Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
     int SelectedPhialCharge, SelectedPhialNoCharge;
 
@@ -169,7 +171,7 @@ public class UI extends AppCompatActivity {
             case "Hammer":
                 AttackInfoStub.setLayoutResource(R.layout.content_attack_info_hh);
                 BaseStatsStub.setLayoutResource(R.layout.content_stats_input_hammer);
-                HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
+                HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_hammer);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Hammer");
                 Icon.setImageResource(R.drawable.hammer_icon);
@@ -722,393 +724,6 @@ public class UI extends AppCompatActivity {
             });
         }
 
-        //Set HAs and weapon specific Spinners and RadioButtons
-        ArrayAdapter HunterArtsAdapter;
-        switch(Wpn){
-            case "GS":
-                LionsMawOffCheck = findViewById(R.id.LionsMawOffCheck);
-                LionsMawLevel1Check = findViewById(R.id.LionsMawLevel1Check);
-                LionsMawLevel2Check = findViewById(R.id.LionsMawLevel2Check);
-                LionsMawLevel3Check = findViewById(R.id.LionsMawLevel3Check);
-                CentreBladeBonusCheck = findViewById(R.id.CentreBladeCheck);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GS_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "LS":
-                SpiritGaugeColourSelect = findViewById(R.id.SpiritGaugeColourSelect);
-                ArrayAdapter SpiritGaugeAdapter = ArrayAdapter.createFromResource(this,R.array.Spirit_Gauge,
-                        android.R.layout.simple_spinner_dropdown_item);
-                SpiritGaugeColourSelect.setAdapter(SpiritGaugeAdapter);
-                SpiritGaugeColourSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        SpiritGaugeColour = String.valueOf(SpiritGaugeColourSelect.getSelectedItem());
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-//                SpiritGaugeColourSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
-
-                CentreBladeBonusCheck = findViewById(R.id.CentreBladeCheck);
-                MaxSpiritGaugeCheck = findViewById(R.id.MaxSpiritGauge);
-
-                SacrificialBladeOffCheck = findViewById(R.id.SacrificialBladeOffCheck);
-                SacrificialBladeLevel1Check = findViewById(R.id.SacrificialBladeLevel1Check);
-                SacrificialBladeLevel2Check = findViewById(R.id.SacrificialBladeLevel2Check);
-                SacrificialBladeLevel3Check = findViewById(R.id.SacrificialBladeLevel3Check);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LS_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "SNS":
-                AffinityOilCheck = findViewById(R.id.AffinityOilCheck);
-                ChaosOilOffRadio = findViewById(R.id.ChaosOilOffRadio);
-                ChaosOilLevel1_2Radio = findViewById(R.id.ChaosOilLevel1_2Radio);
-                ChaosOilLevel3Radio = findViewById(R.id.ChaosOilLevel3Radio);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SNS_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "DB":
-                DBModeSelect = findViewById(R.id.ModeSelect);
-                ArrayAdapter DBModeAdapter = ArrayAdapter.createFromResource(this,R.array.DBModes,
-                     android.R.layout.simple_spinner_dropdown_item);
-
-                DBModeSelect.setAdapter(DBModeAdapter);
-                DBModeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        DBMode = DBModeSelect.getSelectedItem().toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                WolfsMawOffCheck = findViewById(R.id.WolfsMawOffCheck);
-                WolfsMawLevel1Check = findViewById(R.id.WolfsMawLevel1Check);
-                WolfsMawLevel2Check = findViewById(R.id.WolfsMawLevel2Check);
-                WolfsMawLevel3Check = findViewById(R.id.WolfsMawLevel3Check);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "Hammer":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Hammer_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "HH":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HH_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "Lance":
-                NoEnragedGuardAura = findViewById(R.id.NoEnragedGuardAura);
-                EnragedGuardRed = findViewById(R.id.EnragedGuardRed);
-                EnragedGuardYellow = findViewById(R.id.EnragedGuardYellow);
-                EnragedGuardOrange = findViewById(R.id.EnragedGuardOrange);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Lance_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "GL":
-                DragonBreathCheck = findViewById(R.id.DragonBreathCheckBox);
-
-                ShotLevelSelect = findViewById(R.id.ShotLevelSelect);
-                ShotTypeSelect = findViewById(R.id.ShotTypeSelect);
-                HeatGaugeSelect = findViewById(R.id.HeatGaugeSelect);
-                NumberofShellsSelect = findViewById(R.id.NumberofShellsSelect);
-
-                ArrayAdapter ShotLevel = ArrayAdapter.createFromResource(this,R.array.GLShotLevel,
-                        android.R.layout.simple_spinner_dropdown_item);
-                ShotLevelSelect.setAdapter(ShotLevel);
-
-                ArrayAdapter ShotType = ArrayAdapter.createFromResource(this,R.array.GLShotType,
-                        android.R.layout.simple_spinner_dropdown_item);
-                ShotLevelSelect.setAdapter(ShotType);
-
-                ArrayAdapter HeatGauge = ArrayAdapter.createFromResource(this,R.array.HeatGauge,
-                        android.R.layout.simple_spinner_dropdown_item);
-                ShotLevelSelect.setAdapter(HeatGauge);
-
-                ArrayAdapter NumberofShells = ArrayAdapter.createFromResource(this,R.array.GLShellNumber,
-                        android.R.layout.simple_spinner_dropdown_item);
-                ShotLevelSelect.setAdapter(NumberofShells);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "SA":
-                AwakenedCheck = findViewById(R.id.AwakenedCheckBox);
-                TempestAxeCheck = findViewById(R.id.TempestAxeCheckBox);
-                PhialSelect = findViewById(R.id.PhialSelect);
-
-                DemonRiotOffCheck = findViewById(R.id.DemonRiotOffCheck);
-                DemonRiotLevel1Check = findViewById(R.id.DemonRiotLevel1Check);
-                DemonRiotLevel2Check = findViewById(R.id.DemonRiotLevel2Check);
-                DemonRiotLevel3Check = findViewById(R.id.DemonRiotLevel3Check);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "CB":
-                PhialSelect = findViewById(R.id.CBPhialSelect);
-                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                PhialSelect.setAdapter(PhialAdapter);
-                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
-                                        + String.valueOf(PhialSelect.getSelectedItem()) +
-                                        "Burst_NoCharge_MV", "integer", UI.this.getPackageName());
-
-                        SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
-                                        + String.valueOf(PhialSelect.getSelectedItem()) +
-                                        "Burst_Charge_MV", "integer", UI.this.getPackageName());
-
-                        isImpact = String.valueOf(PhialSelect.getSelectedItem()).equals("Impact");
-//                        switch(String.valueOf(PhialSelect.getSelectedItem())){
-//                            case "Impact":
-//
-//                                HA_ElementCheck = UI.this.getResources().getIntArray(HA_ElementCheck_Array);
-//
-//
-//                                /*SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
-//                                        + PhialSelect.getSelectedItem().toString() + "Burst_NoCharge_MV",
-//                                        "integer", UI.this.getPackageName());
-//
-//                                SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
-//                                                + PhialSelect.getSelectedItem().toString() + "Burst_Charge_MV",
-//                                        "integer", UI.this.getPackageName());*/
-//                                isImpact = true;
-//                                break;
-//                            default:
-//                                SelectedPhial = ElmBurstMotion;
-//                                isImpact = false;
-//                                break;
-//                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
-                ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
-//                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                        switch(Integer.parseInt(String.valueOf(NumberofPhialsSelect.getSelectedItem()))){
-//                            case 0:
-//                                break;
-//                            case 1:
-//                                break;
-//                            case 2:
-//                                break;
-//                            case 3:
-//                                break;
-//                            case 4:
-//                                break;
-//                            case 5:
-//                                break;
-//                            case 6:
-//                                break;
-//                            case 7:
-//                                break;
-//                            case 8:
-//                                break;
-//                            case 9:
-//                                break;
-//                            default:
-//                                break;
-//                        }
-//
-//                        TextView Phial = (TextView) view;
-//                        final String PhialNumber = Phial.getText().toString();
-//                        if (PhialNumber.equals("0")) {
-//                            getNumberofPhials(0);
-//                            getEnergyBladePhials(0);
-//                        } else if (PhialNumber.equals("1")) {
-//                            getNumberofPhials(1);
-//                            getEnergyBladePhials(3);
-//                        } else if (PhialNumber.equals("2")) {
-//                            getNumberofPhials(2);
-//                            getEnergyBladePhials(3);
-//                        } else if (PhialNumber.equals("3")) {
-//                            getNumberofPhials(2);
-//                            getEnergyBladePhials(3);
-//                        } else if (PhialNumber.equals("4")) {
-//                            getNumberofPhials(3);
-//                            getEnergyBladePhials(6);
-//                        } else if (PhialNumber.equals("5")) {
-//                            getNumberofPhials(3);
-//                            getEnergyBladePhials(6);
-//                        } else if (PhialNumber.equals("6")) {
-//                            getNumberofPhials(4);
-//                            getEnergyBladePhials(6);
-//                        } else if (PhialNumber.equals("7")) {
-//                            getNumberofPhials(4);
-//                            getEnergyBladePhials(9);
-//                        } else if (PhialNumber.equals("8")) {
-//                            getNumberofPhials(5);
-//                            getEnergyBladePhials(9);
-//                        } else if (PhialNumber.equals("9")) {
-//                            getNumberofPhials(5);
-//                            getEnergyBladePhials(9);
-//                        } else if (PhialNumber.equals("10")) {
-//                            getNumberofPhials(6);
-//                            getEnergyBladePhials(10);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
-
-                ShieldChargeSelect = findViewById(R.id.ShieldChargeSelect);
-                ArrayAdapter ShieldChargeAdapter = ArrayAdapter.createFromResource(this,R.array.CBShieldCharge,
-                        android.R.layout.simple_spinner_dropdown_item);
-
-                ShieldChargeSelect.setAdapter(ShieldChargeAdapter);
-                ShieldChargeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        Skills.setCBPhialModifier(!String.valueOf(ShieldChargeSelect.getSelectedItem())
-                                .equals("No Charge"));
-//                        String Charge = String.valueOf(ShieldChargeSelect.getSelectedItem());
-//                        switch(Charge){
-//                            case "No Charge":
-//                                Skills.setCBPhialModifier(false);
-//                                /*getChargeModifier(1f);
-//                                getRedCheck(false);
-//                                getYellowCheck(false);*/
-//                                break;
-//                            case "Yellow Charge":
-//                                Skills.setCBPhialModifier(true);
-//                                /*getChargeModifier(1f);
-//                                getRedCheck(false);
-//                                getYellowCheck(true);*/
-//                                break;
-//                            case "Red Charge":
-//                                Skills.setCBPhialModifier(true);
-//                                /*getRedCheck(true);
-//                                getYellowCheck(false);*/
-//                                break;
-//                            default:
-//                                Skills.setCBPhialModifier(true);
-//                                /*getRedCheck(true);
-//                                getYellowCheck(false);*/
-//                                break;
-//                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-//                GroupSSelect = findViewById(R.id.GroupSSelect);
-//
-//                ArrayAdapter GroupSAdapter = ArrayAdapter.createFromResource(this,R.array.GroupS,
-//                        android.R.layout.simple_spinner_dropdown_item);
-//
-//                GroupSSelect.setAdapter(GroupSAdapter);
-//
-//                GroupSSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                        switch(String.valueOf(GroupSSelect.getSelectedItem())){
-//                            case "Artillery Novice":
-//                                Skills.setArtilleryModifier(1.3f);
-//                                break;
-//                            case "Artillery Expert":
-//                                Skills.setArtilleryModifier(1.35f);
-//                                break;
-//                            default:
-//                                Skills.setArtilleryModifier(1f);
-//                                break;
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.CB_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "IG":
-                ExtractSelect = findViewById(R.id.ExtractSelect);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "LBG":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LBG_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "HBG":
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HBG_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            case "Bow":
-                EvasiveManeuversOffCheck = findViewById(R.id.EvasiveManeuversOffCheck);
-                EvasiveManeuversLevel2Check = findViewById(R.id.EvasiveManeuversLevel2Check);
-                EvasiveManeuversLevel3Check = findViewById(R.id.EvasiveManeuversLevel3Check);
-
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Bow_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-            default:
-                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Prowler_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
-                break;
-        }
-
-        HunterArtSelect.setAdapter(HunterArtsAdapter);
-        HunterArtSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ChosenArt = String.valueOf(HunterArtSelect.getSelectedItem());
-                SynergyCheck = !(String.valueOf(HunterArtSelect.getSelectedItem()).equals("Lions Maw (Wide Slash)"));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
         //Set skills
         GroupC_1Select = findViewById(R.id.GroupC_1Select);
         ArrayAdapter GroupC_1Adapter = ArrayAdapter.createFromResource(this,R.array.GroupC_1,
@@ -1248,7 +863,7 @@ public class UI extends AppCompatActivity {
         GroupFSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                
+
                 switch (String.valueOf(GroupFSelect.getSelectedItem())) {
                     case "Attack Up S (+10)":
                         Skills.setGroupF(10f);
@@ -1527,6 +1142,431 @@ public class UI extends AppCompatActivity {
                         Skills.setGroupP(0,1);
                         break;
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        //Set HAs and weapon specific Spinners and RadioButtons
+        ArrayAdapter HunterArtsAdapter;
+        switch(Wpn){
+            case "GS":
+                LionsMawOffCheck = findViewById(R.id.LionsMawOffCheck);
+                LionsMawLevel1Check = findViewById(R.id.LionsMawLevel1Check);
+                LionsMawLevel2Check = findViewById(R.id.LionsMawLevel2Check);
+                LionsMawLevel3Check = findViewById(R.id.LionsMawLevel3Check);
+                CentreBladeBonusCheck = findViewById(R.id.CentreBladeCheck);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GS_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "LS":
+                SpiritGaugeColourSelect = findViewById(R.id.SpiritGaugeColourSelect);
+                ArrayAdapter SpiritGaugeAdapter = ArrayAdapter.createFromResource(this,R.array.Spirit_Gauge,
+                        android.R.layout.simple_spinner_dropdown_item);
+                SpiritGaugeColourSelect.setAdapter(SpiritGaugeAdapter);
+                SpiritGaugeColourSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        SpiritGaugeColour = String.valueOf(SpiritGaugeColourSelect.getSelectedItem());
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                CentreBladeBonusCheck = findViewById(R.id.CentreBladeCheck);
+                MaxSpiritGaugeCheck = findViewById(R.id.MaxSpiritGauge);
+
+                SacrificialBladeOffCheck = findViewById(R.id.SacrificialBladeOffCheck);
+                SacrificialBladeLevel1Check = findViewById(R.id.SacrificialBladeLevel1Check);
+                SacrificialBladeLevel2Check = findViewById(R.id.SacrificialBladeLevel2Check);
+                SacrificialBladeLevel3Check = findViewById(R.id.SacrificialBladeLevel3Check);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LS_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "SNS":
+                AffinityOilCheck = findViewById(R.id.AffinityOilCheck);
+                ChaosOilOffRadio = findViewById(R.id.ChaosOilOffRadio);
+                ChaosOilLevel1_2Radio = findViewById(R.id.ChaosOilLevel1_2Radio);
+                ChaosOilLevel3Radio = findViewById(R.id.ChaosOilLevel3Radio);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SNS_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "DB":
+                DBModeSelect = findViewById(R.id.ModeSelect);
+                ArrayAdapter DBModeAdapter = ArrayAdapter.createFromResource(this,R.array.DBModes,
+                     android.R.layout.simple_spinner_dropdown_item);
+
+                DBModeSelect.setAdapter(DBModeAdapter);
+                DBModeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        DBMode = DBModeSelect.getSelectedItem().toString();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                GroupPAdapter = ArrayAdapter.createFromResource(this,R.array.GroupP_DB,
+                        android.R.layout.simple_spinner_dropdown_item);
+                GroupPSelect.setAdapter(GroupPAdapter);
+                GroupPSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        switch (String.valueOf(GroupPSelect.getSelectedItem())) {
+                            case "[Element] Atk Up +1":
+                                Skills.setGroupP(4,1.05f);
+                                Skills.setGroupP_Sub(0, 1);
+                                break;
+
+                            case "[Element] Atk Up +2":
+                                Skills.setGroupP(6,1.1f);
+                                Skills.setGroupP_Sub(0, 1);
+                                break;
+
+                            case "[Sub Element] Atk Up +1":
+                                Skills.setGroupP(0, 1);
+                                Skills.setGroupP_Sub(4, 1.05f);
+                                break;
+
+                            case "[Sub Element] Atk Up +2":
+                                Skills.setGroupP(0, 1);
+                                Skills.setGroupP_Sub(6, 1.1f);
+                                break;
+
+                            default:
+                                Skills.setGroupP(0,1);
+                                Skills.setGroupP_Sub(0, 1);
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                WolfsMawOffCheck = findViewById(R.id.WolfsMawOffCheck);
+                WolfsMawLevel1Check = findViewById(R.id.WolfsMawLevel1Check);
+                WolfsMawLevel2Check = findViewById(R.id.WolfsMawLevel2Check);
+                WolfsMawLevel3Check = findViewById(R.id.WolfsMawLevel3Check);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.DB_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "Hammer":
+                ProvokeCheck = findViewById(R.id.ProvokeCheck);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Hammer_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "HH":
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HH_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "Lance":
+                NoEnragedGuardAura = findViewById(R.id.NoEnragedGuardAura);
+                EnragedGuardRed = findViewById(R.id.EnragedGuardRed);
+                EnragedGuardYellow = findViewById(R.id.EnragedGuardYellow);
+                EnragedGuardOrange = findViewById(R.id.EnragedGuardOrange);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Lance_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "GL":
+                DragonBreathCheck = findViewById(R.id.DragonBreathCheckBox);
+
+                ShotLevelSelect = findViewById(R.id.ShotLevelSelect);
+                ShotTypeSelect = findViewById(R.id.ShotTypeSelect);
+                HeatGaugeSelect = findViewById(R.id.HeatGaugeSelect);
+                NumberofShellsSelect = findViewById(R.id.NumberofShellsSelect);
+
+                ArrayAdapter ShotLevel = ArrayAdapter.createFromResource(this,R.array.GLShotLevel,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(ShotLevel);
+
+                ArrayAdapter ShotType = ArrayAdapter.createFromResource(this,R.array.GLShotType,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(ShotType);
+
+                ArrayAdapter HeatGauge = ArrayAdapter.createFromResource(this,R.array.HeatGauge,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(HeatGauge);
+
+                ArrayAdapter NumberofShells = ArrayAdapter.createFromResource(this,R.array.GLShellNumber,
+                        android.R.layout.simple_spinner_dropdown_item);
+                ShotLevelSelect.setAdapter(NumberofShells);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "SA":
+                AwakenedCheck = findViewById(R.id.AwakenedCheckBox);
+                TempestAxeCheck = findViewById(R.id.TempestAxeCheckBox);
+                PhialSelect = findViewById(R.id.PhialSelect);
+
+                DemonRiotOffCheck = findViewById(R.id.DemonRiotOffCheck);
+                DemonRiotLevel1Check = findViewById(R.id.DemonRiotLevel1Check);
+                DemonRiotLevel2Check = findViewById(R.id.DemonRiotLevel2Check);
+                DemonRiotLevel3Check = findViewById(R.id.DemonRiotLevel3Check);
+
+                EnergyChargeOffCheck = findViewById(R.id.EnergyChargeOffCheck);
+                EnergyChargeLevel2Check = findViewById(R.id.EnergyChargeLevel2Check);
+                EnergyChargeLevel3Check = findViewById(R.id.EnergyChargeLevel3Check);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "CB":
+                PhialSelect = findViewById(R.id.CBPhialSelect);
+                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                PhialSelect.setAdapter(PhialAdapter);
+                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
+                                        + String.valueOf(PhialSelect.getSelectedItem()) +
+                                        "Burst_NoCharge_MV", "integer", UI.this.getPackageName());
+
+                        SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
+                                        + String.valueOf(PhialSelect.getSelectedItem()) +
+                                        "Burst_Charge_MV", "integer", UI.this.getPackageName());
+
+                        isImpact = String.valueOf(PhialSelect.getSelectedItem()).equals("Impact");
+//                        switch(String.valueOf(PhialSelect.getSelectedItem())){
+//                            case "Impact":
+//
+//                                HA_ElementCheck = UI.this.getResources().getIntArray(HA_ElementCheck_Array);
+//
+//
+//                                /*SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
+//                                        + PhialSelect.getSelectedItem().toString() + "Burst_NoCharge_MV",
+//                                        "integer", UI.this.getPackageName());
+//
+//                                SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
+//                                                + PhialSelect.getSelectedItem().toString() + "Burst_Charge_MV",
+//                                        "integer", UI.this.getPackageName());*/
+//                                isImpact = true;
+//                                break;
+//                            default:
+//                                SelectedPhial = ElmBurstMotion;
+//                                isImpact = false;
+//                                break;
+//                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
+                ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
+//                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                        switch(Integer.parseInt(String.valueOf(NumberofPhialsSelect.getSelectedItem()))){
+//                            case 0:
+//                                break;
+//                            case 1:
+//                                break;
+//                            case 2:
+//                                break;
+//                            case 3:
+//                                break;
+//                            case 4:
+//                                break;
+//                            case 5:
+//                                break;
+//                            case 6:
+//                                break;
+//                            case 7:
+//                                break;
+//                            case 8:
+//                                break;
+//                            case 9:
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//
+//                        TextView Phial = (TextView) view;
+//                        final String PhialNumber = Phial.getText().toString();
+//                        if (PhialNumber.equals("0")) {
+//                            getNumberofPhials(0);
+//                            getEnergyBladePhials(0);
+//                        } else if (PhialNumber.equals("1")) {
+//                            getNumberofPhials(1);
+//                            getEnergyBladePhials(3);
+//                        } else if (PhialNumber.equals("2")) {
+//                            getNumberofPhials(2);
+//                            getEnergyBladePhials(3);
+//                        } else if (PhialNumber.equals("3")) {
+//                            getNumberofPhials(2);
+//                            getEnergyBladePhials(3);
+//                        } else if (PhialNumber.equals("4")) {
+//                            getNumberofPhials(3);
+//                            getEnergyBladePhials(6);
+//                        } else if (PhialNumber.equals("5")) {
+//                            getNumberofPhials(3);
+//                            getEnergyBladePhials(6);
+//                        } else if (PhialNumber.equals("6")) {
+//                            getNumberofPhials(4);
+//                            getEnergyBladePhials(6);
+//                        } else if (PhialNumber.equals("7")) {
+//                            getNumberofPhials(4);
+//                            getEnergyBladePhials(9);
+//                        } else if (PhialNumber.equals("8")) {
+//                            getNumberofPhials(5);
+//                            getEnergyBladePhials(9);
+//                        } else if (PhialNumber.equals("9")) {
+//                            getNumberofPhials(5);
+//                            getEnergyBladePhials(9);
+//                        } else if (PhialNumber.equals("10")) {
+//                            getNumberofPhials(6);
+//                            getEnergyBladePhials(10);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+
+                ShieldChargeSelect = findViewById(R.id.ShieldChargeSelect);
+                ArrayAdapter ShieldChargeAdapter = ArrayAdapter.createFromResource(this,R.array.CBShieldCharge,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                ShieldChargeSelect.setAdapter(ShieldChargeAdapter);
+                ShieldChargeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        Skills.setCBPhialModifier(!String.valueOf(ShieldChargeSelect.getSelectedItem())
+                                .equals("No Charge"));
+//                        String Charge = String.valueOf(ShieldChargeSelect.getSelectedItem());
+//                        switch(Charge){
+//                            case "No Charge":
+//                                Skills.setCBPhialModifier(false);
+//                                /*getChargeModifier(1f);
+//                                getRedCheck(false);
+//                                getYellowCheck(false);*/
+//                                break;
+//                            case "Yellow Charge":
+//                                Skills.setCBPhialModifier(true);
+//                                /*getChargeModifier(1f);
+//                                getRedCheck(false);
+//                                getYellowCheck(true);*/
+//                                break;
+//                            case "Red Charge":
+//                                Skills.setCBPhialModifier(true);
+//                                /*getRedCheck(true);
+//                                getYellowCheck(false);*/
+//                                break;
+//                            default:
+//                                Skills.setCBPhialModifier(true);
+//                                /*getRedCheck(true);
+//                                getYellowCheck(false);*/
+//                                break;
+//                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+//                GroupSSelect = findViewById(R.id.GroupSSelect);
+//
+//                ArrayAdapter GroupSAdapter = ArrayAdapter.createFromResource(this,R.array.GroupS,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//
+//                GroupSSelect.setAdapter(GroupSAdapter);
+//
+//                GroupSSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                        switch(String.valueOf(GroupSSelect.getSelectedItem())){
+//                            case "Artillery Novice":
+//                                Skills.setArtilleryModifier(1.3f);
+//                                break;
+//                            case "Artillery Expert":
+//                                Skills.setArtilleryModifier(1.35f);
+//                                break;
+//                            default:
+//                                Skills.setArtilleryModifier(1f);
+//                                break;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.CB_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "IG":
+                ExtractSelect = findViewById(R.id.ExtractSelect);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "LBG":
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.LBG_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "HBG":
+                GunpowderInfusionCheck = (CheckBox) findViewById(R.id.GunpowderInfusionCheckBox);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.HBG_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            case "Bow":
+                EvasiveManeuversOffCheck = findViewById(R.id.EvasiveManeuversOffCheck);
+                EvasiveManeuversLevel2Check = findViewById(R.id.EvasiveManeuversLevel2Check);
+                EvasiveManeuversLevel3Check = findViewById(R.id.EvasiveManeuversLevel3Check);
+
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Bow_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+            default:
+                HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Prowler_HA_Names,
+                        android.R.layout.simple_spinner_dropdown_item);
+                break;
+        }
+
+        HunterArtSelect.setAdapter(HunterArtsAdapter);
+        HunterArtSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ChosenArt = String.valueOf(HunterArtSelect.getSelectedItem());
+                SynergyCheck = !(String.valueOf(HunterArtSelect.getSelectedItem()).equals("Lions Maw (Wide Slash)"));
             }
 
             @Override
@@ -1895,7 +1935,7 @@ public class UI extends AppCompatActivity {
         textviews[counter].setText(DmgCalc.getMVName(counter));
         textviews[counter].setVisibility(View.VISIBLE);
 
-        if(DmgCalc.getBounce(counter) && !ChosenMonster.equals("None")) {
+        if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None")) {
             textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
             Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
@@ -1906,7 +1946,7 @@ public class UI extends AppCompatActivity {
         textviews[counter].setText(String.format("%s", Math.round(DmgCalc.getAtkPwr(counter))));
         textviews[counter].setVisibility(View.VISIBLE);
 
-        if(DmgCalc.getBounce(counter) && !ChosenMonster.equals("None"))
+        if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None"))
             textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
         else textviews[counter].setTextColor(Color.BLACK);
 
