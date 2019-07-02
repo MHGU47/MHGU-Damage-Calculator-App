@@ -210,6 +210,8 @@ public class DamageCalculation {
     public void Calculate(int counter){
         float TrueRaw, TrueAttack, HitzoneRaw;
 
+        alterHitzones(counter);
+
         if(ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
         else MV_NamesList.add(HA_Levels[counter]);
 
@@ -251,7 +253,7 @@ public class DamageCalculation {
 //        }
 
         MVs.add(getTrueAttack(counter, TrueRaw));
-        alterHA_MV(counter);
+        alterHA_MV(counter, TrueRaw);
     }
 
 
@@ -264,6 +266,8 @@ public class DamageCalculation {
                         || MV_Names[counter].equals("   -(With Spirit Energy)")) && !ui.SpiritGaugeColour.equals("No Colour")))
                     return 2;
                 else if (MV_Names[counter].contains("3 hits")) return 3;
+                return 1;
+            case "DB":
                 return 1;
             default:
                 if(MV_Names[counter].contains("Both hits") || MV_Names[counter].contains("2 hits")) return 2;
@@ -300,11 +304,30 @@ public class DamageCalculation {
         else return 0;
     }
 
-    private void alterHA_MV(int counter){
+    private void alterHitzones(int counter){
+        switch(Weapon){
+            case "GS":
+            case "SNS":
+            case "HH":
+            case "Lance":
+            case "Bow":
+                M.alterHitzones(context, ui.ChosenMonster, MV_Names[counter], Weapon, ui.ChosenArt.equals("Blade Wire"));
+                if (Weapon.equals("Lance")) M.getHitzones_Lance(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+                break;
+            case "LBG":
+            case "HBG":
+                M.alterHitzones(context, ui.ChosenMonster);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void alterHA_MV(int counter, float TrueRaw){
         if(!ui.ChosenArt.equals("-None-")) {
             switch (ui.ChosenArt) {
                 case "Sonic Smash":
-                    if ((counter % 2) == 1) MVs.set(counter, MV[counter] / 100f);
+                    if ((counter % 2) == 1) MVs.set(counter, MV[counter] * (1 + TrueRaw * 0.16f));
                     break;
                 default:
                     break;
@@ -959,6 +982,7 @@ public class DamageCalculation {
                 case "Idle Slash (2 hits)":
                 case "Reverse Slash (2 hits)":
                 case "Mid-Air Attack (2 hits)":
+                case "Jump Attack (2 hits)":
                     ElementalDamage = MainElm * 1;
                     SubElementalDamage = SubElm * 1;
                     break;
@@ -973,6 +997,10 @@ public class DamageCalculation {
                 case "Horizontal Slash - Right (2 hits)":
                     ElementalDamage = MainElm * 2;
                     SubElementalDamage = SubElm * 0;
+                    break;
+                case "Circle Slash (3 hits)":
+                    ElementalDamage = MainElm * 1.7f;
+                    SubElementalDamage = SubElm * 0.7f;
                     break;
                 case "Jumping Slash - Left (3 hits)":
                     ElementalDamage = MainElm * 1;

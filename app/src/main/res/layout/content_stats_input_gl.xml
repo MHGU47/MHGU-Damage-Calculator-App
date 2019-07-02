@@ -12,7 +12,7 @@
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInputGL"
+            android:id="@+id/DamageInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -36,17 +36,17 @@
             android:id="@+id/ElementSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ElementInputGL"
-            android:layout_alignBottom="@+id/ElementInputGL"
+            android:layout_alignTop="@+id/ElementInput"
+            android:layout_alignBottom="@+id/ElementInput"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInputGL" />
+            android:layout_toLeftOf="@+id/ElementInput" />
 
         <EditText
-            android:id="@+id/ElementInputGL"
+            android:id="@+id/ElementInput"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInputGL"
+            android:layout_below="@+id/DamageInput"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:ems="10"
@@ -55,7 +55,7 @@
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/AffinityInputGL"
+            android:id="@+id/AffinityInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ElementSelect"
@@ -71,7 +71,7 @@
             android:id="@+id/DragonBreathCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInputGL"
+            android:layout_below="@+id/AffinityInput"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:checked="false"
@@ -83,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/DragonBreathCheckBox"
             android:layout_alignStart="@+id/PhialSelect"
+            android:layout_alignLeft="@+id/PhialSelect"
             android:layout_marginTop="10dp"
             android:text="@string/shot_type_select_label"
             android:textStyle="bold|italic" />
@@ -93,6 +94,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/ShotTypeSelectLabel"
             android:layout_alignStart="@+id/CalculateButton"
+            android:layout_alignLeft="@+id/CalculateButton"
             android:gravity="center"
             android:spinnerMode="dropdown" />
 
@@ -108,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/ShotLevelSelect"
+                android:layout_alignLeft="@+id/ShotLevelSelect"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/shot_level_select_label"
@@ -129,6 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ShotTypeSelect"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginTop="10dp"
             android:text="Number of Shells"
             android:textStyle="bold|italic" />
@@ -139,6 +143,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/NumberofShellsSelectLabel"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:gravity="center"
             android:spinnerMode="dropdown" />
 
@@ -193,6 +198,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/StyleLabel"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:gravity="center"
             android:prompt="@string/style_select_label"
             android:spinnerMode="dropdown" />
@@ -211,7 +217,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="-132dp"
+                android:layout_marginRight="-132dp"
                 android:layout_toStartOf="@+id/SharpnessSelect"
+                android:layout_toLeftOf="@+id/SharpnessSelect"
                 android:text="@string/sharpness_label"
                 android:textStyle="bold|italic" />
 

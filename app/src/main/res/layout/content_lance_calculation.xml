@@ -57,7 +57,7 @@
             android:padding="20dp">
 
             <EditText
-                android:id="@+id/DamageInputL"
+                android:id="@+id/DamageInput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -81,18 +81,18 @@
                 android:id="@+id/ElementSelect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/ElementInputL"
+                android:layout_alignBottom="@+id/ElementInput"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignTop="@+id/ElementInputL"
-                android:layout_toLeftOf="@+id/ElementInputL" />
+                android:layout_alignTop="@+id/ElementInput"
+                android:layout_toLeftOf="@+id/ElementInput" />
 
             <EditText
-                android:id="@+id/ElementInputL"
+                android:id="@+id/ElementInput"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/DamageInputL"
+                android:layout_below="@+id/DamageInput"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:gravity="center"
@@ -100,7 +100,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/AffinityInputL"
+                android:id="@+id/AffinityInput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -116,7 +116,7 @@
                 android:id="@+id/StyleLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/AffinityInputL"
+                android:layout_below="@+id/AffinityInput"
                 android:layout_marginTop="10dp"
                 android:text="@string/style_label"
                 android:textStyle="bold|italic" />

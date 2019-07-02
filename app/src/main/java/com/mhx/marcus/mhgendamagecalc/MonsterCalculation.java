@@ -1,10 +1,6 @@
 package com.mhx.marcus.mhgendamagecalc;
 
 import android.content.Context;
-import android.support.design.widget.Snackbar;
-
-import java.nio.channels.SelectionKey;
-import java.nio.file.StandardWatchEventKinds;
 
 /**
  * Created by b7010863 on 05/03/2018.

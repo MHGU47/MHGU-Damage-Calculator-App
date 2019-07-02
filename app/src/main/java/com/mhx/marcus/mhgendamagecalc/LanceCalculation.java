@@ -950,9 +950,9 @@ public class LanceCalculation extends AppCompatActivity implements AdapterView.O
 
                 float TrueRaw;
 
-                TextView Damage = (TextView) findViewById(R.id.DamageInputL);
-                TextView Element = (TextView) findViewById(R.id.ElementInputL);
-                TextView Affinity = (TextView) findViewById(R.id.AffinityInputL);
+                TextView Damage = (TextView) findViewById(R.id.DamageInput);
+                TextView Element = (TextView) findViewById(R.id.ElementInput);
+                TextView Affinity = (TextView) findViewById(R.id.AffinityInput);
 
                 if(TextUtils.isEmpty(Damage.getText().toString())){
                     RawDamage = 0;

@@ -47,7 +47,7 @@ public class UI extends AppCompatActivity {
     //Creates an instance of 'SkillsCalculation' so it's functions for calculating skills can be used
 
     private DamageCalculation DmgCalc;
-    private RelativeLayout AttackInfo;
+    private RelativeLayout AttackInfo, ExtraInfo;
 
     //Skill and Hunter Art Selection variables - Start
     Switch SkillSwitch;
@@ -290,6 +290,8 @@ public class UI extends AppCompatActivity {
         SkillsStub.inflate();
 
         AttackInfo = findViewById(R.id.AttackInfo);
+        if(Wpn.equals("CB")) ExtraInfo = findViewById(R.id.BurstAttackInfo);
+        else if (Wpn.equals("GL")) ExtraInfo = findViewById(R.id.ShellingInfo);
 
         Banners.add((TextView)findViewById(R.id.AttackBanner));
         Banners.add((TextView)findViewById(R.id.StaggerBanner));
@@ -1899,12 +1901,9 @@ public class UI extends AppCompatActivity {
 
                 RefreshTextViews();
                 DisplayBanners();
-
-                if(Wpn.equals("DB")) DmgCalc.setHitzone_DB();
-                else DmgCalc.setHitzone();
+                DisplayInfo(Wpn);
 
                 for (int i = 0; i < DmgCalc.getMVSize(); i++) {
-                    AttackInfo.setVisibility(View.VISIBLE);
                     DmgCalc.Calculate(i);
                     DisplayTextViews(i, view, Wpn);
                 }
@@ -1912,17 +1911,12 @@ public class UI extends AppCompatActivity {
         });
     }
 
-    //TODO 18/06/2019: Add in functionality for Hammer
+    //TODO 02/07/2019: Add in functionality for displaying the shelling info for GL
 
     private void RefreshTextViews(){
         textviews = new TextView[AllTextViewIDs.length];
 
         for (TextView Banner : Banners) Banner.setVisibility(View.GONE);
-
-        for(int i = 0; i < AllTextViewIDs.length; i++){
-            textviews[i] = findViewById(getResources().getIdentifier(AllTextViewIDs[i], "id", getPackageName()));
-            textviews[i].setVisibility(View.GONE);
-        }
 
         for(int i = 0; i < AllTextViewIDs.length; i++){
             textviews[i] = findViewById(getResources().getIdentifier(AllTextViewIDs[i], "id", getPackageName()));
@@ -1966,6 +1960,16 @@ public class UI extends AppCompatActivity {
             Banners.get(1).setText(DmgCalc.getStagger());
             Banners.get(1).setVisibility(View.VISIBLE);
         }
+    }
+
+    private void DisplayInfo(String Weapon){
+        AttackInfo.setVisibility(View.VISIBLE);
+        if(Weapon.equals("CB") || Weapon.equals("GL")) ExtraInfo.setVisibility(View.VISIBLE);
+
+        if(!ChosenStyle.equals("Valor") && Weapon.equals("GL"))
+            findViewById(R.id.ValorShellingInfo).setVisibility(View.GONE);
+        else if(ChosenStyle.equals("Valor") && Weapon.equals("GL"))
+            findViewById(R.id.ValorShellingInfo).setVisibility(View.VISIBLE);
     }
 
     private boolean ErrorCheck(View view, String Wpn, float RawElement, float RawSubElement){

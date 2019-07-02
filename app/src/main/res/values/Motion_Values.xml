@@ -51,7 +51,7 @@
     </integer-array>
     <string-array name="GS_Guild_Names">
         <item>Draw Attack</item>
-        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 0 Charge (No Charge)</item>
         <item>Lv. 1 Charge</item>
         <item>Lv. 2 Charge</item>
         <item>Lv. 3 Charge</item>
@@ -87,7 +87,7 @@
     </integer-array>
     <string-array name="GS_Striker_Names">
         <item>Draw Attack</item>
-        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 0 Charge (No Charge)</item>
         <item>Lv. 1 Charge</item>
         <item>Lv. 2 Charge</item>
         <item>Lv. 3 Charge</item>
@@ -118,7 +118,7 @@
     </integer-array>
     <string-array name="GS_Aerial_Names">
         <item>Draw Attack</item>
-        <item>Aerial Lv. 0 Charge No Charge)</item>
+        <item>Aerial Lv. 0 Charge (No Charge)</item>
         <item>\u0020\u0020\u0020-Follow Up</item>
         <item>Aerial Lv. 1 Charge</item>
         <item>\u0020\u0020\u0020-Follow Up\u0020</item>
@@ -159,7 +159,7 @@
     </integer-array>
     <string-array name="GS_Adept_Names">
         <item>Draw Attack</item>
-        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 0 Charge (No Charge)</item>
         <item>Lv. 1 Charge</item>
         <item>Lv. 2 Charge</item>
         <item>Lv. 3 Charge</item>
@@ -258,7 +258,7 @@
     </integer-array>
     <string-array name="GS_Alchemy_Names">
         <item>Draw Attack</item>
-        <item>Lv. 0 Charge No Charge)</item>
+        <item>Lv. 0 Charge (No Charge)</item>
         <item>Lv. 1 Charge</item>
         <item>Lv. 2 Charge</item>
         <item>Lv. 3 Charge</item>
@@ -2195,20 +2195,20 @@
     </string-array>
 
     <string-array name="HH_HA_SonicSmash_Names">
-        <item>Level I</item>
-        <item>\u0020\u0020\u0020-Fixed Damage</item>
-        <item>Level II</item>
-        <item>\u0020\u0020\u0020-Fixed Damage</item>
-        <item>Level III</item>
-        <item>\u0020\u0020\u0020-Fixed Damage</item>
+        <item>Level I (2 hits) - 25, 10</item>
+        <item>\u0020\u0020\u0020-Fixed Damage - 10, 10</item>
+        <item>Level II (2 hits) - 30, 20</item>
+        <item>\u0020\u0020\u0020-Fixed Damage - 10, 10</item>
+        <item>Level III (2 hits) - 65, 60</item>
+        <item>\u0020\u0020\u0020-Fixed Damage - 10, 10</item>
     </string-array>
     <integer-array name="HH_HA_SonicSmash_MV">
         <item>10</item>
-        <item>8000</item>
+        <item>30</item>
         <item>10</item>
-        <item>15000</item>
+        <item>35</item>
         <item>20</item>
-        <item>15000</item>
+        <item>38</item>
     </integer-array>
     <integer-array name="HH_HA_SonicSmash_ElmCheck">
         <item>2</item>
