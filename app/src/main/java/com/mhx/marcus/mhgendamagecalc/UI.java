@@ -227,9 +227,9 @@ public class UI extends AppCompatActivity {
                 Icon.setImageResource(R.drawable.charge_blade_icon);
                 Banner.setText(this.getTitle());
 
-                TextViewIDsAttacks = getResources().getStringArray(getResources().getIdentifier("TextViewIDsAttacks_CB","string", getPackageName()));
-                TextViewIDsNames = getResources().getStringArray(getResources().getIdentifier("TextViewIDsNames_CB","string", getPackageName()));
-                AllTextViewIDs = getResources().getStringArray(getResources().getIdentifier("AllTextViewIDs_CB","string", getPackageName()));
+                TextViewIDsAttacks = getResources().getStringArray(getResources().getIdentifier("TextViewIDsAttacks_CB","array", getPackageName()));
+                TextViewIDsNames = getResources().getStringArray(getResources().getIdentifier("TextViewIDsNames_CB","array", getPackageName()));
+                AllTextViewIDs = getResources().getStringArray(getResources().getIdentifier("AllTextViewIDs_CB","array", getPackageName()));
                 break;
 
             case "IG":
@@ -1302,15 +1302,15 @@ public class UI extends AppCompatActivity {
 
                 ArrayAdapter ShotType = ArrayAdapter.createFromResource(this,R.array.GLShotType,
                         android.R.layout.simple_spinner_dropdown_item);
-                ShotLevelSelect.setAdapter(ShotType);
+                ShotTypeSelect.setAdapter(ShotType);
 
                 ArrayAdapter HeatGauge = ArrayAdapter.createFromResource(this,R.array.HeatGauge,
                         android.R.layout.simple_spinner_dropdown_item);
-                ShotLevelSelect.setAdapter(HeatGauge);
+                HeatGaugeSelect.setAdapter(HeatGauge);
 
                 ArrayAdapter NumberofShells = ArrayAdapter.createFromResource(this,R.array.GLShellNumber,
                         android.R.layout.simple_spinner_dropdown_item);
-                ShotLevelSelect.setAdapter(NumberofShells);
+                NumberofShellsSelect.setAdapter(NumberofShells);
 
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
@@ -1333,7 +1333,7 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "CB":
-                PhialSelect = findViewById(R.id.CBPhialSelect);
+                PhialSelect = findViewById(R.id.PhialSelect);
                 ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
                         android.R.layout.simple_spinner_dropdown_item);
 
@@ -1378,7 +1378,7 @@ public class UI extends AppCompatActivity {
                     }
                 });
 
-                NumberofPhialsSelect = findViewById(R.id.NumberofCBPhialsSelect);
+                NumberofPhialsSelect = findViewById(R.id.NumberofPhialsSelect);
                 ArrayAdapter NumberofPhialsAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhialNumber,
                         android.R.layout.simple_spinner_dropdown_item);
 
@@ -1911,8 +1911,6 @@ public class UI extends AppCompatActivity {
         });
     }
 
-    //TODO 02/07/2019: Add in functionality for displaying the shelling info for GL
-
     private void RefreshTextViews(){
         textviews = new TextView[AllTextViewIDs.length];
 
@@ -1925,6 +1923,9 @@ public class UI extends AppCompatActivity {
     }
 
     private void DisplayTextViews(int counter, View view, String Wpn){
+        //if(DmgCalc.getMVName(counter).equals("Jump Attack"))
+        //TODO 03/07/2019 Add in banner visibility
+
         textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsNames[counter], "id", getPackageName()));
         textviews[counter].setText(DmgCalc.getMVName(counter));
         textviews[counter].setVisibility(View.VISIBLE);

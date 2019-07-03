@@ -1,6 +1,7 @@
 package com.mhx.marcus.mhgendamagecalc;
 
 import android.content.Context;
+import android.support.v4.content.res.TypedArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,8 +24,8 @@ public class DamageCalculation {
     private Context context;
     //private int MV_Array, MV_Names_Array, MV_HA_Array, HA_Levels_Array, HA_ElementCheck_Array, ErrorNumber;
     private float SharpnessModifier_Atk, SharpnessModifier_Elm;
-    private int[] MV, HA_MV, HA_ElementCheck;
-    private String[] MV_Names, HA_Levels;
+    private int[] MV, MV_Extra, HA_ElementCheck;
+    private String[] MV_Names, MV_Names_Extra, HA_Levels;
     private boolean DualElement = false;//, Bounce = false;
 
     //TODO 19/05/2019: Add in functionality for LS
@@ -98,9 +99,7 @@ public class DamageCalculation {
 
         M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
 
-        MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
-        MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
-
+        setMVs();
         setSharpness();
         setHA_MV();
         MVs.clear();
@@ -1324,5 +1323,109 @@ public class DamageCalculation {
             else if(ui.WolfsMawOffCheck.isChecked()) return 1;
         }
         return 1;
+    }
+
+    private void setMVs(){
+        switch (Weapon){
+            case "SA":
+                MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_Axe_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_Axe_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+                break;
+            case "CB":
+                MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_Sword_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_Sword_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+                break;
+            default:
+                MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+                break;
+        }
+
+        switch (Weapon){
+            case "GL":
+                String[] ShellingNames = context.getResources().getStringArray(context.getResources().
+                        getIdentifier("GL_Shelling_Names", "array", context.getPackageName()));
+
+                int[] ShellingMVs = context.getResources().getIntArray(context.getResources().
+                        getIdentifier("GL_Shelling_" + String.valueOf(ui.ShotTypeSelect.getSelectedItem()) + "_MV", "array", context.getPackageName()));
+
+                String[] tempGLNames = MV_Names;
+                int[] tempGLMVs = MV;
+
+                MV_Names = new String[tempGLNames.length + 6];
+                MV = new int[MV_Names.length];
+
+                System.arraycopy(tempGLNames, 0, MV_Names, 0, tempGLNames.length);
+                System.arraycopy(ShellingNames, 0, MV_Names, tempGLNames.length, 6);
+
+                switch(String.valueOf(ui.ShotLevelSelect.getSelectedItem())){
+                    case "Level 1":
+                        System.arraycopy(tempGLMVs, 0, MV, 0, tempGLMVs.length);
+                        System.arraycopy(ShellingMVs, 0, MV, tempGLMVs.length, 6);
+                        break;
+                    case "Level 2":
+                        System.arraycopy(tempGLMVs, 6, MV, 0, tempGLMVs.length);
+                        System.arraycopy(ShellingMVs, 6, MV, tempGLMVs.length, 6);
+                        break;
+                    case "Level 3":
+                        System.arraycopy(tempGLMVs, 12, MV, 0, tempGLMVs.length);
+                        System.arraycopy(ShellingMVs, 12, MV, tempGLMVs.length, 6);
+                        break;
+                    case "Level 4":
+                        System.arraycopy(tempGLMVs, 18, MV, 0, tempGLMVs.length);
+                        System.arraycopy(ShellingMVs, 18, MV, tempGLMVs.length, 6);
+                        break;
+                    case "Level 5":
+                        System.arraycopy(tempGLMVs, 24, MV, 0, tempGLMVs.length);
+                        System.arraycopy(ShellingMVs, 24, MV, tempGLMVs.length, 6);
+                        break;
+                }
+                break;
+            case "CB":
+                String Charge = "";
+                if(String.valueOf(ui.ShieldChargeSelect.getSelectedItem()).equals("No Charge"))
+                    Charge = "_NoCharge";
+
+                String[] AxeNames = context.getResources().getStringArray(context.getResources().
+                        getIdentifier("CB_Axe_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));;
+                int[] AxeMVs = context.getResources().getIntArray(context.getResources().
+                        getIdentifier("CB_Axe_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+
+                String[] PhialNames = context.getResources().getStringArray(context.getResources().
+                        getIdentifier("CB_Burst_Names", "array", context.getPackageName()));
+
+                int[] PhialMVs = context.getResources().getIntArray(context.getResources().
+                        getIdentifier("CB_" + String.valueOf(ui.PhialSelect.getSelectedItem()) + "Burst" + Charge + "_MV", "array", context.getPackageName()));
+
+                String[] tempCBNames = MV_Names;
+                int[] tempCBMVs = MV;
+
+                MV_Names = new String[tempCBNames.length + AxeNames.length + PhialNames.length];
+                MV = new int[MV_Names.length];
+
+                System.arraycopy(tempCBNames, 0, MV_Names, 0, tempCBNames.length);
+                System.arraycopy(AxeNames, 0, MV_Names, tempCBNames.length, AxeNames.length);
+                System.arraycopy(PhialNames, 0, MV_Names, tempCBNames.length + AxeNames.length, PhialNames.length);
+
+                System.arraycopy(tempCBMVs, 0, MV, 0, tempCBMVs.length);
+                System.arraycopy(AxeMVs, 0, MV, tempCBMVs.length, AxeMVs.length);
+                System.arraycopy(PhialMVs, 0, MV, tempCBMVs.length + AxeMVs.length, PhialMVs.length);
+//                switch(String.valueOf(ui.ShieldChargeSelect.getSelectedItem())){
+//                    case "No Charge":
+//                        System.arraycopy(tempCBMVs, 0, MV, 0, tempCBMVs.length);
+//                        System.arraycopy(PhialMVs, 0, MV, tempCBMVs.length, PhialMVs.length);
+//                        break;
+//                    case "Red Charge":
+//                        System.arraycopy(tempCBMVs, 0, MV, 0, tempCBMVs.length);
+//                        System.arraycopy(PhialMVs, 0, MV, tempCBMVs.length, PhialMVs.length);
+//                        break;
+//                }
+                break;
+        }
+        //MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+        //MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+        //if(Weapon.equals("GL")){
+
+        //}
     }
 }
