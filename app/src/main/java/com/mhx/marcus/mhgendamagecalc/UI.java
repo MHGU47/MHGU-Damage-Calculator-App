@@ -91,6 +91,7 @@ public class UI extends AppCompatActivity {
     //Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
     int SelectedPhialCharge, SelectedPhialNoCharge;
+    int filler = 0;
 
     List<TextView> Banners = new ArrayList<>();
     String[] TextViewIDsAttacks, TextViewIDsNames, AllTextViewIDs;
@@ -295,6 +296,12 @@ public class UI extends AppCompatActivity {
 
         Banners.add((TextView)findViewById(R.id.AttackBanner));
         Banners.add((TextView)findViewById(R.id.StaggerBanner));
+
+        if(Wpn.equals("SA") || Wpn.equals("CB")){
+            Banners.add((TextView)findViewById(R.id.AxeBanner));
+            Banners.add((TextView)findViewById(R.id.SwordBanner));
+        }
+
     }
     private void SetUp(String Wpn) {
         PowercharmCheck = findViewById(R.id.PowercharmCheckBox);
@@ -1343,11 +1350,11 @@ public class UI extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                         SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
                                         + String.valueOf(PhialSelect.getSelectedItem()) +
-                                        "Burst_NoCharge_MV", "integer", UI.this.getPackageName());
+                                        "Burst_NoCharge_MV", "array", UI.this.getPackageName());
 
                         SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
                                         + String.valueOf(PhialSelect.getSelectedItem()) +
-                                        "Burst_Charge_MV", "integer", UI.this.getPackageName());
+                                        "Burst_MV", "array", UI.this.getPackageName());
 
                         isImpact = String.valueOf(PhialSelect.getSelectedItem()).equals("Impact");
 //                        switch(String.valueOf(PhialSelect.getSelectedItem())){
@@ -1900,7 +1907,7 @@ public class UI extends AppCompatActivity {
                 }
 
                 RefreshTextViews();
-                DisplayBanners();
+                DisplayBanners(Wpn);
                 DisplayInfo(Wpn);
 
                 for (int i = 0; i < DmgCalc.getMVSize(); i++) {
@@ -1912,6 +1919,7 @@ public class UI extends AppCompatActivity {
     }
 
     private void RefreshTextViews(){
+        filler = 0;
         textviews = new TextView[AllTextViewIDs.length];
 
         for (TextView Banner : Banners) Banner.setVisibility(View.GONE);
@@ -1923,27 +1931,48 @@ public class UI extends AppCompatActivity {
     }
 
     private void DisplayTextViews(int counter, View view, String Wpn){
-        //if(DmgCalc.getMVName(counter).equals("Jump Attack"))
-        //TODO 03/07/2019 Add in banner visibility
+        switch(Wpn){
+            case "GL":
+                if((DmgCalc.getMVName(counter).equals("Jump Attack Thrust")
+                        || DmgCalc.getMVName(counter).equals("Vault Attack")) && counter < 11)
+                    while (!TextViewIDsNames[counter + filler].contains("11")) filler++;
+                break;
+            case "SA":
+                if(DmgCalc.getMVName(counter).equals("Jump Attack") && counter < 10)
+                    while (!TextViewIDsNames[counter + filler].contains("10")) filler++;
 
-        textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsNames[counter], "id", getPackageName()));
-        textviews[counter].setText(DmgCalc.getMVName(counter));
-        textviews[counter].setVisibility(View.VISIBLE);
+                else if(DmgCalc.getMVName(counter).equals("Jump Attack") && counter > 10)
+                    while (!TextViewIDsNames[counter + filler].contains("23")) filler++;
+                break;
+            case "CB":
+                if((DmgCalc.getMVName(counter).equals("Jump Attack")
+                        || DmgCalc.getMVName(counter).equals("Aerial Attack")
+                        || DmgCalc.getMVName(counter).equals("Aerial Charge Slash")) && counter < 10)
+                    while (!TextViewIDsNames[counter + filler].contains("10")) filler++;
+
+                else if(DmgCalc.getMVName(counter).equals("Jump Attack") && counter > 10)
+                    while (!TextViewIDsNames[counter + filler].contains("23")) filler++;
+                break;
+        }
+
+        textviews[counter + filler] = findViewById(getResources().getIdentifier(TextViewIDsNames[counter + filler], "id", getPackageName()));
+        textviews[counter + filler].setText(DmgCalc.getMVName(counter));
+        textviews[counter + filler].setVisibility(View.VISIBLE);
 
         if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None")) {
-            textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
+            textviews[counter + filler].setTextColor(Color.argb(255, 242, 16, 16));
             Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
-        else textviews[counter].setTextColor(Color.BLACK);
+        else textviews[counter + filler].setTextColor(Color.BLACK);
 
-        textviews[counter] = findViewById(getResources().getIdentifier(TextViewIDsAttacks[counter], "id", getPackageName()));
-        textviews[counter].setText(String.format("%s", Math.round(DmgCalc.getAtkPwr(counter))));
-        textviews[counter].setVisibility(View.VISIBLE);
+        textviews[counter + filler] = findViewById(getResources().getIdentifier(TextViewIDsAttacks[counter + filler], "id", getPackageName()));
+        textviews[counter + filler].setText(String.format("%s", Math.round(DmgCalc.getAtkPwr(counter))));
+        textviews[counter + filler].setVisibility(View.VISIBLE);
 
         if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None"))
-            textviews[counter].setTextColor(Color.argb(255, 242, 16, 16));
-        else textviews[counter].setTextColor(Color.BLACK);
+            textviews[counter + filler].setTextColor(Color.argb(255, 242, 16, 16));
+        else textviews[counter + filler].setTextColor(Color.BLACK);
 
         if(Wpn.equals("LS") && !String.valueOf(SpiritGaugeColourSelect.getSelectedItem()).equals("No Colour") &&
                 DmgCalc.getMVName(counter).equals("   -(With Spirit Energy)")) {
@@ -1952,14 +1981,20 @@ public class UI extends AppCompatActivity {
         }
     }
 
-    private void DisplayBanners(){
+    private void DisplayBanners(String Wpn){
         if(ChosenArt.equals("-None-")) Banners.get(0).setText("Attacks");
         else Banners.get(0).setText(ChosenArt);
+
         Banners.get(0).setVisibility(View.VISIBLE);
 
         if(!ChosenMonster.equals("None")) {
             Banners.get(1).setText(DmgCalc.getStagger());
             Banners.get(1).setVisibility(View.VISIBLE);
+        }
+
+        if(Wpn.equals("SA") || Wpn.equals("CB")){
+            Banners.get(2).setVisibility(View.VISIBLE);
+            Banners.get(3).setVisibility(View.VISIBLE);
         }
     }
 
