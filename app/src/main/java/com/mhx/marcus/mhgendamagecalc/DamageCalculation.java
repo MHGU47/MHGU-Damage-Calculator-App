@@ -115,53 +115,6 @@ public class DamageCalculation {
      * @param SubElementalDamage Inputted subelemental damage ONLY
      * @param Affinity Inputted affinity
      */
-//    public DamageCalculation(Context context, UI ui, String Weapon, Boolean HA, String HunterArt,
-//                             String Style, String Sharpness, float RawDamage, String ChosenElement,
-//                             float ElementalDamage, String ChosenSubElement, float SubElementalDamage,
-//                             float Affinity, String Monster, String HitzoneGroup, String Hitzone){
-//        Stats = new StatsValidation(RawDamage,ChosenElement,ElementalDamage,Affinity);
-//        this.ui = ui;
-//        this.context = context;
-//
-//        this.RawDamage = RawDamage;
-//        this.ElementalDamage = ElementalDamage;
-//        this.ChosenElement = ChosenElement;
-//        this.SubElementalDamage = SubElementalDamage;
-//        this.ChosenSubElement = ChosenSubElement;
-//        this.Affinity = Affinity;
-//
-//        this.Weapon = Weapon;
-//        this.HunterArt = HunterArt;
-//        this.HA = !HA;
-//
-//        this.Monster = Monster;
-//        DualElement = SubElementalDamage > 0;
-//
-//        M = new MonsterCalculation(context,
-//                Monster + "RawHitzones_Cut",
-//                Monster + "ElmHitzones_" + ChosenElement,
-//                Monster + "ElmHitzones_" + ChosenSubElement,
-//                Monster + "_StaggerLimits",
-//                HitzoneGroup + "Hitzones",
-//                Hitzone,
-//                "Dual Blades");
-//
-//        M.getHitzones(context, ChosenElement, ChosenSubElement, Skills, ui.WeaknessExploitCheck.isChecked());
-//        SharpnessModifier_Atk = context.getResources().getIdentifier(Sharpness + "_Raw","integer", context.getPackageName());
-//        SharpnessModifier_Elm = context.getResources().getIdentifier(Sharpness + "_Elm","integer", context.getPackageName());
-//        SharpnessModifier_Atk /= 100;
-//        SharpnessModifier_Elm /= 100;
-//
-//        MV_Array = context.getResources().getIdentifier(Weapon + "_" + Style + "_MV", "array", context.getPackageName());
-//        MV_Names_Array = context.getResources().getIdentifier(Weapon + "_" + Style + "_Names", "array", context.getPackageName());
-//
-//        MV = context.getResources().getIntArray(MV_Array);
-//        MV_Names = context.getResources().getStringArray(MV_Names_Array);
-//
-//        setHA_MV();
-//        MVs.clear();
-//        MV_NamesList.clear();
-//    }//Dual Blades
 
     public DamageCalculation(Context context, UI ui, String Weapon, float RawDamage, String ChosenElement,
                              float ElementalDamage, String ChosenSubElement, float SubElementalDamage,
@@ -212,12 +165,24 @@ public class DamageCalculation {
         if(ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
         else MV_NamesList.add(HA_Levels[counter]);
 
-        if (Weapon.equals("DB")) getDBElmMod(MV_Names[counter]);
-        else if (Weapon.equals("LS")) LSMVCheck(counter);
+        switch(Weapon){
+            case "GS":
+                setLionsMawModifier();
+                break;
+            case "DB":
+                getDBElmMod(MV_Names[counter]);
+                break;
+            case "LS":
+                LSMVCheck(counter);
+                break;
+            case "CB":
+                CBAxeAlter(counter);
+                break;
+        }
 
         if(ui.ChosenArt.equals("-None-")){
             if(ui.AirborneCheck.isChecked() && ui.SkillCheck && (MV_Names[counter].contains("Jump")
-                    || MV_Names[counter].contains("Aerial"))){
+                    || MV_Names[counter].contains("Aerial") || MV_Names[counter].contains("Vault"))){
                 Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
             }
             else Skills.setAirborneModifier(false);
@@ -252,6 +217,10 @@ public class DamageCalculation {
         MVs.add(getTrueAttack(counter, TrueRaw));
         SpecialAlter(counter, RawDamage);
         alterHA_MV(counter, TrueRaw);
+
+        //TODO 11/07/2019: Add in SA Energy Charge functionality (for new and old code base)
+        //TODO: Make sure Valor shelling works for GL (see old code base for reference)
+        //TODO:
     }
 
 
@@ -278,6 +247,15 @@ public class DamageCalculation {
             return getCalculatedRawHitzone(counter, TrueRaw) + (getCalculatedElm(counter) *
                     HA_ElementCheck[counter]);
         else{
+            switch(Weapon){
+                case "GL":
+                    return getCalculatedRawHitzone(counter, TrueRaw * Skills.getHeatGaugeModifier()) +
+                            getCalculatedElm(counter);
+                case "SA":
+                    return getCalculatedRawHitzone(counter, TrueRaw * Skills.getSAPhialAtkModifier() *
+                            Skills.getDemonRiotModifier()) + (getCalculatedElm(counter) * Skills.getSAPhialElmModifier());
+            }
+
             if(MV_Names[counter].equals("Kick")) return 2;
             else return getCalculatedRawHitzone(counter, TrueRaw) + getCalculatedElm(counter) + getCalculatedSubElm();
         }
@@ -339,6 +317,9 @@ public class DamageCalculation {
             //TODO: calculated properly.
             //TODO 04/07/2019: Consider merging split MV arrays together for SA and CB
             case "GL":
+                MV = context.getResources().getIntArray(context.getResources().getIdentifier("GL_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier("GL_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+
                 String[] ShellingNames = context.getResources().getStringArray(context.getResources().
                         getIdentifier("GL_Shelling_Names", "array", context.getPackageName()));
 
@@ -360,19 +341,19 @@ public class DamageCalculation {
                         System.arraycopy(ShellingMVs, 0, MV, tempGLMVs.length, 6);
                         break;
                     case "Level 2":
-                        System.arraycopy(tempGLMVs, 6, MV, 0, tempGLMVs.length);
+                        System.arraycopy(tempGLMVs, 0, MV, 0, tempGLMVs.length);
                         System.arraycopy(ShellingMVs, 6, MV, tempGLMVs.length, 6);
                         break;
                     case "Level 3":
-                        System.arraycopy(tempGLMVs, 12, MV, 0, tempGLMVs.length);
+                        System.arraycopy(tempGLMVs, 0, MV, 0, tempGLMVs.length);
                         System.arraycopy(ShellingMVs, 12, MV, tempGLMVs.length, 6);
                         break;
                     case "Level 4":
-                        System.arraycopy(tempGLMVs, 18, MV, 0, tempGLMVs.length);
+                        System.arraycopy(tempGLMVs, 0, MV, 0, tempGLMVs.length);
                         System.arraycopy(ShellingMVs, 18, MV, tempGLMVs.length, 6);
                         break;
                     case "Level 5":
-                        System.arraycopy(tempGLMVs, 24, MV, 0, tempGLMVs.length);
+                        System.arraycopy(tempGLMVs, 0, MV, 0, tempGLMVs.length);
                         System.arraycopy(ShellingMVs, 24, MV, tempGLMVs.length, 6);
                         break;
                 }
@@ -453,7 +434,7 @@ public class DamageCalculation {
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
-                case "Lions Maw":
+                case "Lions Maw (Wide Slash)":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("GS_HA_LionsMaw_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
@@ -535,64 +516,64 @@ public class DamageCalculation {
                     break;
                 case "Corkscrew Jab":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Lance_HA_CorkscrewJab_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("Lance_HA_CorkscrewJab_MV_ElmCheck", "array", context.getPackageName()));
                     break;
                 case "Dragon Blast":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("GL_HA_DragonBlast_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Blast Dash":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("GL_HA_BlastDash_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Trance Slash":
                     if(!ui.DemonRiotOffCheck.isChecked() && ui.TempestAxeCheck.isChecked()){//Demon Riot and Tempest Axe
                         MV = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_All_MV", "array", context.getPackageName()));
-                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                         HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_All_MV_ElmCheck", "array", context.getPackageName()));
                     }
                     else if(ui.DemonRiotOffCheck.isChecked() && ui.TempestAxeCheck.isChecked()){//Tempest Axe
                         MV = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_TA_MV", "array", context.getPackageName()));
-                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                         HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_TA_MV_ElmCheck", "array", context.getPackageName()));
                     }
                     else if(!ui.DemonRiotOffCheck.isChecked() && !ui.TempestAxeCheck.isChecked()){//Demon Riot
                         MV = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_DR_MV", "array", context.getPackageName()));
-                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                         HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_DR_MV_ElmCheck", "array", context.getPackageName()));
                     }
                     else{//Base
                         MV = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_MV", "array", context.getPackageName()));
-                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                        HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                         HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_TranceSlash_MV_ElmCheck", "array", context.getPackageName()));
                     }
                     break;
-                case "Energy Charge":
+                case "Energy Charge (Side Slash)":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("SA_HA_EnergyCharge_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Energy Blade":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("CB_HA_EnergyBlade_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Ripper Shield":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("CB_HA_RipperShield_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("CB_HA_RipperShield_MV_ElmCheck", "array", context.getPackageName()));
                     break;
                 case "Extract Hunter":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("IG_HA_ExtractHunter_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Swarm":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("IG_HA_Swarm_MV", "array", context.getPackageName()));
-                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Names", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
                 case "Bug Blow":
@@ -721,11 +702,10 @@ public class DamageCalculation {
     private void SpecialAlter(int counter, float Damage){
         switch(Weapon){
             case "GL":
-                GLShelling(counter, Damage);
-                break;
-            case "SA":
+                GLShelling(counter);
                 break;
             case "CB":
+                CBPhials(counter, Damage);
                 break;
         }
     }
@@ -789,6 +769,16 @@ public class DamageCalculation {
                 case "Hammer":
                     Skills.setProvokeModifier(ui.ProvokeCheck.isChecked());
                     break;
+                case "SA":
+                    if(ui.DemonRiotLevel1Check.isChecked())
+                        Skills.setDemonRiotModifier(!ui.DemonRiotOffCheck.isChecked(), ui.DemonRiotLevel1Check.getId());
+                    else if(ui.DemonRiotLevel2Check.isChecked())
+                        Skills.setDemonRiotModifier(!ui.DemonRiotOffCheck.isChecked(), ui.DemonRiotLevel2Check.getId());
+                    else if(ui.DemonRiotLevel3Check.isChecked())
+                        Skills.setDemonRiotModifier(!ui.DemonRiotOffCheck.isChecked(), ui.DemonRiotLevel3Check.getId());
+                    else
+                        Skills.setDemonRiotModifier(!ui.DemonRiotOffCheck.isChecked(), 0);
+                    break;
                 case "HBG":
                     Skills.setGunpowderInfusionModiifer(ui.GunpowderInfusionCheck.isChecked());
                     break;
@@ -831,6 +821,17 @@ public class DamageCalculation {
             else return 1f;
         }
         else return 1f;
+    }
+
+    private void setLionsMawModifier(){
+        if(ui.LionsMawLevel1Check.isChecked())
+            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel1Check.getId());
+        else if(ui.LionsMawLevel2Check.isChecked())
+            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel2Check.getId());
+        else if(ui.LionsMawLevel3Check.isChecked())
+            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel3Check.getId());
+        else
+            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), 0);
     }
 
     private float GSChargeMod_Atk(int counter){
@@ -1443,9 +1444,102 @@ public class DamageCalculation {
         return 1;
     }
 
-    private void GLShelling(int counter, float Damage){
-        MVs.set(counter, MV[counter] * 1f);
-        //TODO 04/07/2019: Find a method that correctly sets the shelling damage
+    private void GLShelling(int counter){
+        Skills.setFelyneBombardierModifier(ui.FelyneBombardierCheck.isChecked());
+        M.setElmHitzoneValue_GL(context, ui.ChosenMonster + "ElmHitzones_Fire");
+        M.getHitzones(context, "Fire", Skills, false);
+        switch(MV_Names[counter]){
+            case "Shells":
+                MVs.set(counter, (MV[counter] + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked()))
+                        * Skills.getShellingModifier());
+                break;
+            case "   -Fire Damage":
+                MVs.set(counter, ((MV[counter] + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
+                        M.getElmHitzoneValue()) / 100f);
+                break;
+            case "Charged Shell":
+                if(ui.ChosenStyle.equals("Alchemy")) return;
+
+                MVs.set(counter, ((MV[counter - 2] + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
+                        (MV[counter] / 100f)) * Skills.getShellingModifier());
+                break;
+            case "   -Charged Fire Damage":
+                if(ui.ChosenStyle.equals("Alchemy")) return;
+
+                MVs.set(counter, (((MV[counter - 2] + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
+                        (MV[counter - 1] / 100f)) * M.getElmHitzoneValue()) / 100);
+                break;
+            case "Wyverns Fire (All hits)":
+                float AlchemyMod = 1;
+                if(ui.ChosenStyle.equals("Alchemy")) AlchemyMod = 0.5f;
+
+                MVs.set(counter, ((MV[counter] * AlchemyMod) + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
+                        Skills.getShellingModifier());
+                break;
+            case "Full Burst":
+                if(ui.ChosenStyle.equals("Striker")) return;
+
+                MVs.set(counter, (((MV[counter - 5] + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
+                        (MV[counter] / 100f)) * Skills.getShellingModifier() * ui.ShellNumber));
+                break;
+        }
         //return 0;
+    }
+
+    private void SAPhials(int counter, float Damage){
+
+    }
+
+    private void CBAxeAlter(int counter){
+        //M.setElmHitzoneValue_GL(context, ui.ChosenMonster + "ElmHitzones_Fire");
+        //M.getHitzones(context, "Fire", Skills, false);
+        if (MV_Names[counter].equals("Ultra Burst (2 hits)") && ui.NumberofPhials == 0)
+            MV[counter] = 80;
+        else if (MV_Names[counter].equals("Ultra Burst (2 hits)") && ui.NumberofPhials > 0)
+            MV[counter] = 105;
+
+        if(MV_Names[counter].equals("Ultra Burst (2 hits) (Valor State)") && ui.NumberofPhials == 0)
+            MV[counter] = 75;
+        else if(MV_Names[counter].equals("Ultra Burst (2 hits) (Valor State)") && ui.NumberofPhials > 0)
+            MV[counter] = 115;
+
+        if(MV_Names[counter].equals("Valor Stance - Ultra Burst (2 hits)") && ui.NumberofPhials == 0)
+            MV[counter] = 75;
+        else if(MV_Names[counter].equals("Valor Stance - Ultra Burst (2 hits)") && ui.NumberofPhials > 0)
+            MV[counter] = 85;
+
+        if((MV_Names[counter].equals("Aerial Super Burst") ||
+                MV_Names[counter].equals("Super Burst"))&& ui.NumberofPhials == 0)
+            MV[counter] = 42;
+        else if((MV_Names[counter].equals("Aerial Super Burst") ||
+                MV_Names[counter].equals("Super Burst"))&& ui.NumberofPhials > 0)
+            MV[counter] = 75;
+
+        if(MV_Names[counter].equals("Aerial Ultra Burst") && ui.NumberofPhials == 0)
+            MV[counter] = 60;
+        else if(MV_Names[counter].equals("Aerial Ultra Burst") && ui.NumberofPhials > 0)
+            MV[counter] = 100;
+
+        if(MV_Names[counter].contains("Double Swing Burst (2 hits)") && ui.NumberofPhials == 0)
+            MV[counter] = 50;
+        else if(MV_Names[counter].contains("Double Swing Burst (2 hits)") && ui.NumberofPhials > 0)
+            MV[counter] = 65;
+    }
+
+    private void CBPhials(int counter, float RawDamage){
+        if(MV_Names[counter].contains("(L)") || MV_Names[counter].contains("(S)") || MV_Names[counter].contains("(All three)")){
+            Skills.setFelyneBombardierModifier(ui.FelyneBombardierCheck.isChecked());
+
+            if(ui.isImpact){
+                MVs.set(counter, Skills.getCBPhialAtk(ui.isImpact, RawDamage, ElementalDamage) * MV[counter] / 100f);
+                if(MV_Names[counter].contains("(S)")) MVs.set(counter, (MVs.get(counter) / 2f));
+            }
+            else MVs.set(counter, (Skills.getCBPhialAtk(ui.isImpact, RawDamage, ElementalDamage *
+                    M.getElmHitzoneValue()) * MV[counter]) / 100);
+        }
+        else if(MV_Names[counter].contains("Ultra Axe Burst (All Phials)")){
+            MVs.set(counter, (Skills.getCBPhialAtk(ui.isImpact, RawDamage, ElementalDamage) * MV[counter] / 100f) *
+                    ui.NumberofPhials);
+        }
     }
 }

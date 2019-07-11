@@ -23,12 +23,9 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class UI extends AppCompatActivity {
 
@@ -90,7 +87,7 @@ public class UI extends AppCompatActivity {
             NoShotUpRadio, NormalUpRadio, PelletUpRadio, PierceUpRadio, HeavyUpRadio,TrueShotUpRadio;
     //Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
     Float[] BoomerangType;
-    int SelectedPhialCharge, SelectedPhialNoCharge;
+    int SelectedPhialCharge, SelectedPhialNoCharge, ShellNumber, NumberofPhials, EnergyBladePhials;
     int filler = 0;
 
     List<TextView> Banners = new ArrayList<>();
@@ -132,7 +129,7 @@ public class UI extends AppCompatActivity {
             case "GS":
                 AttackInfoStub.setLayoutResource(R.layout.content_attack_info);
                 BaseStatsStub.setLayoutResource(R.layout.content_stats_input_gs);
-                HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts);
+                HunterArtsStub.setLayoutResource(R.layout.content_hunter_arts_gs);
                 SkillsStub.setLayoutResource(R.layout.content_skills);
                 this.setTitle("Great Sword");
                 Icon.setImageResource(R.drawable.great_sword_icon);
@@ -298,6 +295,11 @@ public class UI extends AppCompatActivity {
         Banners.add((TextView)findViewById(R.id.StaggerBanner));
 
         if(Wpn.equals("SA") || Wpn.equals("CB")){
+            if(Wpn.equals("CB")) {
+                Banners.add((TextView)findViewById(R.id.BurstBanner));
+                Banners.add((TextView)findViewById(R.id.PhialDisclaimer));
+                Banners.add((TextView)findViewById(R.id.KeyBanner));
+            }
             Banners.add((TextView)findViewById(R.id.AxeBanner));
             Banners.add((TextView)findViewById(R.id.SwordBanner));
         }
@@ -1315,9 +1317,64 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
                 HeatGaugeSelect.setAdapter(HeatGauge);
 
+                HeatGaugeSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        String HeatGauge = String.valueOf(HeatGaugeSelect.getSelectedItem());
+                        switch (HeatGauge){
+                            case "Yellow Gauge":
+                                Skills.setHeatGaugeModifier(1.1f);
+                                break;
+                            case "Orange Gauge":
+                                Skills.setHeatGaugeModifier(1.15f);
+                                break;
+                            default:
+                                Skills.setHeatGaugeModifier(1.2f);
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
                 ArrayAdapter NumberofShells = ArrayAdapter.createFromResource(this,R.array.GLShellNumber,
                         android.R.layout.simple_spinner_dropdown_item);
                 NumberofShellsSelect.setAdapter(NumberofShells);
+
+                NumberofShellsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        ShellNumber = Integer.parseInt(String.valueOf(NumberofShellsSelect.getSelectedItem()));
+//                        switch(String.valueOf(PhialSelect.getSelectedItem())){
+//                            case "Impact":
+//
+//                                HA_ElementCheck = UI.this.getResources().getIntArray(HA_ElementCheck_Array);
+//
+//
+//                                /*SelectedPhialNoCharge = UI.this.getResources().getIdentifier("CB_"
+//                                        + PhialSelect.getSelectedItem().toString() + "Burst_NoCharge_MV",
+//                                        "integer", UI.this.getPackageName());
+//
+//                                SelectedPhialCharge = UI.this.getResources().getIdentifier("CB_"
+//                                                + PhialSelect.getSelectedItem().toString() + "Burst_Charge_MV",
+//                                        "integer", UI.this.getPackageName());*/
+//                                isImpact = true;
+//                                break;
+//                            default:
+//                                SelectedPhial = ElmBurstMotion;
+//                                isImpact = false;
+//                                break;
+//                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.GL_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
@@ -1325,7 +1382,6 @@ public class UI extends AppCompatActivity {
             case "SA":
                 AwakenedCheck = findViewById(R.id.AwakenedCheckBox);
                 TempestAxeCheck = findViewById(R.id.TempestAxeCheckBox);
-                PhialSelect = findViewById(R.id.PhialSelect);
 
                 DemonRiotOffCheck = findViewById(R.id.DemonRiotOffCheck);
                 DemonRiotLevel1Check = findViewById(R.id.DemonRiotLevel1Check);
@@ -1336,15 +1392,47 @@ public class UI extends AppCompatActivity {
                 EnergyChargeLevel2Check = findViewById(R.id.EnergyChargeLevel2Check);
                 EnergyChargeLevel3Check = findViewById(R.id.EnergyChargeLevel3Check);
 
+                PhialSelect = findViewById(R.id.PhialSelect);
+                ArrayAdapter SAPhialAdapter = ArrayAdapter.createFromResource(this,R.array.SAPhial,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                PhialSelect.setAdapter(SAPhialAdapter);
+                PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        String Phial = String.valueOf(PhialSelect.getSelectedItem());
+                        Skills.setSAPhialModifier(Phial);
+                        switch(Phial){
+                            case "Power Phial":
+                            case "Element Phial":
+                            case "Dragon Phial":
+                                Snackbar.make(view, "Selected Phial: " + Phial, Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                                break;
+                            default:
+                                Snackbar.make(view, "Selected Phial: Other", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+                                Toast.makeText(UI.this, "These phials don't affect attack power, only status effects.",
+                                        Toast.LENGTH_LONG).show();
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.SA_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
             case "CB":
                 PhialSelect = findViewById(R.id.PhialSelect);
-                ArrayAdapter PhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
+                ArrayAdapter CBPhialAdapter = ArrayAdapter.createFromResource(this,R.array.CBPhial,
                         android.R.layout.simple_spinner_dropdown_item);
 
-                PhialSelect.setAdapter(PhialAdapter);
+                PhialSelect.setAdapter(CBPhialAdapter);
                 PhialSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -1390,6 +1478,54 @@ public class UI extends AppCompatActivity {
                         android.R.layout.simple_spinner_dropdown_item);
 
                 NumberofPhialsSelect.setAdapter(NumberofPhialsAdapter);
+
+                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        switch(String.valueOf(NumberofPhialsSelect.getSelectedItem())){
+                            case "1":
+                                NumberofPhials = 1;
+                                EnergyBladePhials = 3;
+                                break;
+                            case "2":
+                            case "3":
+                                NumberofPhials = 2;
+                                EnergyBladePhials = 3;
+                                break;
+                            case "4":
+                            case "5":
+                                NumberofPhials = 3;
+                                EnergyBladePhials = 6;
+                                break;
+                            case "6":
+                                NumberofPhials = 4;
+                                EnergyBladePhials = 6;
+                                break;
+                            case "7":
+                                NumberofPhials = 4;
+                                EnergyBladePhials = 9;
+                                break;
+                            case "8":
+                            case "9":
+                                NumberofPhials = 5;
+                                EnergyBladePhials = 9;
+                                break;
+                            case "10":
+                                NumberofPhials = 6;
+                                EnergyBladePhials = 10;
+                                break;
+                            default:
+                                NumberofPhials = 0;
+                                EnergyBladePhials = 0;
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 //                NumberofPhialsSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //                    @Override
 //                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -1906,7 +2042,7 @@ public class UI extends AppCompatActivity {
                     return;
                 }
 
-                RefreshTextViews();
+                RefreshTextViews(Wpn);
                 DisplayBanners(Wpn);
                 DisplayInfo(Wpn);
 
@@ -1918,7 +2054,7 @@ public class UI extends AppCompatActivity {
         });
     }
 
-    private void RefreshTextViews(){
+    private void RefreshTextViews(String Wpn){
         filler = 0;
         textviews = new TextView[AllTextViewIDs.length];
 
@@ -1928,6 +2064,8 @@ public class UI extends AppCompatActivity {
             textviews[i] = findViewById(getResources().getIdentifier(AllTextViewIDs[i], "id", getPackageName()));
             textviews[i].setVisibility(View.GONE);
         }
+
+        if(Wpn.equals("GL") || Wpn.equals("CB")) ExtraInfo.setVisibility(View.GONE);
     }
 
     private void DisplayTextViews(int counter, View view, String Wpn){
@@ -1936,19 +2074,37 @@ public class UI extends AppCompatActivity {
                 if((DmgCalc.getMVName(counter).equals("Jump Attack Thrust")
                         || DmgCalc.getMVName(counter).equals("Vault Attack")) && counter < 11)
                     while (!TextViewIDsNames[counter + filler].contains("11")) filler++;
+
+                if((DmgCalc.getMVName(counter).equals("   -Charged Fire Damage")
+                    || DmgCalc.getMVName(counter).equals("Charged Shell"))
+                        && ChosenStyle.equals("Alchemy")) return;
+
+                if(DmgCalc.getMVName(counter).equals("Full Burst") && ChosenStyle.equals("Striker"))
+                    return;
                 break;
             case "SA":
                 if(DmgCalc.getMVName(counter).equals("Jump Attack") && counter < 10)
                     while (!TextViewIDsNames[counter + filler].contains("10")) filler++;
 
+                else if(DmgCalc.getMVName(counter).contains("Tempest") && !TempestAxeCheck.isChecked())
+                    return;
+
                 else if(DmgCalc.getMVName(counter).equals("Jump Attack") && counter > 10)
                     while (!TextViewIDsNames[counter + filler].contains("23")) filler++;
+
                 break;
             case "CB":
                 if((DmgCalc.getMVName(counter).equals("Jump Attack")
                         || DmgCalc.getMVName(counter).equals("Aerial Attack")
                         || DmgCalc.getMVName(counter).equals("Aerial Charge Slash")) && counter < 10)
                     while (!TextViewIDsNames[counter + filler].contains("10")) filler++;
+
+                else if(((DmgCalc.getMVName(counter).equals("Ultra Burst (2 hits) (Valor State)")
+                        || (DmgCalc.getMVName(counter).contains("EX")))
+                        && String.valueOf(ShieldChargeSelect.getSelectedItem()).equals("Blue Charge (Valor)"))
+                        || (DmgCalc.getMVName(counter).equals("Ultra Burst (2 hits)") && Skills.getCBPhialModifier() == 1f)){
+                    return;
+                }
 
                 else if(DmgCalc.getMVName(counter).equals("Jump Attack") && counter > 10)
                     while (!TextViewIDsNames[counter + filler].contains("23")) filler++;
@@ -1992,24 +2148,71 @@ public class UI extends AppCompatActivity {
             Banners.get(1).setVisibility(View.VISIBLE);
         }
 
-        if(Wpn.equals("SA") || Wpn.equals("CB")){
+        if((Wpn.equals("SA") || Wpn.equals("CB")) && ChosenArt.equals("-None-")){
+            if(Wpn.equals("CB")) {
+                Banners.get(4).setVisibility(View.VISIBLE);
+                Banners.get(5).setVisibility(View.VISIBLE);
+                Banners.get(6).setVisibility(View.VISIBLE);
+            }
             Banners.get(2).setVisibility(View.VISIBLE);
             Banners.get(3).setVisibility(View.VISIBLE);
         }
     }
 
-    private void DisplayInfo(String Weapon){
+    private void DisplayInfo(String Wpn){
         AttackInfo.setVisibility(View.VISIBLE);
-        if(Weapon.equals("CB") || Weapon.equals("GL")) ExtraInfo.setVisibility(View.VISIBLE);
+        if((Wpn.equals("CB") || Wpn.equals("GL")) && ChosenArt.equals("-None-")) {
+            if(Wpn.equals("CB")){
+                if(isImpact){
 
-        if(!ChosenStyle.equals("Valor") && Weapon.equals("GL"))
+                    if (Skills.getCBPhialModifier() == 1) {
+                        String Key = "(L)KO/Exhaust: " + String.format("%s", Math.round(30f * Skills.getCBPhialModifier())) + "/" +
+                                String.format("%s", Math.round(5f * Skills.getCBPhialModifier())) +
+                                "\nThese values are fixed and are based on raw damage ONLY";
+                        Banners.get(4).setText(Key);
+                    } else {
+                        String Key = "(S)KO/Exhaust: " + String.format("%s", Math.round(15f * Skills.getCBPhialModifier())) + "/" +
+                                String.format("%s", Math.round(2.5f * Skills.getCBPhialModifier())) + "\n(L)KO/Exhaust: " +
+                                String.format("%s", Math.round(30f * Skills.getCBPhialModifier())) + "/" +
+                                String.format("%s", Math.round(5f * Skills.getCBPhialModifier())) +
+                                "\nThese values are fixed and are based on raw damage ONLY";
+                        Banners.get(4).setText(Key);
+                    }
+
+                    TextView BurstBanner = (TextView) findViewById(R.id.BurstAttack_1);
+                    ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) BurstBanner.getLayoutParams();
+                    Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.convert1), 0, 0);
+                    BurstBanner.setLayoutParams(Margin);
+                    Banners.get(4).setVisibility(View.VISIBLE);
+                }
+                else {
+                    Banners.get(4).setText("Elemental bursts aren't affected by sharpness");
+                    TextView BurstBanner = findViewById(R.id.BurstAttack_1);
+                    ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) BurstBanner.getLayoutParams();
+                    Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.convert2), 0, 0);
+                    BurstBanner.setLayoutParams(Margin);
+                    Banners.get(4).setVisibility(View.VISIBLE);
+                }
+            }
+            ExtraInfo.setVisibility(View.VISIBLE);
+        }
+
+        if(!ChosenStyle.equals("Valor") && Wpn.equals("GL"))
             findViewById(R.id.ValorShellingInfo).setVisibility(View.GONE);
-        else if(ChosenStyle.equals("Valor") && Weapon.equals("GL"))
+        else if(ChosenStyle.equals("Valor") && Wpn.equals("GL"))
             findViewById(R.id.ValorShellingInfo).setVisibility(View.VISIBLE);
     }
 
     private boolean ErrorCheck(View view, String Wpn, float RawElement, float RawSubElement){
         switch(Wpn){
+            case "GS":
+                if(!SynergyCheck && (LionsMawLevel1Check.isChecked() || LionsMawLevel2Check.isChecked()
+                        || LionsMawLevel3Check.isChecked())){
+                    Skills.setLionsMawModifier(!LionsMawOffCheck.isChecked(),0);
+                    Snackbar.make(view, "Lions Maw attack boost negated", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                break;
             case "LS":
                 if(SpiritGaugeColour.equals("-Blue (Valor)-") && !ChosenStyle.equals("Valor")){
                     Snackbar.make(view, "Please choose either 'No Colour' or '-Blue (Valor)-' for Valor Style", Snackbar.LENGTH_LONG)
@@ -2030,6 +2233,33 @@ public class UI extends AppCompatActivity {
                     return true;
                 }
                 break;
+            case "GL":
+                String ShotType = String.valueOf(ShotTypeSelect.getSelectedItem());
+                if((ShotType.equals("Long") && ShellNumber > 4) || (ShotType.equals("Wide") && ShellNumber > 3)) {
+                    if(ShotType.equals("Long")) {
+                        Toast.makeText(UI.this,"Long Types have a maximum clip size of 3 (4 with Load Up)",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        Toast.makeText(UI.this,"Wide Types have a maximum clip size of 2 (3 with Load Up)",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    return true;
+                }
+                break;
+            case "SA":
+                if (AwakenedCheck.isChecked() && Skills.SAPhialType().equals("Dragon Phial")) {
+                    Snackbar.make(view, "Dragon Phials aren't available with awakened elements", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return true;
+                }
+
+                if (((Skills.SAPhialType().equals("Element Phial") || Skills.SAPhialType().equals("Dragon Phial")) && RawElement == 0) ||
+                        Skills.SAPhialType().equals("Dragon Phial") && !ChosenElement.equals("Dragon")){
+                    Snackbar.make(view, "Please check your inputted element/phial", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return true;
+                }
         }
 
         return false;

@@ -29,6 +29,7 @@ public class SkillsCalculation {
     private float SAAtkPhialModifier = 1;
     private float SAElmPhialModifier = 1;
     private String SAPhialType;
+    private float DemonRiotModifier = 1f;
     private float IGExtractModifier = 1;
     private int StingerModifier = 0;
     private float RapidFireModifier = 1;
@@ -326,13 +327,31 @@ public class SkillsCalculation {
 
     void setLionsMawModifier(boolean Check, int Level){
         if(Check){
+
+            switch(Level){
+                case R.id.LionsMawLevel1Check:
+                    LionsMawModifier = 1.1f;
+                    break;
+                case R.id.LionsMawLevel2Check:
+                    LionsMawModifier = 1.2f;
+                    break;
+                case R.id.LionsMawLevel3Check:
+                    LionsMawModifier = 1.33f;
+                    break;
+                default:
+                    LionsMawModifier = 1f;
+                    break;
+            }
+
+
+
             if(Level == 1){
                 LionsMawModifier = 1.1f;
             }
             else if(Level == 2){
                 LionsMawModifier = 1.2f;
             }
-            else{
+            else if(Level == 3){
                 LionsMawModifier = 1.33f;
             }
         }
@@ -453,22 +472,43 @@ public class SkillsCalculation {
         return ArtilleryModifier * FelyneBombardier;
     }
 
+    void setDemonRiotModifier(boolean Check, int ID){
+        if(Check) {
+            switch (ID) {
+                case R.id.DemonRiotLevel1Check:
+                    DemonRiotModifier = 1.05f;
+                    break;
+                case R.id.DemonRiotLevel2Check:
+                    DemonRiotModifier = 1.1f;
+                    break;
+                case R.id.DemonRiotLevel3Check:
+                    DemonRiotModifier = 1.2f;
+                    break;
+                default:
+                    DemonRiotModifier = 1f;
+                    break;
+            }
+        }
+    }
+
+    float getDemonRiotModifier(){
+        return DemonRiotModifier;
+    }
+
     void setSAPhialModifier(String Phial){
+        SAPhialType = Phial;
         switch(Phial){
             case "Power Phial":
                 SAAtkPhialModifier = 1.2f;
                 SAElmPhialModifier = 1;
-                SAPhialType = Phial;
                 break;
             case "Element Phial":
                 SAAtkPhialModifier = 1;
                 SAElmPhialModifier = 1.25f;
-                SAPhialType = Phial;
                 break;
             default:
                 SAAtkPhialModifier = 1;
                 SAElmPhialModifier = 1;
-                SAPhialType = Phial;
                 break;
         }
     }
