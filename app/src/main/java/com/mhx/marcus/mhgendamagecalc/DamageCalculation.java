@@ -24,7 +24,7 @@ public class DamageCalculation {
     private Context context;
     //private int MV_Array, MV_Names_Array, MV_HA_Array, HA_Levels_Array, HA_ElementCheck_Array, ErrorNumber;
     private float SharpnessModifier_Atk, SharpnessModifier_Elm;
-    private int[] MV, MV_Extra, HA_ElementCheck;
+    private int[] MV, ValorFullBurstMods, HA_ElementCheck;
     private String[] MV_Names, MV_Names_Extra, HA_Levels;
     private boolean DualElement = false;//, Bounce = false;
 
@@ -88,12 +88,24 @@ public class DamageCalculation {
 
         this.Weapon = ui.getIntent().getStringExtra("Weapon");
 
-        M = new MonsterCalculation(context,
-                ui.ChosenMonster + "RawHitzones_Cut",
-                ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
-                ui.ChosenMonster + "_StaggerLimits",
-                ui.HitzoneGroup + "Hitzones",
-                ui.ChosenHitzone);
+        if(Weapon.equals("Lance")){
+            M = new MonsterCalculation(context,
+                    ui.ChosenMonster + "RawHitzones_Cut",
+                    ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
+                    ui.ChosenMonster + "RawHitzones_Impact",
+                    ui.ChosenMonster + "_StaggerLimits",
+                    ui.HitzoneGroup + "Hitzones",
+                    ui.ChosenHitzone,
+                    "Lance");
+        }
+        else {
+            M = new MonsterCalculation(context,
+                    ui.ChosenMonster + "RawHitzones_Cut",
+                    ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
+                    ui.ChosenMonster + "_StaggerLimits",
+                    ui.HitzoneGroup + "Hitzones",
+                    ui.ChosenHitzone);
+        }
 
         M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
 
@@ -158,7 +170,7 @@ public class DamageCalculation {
     }//Dual Blades
 
     public void Calculate(int counter){
-        float TrueRaw, TrueAttack, HitzoneRaw;
+        float TrueRaw;
 
         alterHitzones(counter);
 
@@ -226,22 +238,6 @@ public class DamageCalculation {
 
     //Private Calculations
 
-    private int HitMultiplier(int counter){
-        switch (Weapon){
-            case "LS":
-                if (MV_Names[counter].contains("2 hits") || ((MV_Names[counter].contains("Jump Spirit Slash")
-                        || MV_Names[counter].equals("   -(With Spirit Energy)")) && !ui.SpiritGaugeColour.equals("No Colour")))
-                    return 2;
-                else if (MV_Names[counter].contains("3 hits")) return 3;
-                return 1;
-            case "DB":
-                return 1;
-            default:
-                if(MV_Names[counter].contains("Both hits") || MV_Names[counter].contains("2 hits")) return 2;
-                return 1;
-        }
-    }
-
     private float getTrueAttack(int counter, float TrueRaw){
         if (!ui.ChosenArt.equals("-None-"))
             return getCalculatedRawHitzone(counter, TrueRaw) + (getCalculatedElm(counter) *
@@ -258,6 +254,22 @@ public class DamageCalculation {
 
             if(MV_Names[counter].equals("Kick")) return 2;
             else return getCalculatedRawHitzone(counter, TrueRaw) + getCalculatedElm(counter) + getCalculatedSubElm();
+        }
+    }
+
+    private int HitMultiplier(int counter){
+        switch (Weapon){
+            case "LS":
+                if (MV_Names[counter].contains("2 hits") || ((MV_Names[counter].contains("Jump Spirit Slash")
+                        || MV_Names[counter].equals("   -(With Spirit Energy)")) && !ui.SpiritGaugeColour.equals("No Colour")))
+                    return 2;
+                else if (MV_Names[counter].contains("3 hits")) return 3;
+                return 1;
+            case "DB":
+                return 1;
+            default:
+                if(MV_Names[counter].contains("Both hits") || MV_Names[counter].contains("2 hits")) return 2;
+                return 1;
         }
     }
 
@@ -326,14 +338,27 @@ public class DamageCalculation {
                 int[] ShellingMVs = context.getResources().getIntArray(context.getResources().
                         getIdentifier("GL_Shelling_" + String.valueOf(ui.ShotTypeSelect.getSelectedItem()) + "_MV", "array", context.getPackageName()));
 
+                String[] ValorNames = context.getResources().getStringArray(context.getResources().
+                        getIdentifier("GL_Shelling_Valor_Mods_Names", "array", context.getPackageName()));
+
+                int[] ValorMVs = context.getResources().getIntArray(context.getResources().
+                        getIdentifier("GL_Shelling_Valor_Mods_MV", "array", context.getPackageName()));
+
+                int[] FullBurstMods = context.getResources().getIntArray(context.getResources().
+                        getIdentifier("GL_Full_Burst_Valor_Mods_MV", "array", context.getPackageName()));
+
                 String[] tempGLNames = MV_Names;
                 int[] tempGLMVs = MV;
 
-                MV_Names = new String[tempGLNames.length + 6];
+                MV_Names = new String[tempGLNames.length + 12];
                 MV = new int[MV_Names.length];
+                ValorFullBurstMods = new int[7];
 
                 System.arraycopy(tempGLNames, 0, MV_Names, 0, tempGLNames.length);
                 System.arraycopy(ShellingNames, 0, MV_Names, tempGLNames.length, 6);
+                System.arraycopy(ValorNames, 0, MV_Names, tempGLNames.length + ValorNames.length, 6);
+
+                System.arraycopy(FullBurstMods, 0, ValorFullBurstMods, 0, FullBurstMods.length);
 
                 switch(String.valueOf(ui.ShotLevelSelect.getSelectedItem())){
                     case "Level 1":
@@ -357,6 +382,7 @@ public class DamageCalculation {
                         System.arraycopy(ShellingMVs, 24, MV, tempGLMVs.length, 6);
                         break;
                 }
+                System.arraycopy(ValorMVs, 0, MV, tempGLMVs.length + ValorMVs.length, 6);
                 break;
             case "SA":
                 MV = context.getResources().getIntArray(context.getResources().getIdentifier("SA_Axe_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
@@ -1470,20 +1496,51 @@ public class DamageCalculation {
                         (MV[counter - 1] / 100f)) * M.getElmHitzoneValue()) / 100);
                 break;
             case "Wyverns Fire (All hits)":
-                float AlchemyMod = 1;
-                if(ui.ChosenStyle.equals("Alchemy")) AlchemyMod = 0.5f;
+                float Mod = 1;
+                if(ui.ChosenStyle.equals("Alchemy")) Mod = 0.5f;
+                else if(ui.ChosenStyle.equals("Valor")){
+                    switch(ui.ShellNumber){
+                        case 0:
+                            Mod = 0.8f;
+                            break;
+                        case 1:
+                            Mod = 0.9f;
+                            break;
+                        case 2:
+                            Mod = 1f;
+                            break;
+                        case 3:
+                            Mod = 1.4f;
+                            break;
+                        case 4:
+                            Mod = 1.5f;
+                            break;
+                        case 5:
+                            Mod = 1.6f;
+                            break;
+                        case 6:
+                            Mod = 1.6f;
+                            break;
+                    }
+                }
 
-                MVs.set(counter, ((MV[counter] * AlchemyMod) + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
-                        Skills.getShellingModifier());
+                MVs.set(counter, ((MV[counter] + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
+                        Skills.getShellingModifier()) * Mod);
                 break;
             case "Full Burst":
+                float ShotTypeMod = MV[counter] / 100f;
                 if(ui.ChosenStyle.equals("Striker")) return;
+                else if(ui.ChosenStyle.equals("Valor")) ShotTypeMod = ValorFullBurstMods[ui.ShellNumber] / 100f;
 
                 MVs.set(counter, (((MV[counter - 5] + Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) *
-                        (MV[counter] / 100f)) * Skills.getShellingModifier() * ui.ShellNumber));
+                        Skills.getShellingModifier() * ShotTypeMod) * ui.ShellNumber));
+                break;
+            default:
+                if(MV_Names[counter].contains("Shot")) MVs.set(counter, (((MV[getMVSize() - 12]/*Normal Shell MV*/) +
+                        Skills.getDragonBreathModifier(ui.DragonBreathCheck.isChecked())) * Skills.getShellingModifier()) *
+                        MV[counter] / 100f);
                 break;
         }
-        //return 0;
     }
 
     private void SAPhials(int counter, float Damage){
@@ -1535,7 +1592,7 @@ public class DamageCalculation {
                 if(MV_Names[counter].contains("(S)")) MVs.set(counter, (MVs.get(counter) / 2f));
             }
             else MVs.set(counter, (Skills.getCBPhialAtk(ui.isImpact, RawDamage, ElementalDamage *
-                    M.getElmHitzoneValue()) * MV[counter]) / 100);
+                    M.getElmHitzoneValue()) * MV[counter]) / 10000);
         }
         else if(MV_Names[counter].contains("Ultra Axe Burst (All Phials)")){
             MVs.set(counter, (Skills.getCBPhialAtk(ui.isImpact, RawDamage, ElementalDamage) * MV[counter] / 100f) *

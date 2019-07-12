@@ -1172,7 +1172,6 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
         ChosenArt = i;
         return ChosenArt;
     }
-    //TODO: 19/06/2018 Find a way to get rid of these functions
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {

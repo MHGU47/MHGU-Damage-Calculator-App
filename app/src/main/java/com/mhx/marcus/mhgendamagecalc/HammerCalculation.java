@@ -1075,7 +1075,6 @@ public class HammerCalculation extends AppCompatActivity implements AdapterView.
 
 
                     float HitzoneRaw = TrueRaw * ModifiedRawHitzone;
-                    //TODO: 07/12/2018 Implement Weakness Exploit skill
 
                     float ModifiedElmHitzone = (M.getElmHitzoneValue() * (SelectedSharpnessElmModifier *
                             SkillSharpnessModifier)) / 100;

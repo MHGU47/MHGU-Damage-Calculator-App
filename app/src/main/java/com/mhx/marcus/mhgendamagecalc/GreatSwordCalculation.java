@@ -1209,7 +1209,6 @@ public class GreatSwordCalculation extends AppCompatActivity implements AdapterV
 
 
                     float HitzoneRaw = TrueRaw * ModifiedRawHitzone;
-                    //TODO: 07/12/2018 Implement Weakness Exploit skill
 
                     float ModifiedElmHitzone = (M.getElmHitzoneValue() * (SelectedSharpnessElmModifier *
                             ChargeElmModifier * SkillSharpnessModifier)) / 100;

@@ -2835,12 +2835,30 @@
         <item>Sixth Shot</item>
     </string-array>
     <integer-array name="GL_Shelling_Valor_Mods_MV">
+        <item>100</item>
+        <item>120</item>
+        <item>150</item>
+        <item>200</item>
+        <item>260</item>
+        <item>260</item>
+    </integer-array>
+    <integer-array name="GL_Wyverns_Fire_Valor_Mods_MV">
         <item>80</item>
         <item>90</item>
         <item>100</item>
         <item>140</item>
         <item>150</item>
         <item>160</item>
+        <item>160</item>
+    </integer-array>
+    <integer-array name="GL_Full_Burst_Valor_Mods_MV">
+        <item>0</item> <!--Dummy value-->
+        <item>90</item>
+        <item>100</item>
+        <item>120</item>
+        <item>165</item>
+        <item>175</item>
+        <item>175</item>
     </integer-array>
 
 
@@ -3531,7 +3549,7 @@
         <item>Side Chop</item>
         <item>Side Chop Burst</item>
         <item>Double Swing Burst (2 hits)</item>
-        <item>EX Double Swing Burst (2 hits) (Valor State)</item>
+        <item>EX Double Swing Burst (2 hits)\n(Valor State)</item>
 
         <item>Super Burst</item>
         <item>Ultra Burst (2 hits) (Valor State)</item>

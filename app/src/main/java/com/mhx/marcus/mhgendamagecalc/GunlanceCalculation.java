@@ -1330,7 +1330,7 @@ public class GunlanceCalculation extends AppCompatActivity implements AdapterVie
                 if(NumberofShells != 0) {
                     for (int i = 0; i < NumberofShells; i++) {
                         int ii = ForLoopValorCarry + i;
-                        float TrueAttack = ((SelectedShot[0] * ValorRapidShotModifiers[i]) + Skills.getDragonBreathModifier(DragonBreathCheck.isChecked())) *
+                        float TrueAttack = ((SelectedShot[0]/* * ValorRapidShotModifiers[i]*/) + Skills.getDragonBreathModifier(DragonBreathCheck.isChecked())) *
                                 Skills.getShellingModifier();
 
                         textviews[ii] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsAttacks[ii], "id", getPackageName()));
