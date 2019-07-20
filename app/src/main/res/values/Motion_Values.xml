@@ -3696,7 +3696,7 @@
 
 
 
-    <integer-array name="IG_NoExtract_Guild_MV">
+    <integer-array name="IG_Guild_MV_NoExtract">
     <item>28</item>
     <item>40</item>
     <item>21</item>
@@ -3714,7 +3714,7 @@
 
     <item>60</item>
 </integer-array>
-    <string-array name="IG_NoExtract_Guild_Names">
+    <string-array name="IG_Guild_Names_NoExtract">
         <item>Draw Attack</item>
         <item>Idle Attack (Both hits)</item>
         <item>Downward Strike - Right</item>
@@ -3730,9 +3730,9 @@
         <item>Pole Vault/Jump Attack</item>
         <item>Kinsect Shot</item>
 
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
-    <integer-array name="IG_Extract_Guild_MV">
+    <integer-array name="IG_Guild_MV_Extract">
         <item>28</item>
         <item>53</item>
         <item>78</item>
@@ -3752,7 +3752,7 @@
         <item>22</item>
         <item>60</item>
     </integer-array>
-    <string-array name="IG_Extract_Guild_Names">
+    <string-array name="IG_Guild_Names_Extract">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
         <item>\u0020\u0020\u0020-During Combo</item>
@@ -3770,10 +3770,10 @@
         <item>Pole Vault/Jump Attack (Both hits)</item>
 
         <item>Kinsect Shot</item>
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
 
-    <integer-array name="IG_NoExtract_Striker_MV">
+    <integer-array name="IG_Striker_MV_NoExtract">
         <item>28</item>
         <item>40</item>
         <item>21</item>
@@ -3788,7 +3788,7 @@
         <item>22</item>
         <item>60</item>
     </integer-array>
-    <string-array name="IG_NoExtract_Striker_Names">
+    <string-array name="IG_Striker_Names_NoExtract">
         <item>Draw Attack</item>
         <item>Idle Attack (Both hits)</item>
         <item>Downward Strike - Right</item>
@@ -3801,9 +3801,9 @@
 
         <item>Pole Vault/Jump Attack</item>
         <item>Kinsect Shot</item>
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
-    <integer-array name="IG_Extract_Striker_MV">
+    <integer-array name="IG_Striker_MV_Extract">
         <item>28</item>
         <item>53</item>
 
@@ -3819,7 +3819,7 @@
         <item>22</item>
         <item>60</item>
     </integer-array>
-    <string-array name="IG_Extract_Striker_Names">
+    <string-array name="IG_Striker_Names_Extract">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
 
@@ -3833,10 +3833,10 @@
 
         <item>Pole Vault/Jump Attack (Both hits)</item>
         <item>Kinsect Shot</item>
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
 
-    <integer-array name="IG_NoExtract_Aerial_MV">
+    <integer-array name="IG_Aerial_MV_NoExtract">
         <item>28</item>
         <item>40</item>
         <item>21</item>
@@ -3853,7 +3853,7 @@
 
         <item>60</item>
     </integer-array>
-    <string-array name="IG_NoExtract_Aerial_Names">
+    <string-array name="IG_Aerial_Names_NoExtract">
         <item>Draw Attack</item>
         <item>Idle Attack (Both hits)</item>
         <item>Downward Strike - Right</item>
@@ -3868,9 +3868,9 @@
         <item>Pole Vault/Jump Attack</item>
         <item>Kinsect Shot</item>
 
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
-    <integer-array name="IG_Extract_Aerial_MV">
+    <integer-array name="IG_Aerial_MV_Extract">
         <item>28</item>
         <item>53</item>
         <item>78</item>
@@ -3889,7 +3889,7 @@
         <item>22</item>
         <item>60</item>
     </integer-array>
-    <string-array name="IG_Extract_Aerial_Names">
+    <string-array name="IG_Aerial_Names_Extract">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
         <item>\u0020\u0020\u0020-During Combo</item>
@@ -3906,10 +3906,10 @@
         <item>Pole Vault/Jump Attack (Both hits)</item>
 
         <item>Kinsect Shot</item>
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
 
-    <integer-array name="IG_NoExtract_Adept_MV">
+    <integer-array name="IG_Adept_MV_NoExtract">
         <item>28</item>
         <item>40</item>
         <item>21</item>
@@ -3929,7 +3929,7 @@
         <item>30</item>
         <item>35</item>
     </integer-array>
-    <string-array name="IG_NoExtract_Adept_Names">
+    <string-array name="IG_Adept_Names_NoExtract">
         <item>Draw Attack</item>
         <item>Idle Attack (Both hits)</item>
         <item>Downward Strike - Right</item>
@@ -3945,11 +3945,11 @@
         <item>Pole Vault/Jump Attack</item>
         <item>Kinsect Shot</item>
 
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
         <item>Adept Evade Extract Attack</item>
         <item>Adept Evade Lunge Attack</item>
     </string-array>
-    <integer-array name="IG_Extract_Adept_MV">
+    <integer-array name="IG_Adept_MV_Extract">
         <item>28</item>
         <item>53</item>
         <item>78</item>
@@ -3971,7 +3971,7 @@
         <item>22</item>
         <item>60</item>
     </integer-array>
-    <string-array name="IG_Extract_Adept_Names">
+    <string-array name="IG_Adept_Names_Extract">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
         <item>\u0020\u0020\u0020-During Combo</item>
@@ -3991,10 +3991,10 @@
         <item>Adept Evade Extract Attack</item>
         <item>Adept Evade Lunge Attack</item>
         <item>Kinsect Shot</item>
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
 
-    <integer-array name="IG_NoExtract_Valor_MV">
+    <integer-array name="IG_Valor_MV_NoExtract">
         <item>28</item>
         <item>40</item>
         <item>21</item>
@@ -4014,7 +4014,7 @@
         <item>22</item>
         <item>60</item>
     </integer-array>
-    <string-array name="IG_NoExtract_Valor_Names">
+    <string-array name="IG_Valor_Names_NoExtract">
         <item>Draw Attack</item>
         <item>Idle Attack (Both hits)</item>
         <item>Downward Strike - Right</item>
@@ -4032,9 +4032,9 @@
 
         <item>Strong Kinsect Auto Attack (Valor State)</item>
         <item>Kinsect Shot</item>
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
-    <integer-array name="IG_Extract_Valor_MV">
+    <integer-array name="IG_Valor_MV_Extract">
         <item>28</item>
         <item>53</item>
         <item>78</item>
@@ -4057,7 +4057,7 @@
         <item>22</item>
         <item>60</item>
     </integer-array>
-    <string-array name="IG_Extract_Valor_Names">
+    <string-array name="IG_Valor_Names_Extract">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
         <item>\u0020\u0020\u0020-During Combo</item>
@@ -4078,10 +4078,10 @@
         <item>Strong Kinsect Auto Attack (Valor State)</item>
 
         <item>Kinsect Shot</item>
-        <item>Kinsect Shot - Charge</item>
+        <item>Kinsect Shot - Charge\n(40 KO for Impact Type)</item>
     </string-array>
 
-    <integer-array name="IG_NoExtract_Alchemy_MV">
+    <integer-array name="IG_Alchemy_MV_NoExtract">
         <item>28</item>
         <item>40</item>
         <item>21</item>
@@ -4096,7 +4096,7 @@
         <item>21</item>
         <item>22</item>
     </integer-array>
-    <string-array name="IG_NoExtract_Alchemy_Names">
+    <string-array name="IG_Alchemy_Names_NoExtract">
         <item>Draw Attack</item>
         <item>Idle Attack (Both hits)</item>
         <item>Downward Strike - Right</item>
@@ -4111,7 +4111,7 @@
         <item>Pole Vault/Jump Attack</item>
         <item>Kinsect Shot</item>
     </string-array>
-    <integer-array name="IG_Extract_Alchemy_MV">
+    <integer-array name="IG_Alchemy_MV_Extract">
         <item>28</item>
         <item>53</item>
         <item>78</item>
@@ -4128,7 +4128,7 @@
         <item>24</item>
         <item>22</item>
     </integer-array>
-    <string-array name="IG_Extract_Alchemy_Names">
+    <string-array name="IG_Alchemy_Names_Extract">
         <item>Draw Attack</item>
         <item>Idle Attack (All hits)</item>
         <item>\u0020\u0020\u0020-During Combo</item>
@@ -4189,6 +4189,8 @@
         <item>1</item>
         <item>1</item>
     </integer-array>
+
+
 
     <string-array name="LBG_HA_Names">
         <item>-None-</item>

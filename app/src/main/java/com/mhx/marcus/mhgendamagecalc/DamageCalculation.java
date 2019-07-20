@@ -88,26 +88,38 @@ public class DamageCalculation {
 
         this.Weapon = ui.getIntent().getStringExtra("Weapon");
 
-        if(Weapon.equals("Lance")){
-            M = new MonsterCalculation(context,
-                    ui.ChosenMonster + "RawHitzones_Cut",
-                    ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
-                    ui.ChosenMonster + "RawHitzones_Impact",
-                    ui.ChosenMonster + "_StaggerLimits",
-                    ui.HitzoneGroup + "Hitzones",
-                    ui.ChosenHitzone,
-                    "Lance");
+        switch(Weapon){
+            case "Lance":
+                M = new MonsterCalculation(context,
+                        ui.ChosenMonster + "RawHitzones_Cut",
+                        ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
+                        ui.ChosenMonster + "RawHitzones_Impact",
+                        ui.ChosenMonster + "_StaggerLimits",
+                        ui.HitzoneGroup + "Hitzones",
+                        ui.ChosenHitzone,
+                        "Lance");
+                M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+                break;
+            case "IG":
+                M = new MonsterCalculation(context,
+                        ui.ChosenMonster + "RawHitzones_Cut",
+                        ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
+                        ui.ChosenMonster + "_StaggerLimits",
+                        ui.ChosenMonster + "_Extracts",
+                        ui.HitzoneGroup + "Hitzones",
+                        ui.ChosenHitzone);
+                M.getHitzones_IG(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+                break;
+            default:
+                M = new MonsterCalculation(context,
+                        ui.ChosenMonster + "RawHitzones_Cut",
+                        ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
+                        ui.ChosenMonster + "_StaggerLimits",
+                        ui.HitzoneGroup + "Hitzones",
+                        ui.ChosenHitzone);
+                M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+                break;
         }
-        else {
-            M = new MonsterCalculation(context,
-                    ui.ChosenMonster + "RawHitzones_Cut",
-                    ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
-                    ui.ChosenMonster + "_StaggerLimits",
-                    ui.HitzoneGroup + "Hitzones",
-                    ui.ChosenHitzone);
-        }
-
-        M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
 
         setMVs();
         setSharpness();
@@ -440,6 +452,10 @@ public class DamageCalculation {
                 System.arraycopy(AxeMVs, 0, MV, tempCBMVs.length, AxeMVs.length);
                 System.arraycopy(PhialMVs, 0, MV, tempCBMVs.length + AxeMVs.length, PhialMVs.length);
                 break;
+            case "IG":
+                MV = context.getResources().getIntArray(context.getResources().getIdentifier("IG_" + ui.ChosenStyle + "_MV_" + ui.Extract, "array", context.getPackageName()));
+                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier("IG_" + ui.ChosenStyle + "_Names_" + ui.Extract, "array", context.getPackageName()));
+                break;
             default:
                 MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
                 MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
@@ -757,6 +773,10 @@ public class DamageCalculation {
 
     public int getMVSize(){
         return MV.length;
+    }
+
+    public String getExtract(){
+        return M.getExtract();
     }
 
     public void setHitzone(){

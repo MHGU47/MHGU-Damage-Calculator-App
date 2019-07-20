@@ -87,8 +87,9 @@ public class UI extends AppCompatActivity {
             NoShotUpRadio, NormalUpRadio, PelletUpRadio, PierceUpRadio, HeavyUpRadio,TrueShotUpRadio;
 
     Float[] BoomerangType;
-    int SelectedPhialCharge, SelectedPhialNoCharge, ShellNumber, NumberofPhials, EnergyBladePhials;
-    int filler = 0;
+    String Extract;
+    int SelectedPhialCharge, SelectedPhialNoCharge, ShellNumber, NumberofPhials, EnergyBladePhials,
+            filler = 0;
 
     List<TextView> Banners = new ArrayList<>();
     String[] TextViewIDsAttacks, TextViewIDsNames, AllTextViewIDs;
@@ -302,6 +303,9 @@ public class UI extends AppCompatActivity {
             }
             Banners.add((TextView)findViewById(R.id.AxeBanner));
             Banners.add((TextView)findViewById(R.id.SwordBanner));
+        }
+        else if(Wpn.equals("IG")) {
+            Banners.add((TextView)findViewById(R.id.ExtractBanner));
         }
 
     }
@@ -1678,6 +1682,26 @@ public class UI extends AppCompatActivity {
                 break;
             case "IG":
                 ExtractSelect = findViewById(R.id.ExtractSelect);
+                ArrayAdapter ExtractAdapter = ArrayAdapter.createFromResource(this,R.array.Extracts,
+                        android.R.layout.simple_spinner_dropdown_item);
+
+                ExtractSelect.setAdapter(ExtractAdapter);
+                ExtractSelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        if(String.valueOf(ExtractSelect.getSelectedItem()).equals("None")){
+                            Extract = "NoExtract";
+                        }
+                        else{
+                            Extract = "Extract";
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.IG_HA_Names,
                         android.R.layout.simple_spinner_dropdown_item);
@@ -2072,7 +2096,9 @@ public class UI extends AppCompatActivity {
         boolean Skip = false, Shelling = false;
         switch(Wpn){
             case "GL":
-                if(DmgCalc.getMVName(counter).equals("Shells")) Shelling = true;
+                if(DmgCalc.getMVName(counter).equals("Shells")
+                        || DmgCalc.getMVName(counter).contains("Fire")
+                        || DmgCalc.getMVName(counter).contains("Burst")) Shelling = true;
                 if((DmgCalc.getMVName(counter).equals("Jump Attack Thrust")
                         || DmgCalc.getMVName(counter).equals("Vault Attack")) && counter < 11)
                     while (!TextViewIDsNames[counter + filler].contains("11")) filler++;
@@ -2087,7 +2113,7 @@ public class UI extends AppCompatActivity {
                 switch(DmgCalc.getMVName(counter)){
                     case "First Shot":
                         if(ShellNumber < 1) Skip = true;
-                        break;
+                    break;
                     case "Second Shot":
                         if(ShellNumber < 2) return;
                         break;
@@ -2144,7 +2170,7 @@ public class UI extends AppCompatActivity {
             textviews[counter + filler].setVisibility(View.VISIBLE);
 
             if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None") &&
-                    (counter < (DmgCalc.getMVSize() - 6)) && !Shelling) {
+                    !Shelling) {
                 textviews[counter + filler].setTextColor(Color.argb(255, 242, 16, 16));
                 Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -2156,7 +2182,7 @@ public class UI extends AppCompatActivity {
             textviews[counter + filler].setVisibility(View.VISIBLE);
 
             if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None") &&
-                    (counter < (DmgCalc.getMVSize() - 6)) && !Shelling)
+                    !Shelling)
                 textviews[counter + filler].setTextColor(Color.argb(255, 242, 16, 16));
             else textviews[counter + filler].setTextColor(Color.BLACK);
 
@@ -2185,6 +2211,10 @@ public class UI extends AppCompatActivity {
         Banners.get(0).setVisibility(View.VISIBLE);
 
         if(!ChosenMonster.equals("None")) {
+            if(Wpn.equals("IG")){
+                Banners.get(2).setText(DmgCalc.getExtract());
+                Banners.get(2).setVisibility(View.VISIBLE);
+            }
             Banners.get(1).setText(DmgCalc.getStagger());
             Banners.get(1).setVisibility(View.VISIBLE);
         }
@@ -2337,12 +2367,9 @@ public class UI extends AppCompatActivity {
                 }
             case "CB":
                 String ChargeText = String.valueOf(ShieldChargeSelect.getSelectedItem());
-                if (ChosenStyle.equals("Striker") && ChargeText.equals("Yellow Charge")) {
-                    Snackbar.make(view, "Striker Style doesn't have Yellow Shield", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                    return true;
-                } else if (ChosenStyle.equals("Adept") && ChargeText.equals("Yellow Charge")) {
-                    Snackbar.make(view, "Adept Style doesn't have Yellow Shield", Snackbar.LENGTH_LONG)
+                if ((ChosenStyle.equals("Striker") || ChosenStyle.equals("Adept")) &&
+                        ChargeText.equals("Yellow Charge")) {
+                    Snackbar.make(view, ChosenStyle + " Style doesn't have Yellow Shield", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     return true;
                 } else if (ChosenStyle.equals("Valor") && (ChargeText.equals("Yellow Charge") || ChargeText.equals("Red Charge"))) {

@@ -12,7 +12,7 @@
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInputIG"
+            android:id="@+id/DamageInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -36,17 +36,17 @@
             android:id="@+id/ElementSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ElementInputIG"
-            android:layout_alignBottom="@+id/ElementInputIG"
+            android:layout_alignTop="@+id/ElementInput"
+            android:layout_alignBottom="@+id/ElementInput"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ElementInputIG" />
+            android:layout_toLeftOf="@+id/ElementInput" />
 
         <EditText
-            android:id="@+id/ElementInputIG"
+            android:id="@+id/ElementInput"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInputIG"
+            android:layout_below="@+id/DamageInput"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:ems="10"
@@ -55,7 +55,7 @@
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/AffinityInputIG"
+            android:id="@+id/AffinityInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ElementSelect"
@@ -71,7 +71,7 @@
             android:id="@+id/ExtractSelectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInputIG"
+            android:layout_below="@+id/AffinityInput"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="Extract" />
@@ -100,6 +100,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/StyleLabel"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:gravity="center"
             android:prompt="@string/style_select_label"
             android:spinnerMode="dropdown" />
@@ -118,7 +119,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="-132dp"
+                android:layout_marginRight="-132dp"
                 android:layout_toStartOf="@+id/SharpnessSelect"
+                android:layout_toLeftOf="@+id/SharpnessSelect"
                 android:text="@string/sharpness_label"
                 android:textStyle="bold|italic" />
 
