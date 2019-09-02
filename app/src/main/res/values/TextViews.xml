@@ -227,4 +227,35 @@
         <item>BurstAttack_6_Name</item>
         <item>BurstAttack_Extend</item>
     </string-array>
+
+    <string-array name="TextViewIDsAttacks_BG">
+        <item>Attack_1</item>
+        <item>Attack_2</item>
+        <item>Attack_3</item>
+        <item>Attack_4</item>
+        <item>Attack_5</item>
+        <item>Attack_6</item>
+    </string-array>
+    <string-array name="TextViewIDsNames_BG">
+        <item>Attack_1_Name</item>
+        <item>Attack_2_Name</item>
+        <item>Attack_3_Name</item>
+        <item>Attack_4_Name</item>
+        <item>Attack_5_Name</item>
+        <item>Attack_6_Name</item>
+    </string-array>
+    <string-array name="AllTextViewIDs_BG">
+        <item>Attack_1</item>
+        <item>Attack_2</item>
+        <item>Attack_3</item>
+        <item>Attack_4</item>
+        <item>Attack_5</item>
+        <item>Attack_6</item>
+        <item>Attack_1_Name</item>
+        <item>Attack_2_Name</item>
+        <item>Attack_3_Name</item>
+        <item>Attack_4_Name</item>
+        <item>Attack_5_Name</item>
+        <item>Attack_6_Name</item>
+    </string-array>
 </resources>

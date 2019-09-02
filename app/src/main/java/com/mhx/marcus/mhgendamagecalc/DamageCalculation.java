@@ -181,15 +181,42 @@ public class DamageCalculation {
         MV_NamesList.clear();
     }//Dual Blades
 
+    public DamageCalculation(Context context, UI ui, String Weapon,float RawDamage, float Affinity){
+        Stats = new StatsValidation(RawDamage,Affinity);
+        Skills = ui.Skills;
+
+
+        this.ui = ui;
+        this.context = context;
+
+        this.RawDamage = RawDamage;
+        this.Affinity = Affinity;
+
+        this.Weapon = ui.getIntent().getStringExtra("Weapon");
+
+        M = new MonsterCalculation(context,
+                ui.ChosenMonster + "",
+                ui.ChosenMonster + "_StaggerLimits",
+                ui.HitzoneGroup + "Hitzones",
+                ui.ChosenHitzone);
+        M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+
+        //setMVs();
+        //setSharpness();
+        setHA_MV();
+        MVs.clear();
+        MV_NamesList.clear();
+    }//Bowgun
+
     public void Calculate(int counter){
-        float TrueRaw;
+        float TrueRaw = 0;
 
         alterHitzones(counter);
 
         if(ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
         else MV_NamesList.add(HA_Levels[counter]);
 
-        switch(Weapon){
+        switch(Weapon) {
             case "GS":
                 setLionsMawModifier();
                 break;
@@ -204,16 +231,24 @@ public class DamageCalculation {
                 break;
         }
 
-        if(ui.ChosenArt.equals("-None-")){
-            if(ui.AirborneCheck.isChecked() && ui.SkillCheck && (MV_Names[counter].contains("Jump")
-                    || MV_Names[counter].contains("Aerial") || MV_Names[counter].contains("Vault"))){
-                Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
-            }
-            else Skills.setAirborneModifier(false);
-            TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) * MV[counter] * 0.01f;
+        switch(Weapon) {
+            case "HBG":
+            case "LBG":
+                GunnerCalc();
+                break;
+            default:
+                if(ui.ChosenArt.equals("-None-")){
+                    if(ui.AirborneCheck.isChecked() && ui.SkillCheck && (MV_Names[counter].contains("Jump")
+                            || MV_Names[counter].contains("Aerial") || MV_Names[counter].contains("Vault"))){
+                        Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
+                    }
+                    else Skills.setAirborneModifier(false);
+                    TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) * MV[counter] * 0.01f;
+                }
+                else TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) *
+                        ((MV[counter]  * 0.01f) * BrimstoneCounterModifier(counter));
+                break;
         }
-        else TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) *
-                    ((MV[counter]  * 0.01f) * BrimstoneCounterModifier(counter));
 
 //        ModifiedRawHitzone = (M.getRawHitzoneValue() * (SharpnessModifier_Atk * SNSSharpnessMod() *
 //                GSChargeMod_Atk(counter) * Skills.getGroupDSharp())) / 100;
@@ -247,7 +282,77 @@ public class DamageCalculation {
         //TODO:
     }
 
+    private void GunnerCalc(){
+        Skills.setAerialShotModifierBG(ui.AerialShotSelect.isChecked(), ui.ChosenStyle.equals("Aerial"));
+        Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
 
+        if (ui.ShotType.equals("Triblast S") || ShotType.equals("Crag") || ShotType.equals("Clust")) {
+
+            MotionName[0] = "Shot Damage";
+            MotionName[1] = "Fixed Damage";
+            MotionName[2] = "Fire Damage";
+            MotionName[3] = "Stun Damage";
+
+            for (int i = 0; i < MotionAtk.length; i++) {
+                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, RawAffinity, SkillCheck) * MotionAtk[i];
+
+                //Hitzone Modification - Start
+
+                float HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
+                M.setElmHitzoneValue(HeavyBowgunCalculation.this,
+                        ChosenMonster + "ElmHitzones_Fire");
+                float HitzoneElm = (RawDamage * MotionAtk[i] * M.getElmHitzoneValue()) / 100;
+
+                //Hitzone Modification - End
+
+                if (i == 0) {
+                    if (AerialShotSelect.isChecked()) {
+                        TrueAttack = HitzoneRaw * AerialShotModifier;
+                        Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
+                    else {
+                        TrueAttack = HitzoneRaw * DistanceModifier;
+                    }
+                }
+                else if (i == 1){
+                    if(ShotType.equals("Crag")){
+                        TrueAttack = MotionAtk[1] * (Skills.getArtilleryModifier() *
+                                Skills.getFelyneBombardierModifier());
+                    }
+                    else{
+                        TrueAttack = MotionAtk[1];
+                    }
+
+                }
+                else if (i == 2){
+                    TrueAttack = HitzoneElm;
+                }
+                else{
+                    TrueAttack = MotionAtk[3];
+                }
+
+                if(!HitzoneCatchList.contains(ChosenHitzone) && i == 3){
+                    Info.setVisibility(View.VISIBLE);
+                    Banner.setText(ShotText);
+                    break;
+                }
+                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsAttacks[i], "id", getPackageName()));
+                textviews[i].setText(String.format("%s", Math.round(TrueAttack)));
+                textviews[i].setVisibility(View.VISIBLE);
+                            /*Sets the current textview to the id value of 'Counter' and then sets that
+                            textviews value the value of 'test's current value. It also sets the
+                            visibility of all the used textboxes to 'visible'.*/
+
+                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsNames[i], "id", getPackageName()));
+                textviews[i].setText(MotionName[i]);
+                textviews[i].setVisibility(View.VISIBLE);
+                            /*Sets the current textview to the id value of 'Counter' and then sets that
+                            textviews value the value of 'test's current value. It also sets the
+                            visibility of all the used textboxes to 'visible'.*/
+            }
+        }
+    }
     //Private Calculations
 
     private float getTrueAttack(int counter, float TrueRaw){

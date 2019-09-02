@@ -10,7 +10,7 @@
     <dimen name="Skills_Hidden">20dp</dimen>
     <dimen name="Skills_Visible">550dp</dimen>
     <dimen name="Skills_Visible_CB">600dp</dimen>
-    <dimen name="Skills_Visible_BG">800dp</dimen>
+    <dimen name="Skills_Visible_BG">850dp</dimen>
     <dimen name="Skills_Visible_Bow">650dp</dimen>
     <dimen name="Skills_Visible_Prowler">380dp</dimen>
     <dimen name="Calculate_Bottom_Margin">50dp</dimen>

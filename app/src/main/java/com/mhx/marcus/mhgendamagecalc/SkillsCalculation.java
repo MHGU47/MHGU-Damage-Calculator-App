@@ -32,6 +32,7 @@ public class SkillsCalculation {
     private float DemonRiotModifier = 1f;
     private float IGExtractModifier = 1;
     private int StingerModifier = 0;
+    private float AerialShotModifier = 0;
     private float RapidFireModifier = 1;
     private float AtkCoatingModifier = 1;
     private float ElmCoatingModifier = 1;
@@ -584,6 +585,15 @@ public class SkillsCalculation {
         else{
             FelyneSharpshooterModifer = 1;
         }
+    }
+
+    void setAerialShotModifierBG(Boolean Check, Boolean Check_){
+        if(Check && Check_) AerialShotModifier = 1.5f;
+        else AerialShotModifier = 1;
+    }
+
+    float getAerialShotModifier(){
+        return AerialShotModifier;
     }
 
     void setRapidFireModifier(Boolean Check, String ShotType){
