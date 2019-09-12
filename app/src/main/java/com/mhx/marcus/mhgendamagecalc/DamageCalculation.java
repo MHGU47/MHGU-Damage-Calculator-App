@@ -234,7 +234,7 @@ public class DamageCalculation {
         switch(Weapon) {
             case "HBG":
             case "LBG":
-                GunnerCalc();
+                //GunnerCalc();
                 break;
             default:
                 if(ui.ChosenArt.equals("-None-")){
