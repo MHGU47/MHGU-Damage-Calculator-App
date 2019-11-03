@@ -504,23 +504,28 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
             Snackbar.make(view, "Selected Style: Guild", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             SelectedStyle = "Guild";
-        } else if (Style.equals("Striker")) {
+        }
+        else if (Style.equals("Striker")) {
             Snackbar.make(view, "Selected Style: Striker", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             SelectedStyle = "Striker";
-        } else if (Style.equals("Aerial")) {
+        }
+        else if (Style.equals("Aerial")) {
             Snackbar.make(view, "Selected Style: Aerial", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             SelectedStyle = "Aerial";
-        } else if (Style.equals("Adept")) {
+        }
+        else if (Style.equals("Adept")) {
             Snackbar.make(view, "Selected Style: Adept", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             SelectedStyle = "Adept";
-        } else if (Style.equals("Valor")) {
+        }
+        else if (Style.equals("Valor")) {
             Snackbar.make(view, "Selected Style: Valor", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             SelectedStyle = "Valor";
-        } else if (Style.equals("Alchemy")) {
+        }
+        else if (Style.equals("Alchemy")) {
             Snackbar.make(view, "Selected Style: Alchemy", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             SelectedStyle = "Alchemy";
@@ -530,13 +535,16 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
         if (DistanceText.equals("Normal/Too Close")) {
             getDistanceModifier(1f);
             getChosenDistance(DistanceText);
-        } else if (DistanceText.equals("Critical")) {
+        }
+        else if (DistanceText.equals("Critical")) {
             getDistanceModifier(1.5f);
             getChosenDistance(DistanceText);
-        } else if (DistanceText.equals("Far")) {
+        }
+        else if (DistanceText.equals("Far")) {
             getDistanceModifier(0.8f);
             getChosenDistance(DistanceText);
-        } else if (DistanceText.equals("Too Far")) {
+        }
+        else if (DistanceText.equals("Too Far")) {
             getDistanceModifier(0.5f);
             getChosenDistance(DistanceText);
         }
@@ -560,7 +568,8 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
             else if(SelectedShot.equals("Thunder S Lv1")){
                 getChosenElement("Thunder");
             }
-        } else if (SelectedShot.equals("Flaming S Lv2") || SelectedShot.equals("Freeze S Lv2") || SelectedShot.equals("Water S Lv2") || SelectedShot.equals("Thunder S Lv2")) {
+        }
+        else if (SelectedShot.equals("Flaming S Lv2") || SelectedShot.equals("Freeze S Lv2") || SelectedShot.equals("Water S Lv2") || SelectedShot.equals("Thunder S Lv2")) {
             MotionAtk[0] = 0.07f;
             MotionAtk[1] = 0.58f;
             MotionAtk[2] = 0f;
@@ -578,21 +587,24 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
             else if(SelectedShot.equals("Thunder S Lv2")){
                 getChosenElement("Thunder");
             }
-        } else if (SelectedShot.equals("Dragon S Lv1")) {
+        }
+        else if (SelectedShot.equals("Dragon S Lv1")) {
             MotionAtk[0] = 0.01f;
             MotionAtk[1] = 2f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Elemental";
             getChosenElement("Dragon");
-        } else if (SelectedShot.equals("Dragon S Lv2")) {
+        }
+        else if (SelectedShot.equals("Dragon S Lv2")) {
             MotionAtk[0] = 0.01f;
             MotionAtk[1] = 2.4f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Elemental";
             getChosenElement("Dragon");
-        } else if (SelectedShot.equals("P.Flaming S Lv1") || SelectedShot.equals("P.Freeze S Lv1") || SelectedShot.equals("P.Water S Lv1") || SelectedShot.equals("P.Thunder S Lv1")) {
+        }
+        else if (SelectedShot.equals("P.Flaming S Lv1") || SelectedShot.equals("P.Freeze S Lv1") || SelectedShot.equals("P.Water S Lv1") || SelectedShot.equals("P.Thunder S Lv1")) {
             MotionAtk[0] = 0.06f;
             MotionAtk[1] = 0.6f;
             MotionAtk[2] = 0f;
@@ -610,7 +622,8 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
             else if(SelectedShot.equals("P.Thunder S Lv1")){
                 getChosenElement("Thunder");
             }
-        } else if (SelectedShot.equals("P.Flaming S Lv2") || SelectedShot.equals("P.Freeze S Lv2") || SelectedShot.equals("P.Water S Lv2") || SelectedShot.equals("P.Thunder S Lv2")) {
+        }
+        else if (SelectedShot.equals("P.Flaming S Lv2") || SelectedShot.equals("P.Freeze S Lv2") || SelectedShot.equals("P.Water S Lv2") || SelectedShot.equals("P.Thunder S Lv2")) {
             MotionAtk[0] = 0.15f;
             MotionAtk[1] = 1.35f;
             MotionAtk[2] = 0f;
@@ -628,187 +641,218 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
             else if(SelectedShot.equals("P.Thunder S Lv2")){
                 getChosenElement("Thunder");
             }
-        } else if (SelectedShot.equals("Slicing S Lv1")) {
+        }
+        else if (SelectedShot.equals("Slicing S Lv1")) {
             MotionAtk[0] = 0.01f;
             MotionAtk[1] = 0.24f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Slicing";
-        } else if (SelectedShot.equals("Slicing S Lv2")) {
+        }
+        else if (SelectedShot.equals("Slicing S Lv2")) {
             MotionAtk[0] = 0.01f;
             MotionAtk[1] = 0.4f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Slicing";
-        } else if (SelectedShot.equals("Crag S Lv1")) {
+        }
+        else if (SelectedShot.equals("Crag S Lv1")) {
             MotionAtk[0] = 0.03f;
             MotionAtk[1] = 25f;
             MotionAtk[2] = 0.3f;
             MotionAtk[3] = 25f;
             ShotType = "Crag";
-        } else if (SelectedShot.equals("Crag S Lv2")) {
+        }
+        else if (SelectedShot.equals("Crag S Lv2")) {
             MotionAtk[0] = 0.03f;
             MotionAtk[1] = 30f;
             MotionAtk[2] = 0.45f;
             MotionAtk[3] = 30f;
             ShotType = "Crag";
-        } else if (SelectedShot.equals("Crag S Lv3")) {
+        }
+        else if (SelectedShot.equals("Crag S Lv3")) {
             MotionAtk[0] = 0.03f;
             MotionAtk[1] = 40f;
             MotionAtk[2] = 0.6f;
             MotionAtk[3] = 40f;
             ShotType = "Crag";
-        } else if (SelectedShot.equals("Clust S Lv1")) {
+        }
+        else if (SelectedShot.equals("Clust S Lv1")) {
             MotionAtk[0] = 0.18f;
             MotionAtk[1] = 75f;
             MotionAtk[2] = 0.06f;
             MotionAtk[3] = 0f;
             ShotType = "Clust";
-        } else if (SelectedShot.equals("Clust S Lv2")) {
+        }
+        else if (SelectedShot.equals("Clust S Lv2")) {
             MotionAtk[0] = 0.24f;
             MotionAtk[1] = 1f;
             MotionAtk[2] = 0.08f;
             MotionAtk[3] = 0f;
             ShotType = "Clust";
-        } else if (SelectedShot.equals("Clust S Lv3")) {
+        }
+        else if (SelectedShot.equals("Clust S Lv3")) {
             MotionAtk[0] = 0.3f;
             MotionAtk[1] = 125f;
             MotionAtk[2] = 0.1f;
             MotionAtk[3] = 0f;
             ShotType = "Clust";
-        } else if (SelectedShot.equals("Cannon S Lv1")) {
+        }
+        else if (SelectedShot.equals("Cannon S Lv1")) {
             MotionAtk[0] = 0.05f;
             MotionAtk[1] = 30f;
             MotionAtk[2] = 10f;
             MotionAtk[3] = 0f;
             ShotType = "Cannon";
-        } else if (SelectedShot.equals("Cannon S Lv2")) {
+        }
+        else if (SelectedShot.equals("Cannon S Lv2")) {
             MotionAtk[0] = 0.07f;
             MotionAtk[1] = 40f;
             MotionAtk[2] = 15f;
             MotionAtk[3] = 0f;
             ShotType = "Cannon";
-        } else if (SelectedShot.equals("Triblast S")) {
+        }
+        else if (SelectedShot.equals("Triblast S")) {
             MotionAtk[0] = 0.03f;
             MotionAtk[1] = 75f;
             MotionAtk[2] = 0.75f;
             MotionAtk[3] = 75f;
             ShotType = "Triblast S";
-        } else if (SelectedShot.equals("Shrapnel S")) {
+        }
+        else if (SelectedShot.equals("Shrapnel S")) {
             MotionAtk[0] = 0.01f;
             MotionAtk[1] = 0.24f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Shrapnel";
-        } else if (SelectedShot.equals("Pierce S Lv1")) {
+        }
+        else if (SelectedShot.equals("Pierce S Lv1")) {
             MotionAtk[0] = 0.3f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Pierce";
-        } else if (SelectedShot.equals("Pierce S Lv2")) {
+        }
+        else if (SelectedShot.equals("Pierce S Lv2")) {
             MotionAtk[0] = 0.36f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Pierce";
-        } else if (SelectedShot.equals("Pierce S Lv3")) {
+        }
+        else if (SelectedShot.equals("Pierce S Lv3")) {
             MotionAtk[0] = 0.4f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Pierce";
-        } else if (SelectedShot.equals("Normal S Lv1")) {
+        }
+        else if (SelectedShot.equals("Normal S Lv1")) {
             MotionAtk[0] = 0.06f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Normal";
-        } else if (SelectedShot.equals("Normal S Lv2")) {
+        }
+        else if (SelectedShot.equals("Normal S Lv2")) {
             MotionAtk[0] = 0.12f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Normal";
-        } else if (SelectedShot.equals("Normal S Lv3")) {
+        }
+        else if (SelectedShot.equals("Normal S Lv3")) {
             MotionAtk[0] = 0.4f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Normal";
-        } else if (SelectedShot.equals("Pellet S Lv1")) {
+        }
+        else if (SelectedShot.equals("Pellet S Lv1")) {
             MotionAtk[0] = 0.15f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Pellet";
-        } else if (SelectedShot.equals("Pellet S Lv2")) {
+        }
+        else if (SelectedShot.equals("Pellet S Lv2")) {
             MotionAtk[0] = 0.2f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Pellet";
-        } else if (SelectedShot.equals("Pellet S Lv3")) {
+        }
+        else if (SelectedShot.equals("Pellet S Lv3")) {
             MotionAtk[0] = 0.25f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Pellet";
-        } else if (SelectedShot.equals("Long S Lv1")) {
+        }
+        else if (SelectedShot.equals("Long S Lv1")) {
             MotionAtk[0] = 0.15f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Long";
-        } else if (SelectedShot.equals("Long S Lv2")) {
+        }
+        else if (SelectedShot.equals("Long S Lv2")) {
             MotionAtk[0] = 0.18f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Long";
-        } else if (SelectedShot.equals("Dazzling S")) {
+        }
+        else if (SelectedShot.equals("Dazzling S")) {
             MotionAtk[0] = 0.35f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Dazzling";
-        } else if (SelectedShot.equals("Force S Lv1")) {
+        }
+        else if (SelectedShot.equals("Force S Lv1")) {
             MotionAtk[0] = 0.15f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Force";
-        } else if (SelectedShot.equals("Force S Lv2")) {
+        }
+        else if (SelectedShot.equals("Force S Lv2")) {
             MotionAtk[0] = 0.18f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Force";
-        } else if (SelectedShot.equals("Stone S")) {
+        }
+        else if (SelectedShot.equals("Stone S")) {
             MotionAtk[0] = 0.1f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Stone";
-        } else if (SelectedShot.equals("Heavy S Lv1")) {
+        }
+        else if (SelectedShot.equals("Heavy S Lv1")) {
             MotionAtk[0] = 0.09f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Heavy";
-        } else if (SelectedShot.equals("Heavy S Lv2")) {
+        }
+        else if (SelectedShot.equals("Heavy S Lv2")) {
             MotionAtk[0] = 0.12f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Heavy";
-        } else if (SelectedShot.equals("Sting S")) {
+        }
+        else if (SelectedShot.equals("Sting S")) {
             MotionAtk[0] = 0.14f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;
             MotionAtk[3] = 0f;
             ShotType = "Sting";
-        } else if (SelectedShot.equals("Wyvern S")) {
+        }
+        else if (SelectedShot.equals("Wyvern S")) {
             MotionAtk[0] = 0.25f;
             MotionAtk[1] = 0f;
             MotionAtk[2] = 0f;

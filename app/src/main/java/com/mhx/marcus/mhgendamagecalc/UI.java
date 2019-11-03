@@ -86,16 +86,14 @@ public class UI extends AppCompatActivity {
             DemonRiotOffCheck, EnergyChargeLevel2Check, EnergyChargeLevel3Check, EnergyChargeOffCheck,
             NoShotUpRadio, NormalUpRadio, PelletUpRadio, PierceUpRadio, HeavyUpRadio,TrueShotUpRadio;
 
-    Float[] BoomerangType;
-    String Extract, ShotType;
+    Float[] BoomerangType, MotionAtk;
+    String Extract, ShotType, Element;
     int SelectedPhialCharge, SelectedPhialNoCharge, ShellNumber, NumberofPhials, EnergyBladePhials,
             filler = 0;
 
     List<TextView> Banners = new ArrayList<>();
-    String[] TextViewIDsAttacks, TextViewIDsNames, AllTextViewIDs;
+    String[] TextViewIDsAttacks, TextViewIDsNames, AllTextViewIDs, MotionName;
     TextView textviews[];
-    Float[] MotionAtk;
-    String Element;
     List<String> ElementShots = Arrays.asList("Flaming S Lv1","Freeze S Lv1","Water S Lv1",
             "Thunder S Lv1","Dragon S Lv1","Flaming S Lv2","Freeze S Lv2","Water S Lv2",
             "Thunder S Lv2","Dragon S Lv2","P.Flaming S Lv1","P.Freeze S Lv1","P.Water S Lv1",
@@ -556,15 +554,61 @@ public class UI extends AppCompatActivity {
                 if (Wpn.equals("LBG")) RapidFireCheck = findViewById(R.id.RapidFireCheckBox);
                 PowerReloadCheck = findViewById(R.id.PowerReloadCheckBox);
                 AerialShotSelect = findViewById(R.id.AerialShotSelect);
-
-                NoShotUpRadio = findViewById(R.id.NoShotUpRadio);
-                NormalUpRadio = findViewById(R.id.NormalUpRadio);
-                PelletUpRadio = findViewById(R.id.PelletUpRadio);
-                HeavyUpRadio = findViewById(R.id.HeavyUpRadio);
-                PierceUpRadio = findViewById(R.id.PierceUpRadio);
-                TrueShotUpRadio = findViewById(R.id.TrueShotUpRadio);
-
             }
+
+            SelectedShot = findViewById(R.id.ShotSelect);
+            ArrayAdapter ShotAdapter = ArrayAdapter.createFromResource(this,R.array.BGAmmo,
+                    android.R.layout.simple_spinner_dropdown_item);
+            SelectedShot.setAdapter(ShotAdapter);
+//            SelectedShot.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                    ChosenElement = String.valueOf(ElementSelect.getSelectedItem());
+////                    switch (String.valueOf(ElementSelect.getSelectedItem())) {
+////                        case "Fire":
+////                            getChosenElement("Fire");
+////                            break;
+////
+////                        case "Water":
+////                            getChosenElement("Water");
+////                            break;
+////
+////                        case "Ice":
+////                            getChosenElement("Ice");
+////                            break;
+////
+////                        case "Thunder":
+////                            getChosenElement("Thunder");
+////                            break;
+////
+////                        case "Dragon":
+////                            getChosenElement("Dragon");
+////                            break;
+////
+////                        default:
+////                            getChosenElement("NONE");
+////                            break;
+////                    }
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                }
+//            });
+
+            DistanceSelect = findViewById(R.id.DistanceSelect);
+            ArrayAdapter DistanceAdapter = ArrayAdapter.createFromResource(this,R.array.BowDistance,
+                    android.R.layout.simple_spinner_dropdown_item);
+            DistanceSelect.setAdapter(DistanceAdapter);
+
+            NoShotUpRadio = findViewById(R.id.NoShotUpRadio);
+            NormalUpRadio = findViewById(R.id.NormalUpRadio);
+            PelletUpRadio = findViewById(R.id.PelletUpRadio);
+            HeavyUpRadio = findViewById(R.id.HeavyUpRadio);
+            PierceUpRadio = findViewById(R.id.PierceUpRadio);
+            TrueShotUpRadio = findViewById(R.id.TrueShotUpRadio);
+
         }
 
         //Sharpness/Element Spinner set up
@@ -718,8 +762,7 @@ public class UI extends AppCompatActivity {
         }
 
         //Set Artillery spinner and FelyneBombardier check box
-        if(Wpn.equals("CB") || Wpn.equals("GL")|| Wpn.equals("LBG")
-                || Wpn.equals("HBG")){
+        if(Wpn.equals("CB") || Wpn.equals("GL")|| Wpn.equals("LBG") || Wpn.equals("HBG")){
             FelyneBombardierCheck = findViewById(R.id.FelyneBombardierCheckBox);
 
             GroupSSelect = findViewById(R.id.GroupSSelect);
@@ -2000,33 +2043,38 @@ public class UI extends AppCompatActivity {
                 MotionAtk[2] = 0f;
                 MotionAtk[3] = 0f;
                 ShotType = "Elemental";
-            } else if (Shot.equals("Flaming S Lv2") || Shot.equals("Freeze S Lv2") || Shot.equals("Water S Lv2") || Shot.equals("Thunder S Lv2")) {
+            }
+            else if (Shot.equals("Flaming S Lv2") || Shot.equals("Freeze S Lv2") || Shot.equals("Water S Lv2") || Shot.equals("Thunder S Lv2")) {
                 MotionAtk[0] = 0.07f;
                 MotionAtk[1] = 0.58f;
                 MotionAtk[2] = 0f;
                 MotionAtk[3] = 0f;
                 ShotType = "Elemental";
-            } else if (Shot.equals("Dragon S Lv1")) {
+            }
+            else if (Shot.equals("Dragon S Lv1")) {
                 MotionAtk[0] = 0.01f;
                 MotionAtk[1] = 2f;
                 MotionAtk[2] = 0f;
                 MotionAtk[3] = 0f;
                 ShotType = "Elemental";
                 //getChosenElement("Dragon");
-            } else if (Shot.equals("Dragon S Lv2")) {
+            }
+            else if (Shot.equals("Dragon S Lv2")) {
                 MotionAtk[0] = 0.01f;
                 MotionAtk[1] = 2.4f;
                 MotionAtk[2] = 0f;
                 MotionAtk[3] = 0f;
                 ShotType = "Elemental";
                 //getChosenElement("Dragon");
-            } else if (Shot.equals("P.Flaming S Lv1") || Shot.equals("P.Freeze S Lv1") || Shot.equals("P.Water S Lv1") || Shot.equals("P.Thunder S Lv1")) {
+            }
+            else if (Shot.equals("P.Flaming S Lv1") || Shot.equals("P.Freeze S Lv1") || Shot.equals("P.Water S Lv1") || Shot.equals("P.Thunder S Lv1")) {
                 MotionAtk[0] = 0.06f;
                 MotionAtk[1] = 0.6f;
                 MotionAtk[2] = 0f;
                 MotionAtk[3] = 0f;
                 ShotType = "Elemental";
-            } else if (Shot.equals("P.Flaming S Lv2") || Shot.equals("P.Freeze S Lv2") || Shot.equals("P.Water S Lv2") || Shot.equals("P.Thunder S Lv2")) {
+            }
+            else if (Shot.equals("P.Flaming S Lv2") || Shot.equals("P.Freeze S Lv2") || Shot.equals("P.Water S Lv2") || Shot.equals("P.Thunder S Lv2")) {
                 MotionAtk[0] = 0.15f;
                 MotionAtk[1] = 1.35f;
                 MotionAtk[2] = 0f;
@@ -2257,6 +2305,67 @@ public class UI extends AppCompatActivity {
             MotionAtk[3] = 0f;
             ShotType = "Wyvern";
         }
+
+
+        switch (ShotType){
+            case "Elemental":
+                MotionName[0] = "Shot Damage";
+                MotionName[1] = "Elemental Damage";
+                MotionName[2] = "";
+                MotionName[3] = "";
+                break;
+            case "Crag":
+            case "Clust":
+            case "Triblast S":
+                MotionName[0] = "Shot Damage";
+                MotionName[1] = "Fixed Damage";
+                MotionName[2] = "Fire Damage";
+                MotionName[3] = "Stun Damage";
+                break;
+            case "Cannon":
+                MotionName[0] = "Shot Damage";
+                MotionName[1] = "Fixed Damage";
+                MotionName[2] = "Stun Damage";
+                MotionName[3] = "";
+                break;
+            case "Slicing":
+                MotionName[0] = "Shot Damage";
+                MotionName[1] = "Cutting Damage";
+                MotionName[2] = "";
+                MotionName[3] = "";
+                break;
+            case "Shrapnel":
+                MotionName[0] = "Shot Damage";
+                MotionName[1] = "Shrapnel Damage";
+                MotionName[2] = "";
+                MotionName[3] = "";
+                break;
+//            case "Normal":
+//            case "Pierce":
+//                break;
+//            case "Wyvern":
+//                break;
+//            case "Heavy":
+//                break;
+//            case "Sting":
+//                break;
+//            case "Stone":
+//                break;
+//            case "Force":
+//                break;
+//            case "Dazzling":
+//                break;
+//            case "Long":
+//                break;
+//            case "Pellet":
+//                break;
+            default:
+                MotionName[0] = "Shot Damage";
+                MotionName[1] = "";
+                MotionName[2] = "";
+                MotionName[3] = "";
+                break;
+        }
     }
 
     private void Calculate(final String Wpn){
@@ -2285,17 +2394,12 @@ public class UI extends AppCompatActivity {
                         if(TextUtils.isEmpty(Affinity.getText().toString())) Affinity.setText("0");
 
                         DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-                                Float.parseFloat(Damage.getText().toString()), ChosenElement,
-                                Float.parseFloat(Element.getText().toString()),
+                                Float.parseFloat(Damage.getText().toString()),
                                 Float.parseFloat(Affinity.getText().toString()));
 
                         if(!DmgCalc.Stats.isValid()){
                             if(!DmgCalc.Stats.isValidAtk()){
                                 Damage.setError("Enter a valid attack");
-                                return;
-                            }
-                            else if(!DmgCalc.Stats.isValidElm()){
-                                Element.setError("Enter a valid element");
                                 return;
                             }
                             else if(!DmgCalc.Stats.isValidAffinity()){
@@ -2307,72 +2411,74 @@ public class UI extends AppCompatActivity {
                         RefreshTextViews(Wpn);
                         if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
                                 0)) return;
+
+                        GunnerSetUp();
                         break;
                     default:
                         if(TextUtils.isEmpty(Damage.getText().toString())) Damage.setText("0");
-                    if(TextUtils.isEmpty(Element.getText().toString())) Element.setText("0");
-                    if(TextUtils.isEmpty(Affinity.getText().toString())) Affinity.setText("0");
+                        if(TextUtils.isEmpty(Element.getText().toString())) Element.setText("0");
+                        if(TextUtils.isEmpty(Affinity.getText().toString())) Affinity.setText("0");
 
-                    switch(Wpn){
-                        case "DB":
-                            SubElement = findViewById(R.id.SubElementInput);
-                            if(TextUtils.isEmpty(SubElement.getText().toString())) SubElement.setText("0");
+                        switch(Wpn){
+                            case "DB":
+                                SubElement = findViewById(R.id.SubElementInput);
+                                if(TextUtils.isEmpty(SubElement.getText().toString())) SubElement.setText("0");
 
-                            DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-                                    Float.parseFloat(Damage.getText().toString()), ChosenElement,
-                                    Float.parseFloat(Element.getText().toString()), ChosenSubElement,
-                                    Float.parseFloat(SubElement.getText().toString()),
-                                    Float.parseFloat(Affinity.getText().toString()));
+                                DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
+                                        Float.parseFloat(Damage.getText().toString()), ChosenElement,
+                                        Float.parseFloat(Element.getText().toString()), ChosenSubElement,
+                                        Float.parseFloat(SubElement.getText().toString()),
+                                        Float.parseFloat(Affinity.getText().toString()));
 
-                            if(!DmgCalc.Stats.isValid_DB()){
-                                if(!DmgCalc.Stats.isValidAtk()){
-                                    Damage.setError("Enter a valid attack");
-                                    return;
+                                if(!DmgCalc.Stats.isValid_DB()){
+                                    if(!DmgCalc.Stats.isValidAtk()){
+                                        Damage.setError("Enter a valid attack");
+                                        return;
+                                    }
+                                    else if(!DmgCalc.Stats.isValidElm()){
+                                        Element.setError("Enter a valid element");
+                                        return;
+                                    }
+                                    else if(!DmgCalc.Stats.isValidSubElm()){
+                                        SubElement.setError("Enter a valid sub element");
+                                        return;
+                                    }
+                                    else if(!DmgCalc.Stats.isValidAffinity()){
+                                        Affinity.setError("Enter a valid affinity");
+                                        return;
+                                    }
                                 }
-                                else if(!DmgCalc.Stats.isValidElm()){
-                                    Element.setError("Enter a valid element");
-                                    return;
-                                }
-                                else if(!DmgCalc.Stats.isValidSubElm()){
-                                    SubElement.setError("Enter a valid sub element");
-                                    return;
-                                }
-                                else if(!DmgCalc.Stats.isValidAffinity()){
-                                    Affinity.setError("Enter a valid affinity");
-                                    return;
-                                }
-                            }
 
-                            if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
-                                    Float.parseFloat(SubElement.getText().toString()))) return;
-                            break;
-                        default:
-                            DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-                                    Float.parseFloat(Damage.getText().toString()), ChosenElement,
-                                    Float.parseFloat(Element.getText().toString()),
-                                    Float.parseFloat(Affinity.getText().toString()));
+                                if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
+                                        Float.parseFloat(SubElement.getText().toString()))) return;
+                                break;
+                            default:
+                                DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
+                                        Float.parseFloat(Damage.getText().toString()), ChosenElement,
+                                        Float.parseFloat(Element.getText().toString()),
+                                        Float.parseFloat(Affinity.getText().toString()));
 
-                            if(!DmgCalc.Stats.isValid()){
-                                if(!DmgCalc.Stats.isValidAtk()){
-                                    Damage.setError("Enter a valid attack");
-                                    return;
+                                if(!DmgCalc.Stats.isValid()){
+                                    if(!DmgCalc.Stats.isValidAtk()){
+                                        Damage.setError("Enter a valid attack");
+                                        return;
+                                    }
+                                    else if(!DmgCalc.Stats.isValidElm()){
+                                        Element.setError("Enter a valid element");
+                                        return;
+                                    }
+                                    else if(!DmgCalc.Stats.isValidAffinity()){
+                                        Affinity.setError("Enter a valid affinity");
+                                        return;
+                                    }
                                 }
-                                else if(!DmgCalc.Stats.isValidElm()){
-                                    Element.setError("Enter a valid element");
-                                    return;
-                                }
-                                else if(!DmgCalc.Stats.isValidAffinity()){
-                                    Affinity.setError("Enter a valid affinity");
-                                    return;
-                                }
-                            }
 
-                            RefreshTextViews(Wpn);
-                            if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
-                                    0)) return;
-                            break;
-                    }
-                    break;
+                                RefreshTextViews(Wpn);
+                                if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
+                                        0)) return;
+                                break;
+                        }
+                        break;
                 }
 
                 if (DmgCalc.CalculateSkills()){
@@ -2679,6 +2785,7 @@ public class UI extends AppCompatActivity {
                             .setAction("Action", null).show();
                     return true;
                 }
+                break;
             case "CB":
                 String ChargeText = String.valueOf(ShieldChargeSelect.getSelectedItem());
                 if ((ChosenStyle.equals("Striker") || ChosenStyle.equals("Adept")) &&
@@ -2695,23 +2802,25 @@ public class UI extends AppCompatActivity {
                             .setAction("Action", null).show();
                     return true;
                 }
+                break;
             case "HBG":
             case "LBG":
-                if(AerialShotSelect.isChecked() && !ChosenStyle.equals("Aerial") && SkillCheck){
-                    Toast.makeText(this, "Please select Aerial Style/'Airborne' to use 'Aerial Shot'",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-
-                if(AirborneCheck.isChecked() && !ChosenStyle.equals("Aerial") && SkillCheck) {
-                    if (!AerialShotSelect.isChecked())
-                        Toast.makeText(this, "Please select 'Aerial Shot' to use 'Airborne'",
+                if (AirborneCheck.isChecked() && !ChosenStyle.equals("Aerial") && SkillCheck){
+                    if (!AerialShotSelect.isChecked()) {
+                        Toast.makeText(UI.this, "Please select 'Aerial Shot' to use 'Airborne'",
                                 Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                    Toast.makeText(UI.this, "Please select Aerial Style to use 'Airborne'", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
 
-                    Toast.makeText(this, "Please select Aerial Style to use 'Airborne'",
+                if(AerialShotSelect.isChecked() && !ChosenStyle.equals("Aerial") && SkillCheck){
+                    Toast.makeText(UI.this, "Please select Aerial Style/'Airborne' to use 'Aerial Shot'",
                             Toast.LENGTH_SHORT).show();
                     return true;
                 }
+                break;
         }
 
         return false;

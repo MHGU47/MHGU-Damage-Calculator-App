@@ -620,6 +620,19 @@ public class SkillsCalculation {
         ElmCoatingModifier = ElmModifier;
     }
 
+    float DistanceModifier(String Distance){
+        switch(Distance){
+            case "Normal/Too Close":
+                return 1f;
+            case "Critical":
+                return 1.5f;
+            case "Far":
+                return 0.8f;
+            default:
+                return 0.5f;
+        }
+    }
+
     void setProwlerModifier(String Prowler){
         switch (Prowler){
             case "Protection":

@@ -234,7 +234,7 @@ public class DamageCalculation {
         switch(Weapon) {
             case "HBG":
             case "LBG":
-                //GunnerCalc();
+                GunnerCalc(counter);
                 break;
             default:
                 if(ui.ChosenArt.equals("-None-")){
@@ -282,76 +282,108 @@ public class DamageCalculation {
         //TODO:
     }
 
-    private void GunnerCalc(){
+    private void GunnerCalc(int counter){
+        List<String> HitzoneCatchList = Arrays.asList("Head", "Chin", "Horn", "NONE");
+        List<String> StyleCatchList = Arrays.asList("Guild", "Striker", "Aerial", "Alchemy");
+
         Skills.setAerialShotModifierBG(ui.AerialShotSelect.isChecked(), ui.ChosenStyle.equals("Aerial"));
         Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
 
-        if (ui.ShotType.equals("Triblast S") || ShotType.equals("Crag") || ShotType.equals("Clust")) {
+        String Distance = String.valueOf(ui.DistanceSelect.getSelectedItem());
+                //ShotText = String.valueOf(ui.SelectedShot.getSelectedItem());
 
-            MotionName[0] = "Shot Damage";
-            MotionName[1] = "Fixed Damage";
-            MotionName[2] = "Fire Damage";
-            MotionName[3] = "Stun Damage";
+        float TrueRaw, TrueAttack, HitzoneRaw, HitzoneElm;
 
-            for (int i = 0; i < MotionAtk.length; i++) {
-                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, RawAffinity, SkillCheck) * MotionAtk[i];
+        TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * ui.MotionAtk[counter];
 
-                //Hitzone Modification - Start
+        //Hitzone Modification - Start
 
-                float HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
-                M.setElmHitzoneValue(HeavyBowgunCalculation.this,
-                        ChosenMonster + "ElmHitzones_Fire");
-                float HitzoneElm = (RawDamage * MotionAtk[i] * M.getElmHitzoneValue()) / 100;
+        HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
+        M.setElmHitzoneValue(context,ui.ChosenMonster + "ElmHitzones_Fire");
+        HitzoneElm = (RawDamage * ui.MotionAtk[counter] * M.getElmHitzoneValue()) / 100;
 
-                //Hitzone Modification - End
+        //Hitzone Modification - End
 
-                if (i == 0) {
-                    if (AerialShotSelect.isChecked()) {
-                        TrueAttack = HitzoneRaw * AerialShotModifier;
-                        Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
-                    }
-                    else {
-                        TrueAttack = HitzoneRaw * DistanceModifier;
-                    }
-                }
-                else if (i == 1){
-                    if(ShotType.equals("Crag")){
-                        TrueAttack = MotionAtk[1] * (Skills.getArtilleryModifier() *
-                                Skills.getFelyneBombardierModifier());
-                    }
-                    else{
-                        TrueAttack = MotionAtk[1];
-                    }
-
-                }
-                else if (i == 2){
-                    TrueAttack = HitzoneElm;
-                }
-                else{
-                    TrueAttack = MotionAtk[3];
-                }
-
-                if(!HitzoneCatchList.contains(ChosenHitzone) && i == 3){
-                    Info.setVisibility(View.VISIBLE);
-                    Banner.setText(ShotText);
-                    break;
-                }
-                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsAttacks[i], "id", getPackageName()));
-                textviews[i].setText(String.format("%s", Math.round(TrueAttack)));
-                textviews[i].setVisibility(View.VISIBLE);
-                            /*Sets the current textview to the id value of 'Counter' and then sets that
-                            textviews value the value of 'test's current value. It also sets the
-                            visibility of all the used textboxes to 'visible'.*/
-
-                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsNames[i], "id", getPackageName()));
-                textviews[i].setText(MotionName[i]);
-                textviews[i].setVisibility(View.VISIBLE);
-                            /*Sets the current textview to the id value of 'Counter' and then sets that
-                            textviews value the value of 'test's current value. It also sets the
-                            visibility of all the used textboxes to 'visible'.*/
-            }
-        }
+//        switch(ui.ShotType) {
+//            case "Triblast":
+//            case "Crag":
+//            case "Clust":
+//                switch(counter){
+//                    case 0:
+//                        if (ui.AerialShotSelect.isChecked()) TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
+//                        else TrueAttack = HitzoneRaw * Skills.DistanceModifier(Distance);
+//                        break;
+//                    case 1:
+//                        if (ui.ShotType.equals("Crag"))
+//                            TrueAttack = ui.MotionAtk[1] * (Skills.getArtilleryModifier() *
+//                                    Skills.getFelyneBombardierModifier());
+//                        else TrueAttack = ui.MotionAtk[1];
+//                        break;
+//                    case 2:
+//                        TrueAttack = HitzoneElm;
+//                        break;
+//                    default:
+//                        TrueAttack = ui.MotionAtk[3];
+//                        break;
+//                }
+//
+//                if (!HitzoneCatchList.contains(ui.ChosenHitzone) && counter == 3) {
+//                    Info.setVisibility(View.VISIBLE);
+//                    Banner.setText(ShotText);
+//                    break;
+//                }
+//                break;
+//            case "Cannon":
+//                TrueAttack = (TrueRaw * MotionAtk[i] * M.getRawHitzoneValue()) / 100;
+//
+//                if (i == 0) {
+//                    if (AerialShotSelect.isChecked()) {
+//                        TrueAttack *= AerialShotModifier;
+//                        Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
+//                                .setAction("Action", null).show();
+//                    }
+//                    else {
+//                        TrueAttack *= DistanceModifier;
+//                    }
+//                }
+//                else if (i == 1){
+//                    TrueAttack = MotionAtk[1] * (Skills.getArtilleryModifier() * Skills.getFelyneBombardierModifier());
+//
+//
+//                }
+//                else{
+//                    TrueAttack = MotionAtk[2];
+//                }
+//
+//                if (MotionAtk[i] == 0f){
+//                    Info.setVisibility(View.VISIBLE);
+//                    Banner.setText(ShotType);
+//                    return;
+//                }
+//
+//                if(!HitzoneCatchList.contains(ChosenHitzone) && i == 2){
+//                    Info.setVisibility(View.VISIBLE);
+//                    Banner.setText(ShotText);
+//                    break;
+//                }
+//
+//                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsAttacks[i], "id", getPackageName()));
+//                textviews[i].setText(String.format("%s", Math.round(TrueAttack)));
+//                textviews[i].setVisibility(View.VISIBLE);
+//                        /*Sets the current textview to the id value of 'Counter' and then sets that
+//                        textviews value the value of 'test's current value. It also sets the
+//                        visibility of all the used textboxes to 'visible'.*/
+//
+//                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsNames[i], "id", getPackageName()));
+//                textviews[i].setText(MotionName[i]);
+//                textviews[i].setVisibility(View.VISIBLE);
+//                        /*Sets the current textview to the id value of 'Counter' and then sets that
+//                        textviews value the value of 'test's current value. It also sets the
+//                        visibility of all the used textboxes to 'visible'.*/
+//                break;
+//            default:
+//                break;
+        //}
     }
     //Private Calculations
 
