@@ -234,7 +234,7 @@ public class DamageCalculation {
         switch(Weapon) {
             case "HBG":
             case "LBG":
-                GunnerCalc(counter);
+                GunnerCalc(counter, TrueRaw);
                 break;
             default:
                 if(ui.ChosenArt.equals("-None-")){
@@ -247,6 +247,10 @@ public class DamageCalculation {
                 }
                 else TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) *
                         ((MV[counter]  * 0.01f) * BrimstoneCounterModifier(counter));
+
+                MVs.add(getTrueAttack(counter, TrueRaw));
+                SpecialAlter(counter, RawDamage);
+                alterHA_MV(counter, TrueRaw);
                 break;
         }
 
@@ -273,16 +277,20 @@ public class DamageCalculation {
 //            else TrueAttack = getCalculatedRawHitzone(counter, TrueRaw) + getCalculatedElm(counter) + getCalculatedSubElm();
 //        }
 
-        MVs.add(getTrueAttack(counter, TrueRaw));
-        SpecialAlter(counter, RawDamage);
-        alterHA_MV(counter, TrueRaw);
+//        MVs.add(getTrueAttack(counter, TrueRaw));
+//        SpecialAlter(counter, RawDamage);
+//        alterHA_MV(counter, TrueRaw);
 
         //TODO 11/07/2019: Add in SA Energy Charge functionality (for new and old code base)
         //TODO: Make sure Valor shelling works for GL (see old code base for reference)
         //TODO:
     }
 
-    private void GunnerCalc(int counter){
+    public void setGunnerMVs(String Shot){
+
+    }
+
+    private void GunnerCalc(int counter, float TrueRaw){
         List<String> HitzoneCatchList = Arrays.asList("Head", "Chin", "Horn", "NONE");
         List<String> StyleCatchList = Arrays.asList("Guild", "Striker", "Aerial", "Alchemy");
 
@@ -292,7 +300,8 @@ public class DamageCalculation {
         String Distance = String.valueOf(ui.DistanceSelect.getSelectedItem());
                 //ShotText = String.valueOf(ui.SelectedShot.getSelectedItem());
 
-        float TrueRaw, TrueAttack, HitzoneRaw, HitzoneElm;
+        //float TrueRaw,
+        float TrueAttack, HitzoneRaw, HitzoneElm;
 
         TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * ui.MotionAtk[counter];
 
@@ -304,86 +313,86 @@ public class DamageCalculation {
 
         //Hitzone Modification - End
 
-//        switch(ui.ShotType) {
-//            case "Triblast":
-//            case "Crag":
-//            case "Clust":
-//                switch(counter){
-//                    case 0:
-//                        if (ui.AerialShotSelect.isChecked()) TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
-//                        else TrueAttack = HitzoneRaw * Skills.DistanceModifier(Distance);
-//                        break;
-//                    case 1:
-//                        if (ui.ShotType.equals("Crag"))
-//                            TrueAttack = ui.MotionAtk[1] * (Skills.getArtilleryModifier() *
-//                                    Skills.getFelyneBombardierModifier());
-//                        else TrueAttack = ui.MotionAtk[1];
-//                        break;
-//                    case 2:
-//                        TrueAttack = HitzoneElm;
-//                        break;
-//                    default:
-//                        TrueAttack = ui.MotionAtk[3];
-//                        break;
-//                }
-//
-//                if (!HitzoneCatchList.contains(ui.ChosenHitzone) && counter == 3) {
-//                    Info.setVisibility(View.VISIBLE);
-//                    Banner.setText(ShotText);
-//                    break;
-//                }
-//                break;
-//            case "Cannon":
-//                TrueAttack = (TrueRaw * MotionAtk[i] * M.getRawHitzoneValue()) / 100;
-//
-//                if (i == 0) {
-//                    if (AerialShotSelect.isChecked()) {
-//                        TrueAttack *= AerialShotModifier;
-//                        Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
-//                                .setAction("Action", null).show();
-//                    }
-//                    else {
-//                        TrueAttack *= DistanceModifier;
-//                    }
-//                }
-//                else if (i == 1){
-//                    TrueAttack = MotionAtk[1] * (Skills.getArtilleryModifier() * Skills.getFelyneBombardierModifier());
-//
-//
-//                }
-//                else{
-//                    TrueAttack = MotionAtk[2];
-//                }
-//
-//                if (MotionAtk[i] == 0f){
-//                    Info.setVisibility(View.VISIBLE);
-//                    Banner.setText(ShotType);
-//                    return;
-//                }
-//
-//                if(!HitzoneCatchList.contains(ChosenHitzone) && i == 2){
-//                    Info.setVisibility(View.VISIBLE);
-//                    Banner.setText(ShotText);
-//                    break;
-//                }
-//
-//                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsAttacks[i], "id", getPackageName()));
-//                textviews[i].setText(String.format("%s", Math.round(TrueAttack)));
-//                textviews[i].setVisibility(View.VISIBLE);
-//                        /*Sets the current textview to the id value of 'Counter' and then sets that
-//                        textviews value the value of 'test's current value. It also sets the
-//                        visibility of all the used textboxes to 'visible'.*/
-//
-//                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsNames[i], "id", getPackageName()));
-//                textviews[i].setText(MotionName[i]);
-//                textviews[i].setVisibility(View.VISIBLE);
-//                        /*Sets the current textview to the id value of 'Counter' and then sets that
-//                        textviews value the value of 'test's current value. It also sets the
-//                        visibility of all the used textboxes to 'visible'.*/
-//                break;
-//            default:
-//                break;
-        //}
+        switch(ui.ShotType) {
+            case "Triblast":
+            case "Crag":
+            case "Clust":
+                switch(counter){
+                    case 0:
+                        if (ui.AerialShotSelect.isChecked()) /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.getAerialShotModifier());
+                        else /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.DistanceModifier(Distance));
+                        break;
+                    case 1:
+                        if (ui.ShotType.equals("Crag"))
+                            TrueAttack = ui.MotionAtk[1] * (Skills.getArtilleryModifier() *
+                                    Skills.getFelyneBombardierModifier());
+                        else TrueAttack = ui.MotionAtk[1];
+                        break;
+                    case 2:
+                        TrueAttack = HitzoneElm;
+                        break;
+                    default:
+                        TrueAttack = ui.MotionAtk[3];
+                        break;
+                }
+
+                if (!HitzoneCatchList.contains(ui.ChosenHitzone) && counter == 3) {
+                    //Info.setVisibility(View.VISIBLE);
+                    //Banner.setText(ShotText);
+                    break;
+                }
+                break;
+            case "Cannon":
+                TrueAttack = (TrueRaw * MotionAtk[i] * M.getRawHitzoneValue()) / 100;
+
+                if (i == 0) {
+                    if (AerialShotSelect.isChecked()) {
+                        TrueAttack *= AerialShotModifier;
+                        Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
+                    else {
+                        TrueAttack *= DistanceModifier;
+                    }
+                }
+                else if (i == 1){
+                    TrueAttack = MotionAtk[1] * (Skills.getArtilleryModifier() * Skills.getFelyneBombardierModifier());
+
+
+                }
+                else{
+                    TrueAttack = MotionAtk[2];
+                }
+
+                if (MotionAtk[i] == 0f){
+                    Info.setVisibility(View.VISIBLE);
+                    Banner.setText(ShotType);
+                    return;
+                }
+
+                if(!HitzoneCatchList.contains(ChosenHitzone) && i == 2){
+                    Info.setVisibility(View.VISIBLE);
+                    Banner.setText(ShotText);
+                    break;
+                }
+
+                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsAttacks[i], "id", getPackageName()));
+                textviews[i].setText(String.format("%s", Math.round(TrueAttack)));
+                textviews[i].setVisibility(View.VISIBLE);
+                        /*Sets the current textview to the id value of 'Counter' and then sets that
+                        textviews value the value of 'test's current value. It also sets the
+                        visibility of all the used textboxes to 'visible'.*/
+
+                textviews[i] = (TextView) findViewById(getResources().getIdentifier(TextViewIDsNames[i], "id", getPackageName()));
+                textviews[i].setText(MotionName[i]);
+                textviews[i].setVisibility(View.VISIBLE);
+                        /*Sets the current textview to the id value of 'Counter' and then sets that
+                        textviews value the value of 'test's current value. It also sets the
+                        visibility of all the used textboxes to 'visible'.*/
+                break;
+            default:
+                break;
+        }
     }
     //Private Calculations
 

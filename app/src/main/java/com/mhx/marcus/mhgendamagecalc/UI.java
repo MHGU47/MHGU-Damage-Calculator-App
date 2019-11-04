@@ -316,11 +316,10 @@ public class UI extends AppCompatActivity {
             Banners.add((TextView)findViewById(R.id.AxeBanner));
             Banners.add((TextView)findViewById(R.id.SwordBanner));
         }
-        else if(Wpn.equals("IG")) {
-            Banners.add((TextView)findViewById(R.id.ExtractBanner));
-        }
+        else if(Wpn.equals("IG")) Banners.add((TextView)findViewById(R.id.ExtractBanner));
 
     }
+
     private void SetUp(final String Wpn) {
         PowercharmCheck = findViewById(R.id.PowercharmCheckBox);
         PowertalonCheck = findViewById(R.id.PowertalonCheckBox);
@@ -398,7 +397,7 @@ public class UI extends AppCompatActivity {
             HunterArtSelect = findViewById(R.id.HunterArtSelect);
         }
         else{
-                       BoomerangSelect = findViewById(R.id.BoomerangSelect);
+            BoomerangSelect = findViewById(R.id.BoomerangSelect);
             ArrayAdapter BoomerangAdapter = ArrayAdapter.createFromResource(this,R.array.Boomerangs,android.R.layout.
                     simple_spinner_dropdown_item);
             BoomerangSelect.setAdapter(BoomerangAdapter);
@@ -1781,7 +1780,7 @@ public class UI extends AppCompatActivity {
                 break;
             default:
                 HunterArtsAdapter = ArrayAdapter.createFromResource(this,R.array.Prowler_HA_Names,
-                        android.R.layout.simple_spinner_dropdown_item);
+                    android.R.layout.simple_spinner_dropdown_item);
                 break;
         }
 
@@ -1970,7 +1969,6 @@ public class UI extends AppCompatActivity {
                         select();
 
                         break;
-
                 }
             }
 
@@ -2086,7 +2084,6 @@ public class UI extends AppCompatActivity {
             else if(Shot.contains("Freeze")) Element = "Ice";
             else if(Shot.contains("Water")) Element = "Water";
             else if(Shot.contains("Thunder")) Element = "Thunder";
-
         }
         else if (SelectedShot.equals("Slicing S Lv1")) {
             MotionAtk[0] = 0.01f;
@@ -2489,6 +2486,7 @@ public class UI extends AppCompatActivity {
 
                 DisplayBanners(Wpn);
                 DisplayInfo(Wpn);
+                if(Wpn.equals("HBG") || Wpn.equals("LBG")) DmgCalc.setGunnerMVs(String.valueOf(SelectedShot.getSelectedItem()));
 
                 for (int i = 0; i < DmgCalc.getMVSize(); i++) {
                     DmgCalc.Calculate(i);
@@ -2581,6 +2579,28 @@ public class UI extends AppCompatActivity {
                 else if(DmgCalc.getMVName(counter).equals("(L)Guard Bursts") &&
                         String.valueOf(ShieldChargeSelect.getSelectedItem()).equals("Yellow Charge"))
                     return;
+                break;
+            case "LBG":
+            case "HBG":
+                List<String> HitzoneCatchList = Arrays.asList("Head", "Chin", "Horn", "NONE");
+
+                switch(ShotType){
+                    case "Triblast":
+                    case "Crag":
+                    case "Clust":
+                        if (!HitzoneCatchList.contains(ChosenHitzone) && counter == 3) {
+                            //Info.setVisibility(View.VISIBLE);
+                            Banners.get(0).setText(SelectedShot.getSelectedItem().toString());
+                        }
+                        break;
+
+                    case "Cannon":
+                        if (!HitzoneCatchList.contains(ChosenHitzone) && counter == 2) {
+                            //Info.setVisibility(View.VISIBLE);
+                            Banners.get(0).setText(SelectedShot.getSelectedItem().toString());
+                        }
+                        break;
+                }
                 break;
         }
 
