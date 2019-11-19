@@ -1,0 +1,1116 @@
+01/05/2016
+-Placed all Blademaster weapons on first layout 'content_weapon_select.xml'.
+-Arranged weapon selection layout; layout id name: 'WeaponSelection'.
+-Added overflow button for Gunner weapons; id name: 'WeaponSwitch'
+-Changed main colour to #cd3434.
+-Added banner for weapon selection; banner says 'Choose a weapon', id name:WeaponSelectionBanner'.
+
+02/05/2016
+-Fixed aligning for all Blademaster weapons.
+-Added label for overflow button; label says 'Gunner Weapons', id name: 'GunnerWeaponsLabel'.
+
+16/05/2016
+-Removed overflow button and associated objects and added Gunner weapons to the same page as Blademaster weapons.
+-Created new activity for Great Sword calculation.
+	-Added icon for Great Sword.
+	-Added title banner for Great Sword.
+	-Added fields for physical and elemental damage.
+	-Added drop down menu for selecting styles.
+	-Added popup message for selected style.
+-Made an array to hold all style names to be used with styles drop down menu
+
+17/05/2016
+-Linked drop down menu to if statements and event listeners
+	-Tested using array of dummy values.
+
+21/05/2016
+-Added Sharpness dropdown menu.
+-Added labels for style and sharpness dropdown menus.
+-Moved position of style dropdown menu; moved beneath weapon icon.
+-Started to implement 'for loop' to enable dynamic displaying of attack values and names when button is pressed.
+-Added all textview boxes for Great Sword.
+
+22/05/2016
+-Finished implementing attack and name values display via a button press.
+	-Tested using actual names and raw motion values.
+-Started adding the calculation formula.
+-Started adding 'if statement' to determine which motion values to use for calculaation based on style chosen.
+
+23/05/2016
+-Finished implementing calculation formula.
+-Finished adding Guild Style values for Great Sword.
+-Fixed error with Striker values display; error was caused due to there being one extra value in the array.
+-Finished adding all values for Great Sword.
+
+25/05/2016
+-Changed code so textview boxes appear invisible AND aren't rendered when not in use.
+-Implemented for loop to remove unused textview boxes based on style.
+	-Changed code to accomodate for the size of each array of each style to remove all textview boxes, and
+	 not just some.
+-[R]Changed Affinity input field to allow negative affinity input.
+	-Added and tested error capture using a 'try and catch' statement.
+-Stopped virtual keyboard from automatically showing up whenever a weapon is selected.
+-Started implementing Sword and Shield
+
+26/05/2016
+-Finished impementing Sword and Shield
+-Started implementing Lance
+
+30/05/2016
+-Finished implementing Lance
+-Started implementing Hammer
+
+03/06/2016
+-Finished implementing Hammer
+
+04/06/2016
+-Started implementing Long Sword
+
+12/06/2016
+-Changed Long Sword Spirit Gauge modifier dropdown menu; added ' Colour' onto the end of menu names to stop
+ name clashes with sharpness which affected overall calculation.
+
+13/06/2016
+-Implemented checkbox to allow user to select whether they have a max spirit gauge; x1.13 multiplier for
+ max gauge, x1 multipler without a max gauge.
+-Modified code to manipulate motion value for 'Jumping Spirit Slash with Spirit Energy' to change based
+ on whether user has selected that their spirit gauge has a colour; 0.3 for no colour, 0.48 with colour.
+-Finished implementing Long Sword.
+
+-Started implementing Switch Axe.
+-Added code to manipulate motion values based on what phial was chosen by the user.
+-Finished implementing Switch Axe.
+
+-Started implementing Hunting Horn.
+
+18/06/2016
+-Finished implementing Hunting Horn
+-Started implementing Charge Blade
+
+19/06/2016
+-Split values of Charge Blade into seperate arrays; Sword mode, Axe mode and Bursts are all in
+ seperate arrays in order to make it possible to add seperate banners in between the movesets
+ and to dynamicaly change the layout better depending on what style/charge state/phial type
+ is chosen. This was also done to Switch Axe as well to compensate for both its modes.
+
+22/06/2016
+-Added code to change specifc values within the array for the sword attacks and the array for
+ the axe attacks.
+-Added code to edit the margin of the phial damage banner depending on the chosen phial; the
+ size of 'BurstAttack_1's top margin is increased to accomodate for the extra line of text in
+ the phial banner detailing the KO and exhaust values for the impact phial. If an element
+ phial is chosen, then the margin is changed back to/left at its original value.
+-Added extra textview beneath the ultra bursts phial damage value to display its total KO and
+ exhaust damage.
+
+23/06/2016
+-Added extra textview beneath the super bursts phial damage value to display its total KO and
+ exhaust damage.
+-Finished implementing Charge Blade.		
+
+24/06/2016
+-Started implementing Dual Blades.
+
+25/06/2016
+-Finished implementing Dual Blades.
+-Started implementing Gunlance.
+
+01/07/2016
+-Changed gauge dropdown menu values; added ' Gauge' onto the end to clashes with sharpness didn't occur.
+
+02/07/2016
+-Added code that changes the values of shelling moves based on user selection.
+-Finished implementing Gunlance.
+
+03/07/2016
+-Started implementing Bow
+
+05/07/2016
+-Added code for allowing the selection of all four shot levels.
+
+07/07/2016
+-Started adding for displaying arc shot values.
+-Removed code for displaying arc shot values.
+
+08/07/2016
+-Started adding code for displaying Melee moves of Bow.
+-Finished adding code for displaying Melee moves of Bow.
+-Started recoding Arc Shot display code.
+-Started recoding arc shot values.
+-Recoded Arc Shot display code by using a nested if statement and  a try/except loop. The reason for it not
+ working was due to the amount of selected shots affecting the amount of charge modifiers used for the
+ Arc Shots e.g. two shots chosen = two charge moodifiers. When the for loop was called, it tried to call
+ charge modifiers that weren't there, crashing the program. This was fixed using a try and except statement.
+-Finished implementing Bow.
+
+09/07/2016
+-Added distance selector to Bow calculation.
+
+12/07/2106
+-Altered code for Bow Jump Shot so it always shows critical damage and isn't affected by distance modifier.
+
+15/07/2016
+-[B]Added if statement so users can't select Yellow Shield Charge with Bushido or Striker style Charge Blade.
+-Tweaked code so burst damage from a guard isn't shown if Yellow shield is selected for Charge Blade.
+-Started implementing Insect Glaive.
+
+18/07/2016
+-Finished implementing Insect Glaive.
+
+19/07/2016
+-Changed Bushido spelling to Adept in Dual Blades calculation.
+
+20/07/2016
+-Added HitMultiplier for the added elemental damage for every individual hit for every weapon.
+ Added number of hits to every Dual Blades move to accomodate for this change.
+-Altered code so that elemental damage is added on to every individual hit for every weapon.
+-[R]Renamed Draw Attack for Dual Blades Archdemon Mode to Draw/Dash Attack.
+-Re-implemented Switch Axe phial calculation; added in a check box to accomodate for the fact that Dragon
+ element can be used in Sword mode even if it's not been awakened but has a Dragon phial, phials only affect
+ the Sword mode, status phial can't be selected alongside having an element attack value.
+-Tweaked Sword and Shield names and added extra attack value for Adept style.
+-[R]Altered Long Sword code so Jump Spirit Slash (Without Spirit Energy) doesn't show up if you have a coloured
+ spirit gauge.
+-Added checkbox to allow users to enable the modifier that changes raw damage by x1.05 if the centre of the
+ blade connects. This is a feature that was added for the Long Sword and Great Sword.
+-Started implementing 'About page'.
+
+21/07/2016
+-Finished adding 'About page'.
+
+25/07/2016
+-[R]Renamed Hurricane Slash and Slingshot to Demon Flurry Rush and Demon Flurry respectively to match in game
+ names.
+
+25/08/2016
+-Fixed text positioning for Bow Charge Level 1 label.
+-Altered centre of blade bonus for Great Sword so kick isn't affected.
+-Fixed Arc Shot name display for Bow.
+-Added Level 1 and 2 Adept Charges for Great Sword.
+-Fixed Unawakened element issue for Switch Axe Sword mode.
+-Changed Element Discharge (Bursts) to "     -Burst - Per hit (7 max)" for Switch Axe.
+-Removed purple sharpness selection option.
+-Added code to make virtual keyboard to disappear when 'Calculate' button is pressed.
+-Altered code to make sure Heavy Shots for Bows are always critical distance with 'Far'  and 'Too Far' distance
+ selected.
+-Changed Adept evade banner for Bow so it changes depending on how many shots you have chosen.
+-Added extra element field for Dual Blades.
+-Altered code to compensate for extra element field for Dual Blades; users cannot input secondary elements without a
+ primary element, program will switch between single and dual elements accordingly by applying the right element to the
+ right blade. If one element is chosen, it is applied to both blades, but if two elements are chosen then they are
+ applied accordingly.
+-Altered code so that Heavy Shot is always critical if Far or Too Far is selected for the Bow.
+-Added both horizontal slashes in Demon Mode for Dual Blades.
+
+26/08/2016
+-Altered code so that Power shot banner shows for both Guild style and Adept style for Bow.
+-Started implementing Light Bowgun.
+
+31/08/2016
+-Changed motion values for Aerial Dual Blades Archdemon aerial follow up to the normal aerial attack.
+-Fixed padding issue with layouts for APIs under 21.
+-Added Aerial Ultra Burst for Charge Blade.
+-Fixed overflow menu selection issue with API versions under 21; this was due to ScrollView overlapping AppBar, making
+ it impossibile to interact with it. This was fixed by putting everything inside another Relative layout and then adding
+ padding to move it downwards.
+-Added fedback function in overflow menu to allow users to send feedback via email. When email is selected, email address
+ and subject are filled out automatically.
+-Added Prowler selection.
+-Altered code so that element is shown correctly for Bow.
+
+02/09/2016
+-Finished implementing Light Bowgun.
+-Added charge modifiers for Great Sword charge attack elemental damage
+-Implemented Heavy Bowgun using Light Bowgun class and UI structure.
+-Started implementing Prowler.
+-Finished implementing Prowler.
+-Added Credits and Change Log pages
+
+03/09/2016
+-Added disclaimer to gunner weapons stating that values shown apply if all hits land
+#00:05AM#
+-Finished V1.0 of the MHGen Damage Calculator.
+
+###############################################################################################################################
+#Version 1.1
+
+17/09/2016
+-Started adding monster hitzone selection to SnS
+[-Outline changes that had to be made to the basic code in order for this to work for assignment]
+
+19/09/2016
+-Added in element type selection to account for hitzone selection
+
+20/09/2016
+-Started adding hitzone names and values
+
+-25/09/2016
+-Finished adding the basis for monster hitzone selection to SnS
+
+-4/10/2016
+-Finished adding all monster hitzone values
+-Completely finished implementing monster selection for SnS
+-Started checking for monster selection errors
+[-Removed undersocres from array names and added code to compensate, in order to make finding array easier and to avoid errors]
+[-Added "catchlist" to make it easier to seperate selected monsters so the correct motion value array was selected]
+
+-Finished checking for monster selection errors
+-Started implementing monster selection for GS
+
+05/10/2016
+-Returned GS motion values back to their original state without sharpness modifier, in order for them to be added on later
+-Altered 'If statement' to accomodate for the Aerial charge modifiers
+-Altered sharpness modifiers for SnS and GS; added them together before multplying them with the hitzone and removed
+ extra multiplication step which further decreased the elemental output.
+
+20/10/2016
+-Altered sharpness modifiers for  SnS and GS once again; made sure that the result was always 1.xx by subtracting
+ a whole number.
+-Finished implementing monster selection for GS
+-Started implementing monster selection for LS
+
+26/10/2016
+-Finished implementing monster selection for LS
+-Started implementing monster selection for DB
+
+28/10/2016
+-Added extra element string array to accomodate for DB
+-Finished implementing monster selection for DB
+
+30/10/2016
+-Started implementing monster selection for Hammer
+
+31/10/2016
+-Finished implementing monster selection for Hammer
+-Altered GS hitzone calculation; altered code so that Slap is calculated as an impact move
+
+4/11/2016
+-Added monster stagger limits for GS
+-Added monster stagger limits for SnS
+-Added monster stagger limits for LS
+-Added monster stagger limits for DB
+-Added monster stagger limits for Hammer
+-Started implementing monster selection and stagger limits for HH
+
+05/11/2016
+-Finished implementing monster selection and stagger limits for HH
+-Started implementing monster selection and stagger limits for Lance
+-Finished implementing monster selection and stagger limits for Lance
+
+08/11/2016
+-Started implementing monster selection and stagger limits for GL
+-Altered heatgauge modification; changed the modifier from being applied to total damage to
+ just raw physical damage.
+-Finished implementing monster selection and stagger limits for GL
+
+09/11/2016
+-Modified shelling fire damage calculation; made the monster hitzone affect the amount of damage
+ that the fire damage does.
+-Started implementing monster selection and stagger limits for SA
+-Finished implementing monster selection and stagger limits for SA
+-Implemented bounce indication for GS, SA, DB, HH, LS, SnS, GL, Lance and Hammer
+ [Mention slight adjusts for reverting back to black text and issue with string text being changed
+  due to 'ii + MoveCheck' not being used in place of the default 'i' for SA Sword Mode]
+
+10/11/2016
+-Updated Change Log
+-Started implementing monster selection, stagger limits and bounce indication for CB
+-Finished implementing monster selection, stagger limits and bounce indication for CB
+-Added disclaimer for elemental bursts stating that sharpness doesn't affect the bursts
+
+11/11/2016
+-Fixed element calculation for DB; stopped carrying over of previously inputted elements in new calculation
+-Updated change log
+-Altered selected style notification for Lance; changed notification format from 'Toast' to 'Snackbar'
+-Fixed problem with text not reverting back to black colour after red colour change for some modes for DB
+-Started implementing monster selection, stagger limits and bounce indication for IG
+-Corrected Glavenus spelling; changed from Glavenous to Glavenus
+-Finished implementing monster selection, stagger limits and bounce indication for IG
+
+13/11/2016
+-Started implementing monster selection and stagger limits for LBG
+
+14/11/2016
+-Finished adding new features for LBG
+-Added new features for HBG using LBG code
+-Added code that sets default value for all textviews to 0 to all weapons
+-Added bounce indicator to all updated weapons
+-Started updating Bow
+
+18/11/2016
+-Fixed CB phial values
+
+19/11/2016
+-Finished implementing updates for the Bow
+-Started implementing updates for Prowler
+-Finished implementing updates for Prowler
+-Added disclaimer to BG about critical distance
+-Fixed scrolling problem with change log
+-Updated credit page
+#Finished V1.1#
+########################################################################
+#Version 1.2
+
+25/11/2016
+-Added names of all offensive Hunter Arts
+-Started adding Hunter Art selection for SnS
+
+4/12/2016
+-[R]Fixed DB Draw Attack value for Archdemon mode in Guild
+-Fixed Prowler Fury State affinity boost calculation
+
+5/12/2016
+-Finished implementing Hunter Art selection for SnS
+
+10/12/2016
+-Started implementing attack buffs for SnS
+
+12/12/2016
+-Changed motion values lists from 'Cut' to 'Shot for Bowguns
+
+21/12/2016
+-Added element modifier for hunter arts to make sure every hit carries an element value.
+
+17/01/2017
+-Finished implementing Attack Buffs for SnS
+-Implemented affinity input limit
+
+18/01/2017
+-Started implementing skill and hunter art selection for GS
+
+19/01/2017
+-Added radiogroup for art synergy for GS
+
+24//01/2017
+-Fixed Bludgeoner error; created new variable that is given a value depending on what colour sharpness
+ is chosen. This is to get around the fact that if the user starts the app with Red sharpness by default
+ and doesn't change the sharpness, the 'If statement' that handles the Bludgeoner values inside the
+ sharpness selection 'If statement' isn't triggered, meaning that 'BludgeonerModifier' isn't given a
+ value and is useless. The new variable 'BludgeonerColourCheck' is given a value straight away, and then
+ this value is then passed on if Bludgeoner is checked by the user.
+
+27/01/2017
+-Finished implementing skill and hunter art selection for GS
+
+05/02/2017
+-Started implementing skill and hunter art selection for LS
+-Added error capture for skill selection; if you select an elemental skill but don't have an element selected,
+ you will be prompted to check your selctions again.
+
+06/02/2017
+-Fixed spirit gauge attack boost calculation; spirit gauge attack buffs were calculated in the wrong way,
+ as they were factored in as a sharpness buff instead of a raw attack buff.
+-Finished implementing skill and hunter art selection for LS
+-Started implementing skill and hunter art selection for DB
+-Stripped down code for DB; removed the 'For loops' from the multiple 'If Statements' used for deciding what
+ motion values to use based on the users chosen style and just left one outside of the 'If statements'.
+ This way, the motion value lists can be decided using the 'If statements' and then the calculations can
+ be carried out using a single 'For loop'.
+-Finished implementing skill and hunter art selection for DB
+
+13/02/2017
+-Added in Lions Maw attack boost option for DB
+-Started implementing skill and hunter art selection for Hammer
+
+14/02/2017
+-Finished implementing skill and hunter art selection for Hammer
+
+15/02/2017
+-Started implementing skill and hunter art selection for HH
+
+16/02/2017
+-Finished implementing skill and hunter art selection for HH
+
+20/02/2017
+-Started implementing skill and hunter art selection for Lance
+-Fixed Powertalon modifier; changed value from 6 to 9. This change was made to all previously
+ updated weapons.
+-Finished implementing skill and hunter art selection for Lance
+-Started implementing skill and hunter art selection for GL
+-Added new spinner and checkbox for GL; these were added due to GL being ablee to take advantage
+ of the Felyne Bombardier and Artillery skills. These will alos be added in for CB and Bowguns.
+-Added Group S to be used as the group to contain the artillery skills
+
+21/02/2017
+-Finished implementing skill and hunter art selection for GL
+
+22/02/2017
+-Started implementing skill and hunter art selection for SA
+-Added Synergy variable to make sure right motion values are used when
+ Demon Riot and Trance Slash are used together.
+-Fixed banner error that kept the previously used Hunter Arts name
+ displayed even after the art was no longer selected.
+-Finished implementing skill and hunter art selection for SA
+-Started implementing skill and hunter art selection for CB
+
+25/02/2017
+-Fixed error for elemental crit calculation; CritBoost skill was being applied
+ elements as the same RawAffinity was being used. This also led to the modified
+ RawAffinity being used on the calculation in order to get the correct affinity
+ for the element.
+- Fixed Crit Boost calculation error; Crit Boost modifier was 15 instead of 0.15
+-Finished implementing skill and hunter art selection for CB
+
+28/02/2017
+-Fixed DB element calculation; [Element} Atk +1/2 would affect both elements,
+ even if they were different, wwwhen th originaal purpose was to have it
+ affect only one element. [Element] being the placeholder for said element.
+-Started implementing skill and hunter art selection for IG
+
+01/03/2017
+-Finished implementing skill and hunter art selection for IG
+-Edited stagger banner; stagger banner appears blank if no monster is selected
+
+02/03/2017
+-Started implementing skill and hunter art selection for Bow
+
+03/03/2017
+-Finished implementing skill and hunter art selection for Bow
+-Started implementing skill and hunter art selection for Bowguns
+
+06/03/2017
+-Finished implementing skill and hunter art selection for HBG
+-Finished implementing skill and hunter art selection for LBG
+-Started implementing skill and hunter art selection for Prowler
+-Fixed GL shelling calculation; changed calculations from being based off of
+ raw damage to be based solely off of motion values.
+
+07/03/07
+-Finished implementing skill and hunter art selection for Prowler
+-Fixed SnS affinity oil modifier; affinity oil modifier was tied to skill selection,
+ meaning that the user had to switch skills to 'on' in order for the affinity oil
+ modifications to take place.
+-[R]Fixed Group J skills issues; Unscathed modifier (+20 raw) was being used as a
+ multiplier instead of being added onto the raw damage, typos in some of the skills
+ meant that they weren't being used despite being selected.
+
+08/03/2017
+*00:24AM - Finished and uploaded V 1.2*
+
+08/04/2017
+-Fixed Charge Blade Phial calculation with attack skill modifiers.
+*00:24AM - Uploaded soft update V1.2*
+
+01/05/2017
+-Added in missing Normal Up for Bow
+-Started adding in missing Airborne skill for all weapons
+-Finished adding Airborne to Bow, CB, GS and SnS
+
+02/05/2017
+-Finished adding in Airborne to LS, DB and Hammer
+
+05/05/2017
+-Finished adding in Airborne for Lance, GL and Switch Axe
+
+06/05/2017
+-Finished adding Airborne for IG
+
+07/05/2017
+-Finished adding Airborne for Bow, LBG and HBG.
+
+*02:05AM - Finished and uploaded V 1.3*
+
+
+
+######################
+#Started Optimisation#
+######################
+07/02/2018
+-Added in temp classes called 'CallingTestMain' and 'CallingTestSub'
+ for Attack values (Raw Attack, Element and Affinity) and
+ Skills/Special modifiers respectively
+
+14/02/2018
+#Lines of Code/Comments/Spaces in SnS: 1395#
+-Started implementing calling of 'CallingTestMain' using Sword and Shield
+-Implemented new error capture method for stat input
+
+21/02/2018
+#Lines of Code/Comments/Spaces in SnS: 1497#
+-Started migrating Skill calculation over to 'CallingTestSub'
+-Finished migrating physical skills
+
+28/02/2018
+#Lines of Code/Comments/Spaces in SnS: 1494#
+-Finished migrating affinity skills
+-Started migrating Elemental skills
+#Uploaded hotfix for language layout issue#
+
+01/03/2018
+#Lines of Code/Comments/Spaces in SnS: 1317#
+-Started implementing new class for skill calculation, 'CallingTestSub'
+-Finished migrating Elemental Skills
+-Finished implementing new class for skill calculation
+
+02/03/2018
+#Lines of Code/Comments/Spaces in SnS: 1316#
+-Changed 'CallingTestSub' to 'SkillsCalculation'
+-Changed 'CallingTestMain' to 'StatsValidation'
+
+05/03/2018
+#Lines of Code/Comments/Spaces in SnS: 1316#
+-Added class 'MonsterCalculation'
+
+07/03/2018
+#Lines of Code/Comments/Spaces in SnS: 1351#
+-Started migrating code for hitzone calculation into 'MonsterCalculation'
+
+19/06/2018
+#Lines of Code/Comments/Spaces in SnS: 1275#
+-Finished migrating code for hitzone calculation in 'MonsterCalculation'
+
+10/09/2018
+#Lines of Code/Comments/Spaces in SnS: 1309#
+#FULL OPTIMISATION PUT ON HOLD FROM THIS DATE#
+-Started GU update patch
+-Started reworking layout for weapons, starting with SnS
+-Added in Alchemy and Valor movesets and motion values
+-Fixed Zamtrios hitzone crash; the stagger limits didn't match the amount of
+ hitzones, causing an index error
+
+11/09/2018
+#Lines of Code/Comments/Spaces in SnS: 1319#
+-Created new 'RelativeLayouts' to segemnt parts of the weapon layout
+ (altered code to accomodate for this)
+-Altered names of skill groups except for groups J, G and D
+
+12/09/2018
+#Lines of Code/Comments/Spaces in SnS: 1325#
+#Lines of Code/Comments/Spaces in Hammer: 1383#
+-Finished reworking layout for SnS
+-Added code to allow blank entries to be counted as 0
+-Reworked Hammer layout
+-Started appending/optimising Hammer code
+
+13/09/2018
+#Lines of Code/Comments/Spaces in SnS: 1298#
+#Lines of Code/Comments/Spaces in Hammer: 1298#
+-Finished appending/optimising Hammer code
+-Started adding in new monsters
+-Added in Basarios
+-Added in Diablos
+-Added in Bloodbath Diablos
+
+14/09/2018
+#Lines of Code/Comments/Spaces in SnS: 1304#
+#Lines of Code/Comments/Spaces in Hammer: 1305#
+-Added Gravios
+-Added Fatalis
+-Added Crimson Fatalis
+-Added White Fatalis
+-Added Lao-Shan Lung
+-Added Congalala
+-Added Giadrome
+-Added Barioth
+-Added Barroth
+-Added Nerscylla
+-Added Chaotic Gore Magala
+-Added Raging Brachydios
+-Added Valstrax
+-Added Ahtal-Ka
+-Added Rustrazor Ceanataur
+-Added Nightcloak Malfestio
+
+15/09/2018
+-Added Elderfrost Gammoth
+-Added Boltreaver Astalos
+-Added Soulseer Mizutsune
+
+17/09/2018
+#Lines of Code/Comments/Spaces in GS: 1453#
+#Lines of Code/Comments/Spaces in LS: 1366#
+-Reworked GS layout and code
+-Started reworking LS layout and code
+-Moved all weapon specific modifiers into a seperate function in
+ 'SkillsCalculation'
+
+18/09/2018
+#Lines of Code/Comments/Spaces in LS: 1276#
+#Lines of Code/Comments/Spaces in CB: 2120#
+-Reworked LS layout and code
+###########
+#CHECKLIST#
+###########
+#################################################################
+-Change raw sharpness modifier from 1.44 to 1.39 for purple
+-Copy and paste layout from SnS for new weapon changes
+-Copy and paste sharpness, styles and skills if statements
+ from SnS for new weapon changes
+-Remove redundant 'Group___' variables
+-Add in any new textviews to accomodate new moves if necessary
+-Add in arrays for Valor and Alchemy
+-Copy and paste MonsterSelection from SnS
+-Add in code to make 'BaseStats' visible
+#################################################################
+-Started reworking CB layout
+-Started appending/optimising CB code
+
+19/09/2018
+#Lines of Code/Comments/Spaces in CB: 1851#
+-Reworked CB layout and code
+
+20/09/2018
+#Lines of Code/Comments/Spaces in DB: 1829#
+-Started reworking DB layout/code
+
+23/09/2018
+#Lines of Code/Comments/Spaces in DB: 1672#
+-Finished reworking DB layout/code
+
+25/09/2018
+#Lines of Code/Comments/Spaces in Lance: 1356#
+#Lines of Code/Comments/Spaces in HH: 1313#
+-Reworked Lance layout/code
+-Started reworking HH layout/code
+
+26/09/2018
+#Lines of Code/Comments/Spaces in GL: 1636#
+-Finished reworking HH layout/code
+-Started reworking GL layout/code
+
+03/10/2016
+#REMOVE BANNER VISIBILITY FROM CODE. THESE SHOULD BE MADE VISIBLE
+#AT ALL TIMES DUE TO BEING INSIDE A RELATIVELAYOUT WHICH CONTROLS
+#VISIBILITY.
+-Finished reworking GL layout/code
+
+04/10/2016
+#Lines of Code/Comments/Spaces in SA: 1763#
+-Started reworking SA layout/code
+
+05/10/2018
+#ADD IN SA MVS AND HUNTER ART AND TEST/PROOF READ
+-Finished reworking SA layout/code
+
+09/10/2018
+#Lines of Code/Comments/Spaces in IG: 1430#
+-Started reworking IG layout/code
+#ADD IN KINSECT INPUT FIELDS, HA SYNERGY (SWARM AND 'SUPER SLAM') AND EXTRACT INFO
+#DOUBLE CHECK MVS FOR VALOR AND ALCHEMY
+
+11/10/2018
+-Finished reworking IG layout/code
+
+12/10/2018
+#Lines of Code/Comments/Spaces in Bow: 2242#
+-Started reworking Bow layout/code
+
+13/10/2018
+#Lines of Code/Comments/Spaces in HBG: 2345#
+#Lines of Code/Comments/Spaces in LBG: 2359#
+-Started reworking Bowgun layout/code
+
+18/10/2018
+-Finished reworking HBG layout/code
+
+19/10/2018
+-Finished reworking LBG layout/code
+-Finished reworking Bow layout/code
+
+20/10/2018
+#Lines of Code/Comments/Spaces in Prowler: 1149#
+-Started reworking Prowler layout/code
+-Added in Chaos Oil for SnS and Moon Breaker for GS
+#V2.0.0 finished - 23:55#
+
+22/10/2018
+-Uploaded to Play Store
+
+23/10/2018
+#Version Name and Code already changed#
+-Fixed issue with LBG where you would be unable to use Rapid Fire.
+ This was caused by using 'StyleText' instead of 'ArtText'
+#Uploaded V2.0.1#
+
+-Started adding in Weakness Exploit
+
+03/11/2018
+-Added in Weakness Exploit to all weapons
+
+07/11/2018
+#Uploaded V2.0.2#
+
+17/11/2018
+-Fixed BG AerialShotSelect Nullpointer error
+-Fixed Bow Triple Volley error: program crashed due to trying to call on
+ charge modifiers that aren't set for this hunter art
+-Fixed CB Ripper Shield error: crashed caused by element counter not being
+ set properly due to a spelling mistake
+
+19/01/2019
+-Added Powercharm/talon to Prowler
+-Fixed GS display error; the textviews didn't disappear when not in use
+
+26/01/2019
+-Fixed GL shelling error; the correct values weren't being used from
+ inside the SelectedShot array
+
+28/02/2019
+-Started to implement new code structure; restructure the way the layouts
+ are called by having them stem from the same layout and have includes to
+ alter the appearance based on the users choice
+
+01/03/2019
+-Added new classes and xml layouts for new coding and layout structure:
+	-UI class
+	-DamageCalculation class
+	-UI Base Activity xml
+	-Base Stats xml (weapon specific)
+	-Monster Hitzones xml
+	-Hunter Arts xml (weapon specific)
+	-Skills xml (weapon specific)
+	-Attack Info xml (weapon specific)
+-Moved Sharpness Modifiers to a seperate xml
+-Created xml for motion values and added Sword and Shield and Great Sword motion values to it
+-Moved values from Hunter_Arts.xml to Motion_Values.xml
+
+02/03/2019
+-Finished adding all necessary xml stubs for weapon layouts
+
+13/03/2019
+-Added new constructor for Dual Blades in DamageCalculation class;
+ added in switch statement for Dual Blades in UI class to accomodate.
+-Altered isValidSubElm() function in StatsValidation class to be more
+ efficient
+-Created getDBElmMod(string) function in DamageCalculation
+
+14/04/2019
+-Added Dual Blades motion values to 'Motion_Values.xml'
+-Spell check; 'Gaurd' -> 'Guard' in 'DualBladesCalculation.java'
+-Added Hammer motion values to 'Motion_Values.xml'
+-Added correct values for CB Uragaan; issue was reported via email by a user
+-Fixed Enraged Guard error; 'Yellow Aura' and 'Orange Aura' had their attack values mixed up
+
+15/04/2019
+-Added variables 'MV_HA_Array' and 'HA_MV' to 'DamageCalculation.java'; this is to hold the values
+ of the Hunter Art motion values that are pulled from the 'Motion_Values.xml' file.
+-Altered 'DamageCalculation.java' constructors; they now take in a boolean parameter that checks
+ to see if the user has a Hunter Art selected. Added boolean 'HA' to 'DamageCalculation.java'
+ to use the parameter in the class.
+-Added GS HAs to the switch statment in 'setHA_MV()' in 'DamageCalculation.java'
+-Commented out error code in 'DamageCalculation.java' due to annoyance of seeing the red lines
+-Fixed small discrepency with HH Adept Jump Attack; motion value was 34 instead of 36 and Exhaust/KO
+ values were 20/22, not 20/20
+-Added Hunting Horn motion values to 'Motion_Values.xml'
+-Added Lance motion values to 'Motion_Values.xml'
+-Added Gunlance motion values to 'Motion_Values.xml'
+-Added Switch Axe motion values to 'Motion_Values.xml'
+
+16/04/2019
+-Added Charge Blade motion values to 'Motion_Values.xml'
+-Added Insect Glaive motion values to 'Motion_Values.xml'
+-Added Prowler motion values to 'Motion_Values.xml'
+-Removed 'public' declaration from a lot of functions in 'SkillsCalculation.java'
+-Simplified 'If statements' where possible in 'SkillsCalculation.java'
+
+17/04/2019
+-Simplified code in 'SetUp()' in 'UI.java'
+-Added 'setProwlerModifier(string)' and 'getProwlerModifier()' to
+ 'SkillsCalculation.java' to replace 'getProwler(float)' for Prowler
+ calculation.
+-Added 'setNineLivesModifier(string)' and 'getNineLivesModifier()' to
+ 'SkillsCalculation.java' to replace 'getNineLives(int)' for Prowler
+ calculation.
+-Altered 'Stubs()', 'SetUp()' and 'Calculate(int)' in 'UI.java'; they now
+ take in a string parameter. This parameter is the extra intent information
+ which holds the weapon type that the user has selected.
+
+11/05/2019
+-Added getAtkPwr(int), getMVName(int), getMVSize() to 'DamageCalculation.java' in
+ order to get the calculated attack power and name of a move, as well as the size
+ the array being used for the motion values.
+-Changed 'Calculate(int)' in 'DamageCalculation.java' from an 'int' funtion to a 'void'
+ function. This is because it will now longer be used to return attack values, as it
+ will now be used to add the attack and name values to seperate lists. These lists
+ will then have their values returned and displayed via the previously mentioned
+ functions by 'UI.java' with the use of 'DisplayTextViews(int)'.
+-Added variable 'textview' to 'UI.java' which will be used to hold the TextViews
+ necessary to display the attack values and names.
+-Changed all extra functions at the bottom of 'UI.java' to private
+-Added 'putExtra(string, string)' functions in 'WeaponSelect.java' in order to pass
+ on weapon type to 'UI.java'.
+-Started renaming TextViews in the stubs so they're uniform
+-Altered 'Motion_Values.xml' by removing whitespace with \u0020 in order to make sure
+ the whitespace was visible when displayed.
+-Added 'setHitzones()' to 'DamageCalculation.java'; this simply calls the 'getHitzones()' functions
+ in 'MonsterCalculation.java.
+-Added 'getBounce()' to DamageCalculation.java'; this is will return a boolean and will be used
+ to determine whether a move will bounce/receive double sharpness reduction.
+Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to display the stagger values
+
+12/05/2019
+-Fixed error with CB Aerial style; error caused due to the array of available TextViews going out of bounds
+
+13/05/2019
+-Added function 'setBounce(float)' in 'DamageCalculations.java'; this is used to set whether the 'Bounce'
+ variable is set to true or false.
+-Added boolean variable 'Bounce' in 'DamageCalculation.java'; this is used to determinw whether the
+ text for the name and damage of the move should be displayed in red or black, depending on whether
+ the weapon will bounce/recieve double sharpness reduction.
+-Altered 'DiplayTextViews(int)' in 'UI.java'; this now takes in a 'View' parameter
+-Altered 'DamageCalculation.java' constructors; they now take in an extra 'String' parameter in order to
+ get the users hunter art. A new string variable, 'HunterArt', was created to accomodate for this change.
+-Removed 'setBounce(float)' from 'DamageCalculation.java'; it was redundant.
+-Added 'OnLongClickListener()' functions to 'WeaponSelect.jave' for all the ImageButtons; this is to make
+ testing the new code in the new classes easier.
+-Added 'TextViews.xml' for storing the the names of the TextViews
+
+14/05/2019
+-Added 'RefreshTextViews()' to 'UI.java'; this function is used to reset the TextViews in case of errors
+ and new calculations.
+-Added 'DisplayBanners()' to 'UI.java'; this is used to make the banners appear independently from the other
+ TextViews.
+-Finished implementing GS using new coding structure, now in testing phase
+-Altered big 'If' statements in 'GSChargeMod___' functions; converted them to 'Switch' statements. These need to
+ tested via cross referencing with the commented 'If' statements.
+
+18/05/2019
+-Finished adding hunter arts into the 'setHA_MV()' function in 'DamageCalculation.java'
+
+19/05/2019
+-Altered constructors in 'DamageCalculation.java'; they take in less parameters as the class already has access to UI
+-Made 'private' variables 'public' again
+-Altered 'DisplayTextViews(int, View) in 'UI.java'; it now takes in a 'String' parameter, as it now alters the displayed
+ text of the move names for some weapons e.g. Long Sword for Spirit Slash.
+-Added 'HitMultiplier(int)' to 'DamageCalculation.java'; this is to find the extra hits of elemental damage for the weapons.
+ It essentially replaces the 'HitMultiplier' variable and 'If' statement block of code in each respective weapon's code.
+-Removed unnecessary functions at the bottom of 'UI.java'; these are leftovers from the old code base
+
+20/05/2019
+-Added 'getError()' and 'InputCheck(String)' to 'DamageCalculation.java'; these are used to determine whether the selected
+ inputs are valid e.g. correct shield charge for style, and to then return the correct error to 'UI.java' if the selected
+ inputs are incorrect.
+-Added enum class to 'UI.java'; this is still currently being tested out
+
+09/06/2019
+-Fixed issue with CritBoost; the skill affected damage output even if no affinity was inputted
+-Commented out longClickListeners in 'WeaponSelect.java'; this is purely for the hotfix release
+ so users don't accidentally run beta code.
+
+10/06/2019
+-Added 'AttackUpSModifier' as part of the skill formula in 'ProwlerCalculation.java'
+-Fixed issue with BG Artillery skill; it wouldn't allow the user to choose Artillery with Crag. This was caused due to flawed logic
+ in the 'If' statement.
+#Uploaded V2.0.5#
+
+11/06/2019
+-Added 'setSharpness()' to 'DamageCalculation.java'; this is due to the 'getIndentifier()' method of setting the sharpness stopped working
+ for unknown reasons.
+-Added 'ErrorCheck(View, String)' to 'UI.java'; this will be used to check for any input errors from spinners and will display the
+ corresponding if needed.
+-Added 'LSMVCheck(int)' to 'DamageCalculation.java'; this will be used to change the motion values for LS depending on the chosen spirit
+ gauge colour.
+
+16/06/2019
+-Fixed Felyne Bombardier issue with Gunlance; issue was caused by the function not being called, meaning that the modifier was never set
+-Fixed Artillery issue with Gunlance; issue was caused due to '-Group S-' still being part of the 'Switch' statement instead of '-Artillery-'
+-Released V 2.0.6 with the above fixes
+-Added 'SNSSharpnessMod()' to 'DamageCalculation.java'; this is to set SNS's sharpness modifier if the user has chosen SNS
+
+17/06/2019
+-Added 'getWolfsMawModifier()' to 'DamageCalculation.java'; this is to get the modifier for DBs Wolfs Maw HA
+
+19/06/2019
+-Added 'getCalculatedElm(int)', 'getCalculatedSubElm()', 'getCalculatedRawHitzone(int)' to 'DamageCalculation.java'; this is to simplify
+ the calculation algorithm.
+-Altered 'getBounce()' in 'DamageCalculation.java'; it now takes an int as a parameter and no longer uses the variable 'Bounce' as it
+ returns the boolean query directly.
+-Added'setHitzone_DB()' to 'DamageCalculation.java'; this is properly set the hitzones for DB
+-Altered 'ErrorCheck(View, String)' in 'UI.java'; it now takes two floats as parameters as well
+-Removed 'getError()' and 'InputCheck(String)' from 'DamageCalculation.java'
+-Altered 'getDBElmMod(String)' in 'DamageCalculation.java'; changed the 'If' statements to 'switch' statements where possible/necessary
+-Added DB specific set up for Group P skills ([Element] Atk Up skills) in 'SetUp(String)' function in 'UI.java'
+-Fixed 'getBounce(int)' in 'DamageCalculation.java'; the logic was backwards, so attacks that bounced were displayed as normal, whereas
+ attacks that should be okay were displayed as bouncing.
+-Added in missing skills/HAs for DB, LS and HBG in 'CalculateSKills()'; the order of calling functions was also rearranged in order to 
+-Removed empty constructor from 'SkillsCalculation.java'
+-Added 'setProvokeModifier(boolean)' to 'SkillsCalculation.java'; this is so the Hammer can set the attack buff for the Provoke HA. The
+ variable 'ProvokeModifier' was added to go along with this as well.
+-Added new layout for Hammer HA; this is to accomodate the 'ProvokeCheck' check box
+
+20/06/2019
+-Made the instances of 'SkillCalculation.java' in 'UI.java' and 'DamageCalculation.java' public; this is due to the fact they were using their
+ own instances of the class, so the skills selected using 'UI.java' weren't being factored into the calculations.
+-GS, LS, SNS, DB and Hammer are functioning as intended by this point. Thorough testing still needs to be done though.
+-Added function 'alterHA_MV()' to 'DamageCalculation.java'; this is to make sure HAs with fixed damage values are dispalyed correctly.
+-Altered 'getCalculatedHitzoneRaw(int)' in 'DamageCalculation.java'; this now takes 'TrueRaw' as a float. This is to make the 'Calculate(int)'
+ function cleaner. 'getBounce(int)' has been altered in the same way to accomodate the changes.
+-Added function 'getTrueAttack(int, float)' to 'DamageCalculation.java'; this is to make the 'Calculate(int)' function cleaner.
+
+22/06/2019
+-Altered 'alterHA_MV(int)' in 'DamageCalculation.java'; it now takes a 'float' as a parameter as well
+-Added function 'alterHitzones()' to 'DamageCalculation.java'; this is used to decide which 'alterHitzones(...)' function in
+ 'MonsterCalculation.java' to call.
+-HH and Lance are functioning as intended by this point. Thorough testing still needs to be done though.
+
+01/07/2019
+-Fixed issue in 'DamageCalculation.java'; the 'HitMultiplier(int)' return value was being applied to DB which stacked with the
+ values determined using 'getDBElmMod(String)'. This resulted in incorrect elemental values being displayed. This was corrected
+ by creating a specific case for 'DB' in the 'switch' statement in 'HitMultiplier(int)'.
+-Removed 'setHitzones()' and 'setHitzones_DB()' in 'DamageCalculation.java'; these were redundant.
+-Added 'If statement' to the switch in 'alterHitzones(int)' in'DamageCalculation.java; this is so the hitzones change when needed for Lance
+-Added function 'DisplayInfo(String)' to 'UI.java'; this is so that the RelativeLayouts can be displayed correctly for GL and CB. The
+ function addition means that the code looks cleaner.
+
+02/07/2019
+-Added function 'setMVs()' to 'DamageCalculation.java'; this is to make sure that the extra MVs for GL and CB are displayed correctly. This
+ function will be called in place of simply setting the MVs in the constructor and will be used by all Blademaster weapons except for DB, as
+ it is only called in the default Blademaster constructor which DB doesn't use.
+
+03/07/2019
+-Extended functionality of 'setMVs()' in 'DamageCalculation.java'; it has a 'switch' statement that takes into account SA as it too doesn't
+ have a single MV array. It now sets both arraysfor SA (Axe and Sword), on top of doing the previous tasks of properly setting up the MV
+ arrays for GL and CB.
+-Fixed error with getting CB TextView names; the names were being called as strings instead of arrays
+
+04/07/2019
+-Altered function 'DisplayBanners()' in 'UI.java'; it now takes a 'String' as a parameter in order to make sure the correct banners are
+ displayed based on the weapon. It also has an extra 'if' statement to accomodate for extra banners for weapons such as SA.
+-Added temporary function 'DisplayTextViews_Axe(int, View, String)'; this is a direct copy of the function 'DisplayTextViews(int, View, String)',
+ except it is tweaked in order to work with SAs and CBs TextView skipping method. It will also be tweaked in order for GLs values to be displayed
+ correctly.
+-Added missing move name for SA in 'Motion_Values.xml'; 'Vault Attack' for Aerial Style was missing, causing the app to crash
+-Merged temporary function 'DisplayViews(...)' with the main one
+-Added function 'GLShelling(int)' to 'DamageCalculation.java'; this is specifically calculate the shelling damage for GL
+-Added function 'SpecialAlter(int, float)' to 'DamageCalculation.java'; this is to call the weapon specific MV altering functions.
+ It's simply there to make things look cleaner.
+
+05/07/2019
+-'GLShelling(int)' has been implemented at this point. Thorough testing is still needed though.
+-Added functions 'CBPhials(int, float)' and 'CBAxeAlter(int, float)' in DamageCalculation.java'; this is to calculate the phial damage
+ and alter the MVs for CB.
+
+11/07/2019
+-Added function 'setLionsMawModifier()' in 'DamageCalculaion.java'; this is to make sure that Lions Maw is factored into calculations.
+-Altered function 'setLionsMawModifier(boolean, int)' in 'SkillsCalculation.java'; it now has a 'switch' statement that is used to determine
+ which RadioButton is being used, using the 'int' parameter to hold the RadioButtons ID.
+-Added functions 'setDemonRiotModifier(boolean, int)' and 'setDemonRiotModifier()' in 'SkillsCalculation.java'; these are to make sure  the
+ correct phial modifiers are used in calculations.
+-Added SA error checking to 'ErrorCheck(View, int, float, float)' in 'UI.java'; this checks the phials with the elements
+-Added GL error checking to 'ErrorCheck(View, int, float, float)' in 'UI.java'; this makes sure the user can't pick
+ the incorrect amount of shells for the chosen type.
+-Altered function 'RefreshTextViews()' in 'UI.java'; it now takes a 'String' parameter. This is so it can hide the extra RelativeLayout
+ for GL or CB if they are chosen.
+-Implemented 'Heat Gauge' usage for GL
+-Added GS error checking to 'ErrorCheck(View, int, float, float)' in 'UI.java'; this is to let the player know that having Lions Maw active
+ with having the Lions Maw HA selected via spinner will negate the attack boost negated.
+-Added Valor Shelling functionality for GL; it is now displayed properly according to shells
+-Altered function 'DisplayInfo(String)' in 'UI.java'; it now takes an 'int' as a parameter in order to display Valor Shelling properly
+-Reworked Valor Shelling for GL; the values I had were incorrect. These need to be relected in the old code base
+-SA implemented. Still needs thorough testing.
+-Alter old GL Shelling calculation; Valor mods were factored in twice, messing up the results
+
+12/07/2019
+-GL and CB implemented. Still need thorough testing.
+-Fixed text issue for CB; phial damage was displayed in red even though they don't reduce sharpness due to hitzones
+-Added error capturing for CB; player can no longer pick the wrong shield/style combination
+
+20/07/2019
+-Fixed issue with weapon bouncing text colours; attacks that should be displayed as bouncing were displayed as normal.
+ This was caused by an error in logic that was used for the 'If' statement.
+-Added function 'getExtract()' in 'DamageCalculation.java'; it's simply there to return the correct extract for IG display purposes
+-Altered function 'setMVs()' in 'DamageCalculation.java'; added a 'case' for IG in the 'Switch' statement
+-Altered default Blademaster constructor in 'DamageCalculation.java'; replaced the 'If' statement used to determine which constructor
+ to use for 'MonsterCalculation' with a 'Switch' and added in a 'case' for IG.
+-IG implemented. Still need thorough testing.
+
+14/08/2019
+-Fixed issue with CB phial info display; KO info for the Ultra burst was being displayed and was overlapping with the other KO info
+
+02/09/2019
+-Started work on implementing gunner weapons with new code base
+-Added function 'GunnerCalc()' in DamageCalculation.java'; this is to calculate gunner specific stuff
+-Added functions 'setAerialShotModifierBG(bool, bool)' and 'getAerialShotModifier()' in 'SkillsCalculation.java'; these are to replace the
+ 'AerialShotModifier' variable that were used by the BGs in the old code base.
+
+10/09/2019
+-Added function 'GunnerSetUp()' in 'UI.java': this is to properly set up the gunner weapons for calculations
+-Started integrating Gunner calculations inside 'UI.java'
+
+13/09/2019
+-Continued work on Gunner calculation integration
+
+14/09/2019
+-Added function 'DistanceModifier(String)' to 'SkillsCalculation.java; this returns the distance modifier for gunner weapons
+-Started adding in MVs for Gunner weapons to 'Motion_Values.xml'
+
+30/09/19
+-Finished adding 'if' statement for 'SelectedShot' in 'GunnerSetup()' in 'UI.java'
+
+01/10/19
+-Altered function 'GunnerCalc()' in 'DamageCalculation.java': it now takes a 'String' parameter
+-Finished adding in MVs for Gunner weapons to 'Motion_Values.xml'
+
+10/09/2019
+-Added function 'GunnerSetUp()' in 'UI.java': this is to properly set up the gunner weapons for calculations
+
+19/10/2019
+-Fixed issue where 'Selected Shot' and 'Distance' spinners weren't displaying items; this was due to them not being assigned
+ an adapter.
+
+03/11/2019
+-Altered function 'GunnerCalc(int)' in 'DamageCalculation.java.; it now takes a float as well as a parameter
+-Added new function 'setGunnerMVs(String)' to 'DamageCalculation.java'; this is so the MVs for Gunner weapons
+ are only set once instead of every time the loop goes round.
+
+05/11/19
+-Copied contents of 'GunnerSetUp()' in 'UI.java' to 'setGunnerMVs()' in 'DamageCalculation.java'; this is so the MVs are dealt with
+ in 'DamageCalculation.java' as this makes more sense in terms of what the classes are designed to do.
+
+15/11/2019
+-Finished Gunner Calculation. Method of calculation is still rough and needs refining, as it will crash when certain shots are selected.
+ See 'TODO's and Gunner specific functions in 'UI.java' and 'DamageCalculation.java'.
+
+19/11/2019
+-Renamed 'Shot' variables/objects that were used for GL to 'Shell'. 'Shot' suffix is now used for Gunner weapons
+-Further refined Gunner calculation method; the MVs are taken from 'Motion_Values.xml' instead of being assigned in the code itself. The
+ applies to the names. 'If statements' have mostly been replaced with 'switch statements' where possible. Further testing still needs to
+ be done as there are still errors e.g. Pierce shots crash the app.
+-Commented out redundant functions in 'UI.java' and 'DamageCalculation.java'
+
+#CHECK TODOS
+
+#Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,
+ other colour levels being available for Valor LS.
+
+
+#FIND A WAY TO MAKE MOTIONATK PART OF DAMAGECALCULATION INSTEAD OF HAVING TO ACCESS UI TO USE IT
+#CHECK HOW SKILLCHECK IS USED IN 'SKILLSCALCULATION' AND TRY TO SIMPLIFY IT
+#GO THROUGH STUBS TO SEE WHAT CAN BE MERGED
+#MAKE SURE ALL STUBS ARE UNIFORM
+#SHORTEN SKILL SWITCH BY REMOVING PIXELS VARIABLE
+#ADD IN NEW HUNTER ART FOR DB
+#REPLACE TOASTS WITH SNACKBARS UNLESS NECESSARY#
+#LOOK INTO LONG PRESS FUNCTIONS FOR HELP AND EXTRA INFO IN-APP
+
+
+#Code Sizes in lines(As of 17/11/2018)#
+-CB: 1719
+-LS: 1260
+-GS: 1306
+-DB: 1599
+-HH: 1147
+-GL: 1416
+-SA: 1345
+-IG: 1263
+-SnS: 1175
+-HBG: 1684
+-LBG: 1723
+-Bow: 1859
+-Lance: 1149
+-Hammer: 1220
+-Prowler: 979
+
+#ELEMENTAL SKILL BOOSTS#
+-+1 = x1.05 + 40
+-+2 = x1.1 + 60
+-(Element Atk Up) = x1.1
+
+###Extract Key###
+1 = Red
+2 = Orange
+3 = White
+4 = Green
+
+#CREDIT REDDIT USER FOR FINDING BOWGUN AMMO#
+#CREDIT GAMEFAQS USER FOR HUNTER ART MOTION VALUES AND BOW ELEMENT VALUE CLARIFICATION#
