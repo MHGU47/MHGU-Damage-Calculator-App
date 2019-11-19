@@ -1175,7 +1175,7 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
                 float TrueAttack;
 
                 TextView Damage = (TextView) findViewById(R.id.DamageInputHBG);
-                TextView Affinity = (TextView) findViewById(R.id.AffinityInputHBG);
+                TextView Affinity = (TextView) findViewById(R.id.AffinityInput);
 
                 List<String> HitzoneCatchList = Arrays.asList("Head", "Chin", "Horn", "NONE");
                 List<String> StyleCatchList = Arrays.asList("Guild", "Striker", "Aerial", "Alchemy");

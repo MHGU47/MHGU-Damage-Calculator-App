@@ -12,7 +12,7 @@
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/DamageInputHBG"
+            android:id="@+id/DamageInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -22,10 +22,10 @@
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/AffinityInputHBG"
+            android:id="@+id/AffinityInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DamageInputHBG"
+            android:layout_below="@+id/DamageInput"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:ems="10"
@@ -37,7 +37,7 @@
             android:id="@+id/ShotSelectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AffinityInputHBG"
+            android:layout_below="@+id/AffinityInput"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="Selected Shot" />
@@ -86,6 +86,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/StyleLabel"
             android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
             android:gravity="center"
             android:prompt="@string/style_select_label"
             android:spinnerMode="dropdown" />
