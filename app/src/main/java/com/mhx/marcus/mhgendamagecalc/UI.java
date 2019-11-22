@@ -2428,40 +2428,39 @@ public class UI extends AppCompatActivity {
                         if(TextUtils.isEmpty(Element.getText().toString())) Element.setText("0");
                         if(TextUtils.isEmpty(Affinity.getText().toString())) Affinity.setText("0");
 
-                        switch(Wpn){
-                            case "DB":
-                                SubElement = findViewById(R.id.SubElementInput);
-                                if(TextUtils.isEmpty(SubElement.getText().toString())) SubElement.setText("0");
+                        if(Wpn.equals("DB")) {
+                            SubElement = findViewById(R.id.SubElementInput);
+                            if (TextUtils.isEmpty(SubElement.getText().toString())) SubElement.setText("0");
 
-                                DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
-                                        Float.parseFloat(Damage.getText().toString()), ChosenElement,
-                                        Float.parseFloat(Element.getText().toString()), ChosenSubElement,
-                                        Float.parseFloat(SubElement.getText().toString()),
-                                        Float.parseFloat(Affinity.getText().toString()));
+                            DmgCalc = new DamageCalculation(UI.this, UI.this, Wpn,
+                                    Float.parseFloat(Damage.getText().toString()), ChosenElement,
+                                    Float.parseFloat(Element.getText().toString()), ChosenSubElement,
+                                    Float.parseFloat(SubElement.getText().toString()),
+                                    Float.parseFloat(Affinity.getText().toString()));
 
-                                if(!DmgCalc.Stats.isValid_DB()){
-                                    if(!DmgCalc.Stats.isValidAtk()){
-                                        Damage.setError("Enter a valid attack");
-                                        return;
-                                    }
-                                    else if(!DmgCalc.Stats.isValidElm()){
-                                        Element.setError("Enter a valid element");
-                                        return;
-                                    }
-                                    else if(!DmgCalc.Stats.isValidSubElm()){
-                                        SubElement.setError("Enter a valid sub element");
-                                        return;
-                                    }
-                                    else if(!DmgCalc.Stats.isValidAffinity()){
-                                        Affinity.setError("Enter a valid affinity");
-                                        return;
-                                    }
+                            if (!DmgCalc.Stats.isValid_DB()) {
+                                if (!DmgCalc.Stats.isValidAtk()) {
+                                    Damage.setError("Enter a valid attack");
+                                    return;
                                 }
+                                else if (!DmgCalc.Stats.isValidElm()) {
+                                    Element.setError("Enter a valid element");
+                                    return;
+                                }
+                                else if (!DmgCalc.Stats.isValidSubElm()) {
+                                    SubElement.setError("Enter a valid sub element");
+                                    return;
+                                }
+                                else if (!DmgCalc.Stats.isValidAffinity()) {
+                                    Affinity.setError("Enter a valid affinity");
+                                    return;
+                                }
+                            }
 
-                                if(ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
-                                        Float.parseFloat(SubElement.getText().toString()))) return;
-                                break;
-                            default:
+                            if (ErrorCheck(view, Wpn, Float.parseFloat(Element.getText().toString()),
+                                    Float.parseFloat(SubElement.getText().toString()))) return;
+                        }
+                        else{
                                 DmgCalc = new DamageCalculation(UI.this,UI.this, Wpn,
                                         Float.parseFloat(Damage.getText().toString()), ChosenElement,
                                         Float.parseFloat(Element.getText().toString()),
@@ -2718,11 +2717,13 @@ public class UI extends AppCompatActivity {
                                 Math.round(15f * Skills.getCBPhialModifier()));
                         Extra.setText(Key);
                         Extra.setVisibility(View.VISIBLE);
-                    } else if (isImpact) {
+                    }
+                    else if (isImpact) {
                         String Key = "KO/Exhaust: 90/15";
                         Extra.setText(Key);
                         Extra.setVisibility(View.VISIBLE);
-                    } else if (!isImpact) {
+                    }
+                    else {
                         Extra.setVisibility(View.GONE);
                     }
 

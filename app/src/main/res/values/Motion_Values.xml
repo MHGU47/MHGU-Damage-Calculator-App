@@ -4403,22 +4403,29 @@
 
     <string-array name="Elemental_Names">
         <item>Shot Damage</item>
+        <item>Elemental Damage</item>
     </string-array>
 
     <string-array name="Fire_Damage_Names">
         <item>Shot Damage</item>
+        <item>Fixed Damage</item>
+        <item>Fire Damage</item>
+        <item>Stun Damage</item>
     </string-array>
 
     <string-array name="Cannon_Names">
         <item>Shot Damage</item>
+        <item>Fixed Damage</item>
     </string-array>
 
     <string-array name="Slicing_Names">
         <item>Shot Damage</item>
+        <item>Cutting Damage</item>
     </string-array>
 
     <string-array name="Shrapnel_Names">
         <item>Shot Damage</item>
+        <item>Shrapnel Damage</item>
     </string-array>
 
     <string-array name="Default_Names">

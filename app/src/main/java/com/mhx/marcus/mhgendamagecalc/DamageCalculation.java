@@ -634,12 +634,12 @@ public class DamageCalculation {
         }
         else if (SelectedShot.equals("Slicing S Lv1")) {
             MV = context.getResources().getIntArray(context.getResources().getIdentifier("Slicing_S_Lv1_Shot_MV", "array", context.getPackageName()));
-            MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier("GL_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+
             ShotType = "Slicing";
         }
         else if (SelectedShot.equals("Slicing S Lv2")) {
             MV = context.getResources().getIntArray(context.getResources().getIdentifier("Slicing_S_Lv1_Shot_MV", "array", context.getPackageName()));
-            MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier("GL_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+
             ShotType = "Slicing";
         }
         else if (SelectedShot.equals("Crag S Lv1")) {
@@ -814,7 +814,6 @@ public class DamageCalculation {
 
     private void GunnerCalc(int counter, float TrueRaw){
         List<String> HitzoneCatchList = Arrays.asList("Head", "Chin", "Horn", "NONE");
-        List<String> StyleCatchList = Arrays.asList("Guild", "Striker", "Aerial", "Alchemy");
 
         Skills.setAerialShotModifierBG(ui.AerialShotSelect.isChecked(), ui.ChosenStyle.equals("Aerial"));
         Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
@@ -825,11 +824,11 @@ public class DamageCalculation {
         //float TrueRaw,
         float TrueAttack, HitzoneRaw, HitzoneElm;
 
-        TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * MV[counter];
+        TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
 
         HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
         M.setElmHitzoneValue(context,ui.ChosenMonster + "ElmHitzones_Fire");
-        HitzoneElm = (RawDamage * MV[counter] * M.getElmHitzoneValue()) / 100;
+        HitzoneElm = (RawDamage * MV[counter] * M.getElmHitzoneValue()) / 10000;
 
         //TODO 05/11/2019: Double check the logic in ths switch
         switch(ShotType) {
@@ -848,19 +847,16 @@ public class DamageCalculation {
 //                            /*TrueAttack =*/ MVs.add(MV[1] * (Skills.getArtilleryModifier() *
 //                                    Skills.getFelyneBombardierModifier()));
 //                        else /*TrueAttack =*/ MVs.add(MV[1]);
-
                         if (ShotType.equals("Crag"))
-                            TrueAttack = MV[1] * (Skills.getArtilleryModifier() *
+                            TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() *
                                 Skills.getFelyneBombardierModifier());
-                        else TrueAttack = MV[counter];
+                        else TrueAttack = MV[counter] / 100f;
                         break;
                     case 2:
                         TrueAttack = HitzoneElm;
-                        //MVs.add(TrueAttack);
                         break;
                     default:
-                        TrueAttack = MV[3];
-                        MVs.add(TrueAttack);
+                        TrueAttack = MV[3] / 100f;
                         break;
                 }
 
@@ -871,7 +867,7 @@ public class DamageCalculation {
                 }
                 break;
             case "Cannon":
-                TrueAttack = (TrueRaw * MV[counter] * M.getRawHitzoneValue()) / 100;
+                TrueAttack = (TrueRaw * MV[counter] * M.getRawHitzoneValue()) / 10000;
 
                 if (counter == 0) {
                     if (ui.AerialShotSelect.isChecked()) {
@@ -880,19 +876,11 @@ public class DamageCalculation {
 //                        Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
 //                                .setAction("Action", null).show();
                     }
-                    else {
-                        TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
-                        //MVs.add(TrueAttack);
-                    }
+                    else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
                 }
-                else if (counter == 1){
-                    TrueAttack = MV[1] * (Skills.getArtilleryModifier() * Skills.getFelyneBombardierModifier());
-                    //MVs.add(TrueAttack);
-                }
-                else{
-                    TrueAttack = MV[2];
-                    //MVs.add(TrueAttack);
-                }
+                else if (counter == 1)
+                    TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() * Skills.getFelyneBombardierModifier());
+                else TrueAttack = MV[2] / 100f;
 
                 if (MV[counter] == 0f){
 //                    Info.setVisibility(View.VISIBLE);
@@ -906,7 +894,7 @@ public class DamageCalculation {
                     break;
                 }
             case "Elemental":
-                TrueAttack = (TrueRaw * MV[counter] * M.getRawHitzoneValue()) / 100;
+                TrueAttack = (TrueRaw * MV[counter] * M.getRawHitzoneValue()) / 10000;
 
                 if (counter == 0) {
                     if (ui.AerialShotSelect.isChecked()) TrueAttack *= Skills.getAerialShotModifier();
@@ -920,9 +908,8 @@ public class DamageCalculation {
                         Affinity = 0;
                     }
 
-                    if (!ui.ChosenMonster.equals("None")) {
+                    if (!ui.ChosenMonster.equals("None"))
                         M.setElmHitzoneValue(context, ui.ChosenMonster + "ElmHitzones_" + ChosenElement);
-                    }
                     else M.setElmHitzoneValue(context, "NoneElmHitzones_NONE");
 
                     TrueAttack = (Skills.getTrueElm(Skills.getTrueRaw(RawDamage * 1.48f,
@@ -936,15 +923,14 @@ public class DamageCalculation {
                 }
                 break;
             case "Slicing":
-                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * MV[counter];
+                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
 
                 if(counter == 1) M.alterHitzones(context, ui.ChosenMonster);
 
-                HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
+                HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 10000;
 
-                if (!ui.AerialShotSelect.isChecked()) {
+                if (!ui.AerialShotSelect.isChecked())
                     TrueAttack = HitzoneRaw * Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
-                }
                 else TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
 
                 if (MV[counter] == 0f) {
@@ -954,7 +940,7 @@ public class DamageCalculation {
                 }
                 break;
             case "Shrapnel":
-                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * MV[counter];
+                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
 
                 HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
 
