@@ -1067,6 +1067,13 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
  applies to the names. 'If statements' have mostly been replaced with 'switch statements' where possible. Further testing still needs to
  be done as there are still errors e.g. Pierce shots crash the app.
 -Commented out redundant functions in 'UI.java' and 'DamageCalculation.java'
+-Removed '0' values for BG MVs in 'Motion_Values.xml'
+-Added dev log to repository
+
+20/11/2019
+-Fixed crashing issue with Gunner calculations; the error was caused due to the names array being too small. They were missing extra information
+ for Crag S, Cannon S etc.
+-Further cleaned up code in 'UI.java' and 'DamageCalculation.java'
 
 #CHECK TODOS
 
