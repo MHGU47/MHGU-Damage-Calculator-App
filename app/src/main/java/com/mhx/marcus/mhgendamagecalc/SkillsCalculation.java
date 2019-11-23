@@ -703,23 +703,26 @@ public class SkillsCalculation {
     //TODO: *NOTE* Affinity related methods
 
     private float getCalculatedAffinity(float Affinity, boolean Check){
-        float CritOverflow;
-        if(!Check || Affinity == 0){
+        float CritOverflow, TotalCrit;
+        if(Affinity == 0) CritBoostModifier = 0;
+        if(!Check){
             TotalSkillCritModifier = 0;
             CritBoostModifier = 0;
         }
         else{
-            TotalSkillCritModifier = RepeatOffenderModifier + WeaknessExploitModifier + GroupDCrit +
-                    GroupJCrit + GroupO;
+            TotalSkillCritModifier = RepeatOffenderModifier + WeaknessExploitModifier +
+                    GroupDCrit + GroupJCrit + GroupO;
         }
 
-        CritOverflow = 1 + (CritBoostModifier + 0.25f) * ((TotalSkillCritModifier +
+        CritOverflow = TotalSkillCritModifier +
                 getOilStackModifier(OilSynergyState, OilSynergyLevel) + EvasiveManeuversModifier +
-                StingerModifier + Affinity)/100);
+                StingerModifier + Affinity;
 
-        if(CritOverflow > 1.25f) CritOverflow = 1.25f;
+        if(CritOverflow > 100) CritOverflow = 100;
 
-        return CritOverflow + CritBoostModifier;
+        //TotalCrit = 1 + (CritBoostModifier + 0.25f) * (CritOverflow / 100);
+
+        return 1 + (CritBoostModifier + 0.25f) * (CritOverflow / 100);
         //return 1 + (CritBoostModifier + 0.25f) * ((TotalSkillCritModifier +
           //      AffinityOilModifier + EvasiveManeuversModifier + Affinity)/100);
     }

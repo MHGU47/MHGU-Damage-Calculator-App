@@ -1075,6 +1075,10 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
  for Crag S, Cannon S etc.
 -Further cleaned up code in 'UI.java' and 'DamageCalculation.java'
 
+23/11/2019
+-Fixed issue with affinity calculation; the Crit Boost modifier was being added twice in cases where the total affinity rate didn't
+ exceed 100%. Also, some affinity skills weren't being calculated properly when the base affinity was set to 0%.
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,
