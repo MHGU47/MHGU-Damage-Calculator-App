@@ -78,7 +78,7 @@ public class UI extends AppCompatActivity {
 
             TempestAxeCheck, AwakenedCheck,//Switch Axe
 
-            AerialShotSelect, PowerReloadCheck,//Light/Heavy Bowgun
+            FelyneSharpshooterCheck, AerialShotSelect, PowerReloadCheck,//Light/Heavy Bowgun
 
             RapidFireCheck,//Light Bowgun
 
@@ -566,6 +566,7 @@ public class UI extends AppCompatActivity {
                 if (Wpn.equals("LBG")) RapidFireCheck = findViewById(R.id.RapidFireCheckBox);
                 PowerReloadCheck = findViewById(R.id.PowerReloadCheckBox);
                 AerialShotSelect = findViewById(R.id.AerialShotSelect);
+                FelyneSharpshooterCheck = findViewById(R.id.FelyneSharpshooterCheckBox);
             }
 
             SelectedShot = findViewById(R.id.ShotSelect);
@@ -2605,13 +2606,15 @@ public class UI extends AppCompatActivity {
                         if (!HitzoneCatchList.contains(ChosenHitzone) && counter == 3) {
                             //Info.setVisibility(View.VISIBLE);
                             Banners.get(0).setText(SelectedShot.getSelectedItem().toString());
+                            return;
                         }
                         break;
 
                     case "Cannon":
-                        if (!HitzoneCatchList.contains(ChosenHitzone) && counter == 2) {
+                        if (!(HitzoneCatchList.contains(ChosenHitzone) || ChosenHitzone.contains(HitzoneCatchList.get(0))) && counter == 2) {
                             //Info.setVisibility(View.VISIBLE);
                             Banners.get(0).setText(SelectedShot.getSelectedItem().toString());
+                            return;
                         }
                         break;
                 }
@@ -2624,7 +2627,7 @@ public class UI extends AppCompatActivity {
             textviews[counter + filler].setVisibility(View.VISIBLE);
 
             if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None") &&
-                    !Shelling) {
+                    !Shelling && !Wpn.equals("LBG") && !Wpn.equals("HBG")) {
                 textviews[counter + filler].setTextColor(Color.argb(255, 242, 16, 16));
                 Snackbar.make(view, "Attacks in red will bounce/receive increased sharpness reduction", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -2636,7 +2639,7 @@ public class UI extends AppCompatActivity {
             textviews[counter + filler].setVisibility(View.VISIBLE);
 
             if(DmgCalc.getBounce(counter, DmgCalc.getAtkPwr(counter)) && !ChosenMonster.equals("None") &&
-                    !Shelling)
+                    !Shelling && !Wpn.equals("LBG") && !Wpn.equals("HBG"))
                 textviews[counter + filler].setTextColor(Color.argb(255, 242, 16, 16));
             else textviews[counter + filler].setTextColor(Color.BLACK);
 
@@ -2841,6 +2844,8 @@ public class UI extends AppCompatActivity {
                 break;
             case "HBG":
             case "LBG":
+                String ShotText = String.valueOf(SelectedShot.getSelectedItem());
+                String GroupPText = String.valueOf(GroupPSelect.getSelectedItem());
                 if (AirborneCheck.isChecked() && !ChosenStyle.equals("Aerial") && SkillCheck){
                     if (!AerialShotSelect.isChecked()) {
                         Toast.makeText(UI.this, "Please select 'Aerial Shot' to use 'Airborne'",
@@ -2851,9 +2856,42 @@ public class UI extends AppCompatActivity {
                     return true;
                 }
 
-                if(AerialShotSelect.isChecked() && !ChosenStyle.equals("Aerial") && SkillCheck){
+                if(AerialShotSelect.isChecked() && !ChosenStyle.equals("Aerial")){
                     Toast.makeText(UI.this, "Please select Aerial Style/'Airborne' to use 'Aerial Shot'",
                             Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                if(PowerReloadCheck.isChecked() && !ChosenStyle.equals("Adept")){
+//                    Snackbar.make(view, "Power Reload is only in Adept Style", Snackbar.LENGTH_LONG)
+//                            .setAction("Action", null).show();
+                    Toast.makeText(UI.this, "Power Reload is only in Adept Style",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                if(((HeavyUpRadio.isChecked() && !ShotText.contains("Heavy")) ||
+                    (NormalUpRadio.isChecked() && !ShotText.contains("Normal")) ||
+                    (PierceUpRadio.isChecked() && !ShotText.contains("Pierce")) ||
+                    (PelletUpRadio.isChecked() && !ShotText.contains("Pellet")) ||
+                    (FelyneSharpshooterCheck.isChecked() &&
+                    !ShotText.contains("Normal"))) && SkillCheck) {
+                    Snackbar.make(view, "Please check shot/skill selection", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return true;
+                }
+
+                if((ElementalAtkUpCheck.isChecked() || GroupPText.contains("+") || ElementalCritCheck.isChecked()) &&
+                        !ShotType.equals("Elemental")  && SkillCheck){
+                    Snackbar.make(view, "Please check shot/element skill selection", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return true;
+                }
+
+                if((FelyneBombardierCheck.isChecked() || Skills.ArtilleryCheck()) &&
+                        (!ShotType.equals("Crag") && !ShotType.equals("Cannon")) && SkillCheck) {
+                    Snackbar.make(view, "Please check shot/skill selection", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                     return true;
                 }
                 break;

@@ -1079,6 +1079,34 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Fixed issue with affinity calculation; the Crit Boost modifier was being added twice in cases where the total affinity rate didn't
  exceed 100%. Also, some affinity skills weren't being calculated properly when the base affinity was set to 0%.
 
+25/11/2019
+-Fixed UI issue where Stagger banner for CB didn't disappear. The fix is sloppy but it's part of the
+ old code base which will be deleted anyways so...
+-UPLOADED V2.0.7
+-UPLOADED HOTFIX THAT FIXES TRANSPARENT STATUS BAR
+-Altered damage calculation for Gunners in new code base; the damage was being scaled to much to accommodate
+ for the fact that MVs are saved as ints.
+-Made it so Gunner calculations don't run the getBounce(int, float) function in 'DamageCalculation.java'
+ and so the text colour doesn't change for resistant hitzones.
+-Removed remaining '0' MVs from 'Motion_Values.xml' for Gunners
+-Fixed Clust S MVs; MVs for fixed and fire damage were either too big or too small by a factor of 10
+-Fixed Slicing S Lv2; it was using the MVs for Slicing S Lv1 instead of Lv2
+-Fixed Cannon S; crash caused by the names array for the MVs being the size of 2 instead of 3
+-Fixed Cannon S; textviews not displaying due to error in logic in 'DisplayTextViews(int, View, String)'
+-Fixed Cannon S; stun damage and fire damage not being calculated due to there not being a 'break' at
+ the end of the 'switch'.
+-Fixed Cannon S; TrueRaw was being used to hold the calculated raw damage but was then used in the same
+ calculation, making the raw damage less than 1.
+-Fixed Elemental affinity; this was causing Gunner element to always equal '0' due to it not setting
+ ElmAffinity to '1' during it's calculations.
+-Fixed Triblast S; this was assigned 'Triblast S' as it's shot type instead of 'Triblast'
+-Performed test of all shots for BG. Test these again from start to finish.
+-Adjusted 'ErrorCheck(View, String, float, float)' in 'UI.java'; it now performs the correct checks
+ BGs.
+-Adjusted 'DisplayTextViews(int, View, String)'; fixed the logic for BGs so that textviews containing
+ stun damage only show up for attacks to the head, no matter what state they're in e.g. wounded, lava.
+-General clean up of code
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,

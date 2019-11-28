@@ -4257,18 +4257,18 @@
     </integer-array>
 
     <integer-array name="Clust_S_Lv1_Shot_MV">
-    <item>180</item>
-    <item>7500</item>
+    <item>18</item>
+    <item>750</item>
     <item>6</item>
 </integer-array>
     <integer-array name="Clust_S_Lv2_Shot_MV">
         <item>24</item>
-        <item>100</item>
+        <item>1000</item>
         <item>8</item>
     </integer-array>
     <integer-array name="Clust_S_Lv3_Shot_MV">
         <item>30</item>
-        <item>12500</item>
+        <item>1250</item>
         <item>10</item>
     </integer-array>
 
@@ -4317,88 +4317,49 @@
 
     <integer-array name="Pellet_S_Lv1_Shot_MV">
         <item>15</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
     <integer-array name="Pellet_S_Lv2_Shot_MV">
         <item>20</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
     <integer-array name="Pellet_S_Lv3_Shot_MV">
         <item>25</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <integer-array name="Long_S_Lv1_Shot_MV">
         <item>15</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
     <integer-array name="Long_S_Lv2_Shot_MV">
         <item>18</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <integer-array name="Dazzling_S_Shot_MV">
         <item>35</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <integer-array name="Force_S_Lv1_Shot_MV">
         <item>15</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
     <integer-array name="Force_S_Lv2_Shot_MV">
         <item>18</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <integer-array name="Stone_S_Shot_MV">
         <item>10</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <integer-array name="Heavy_S_Lv1_Shot_MV">
         <item>9</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
     <integer-array name="Heavy_S_Lv2_Shot_MV">
         <item>12</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <integer-array name="Sting_S_Shot_MV">
         <item>14</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <integer-array name="Wyvern_S_Shot_MV">
         <item>25</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <string-array name="Elemental_Names">
@@ -4416,6 +4377,7 @@
     <string-array name="Cannon_Names">
         <item>Shot Damage</item>
         <item>Fixed Damage</item>
+        <item>Stun Damage</item>
     </string-array>
 
     <string-array name="Slicing_Names">

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MHGU-Damage-Calculator-App.iml" filepath="$PROJECT_DIR$/MHGU-Damage-Calculator-App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MHGenCalculator.iml" filepath="$PROJECT_DIR$/MHGenCalculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

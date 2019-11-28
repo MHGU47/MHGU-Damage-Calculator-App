@@ -1442,6 +1442,10 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
                     }
                 }
 
+                if(ChosenMonster.equals("None")){
+                    StaggerBanner.setVisibility(View.GONE);
+                }
+
                 /*Block of code here added to control when the 'Axe Move' banner is displayed.*/
                 textviews[ForLoopCarry] = (TextView) findViewById(R.id.AxeMovesBanner);
                 textviews[ForLoopCarry].setVisibility(View.VISIBLE);
