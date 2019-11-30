@@ -4362,6 +4362,38 @@
         <item>25</item>
     </integer-array>
 
+    <integer-array name="LBG_HA_BulletGeyser_MV">
+        <item>20</item>
+        <item>10</item>
+        <item>39</item>
+        <item>30</item>
+        <item>60</item>
+        <item>60</item>
+    </integer-array>
+
+    <integer-array name="Charged_Shot_MV">
+        <item>20</item>
+        <item>40</item>
+        <item>60</item>
+    </integer-array>
+
+    <integer-array name="Super_Nova_MV">
+        <item>40</item>
+        <item>75</item>
+        <item>36</item>
+        <item>40</item>
+        <item>150</item>
+        <item>15</item>
+        <item>45</item>
+        <item>200</item>
+        <item>5</item>
+        <!--
+        {40 + 40 x (TrueRaw x 0.0075) [Center]} + {36 + 36 x (TrueRaw x 0.0075) [Edge]} True Damage
+        {40 + 40 x (TrueRaw x 0.015) [Center]} + {15 + 15 x (TrueRaw x 0.015) [Edge]} True Damage
+        {45 + 45 x (TrueRaw x 0.02) [Center]} + {5 + 5 x (TrueRaw x 0.02) [Edge]} True Damage
+        -->
+    </integer-array>
+
     <string-array name="Elemental_Names">
         <item>Shot Damage</item>
         <item>Elemental Damage</item>
@@ -4392,6 +4424,30 @@
 
     <string-array name="Default_Names">
         <item>Shot Damage</item>
+    </string-array>
+
+    <string-array name="Bullet_Geyser_Names">
+        <item>Level I - Fixed Damage</item>
+        <item>Level I - Fire Damage</item>
+        <item>Level II - Fixed Damage</item>
+        <item>Level II - Fire Damage</item>
+        <item>Level III - Fixed Damage</item>
+        <item>Level III - Fire Damage</item>
+    </string-array>
+
+    <string-array name="Charged_Shot_Names">
+        <item>Level I - Per shot</item>
+        <item>Level II - Per shot</item>
+        <item>Level III - Per shot</item>
+    </string-array>
+
+    <string-array name="Super_Nova_Names">
+        <item>Level I - Fixed Damage (Centre)</item>
+        <item>Level I - Fixed Damage (Edge)</item>
+        <item>Level II - Fixed Damage (Centre)</item>
+        <item>Level II - Fixed Damage (Edge)</item>
+        <item>Level III - Fixed Damage (Centre)</item>
+        <item>Level III - Fixed Damage (Edge)</item>
     </string-array>
 
     <string-array name="LBG_HA_Names">

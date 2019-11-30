@@ -218,10 +218,8 @@ public class DamageCalculation {
         float TrueRaw = 0;
 
         alterHitzones(counter);
-        //if(!Weapon.equals("LBG") && !Weapon.equals("HBG")) {
-            if (ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
-            else MV_NamesList.add(HA_Levels[counter]);
-        //}
+        if (ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
+        else MV_NamesList.add(HA_Levels[counter]);
 
         switch(Weapon) {
             case "GS":
@@ -830,6 +828,12 @@ public class DamageCalculation {
         M.setElmHitzoneValue(context,ui.ChosenMonster + "ElmHitzones_Fire");
         HitzoneElm = (RawDamage * MV[counter] * M.getElmHitzoneValue()) / 10000;
 
+        /*<!--
+                {40 + 40 x (TrueRaw x 0.0075) [Center]} + {36 + 36 x (TrueRaw x 0.0075) [Edge]} True Damage
+        {40 + 40 x (TrueRaw x 0.015) [Center]} + {15 + 15 x (TrueRaw x 0.015) [Edge]} True Damage
+        {45 + 45 x (TrueRaw x 0.02) [Center]} + {5 + 5 x (TrueRaw x 0.02) [Edge]} True Damage
+        -->*/
+
         //TODO 05/11/2019: Double check the logic in ths switch
         switch(ShotType) {
             case "Triblast":
@@ -1380,6 +1384,11 @@ public class DamageCalculation {
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("IG_HA_BugBlow_Names", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("IG_HA_BugBlow_MV_ElmCheck", "array", context.getPackageName()));
                     break;
+                case "Bullet Geyser":
+                    MV = context.getResources().getIntArray(context.getResources().getIdentifier("LBG_HA_BulletGeyser_MV", "array", context.getPackageName()));
+                    HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("HA_Levels", "array", context.getPackageName()));
+                    HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
+                    break;
                 case "Anti-Monster Mine":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_AntiMonsterMine_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
@@ -1633,14 +1642,16 @@ public class DamageCalculation {
     }
 
     private void setLionsMawModifier(){
-        if(ui.LionsMawLevel1Check.isChecked())
-            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel1Check.getId());
-        else if(ui.LionsMawLevel2Check.isChecked())
-            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel2Check.getId());
-        else if(ui.LionsMawLevel3Check.isChecked())
-            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel3Check.getId());
-        else
-            Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), 0);
+        if(!ui.ChosenArt.contains("Lions Maw")) {
+            if (ui.LionsMawLevel1Check.isChecked())
+                Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel1Check.getId());
+            else if (ui.LionsMawLevel2Check.isChecked())
+                Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel2Check.getId());
+            else if (ui.LionsMawLevel3Check.isChecked())
+                Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), ui.LionsMawLevel3Check.getId());
+            else
+                Skills.setLionsMawModifier(!ui.LionsMawOffCheck.isChecked(), 0);
+        }
     }
 
     private float GSChargeMod_Atk(int counter){
