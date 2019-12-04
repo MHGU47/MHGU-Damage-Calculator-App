@@ -4378,15 +4378,17 @@
     </integer-array>
 
     <integer-array name="Super_Nova_MV">
-        <item>40</item>
+        <item>400000</item>
+        <item>400000</item>
+        <item>450000</item>
+
         <item>75</item>
-        <item>36</item>
-        <item>40</item>
         <item>150</item>
-        <item>15</item>
-        <item>45</item>
         <item>200</item>
-        <item>5</item>
+
+        <item>360000</item>
+        <item>150000</item>
+        <item>50000</item>
         <!--
         {40 + 40 x (TrueRaw x 0.0075) [Center]} + {36 + 36 x (TrueRaw x 0.0075) [Edge]} True Damage
         {40 + 40 x (TrueRaw x 0.015) [Center]} + {15 + 15 x (TrueRaw x 0.015) [Edge]} True Damage

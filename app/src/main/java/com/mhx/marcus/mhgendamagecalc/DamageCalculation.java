@@ -817,9 +817,7 @@ public class DamageCalculation {
         Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
 
         String Distance = String.valueOf(ui.DistanceSelect.getSelectedItem());
-                //ShotText = String.valueOf(ui.SelectedShot.getSelectedItem());
 
-        //float TrueRaw,
         float TrueAttack, HitzoneRaw, HitzoneElm;
 
         TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
@@ -833,58 +831,57 @@ public class DamageCalculation {
         {40 + 40 x (TrueRaw x 0.015) [Center]} + {15 + 15 x (TrueRaw x 0.015) [Edge]} True Damage
         {45 + 45 x (TrueRaw x 0.02) [Center]} + {5 + 5 x (TrueRaw x 0.02) [Edge]} True Damage
         -->*/
-
-        //TODO 05/11/2019: Double check the logic in ths switch
-        switch(ShotType) {
-            case "Triblast":
-            case "Crag":
-            case "Clust":
-                switch(counter){
-                    case 0:
-                        //if (ui.AerialShotSelect.isChecked()) /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.getAerialShotModifier());
-                        //else /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.DistanceModifier(Distance));
-                        if (ui.AerialShotSelect.isChecked()) TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
-                        else TrueAttack = HitzoneRaw * Skills.DistanceModifier(Distance);
-                        break;
-                    case 1:
+        if(ui.ChosenArt.equals("-None")){
+            switch(ShotType) {
+                case "Triblast":
+                case "Crag":
+                case "Clust":
+                    switch(counter){
+                        case 0:
+                            //if (ui.AerialShotSelect.isChecked()) /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.getAerialShotModifier());
+                            //else /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.DistanceModifier(Distance));
+                            if (ui.AerialShotSelect.isChecked()) TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
+                            else TrueAttack = HitzoneRaw * Skills.DistanceModifier(Distance);
+                            break;
+                        case 1:
 //                        if (ui.ShotType.equals("Crag"))
 //                            /*TrueAttack =*/ MVs.add(MV[1] * (Skills.getArtilleryModifier() *
 //                                    Skills.getFelyneBombardierModifier()));
 //                        else /*TrueAttack =*/ MVs.add(MV[1]);
-                        if (ShotType.equals("Crag"))
-                            TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() *
-                                Skills.getFelyneBombardierModifier());
-                        else TrueAttack = MV[counter] / 100f;
-                        break;
-                    case 2:
-                        TrueAttack = HitzoneElm;
-                        break;
-                    default:
-                        TrueAttack = MV[3] / 100f;
-                        break;
-                }
+                            if (ShotType.equals("Crag"))
+                                TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() *
+                                        Skills.getFelyneBombardierModifier());
+                            else TrueAttack = MV[counter] / 100f;
+                            break;
+                        case 2:
+                            TrueAttack = HitzoneElm;
+                            break;
+                        default:
+                            TrueAttack = MV[3] / 100f;
+                            break;
+                    }
 
-                if (!HitzoneCatchList.contains(ui.ChosenHitzone) && counter == 3) {
-                    //Info.setVisibility(View.VISIBLE);
-                    //Banner.setText(ShotText);
+                    if (!HitzoneCatchList.contains(ui.ChosenHitzone) && counter == 3) {
+                        //Info.setVisibility(View.VISIBLE);
+                        //Banner.setText(ShotText);
+                        break;
+                    }
                     break;
-                }
-                break;
-            case "Cannon":
-                TrueAttack = TrueRaw;//(TrueRaw * MV[counter] * M.getRawHitzoneValue()) / 10000;
+                case "Cannon":
+                    TrueAttack = TrueRaw;//(TrueRaw * MV[counter] * M.getRawHitzoneValue()) / 10000;
 
-                if (counter == 0) {
-                    if (ui.AerialShotSelect.isChecked()) {
-                        TrueAttack *= Skills.getAerialShotModifier();
-                        //MVs.add(TrueAttack);
+                    if (counter == 0) {
+                        if (ui.AerialShotSelect.isChecked()) {
+                            TrueAttack *= Skills.getAerialShotModifier();
+                            //MVs.add(TrueAttack);
 //                        Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
 //                                .setAction("Action", null).show();
+                        }
+                        else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
                     }
-                    else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
-                }
-                else if (counter == 1)
-                    TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() * Skills.getFelyneBombardierModifier());
-                else TrueAttack = MV[2] / 100f;
+                    else if (counter == 1)
+                        TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() * Skills.getFelyneBombardierModifier());
+                    else TrueAttack = MV[2] / 100f;
 
 //                if (MV[counter] == 0f){
 ////                    Info.setVisibility(View.VISIBLE);
@@ -897,107 +894,121 @@ public class DamageCalculation {
 ////                    Banner.setText(ShotText);
 //                    break;
 //                }
-                break;
-            case "Elemental":
-                TrueAttack = (TrueRaw * M.getRawHitzoneValue()) / 100;
+                    break;
+                case "Elemental":
+                    TrueAttack = (TrueRaw * M.getRawHitzoneValue()) / 100;
 
-                if (counter == 0) {
-                    if (ui.AerialShotSelect.isChecked()) TrueAttack *= Skills.getAerialShotModifier();
-                    else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
-                }
-                else {
-                    if (!ui.ElementalCritCheck.isChecked()) {
-                        Skills.setGroupO(0);
-                        Skills.setGroupJCrit(0);
-                        Skills.setGroupDCrit(0);
-                        Affinity = 0;
-                        TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) *
-                                (MV[counter] / 100f);
-                    }
-
-                    if (!ui.ChosenMonster.equals("None"))
-                        M.setElmHitzoneValue(context, ui.ChosenMonster + "ElmHitzones_" + ChosenElement);
-                    else M.setElmHitzoneValue(context, "NoneElmHitzones_NONE");
-
-                    TrueAttack = (Skills.getTrueElm(TrueRaw, ui.SkillCheck) * MV[counter] * 0.95f *
-                            M.getElmHitzoneValue()) / 10000;
-                }
-
-//                if (MV[counter] == 0f) {
-//                    //Info.setVisibility(View.VISIBLE);
-//                    //Banner.setText(ShotText);
-//                    return;
-//                }
-                break;
-            case "Slicing":
-                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
-
-                if(counter == 1) M.alterHitzones(context, ui.ChosenMonster);
-
-                HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
-
-                if (!ui.AerialShotSelect.isChecked())
-                    TrueAttack = HitzoneRaw * Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
-                else TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
-
-//                if (MV[counter] == 0f) {
-//                    //Info.setVisibility(View.VISIBLE);
-//                    //Banner.setText(ShotText);
-//                    return;
-//                }
-                break;
-            case "Shrapnel":
-                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
-
-                HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
-
-                if (counter == 0) {
-                    if (!ui.AerialShotSelect.isChecked()) {
-                        TrueAttack = HitzoneRaw * Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
-//                            Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
-//                                    .setAction("Action", null).show();
-                    }
-                    else TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
-                }
-                else TrueAttack = HitzoneRaw;
-
-                if (MV[counter] == 0f) {
-                    //Info.setVisibility(View.VISIBLE);
-                    //Banner.setText(ShotText);
-                    return;
-                }
-                break;
-            default:
-                //TrueAttack = 0;
-                TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
-
-                HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
-
-                TrueAttack = HitzoneRaw;
-
-                if (MV[counter] != 0f) {
-                    if (ShotType.equals("Normal") || ShotType.equals("Pierce")) {
+                    if (counter == 0) {
                         if (ui.AerialShotSelect.isChecked()) TrueAttack *= Skills.getAerialShotModifier();
-//                            Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
-//                                    .setAction("Action", null).show();
                         else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
                     }
-                    else if (ShotType.equals("Heavy")) {
-                        if (String.valueOf(ui.DistanceSelect.getSelectedItem()).equals("Critical")
-                                || ui.AerialShotSelect.isChecked()) {
-                            TrueAttack *= 1.5f;
+                    else {
+                        if (!ui.ElementalCritCheck.isChecked()) {
+                            Skills.setGroupO(0);
+                            Skills.setGroupJCrit(0);
+                            Skills.setGroupDCrit(0);
+                            Affinity = 0;
+                            TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) *
+                                    (MV[counter] / 100f);
                         }
-                    }
-                    else if (ShotType.equals("Sting") && !ui.ChosenHitzone.equals("NONE")) {
-                        M.getHitzones_Stinger(context, Skills);
-                        TrueAttack = (TrueRaw * M.getRawHitzoneValue()) / 100;
 
-                        if (ui.AerialShotSelect.isChecked())
-                            TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
+                        if (!ui.ChosenMonster.equals("None"))
+                            M.setElmHitzoneValue(context, ui.ChosenMonster + "ElmHitzones_" + ChosenElement);
+                        else M.setElmHitzoneValue(context, "NoneElmHitzones_NONE");
+
+                        TrueAttack = (Skills.getTrueElm(TrueRaw, ui.SkillCheck) * MV[counter] * 0.95f *
+                                M.getElmHitzoneValue()) / 10000;
                     }
-                    else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
-                }
-                break;
+
+//                if (MV[counter] == 0f) {
+//                    //Info.setVisibility(View.VISIBLE);
+//                    //Banner.setText(ShotText);
+//                    return;
+//                }
+                    break;
+                case "Slicing":
+                    TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
+
+                    if(counter == 1) M.alterHitzones(context, ui.ChosenMonster);
+
+                    HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
+
+                    if (!ui.AerialShotSelect.isChecked())
+                        TrueAttack = HitzoneRaw * Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
+                    else TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
+
+//                if (MV[counter] == 0f) {
+//                    //Info.setVisibility(View.VISIBLE);
+//                    //Banner.setText(ShotText);
+//                    return;
+//                }
+                    break;
+                case "Shrapnel":
+                    TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
+
+                    HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
+
+                    if (counter == 0) {
+                        if (!ui.AerialShotSelect.isChecked()) {
+                            TrueAttack = HitzoneRaw * Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
+//                            Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
+//                                    .setAction("Action", null).show();
+                        }
+                        else TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
+                    }
+                    else TrueAttack = HitzoneRaw;
+
+                    if (MV[counter] == 0f) {
+                        //Info.setVisibility(View.VISIBLE);
+                        //Banner.setText(ShotText);
+                        return;
+                    }
+                    break;
+                default:
+                    //TrueAttack = 0;
+                    TrueRaw = Skills.getTrueRaw(RawDamage * 1.48f, Affinity, ui.SkillCheck) * (MV[counter] / 100f);
+
+                    HitzoneRaw = (TrueRaw * M.getRawHitzoneValue()) / 100;
+
+                    TrueAttack = HitzoneRaw;
+
+                    if (MV[counter] != 0f) {
+                        if (ShotType.equals("Normal") || ShotType.equals("Pierce")) {
+                            if (ui.AerialShotSelect.isChecked()) TrueAttack *= Skills.getAerialShotModifier();
+//                            Snackbar.make(view, "Aerial Shots are all Critical, no matter what distance", Snackbar.LENGTH_LONG)
+//                                    .setAction("Action", null).show();
+                            else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
+                        }
+                        else if (ShotType.equals("Heavy")) {
+                            if (String.valueOf(ui.DistanceSelect.getSelectedItem()).equals("Critical")
+                                    || ui.AerialShotSelect.isChecked()) {
+                                TrueAttack *= 1.5f;
+                            }
+                        }
+                        else if (ShotType.equals("Sting") && !ui.ChosenHitzone.equals("NONE")) {
+                            M.getHitzones_Stinger(context, Skills);
+                            TrueAttack = (TrueRaw * M.getRawHitzoneValue()) / 100;
+
+                            if (ui.AerialShotSelect.isChecked())
+                                TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
+                        }
+                        else TrueAttack *= Skills.DistanceModifier(String.valueOf(ui.DistanceSelect.getSelectedItem()));
+                    }
+                    break;
+            }
+        }
+        else{
+            float i = 1000000;
+            switch(ui.ChosenArt){
+                case "Bullet Geyser":
+                    break;
+                case "Super Nova":
+                    if(MV_NamesList.get(counter).contains("Edge"))
+                        TrueAttack = ((MV[counter] / i) + (MV[counter] / i) * (TrueRaw * (MV[counter + 3] / i)));
+                    else
+                        TrueAttack = ((MV[counter] / i) + (MV[counter] / i) * (TrueRaw * (MV[counter + 3] / i)));
+                    break;
+            }
         }
 
         //MVs.add(getTrueAttack(counter, HitzoneRaw + HitzoneElm));
