@@ -4362,7 +4362,7 @@
         <item>25</item>
     </integer-array>
 
-    <integer-array name="LBG_HA_BulletGeyser_MV">
+    <integer-array name="LBG_HA_Bullet_Geyser_MV">
         <item>20</item>
         <item>10</item>
         <item>39</item>
@@ -4371,13 +4371,24 @@
         <item>60</item>
     </integer-array>
 
-    <integer-array name="Charged_Shot_MV">
+    <integer-array name="LBG_HA_Charged_Shot_MV">
         <item>20</item>
         <item>40</item>
         <item>60</item>
     </integer-array>
 
-    <integer-array name="Super_Nova_MV">
+    <integer-array name="LBG_HA_Rapid_Fire_Rain_MV">
+        <item>90</item>
+        <item>108</item>
+        <item>126</item>
+        <!--
+        Rapid Fire Rain I (300 [560 SP]) = 6x15
+    Rapid Fire Rain II (500 [800 SP]) = 6x18
+    Rapid Fire Rain III (650 [980 SP]) = 6x21
+        -->
+    </integer-array>
+
+    <integer-array name="HBG_HA_Super_Nova_MV">
         <item>400000</item>
         <item>400000</item>
         <item>450000</item>
@@ -4393,6 +4404,17 @@
         {40 + 40 x (TrueRaw x 0.0075) [Center]} + {36 + 36 x (TrueRaw x 0.0075) [Edge]} True Damage
         {40 + 40 x (TrueRaw x 0.015) [Center]} + {15 + 15 x (TrueRaw x 0.015) [Edge]} True Damage
         {45 + 45 x (TrueRaw x 0.02) [Center]} + {5 + 5 x (TrueRaw x 0.02) [Edge]} True Damage
+        -->
+    </integer-array>
+
+    <integer-array name="HBG_HA_Slicing_Shell_MV">
+        <item>90</item>
+        <item>120</item>
+        <item>170</item>
+        <!--
+        Slicing Shell I (830 [1196 SP]) = 90 (Part Break x 1.1)
+Slicing Shell II (1000 [1400 SP]) = 120 (Part Break x 1.15)
+Slicing Shell III (1170 [1604 SP]) = 170 (Part Break x 1.2)
         -->
     </integer-array>
 
@@ -4456,6 +4478,7 @@
         <item>-None-</item>
         <item>Bullet Geyser</item>
         <item>Charged Shot</item>
+        <item>Rapid Fire Rain</item>
     </string-array>
     <string-array name="HBG_HA_Names">
         <item>-None-</item>

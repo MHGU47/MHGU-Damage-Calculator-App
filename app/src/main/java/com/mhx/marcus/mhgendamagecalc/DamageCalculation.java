@@ -1,8 +1,7 @@
 package com.mhx.marcus.mhgendamagecalc;
 
 import android.content.Context;
-import android.support.v4.content.res.TypedArrayUtils;
-
+//import android.support.v4.content.res.TypedArrayUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -162,7 +161,6 @@ public class DamageCalculation {
         this.SubElm = SubElementalDamage;
         this.ChosenSubElement = ChosenSubElement;
         this.Affinity = Affinity;
-
         this.Weapon = ui.getIntent().getStringExtra("Weapon");
 
         DualElement = SubElementalDamage > 0;
@@ -220,6 +218,8 @@ public class DamageCalculation {
         alterHitzones(counter);
         if (ui.ChosenArt.equals("-None-")) MV_NamesList.add(MV_Names[counter]);
         else MV_NamesList.add(HA_Levels[counter]);
+
+        //TODO 08/12/2019: Make sure to add Palico/Bow calculation, new DB HA and test HBG HAs
 
         switch(Weapon) {
             case "GS":
@@ -826,47 +826,42 @@ public class DamageCalculation {
         M.setElmHitzoneValue(context,ui.ChosenMonster + "ElmHitzones_Fire");
         HitzoneElm = (RawDamage * MV[counter] * M.getElmHitzoneValue()) / 10000;
 
-        /*<!--
-                {40 + 40 x (TrueRaw x 0.0075) [Center]} + {36 + 36 x (TrueRaw x 0.0075) [Edge]} True Damage
-        {40 + 40 x (TrueRaw x 0.015) [Center]} + {15 + 15 x (TrueRaw x 0.015) [Edge]} True Damage
-        {45 + 45 x (TrueRaw x 0.02) [Center]} + {5 + 5 x (TrueRaw x 0.02) [Edge]} True Damage
-        -->*/
-        if(ui.ChosenArt.equals("-None")){
+        if(ui.ChosenArt.equals("-None-")){
             switch(ShotType) {
                 case "Triblast":
                 case "Crag":
                 case "Clust":
                     switch(counter){
-                        case 0:
-                            //if (ui.AerialShotSelect.isChecked()) /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.getAerialShotModifier());
-                            //else /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.DistanceModifier(Distance));
-                            if (ui.AerialShotSelect.isChecked()) TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
-                            else TrueAttack = HitzoneRaw * Skills.DistanceModifier(Distance);
-                            break;
-                        case 1:
+                    case 0:
+                        //if (ui.AerialShotSelect.isChecked()) /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.getAerialShotModifier());
+                        //else /*TrueAttack =*/ MVs.add(HitzoneRaw * Skills.DistanceModifier(Distance));
+                        if (ui.AerialShotSelect.isChecked()) TrueAttack = HitzoneRaw * Skills.getAerialShotModifier();
+                        else TrueAttack = HitzoneRaw * Skills.DistanceModifier(Distance);
+                        break;
+                    case 1:
 //                        if (ui.ShotType.equals("Crag"))
 //                            /*TrueAttack =*/ MVs.add(MV[1] * (Skills.getArtilleryModifier() *
 //                                    Skills.getFelyneBombardierModifier()));
 //                        else /*TrueAttack =*/ MVs.add(MV[1]);
-                            if (ShotType.equals("Crag"))
-                                TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() *
-                                        Skills.getFelyneBombardierModifier());
-                            else TrueAttack = MV[counter] / 100f;
-                            break;
-                        case 2:
-                            TrueAttack = HitzoneElm;
-                            break;
-                        default:
-                            TrueAttack = MV[3] / 100f;
-                            break;
-                    }
-
-                    if (!HitzoneCatchList.contains(ui.ChosenHitzone) && counter == 3) {
-                        //Info.setVisibility(View.VISIBLE);
-                        //Banner.setText(ShotText);
+                        if (ShotType.equals("Crag"))
+                            TrueAttack = (MV[1] / 100f) * (Skills.getArtilleryModifier() *
+                                    Skills.getFelyneBombardierModifier());
+                        else TrueAttack = MV[counter] / 100f;
                         break;
-                    }
+                    case 2:
+                        TrueAttack = HitzoneElm;
+                        break;
+                    default:
+                        TrueAttack = MV[3] / 100f;
+                        break;
+                }
+
+                if (!HitzoneCatchList.contains(ui.ChosenHitzone) && counter == 3) {
+                    //Info.setVisibility(View.VISIBLE);
+                    //Banner.setText(ShotText);
                     break;
+                }
+                break;
                 case "Cannon":
                     TrueAttack = TrueRaw;//(TrueRaw * MV[counter] * M.getRawHitzoneValue()) / 10000;
 
@@ -1001,12 +996,23 @@ public class DamageCalculation {
             float i = 1000000;
             switch(ui.ChosenArt){
                 case "Bullet Geyser":
+                    if(MV_NamesList.get(counter).contains("Edge"))
+                        TrueAttack = (MV[counter] / 100f) * TrueRaw;
+                    else TrueAttack = ((MV[counter] / 100f) * TrueRaw) * M.getElmHitzoneValue();
                     break;
                 case "Super Nova":
                     if(MV_NamesList.get(counter).contains("Edge"))
                         TrueAttack = ((MV[counter] / i) + (MV[counter] / i) * (TrueRaw * (MV[counter + 3] / i)));
                     else
                         TrueAttack = ((MV[counter] / i) + (MV[counter] / i) * (TrueRaw * (MV[counter + 3] / i)));
+                    break;
+                case "Slicing Shell":
+                    M.alterHitzones(context,ui.ChosenMonster);
+
+                    TrueAttack = (MV[counter] / 100f) * (TrueRaw * M.getRawHitzoneValue()) / 100;
+                    break;
+                default:
+                    TrueAttack = (MV[counter] / 100f) * HitzoneRaw;
                     break;
             }
         }

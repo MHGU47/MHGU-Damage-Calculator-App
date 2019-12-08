@@ -1111,6 +1111,12 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Fixed Lions Maw issue in new code base; Lions Maw damage boost was being applied to the initial wide slash
 -Started implementation of HAs for BGs
 
+08/12/2019
+-Added code for Bullet Geyser, Slicing Shell, Rapid Fire Rain and Charged Shot HA in 'GunnerCalc(int, float)',
+ 'DamageCalculation.java'.
+-Renamed BG HA string array names in 'Motion_Values.xml'
+-Added 'Rapid Fire Rain' string to string array for BG HA spinner
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,
