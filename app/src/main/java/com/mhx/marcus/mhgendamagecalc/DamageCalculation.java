@@ -811,12 +811,11 @@ public class DamageCalculation {
     }
 
     private void GunnerCalc(int counter, float TrueRaw){
+        String Distance = String.valueOf(ui.DistanceSelect.getSelectedItem());
         List<String> HitzoneCatchList = Arrays.asList("Head", "Chin", "Horn", "NONE");
 
         Skills.setAerialShotModifierBG(ui.AerialShotSelect.isChecked(), ui.ChosenStyle.equals("Aerial"));
         Skills.setAirborneModifier(ui.AirborneCheck.isChecked());
-
-        String Distance = String.valueOf(ui.DistanceSelect.getSelectedItem());
 
         float TrueAttack, HitzoneRaw, HitzoneElm;
 
@@ -995,23 +994,23 @@ public class DamageCalculation {
         else{
             float i = 1000000;
             switch(ui.ChosenArt){
-                case "Bullet Geyser":
+                case "Bullet Geyser"://LBG
                     if(MV_NamesList.get(counter).contains("Edge"))
                         TrueAttack = (MV[counter] / 100f) * TrueRaw;
                     else TrueAttack = ((MV[counter] / 100f) * TrueRaw) * M.getElmHitzoneValue();
                     break;
-                case "Super Nova":
+                case "Super Nova"://HBG
                     if(MV_NamesList.get(counter).contains("Edge"))
                         TrueAttack = ((MV[counter] / i) + (MV[counter] / i) * (TrueRaw * (MV[counter + 3] / i)));
                     else
                         TrueAttack = ((MV[counter] / i) + (MV[counter] / i) * (TrueRaw * (MV[counter + 3] / i)));
                     break;
-                case "Slicing Shell":
+                case "Slicing Shell"://HBG
                     M.alterHitzones(context,ui.ChosenMonster);
 
                     TrueAttack = (MV[counter] / 100f) * (TrueRaw * M.getRawHitzoneValue()) / 100;
                     break;
-                default:
+                default://Charged Shot/Rapid Fire Rain(LBG)
                     TrueAttack = (MV[counter] / 100f) * HitzoneRaw;
                     break;
             }
