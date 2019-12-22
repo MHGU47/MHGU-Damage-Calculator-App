@@ -26,6 +26,7 @@ public class DamageCalculation {
     private float SharpnessModifier_Atk, SharpnessModifier_Elm;
     private int[] MV, ValorFullBurstMods, HA_ElementCheck;
     private String[] MV_Names, MV_Names_Extra, HA_Levels;
+    private float[] BoomerangType = {0, 0, 0};
     private boolean DualElement = false;//, Bounce = false;
 
     private List<String> ElementShots = Arrays.asList("Flaming S Lv1","Freeze S Lv1","Water S Lv1",
@@ -114,6 +115,25 @@ public class DamageCalculation {
                         ui.HitzoneGroup + "Hitzones",
                         ui.ChosenHitzone);
                 M.getHitzones_IG(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
+                break;
+            case "Prowler":
+                M = new MonsterCalculation(context,
+                        ui.ChosenMonster + "RawHitzones_Cut",
+                        ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
+                        ui.ChosenMonster + "_StaggerLimits",
+                        ui.HitzoneGroup + "Hitzones",
+                        ui.ChosenHitzone);
+                M.getHitzones(context, ChosenElement, Skills, false);
+                break;
+            case "Hammer":
+            case "HH":
+                M = new MonsterCalculation(context,
+                        ui.ChosenMonster + "RawHitzones_Impact",
+                        ui.ChosenMonster + "ElmHitzones_" + ChosenElement,
+                        ui.ChosenMonster + "_StaggerLimits",
+                        ui.HitzoneGroup + "Hitzones",
+                        ui.ChosenHitzone);
+                M.getHitzones(context, ChosenElement, Skills, ui.WeaknessExploitCheck.isChecked());
                 break;
             default:
                 M = new MonsterCalculation(context,
@@ -220,6 +240,7 @@ public class DamageCalculation {
         else MV_NamesList.add(HA_Levels[counter]);
 
         //TODO 08/12/2019: Make sure to add Palico/Bow calculation, new DB HA and test HBG HAs
+        //TODO 22/12/2019: Add full palico functionality (Boomerang selection, support skills, etc.)
 
         switch(Weapon) {
             case "GS":
@@ -240,6 +261,13 @@ public class DamageCalculation {
             case "HBG":
             case "LBG":
                 GunnerCalc(counter, TrueRaw);
+                break;
+            case "Prowler":
+                TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) * MV[counter] * 0.01f;
+
+                MVs.add(getTrueAttack(counter, TrueRaw));
+                //SpecialAlter(counter, RawDamage);
+                //alterHA_MV(counter, TrueRaw);
                 break;
             default:
                 if(ui.ChosenArt.equals("-None-")){
@@ -810,6 +838,32 @@ public class DamageCalculation {
         }
     }
 
+    public void setBoomerang(String Boomerang){
+        switch(Boomerang){
+            case "Normal":
+                BoomerangType[0] = 0.08f;
+                BoomerangType[1] = 0.09f;
+                BoomerangType[2] = 0.34f;
+                break;
+            case "Big":
+                BoomerangType[0] = 0.12f;
+                BoomerangType[1] = 0.14f;
+                BoomerangType[2] = 0.38f;
+                break;
+            case "Pierce":
+                BoomerangType[0] = 0.17f;
+                BoomerangType[1] = 0.18f;
+                BoomerangType[2] = 0.5f;
+                break;
+            default:
+                BoomerangType[0] = 0.24f;
+                BoomerangType[1] = 0.26f;
+                BoomerangType[2] = 0.62f;
+                break;
+        }
+    }
+
+    //Private Calculations
     private void GunnerCalc(int counter, float TrueRaw){
         String Distance = String.valueOf(ui.DistanceSelect.getSelectedItem());
         List<String> HitzoneCatchList = Arrays.asList("Head", "Chin", "Horn", "NONE");
@@ -992,7 +1046,7 @@ public class DamageCalculation {
             }
         }
         else{
-            float i = 1000000;
+            float i = 1000000; //Used to bring the MVs down to size for proper calculation
             switch(ui.ChosenArt){
                 case "Bullet Geyser"://LBG
                     if(MV_NamesList.get(counter).contains("Edge"))
@@ -1020,7 +1074,6 @@ public class DamageCalculation {
         MVs.add(TrueAttack);
 
     }
-    //Private Calculations
 
     private float getTrueAttack(int counter, float TrueRaw){
         if (!ui.ChosenArt.equals("-None-"))
@@ -1096,15 +1149,13 @@ public class DamageCalculation {
     }
 
     private void alterHA_MV(int counter, float TrueRaw){
-        if(!ui.ChosenArt.equals("-None-")) {
-            switch (ui.ChosenArt) {
-                case "Sonic Smash":
-                    if ((counter % 2) == 1) MVs.set(counter, MV[counter] * (1 + TrueRaw * 0.16f));
-                    break;
-                default:
-                    break;
-            }
-        }
+//        if(!ui.ChosenArt.equals("-None-")) {
+//            if(ui.ChosenArt.equals("Sonic Smash"))
+//                if ((counter % 2) == 1) MVs.set(counter, MV[counter] * (1 + TrueRaw * 0.16f));
+//        }
+
+        if(ui.ChosenArt.equals("Sonic Smash"))
+            if ((counter % 2) == 1) MVs.set(counter, MV[counter] * (1 + TrueRaw * 0.16f));
     }
 
     private void setMVs(){
@@ -1234,8 +1285,10 @@ public class DamageCalculation {
 
                 break;
             default:
-                MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
-                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
+                String Beast = "Normal";
+                if(ui.BeastModeCheck.isChecked()) Beast = "Beast";
+                MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + Beast + "_MV", "array", context.getPackageName()));
+                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + Beast + "_Names", "array", context.getPackageName()));
                 break;
         }
     }

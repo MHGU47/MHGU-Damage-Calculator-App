@@ -1117,6 +1117,24 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Renamed BG HA string array names in 'Motion_Values.xml'
 -Added 'Rapid Fire Rain' string to string array for BG HA spinner
 
+22/12/2019
+-Added code for selecting Prowler Support Skills in 'UI.java'
+-Fixed error when selecting Prowler for new code base; this was due to the code for setting up the
+ spinners etc. wasn't all in the 'If statement'. As a result the app crashed before it even fully
+ loaded the activity.
+-Altered code in 'DamageCalculation.java'; the code inside 'alterHA_MV(int, float)' has been streamlined
+ as it only really affects Sonic Smash at the moment. This could change in the future, so the old code
+  has been kept as a comment.
+-Added new function to 'DamageCalculation.java'; 'setBoomerang(string)' was added in order to set the
+ array used to store the boomerang MVs. The appropriate variables have also been added.
+-Renamed the textviews for Prowler stub to allow them to be initialised
+-Added an 'If' statement in 'setMVs()' in 'DamageCalculation.java'; this is to determine which MVs to
+ use for Prowler based on whether the user has selected Beast Mode.
+-Added an 'If' statement in 'DisplayInfo(String)' in 'UI.java'; this is to make sure the Prowler
+ calculations are properly accounted for.
+-Added case for Prowler in 'Calculate(int)', 'DamageCalculation.java'
+
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,
