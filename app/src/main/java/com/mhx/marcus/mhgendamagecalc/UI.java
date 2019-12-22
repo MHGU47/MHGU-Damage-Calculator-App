@@ -603,6 +603,22 @@ public class UI extends AppCompatActivity {
             BeastModeCheck = findViewById(R.id.BeastModeCheck);
             WeaponUpgradeCheck = findViewById(R.id.WeaponUpgradeCheckBox);
 
+            Skills.setAttackUpSModifier(AttackUpSCheck.isChecked());
+            Skills.setAttackUpLModifier(AttackUpLCheck.isChecked());
+            Skills.setTriforceModifier(TriforceCheck.isChecked());
+            Skills.setAffinityUpSModifier(AffinityUpSCheck.isChecked());
+            Skills.setAffinityUpLModifier(AffinityUpLCheck.isChecked());
+            Skills.setDemonHornModifier(DemonHornCheck.isChecked());
+            Skills.setRangedAttackUpModifier(RangedAttackUpCheck.isChecked());
+            Skills.setLastStandModifier(LastStandCheck.isChecked());
+            Skills.setFanalisModifier(FanalisCheck.isChecked());
+            Skills.setUniversalModifier(UniversalCheck.isChecked());
+            Skills.setWorldsStrongestModifier(WorldsStrongestCheck.isChecked());
+            Skills.setBaddestCatEverModifier(BaddestCatEverCheck.isChecked());
+            Skills.setFuryStateModifier(FuryStateCheck.isChecked());
+            //Skills.setProwlerBeastMode(BeastModeCheck.isChecked());
+            Skills.setWeaponUpgrade(WeaponUpgradeCheck.isChecked());
+
             //HunterArtSelect = findViewById(R.id.SupportSkillsSelect);
         }
         else{

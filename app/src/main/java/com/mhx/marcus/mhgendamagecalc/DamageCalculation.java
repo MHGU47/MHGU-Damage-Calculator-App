@@ -26,7 +26,6 @@ public class DamageCalculation {
     private float SharpnessModifier_Atk, SharpnessModifier_Elm;
     private int[] MV, ValorFullBurstMods, HA_ElementCheck;
     private String[] MV_Names, MV_Names_Extra, HA_Levels;
-    private float[] BoomerangType = {0, 0, 0};
     private boolean DualElement = false;//, Bounce = false;
 
     private List<String> ElementShots = Arrays.asList("Flaming S Lv1","Freeze S Lv1","Water S Lv1",
@@ -839,27 +838,57 @@ public class DamageCalculation {
     }
 
     public void setBoomerang(String Boomerang){
-        switch(Boomerang){
-            case "Normal":
-                BoomerangType[0] = 0.08f;
-                BoomerangType[1] = 0.09f;
-                BoomerangType[2] = 0.34f;
-                break;
-            case "Big":
-                BoomerangType[0] = 0.12f;
-                BoomerangType[1] = 0.14f;
-                BoomerangType[2] = 0.38f;
-                break;
-            case "Pierce":
-                BoomerangType[0] = 0.17f;
-                BoomerangType[1] = 0.18f;
-                BoomerangType[2] = 0.5f;
-                break;
-            default:
-                BoomerangType[0] = 0.24f;
-                BoomerangType[1] = 0.26f;
-                BoomerangType[2] = 0.62f;
-                break;
+        if(ui.ChosenArt.equals("-None-")){
+            switch(Boomerang){
+                case "Normal":
+                    if(ui.BeastModeCheck.isChecked()){
+                        MV[9] = 8;
+                        MV[10] = 9;
+                        MV[11] = 34;
+                    }
+                    else{
+                        MV[7] = 8;
+                        MV[8] = 9;
+                        MV[9] = 34;
+                    }
+                    break;
+                case "Big":
+                    if(ui.BeastModeCheck.isChecked()){
+                        MV[9] = 12;
+                        MV[10] = 14;
+                        MV[11] = 38;
+                    }
+                    else{
+                        MV[7] = 12;
+                        MV[8] = 14;
+                        MV[9] = 38;
+                    }
+                    break;
+                case "Pierce":
+                    if(ui.BeastModeCheck.isChecked()){
+                        MV[9] = 17;
+                        MV[10] = 18;
+                        MV[11] = 50;
+                    }
+                    else{
+                        MV[7] = 17;
+                        MV[8] = 18;
+                        MV[9] = 50;
+                    }
+                    break;
+                default:
+                    if(ui.BeastModeCheck.isChecked()){
+                        MV[9] = 24;
+                        MV[10] = 26;
+                        MV[11] = 62;
+                    }
+                    else{
+                        MV[7] = 24;
+                        MV[8] = 26;
+                        MV[9] = 62;
+                    }
+                    break;
+            }
         }
     }
 
@@ -1244,13 +1273,6 @@ public class DamageCalculation {
                 MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_Sword_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
                 MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_Sword_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
 
-                int Charge;
-                if(String.valueOf(ui.ShieldChargeSelect.getSelectedItem()).equals("No Charge"))
-                    Charge = ui.SelectedPhialNoCharge;
-                else{
-                    Charge = ui.SelectedPhialCharge;
-                }
-
                 String[] AxeNames = context.getResources().getStringArray(context.getResources().
                         getIdentifier("CB_Axe_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));;
                 int[] AxeMVs = context.getResources().getIntArray(context.getResources().
@@ -1258,6 +1280,10 @@ public class DamageCalculation {
 
                 String[] PhialNames = context.getResources().getStringArray(context.getResources().
                         getIdentifier("CB_Burst_Names", "array", context.getPackageName()));
+
+                int Charge = ui.SelectedPhialNoCharge;
+                if(!String.valueOf(ui.ShieldChargeSelect.getSelectedItem()).equals("No Charge"))
+                    Charge = ui.SelectedPhialCharge;
 
                 int[] PhialMVs = context.getResources().getIntArray(Charge);
 
@@ -1284,11 +1310,15 @@ public class DamageCalculation {
             case "Bow":
 
                 break;
-            default:
+            case "Prowler":
                 String Beast = "Normal";
                 if(ui.BeastModeCheck.isChecked()) Beast = "Beast";
                 MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + Beast + "_MV", "array", context.getPackageName()));
                 MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + Beast + "_Names", "array", context.getPackageName()));
+                break;
+            default:
+                MV = context.getResources().getIntArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_MV", "array", context.getPackageName()));
+                MV_Names = context.getResources().getStringArray(context.getResources().getIdentifier(Weapon + "_" + ui.ChosenStyle + "_Names", "array", context.getPackageName()));
                 break;
         }
     }

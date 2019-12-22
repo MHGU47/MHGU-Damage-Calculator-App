@@ -39,6 +39,22 @@ public class SkillsCalculation {
     private int EvasiveManeuversModifier = 0;
     private float ProwlerModifier = 1f;
     private int NineLivesModifier = 0;
+    private int FuryStateModifier = 0;
+    private int AttackUpSModifier = 0;
+    private int AttackUpLModifier = 0;
+    private int TriforceModifier = 0;
+    private int DemonHornModifier = 0;
+    private float RangedAttackUpModifier = 1;
+    private int LastStandModifier = 0;
+    private int FanalisModifier = 0;
+    private int UniversalModifier = 0;
+    private float WorldsStrongestModifier_Melee = 1;
+    private float WorldsStrongestModifier_Range = 1;
+    private float BaddestCatEverModifier = 1;
+    private int WeaponUpgradeModifier_Raw = 0;
+    private int WeaponUpgradeModifier_Affinity = 0;
+    private int AffinityUpSModifier = 0;
+    private int AffinityUpLModifier = 0;
 
     //TODO: *NOTE* Universal
     private float CritBoostModifier = 0;
@@ -113,11 +129,15 @@ public class SkillsCalculation {
     private float GroupO = 1;
     //Critical Eye +1, Critical Eye +2, Critical Eye +3
 
-    //TODO: Consider adding all the calculations into a single method
-
     private void SkillCheck(boolean Check){
+        //TODO: Find a solution for switching between range modifiers and melee modifiers for palico skills
+        int PalicoSkills_Add = AttackUpSModifier + AttackUpLModifier + TriforceModifier + DemonHornModifier +
+                LastStandModifier + FanalisModifier + UniversalModifier + WeaponUpgradeModifier_Raw +
+                NineLivesModifier;
+
+        float PalicoSkills_Multi = /*WorldsStrongestModifier_Melee */ BaddestCatEverModifier;
         if(!Check){
-            additiveRaw =  ProvokeModifier;
+            additiveRaw =  0;
             multiplicativeRaw = 1;
             additiveElm = 0;
             multiplicativeElm = 1;
@@ -129,8 +149,9 @@ public class SkillsCalculation {
         else{
             additiveRaw = GroupC_1 + GroupC_2 + GroupD + GroupF + GroupJ_2 + GroupK  +
                     PowercharmModifier + PowertalonModifier + FelyneBoosterModifier +
-                    CrisisModifier + FurorModifier + BludgeonerModifier + ProvokeModifier;
-            multiplicativeRaw = GroupG * GroupH * GroupI * GroupJ_1 * AirborneModifier;
+                    CrisisModifier + FurorModifier + BludgeonerModifier + ProvokeModifier +
+                    PalicoSkills_Add;
+            multiplicativeRaw = GroupG * GroupH * GroupI * GroupJ_1 * AirborneModifier * PalicoSkills_Multi;
 
             additiveElm = GroupPAdd;
             multiplicativeElm = GroupPMulti * ElementAtkUp;
@@ -297,15 +318,6 @@ public class SkillsCalculation {
             BludgeonerModifier = BludgeonerTemp;
         }
     } //Was a float method
-
-//    public void setSkillSharpnessModifier(boolean Check){
-//        if(Check) SkillSharpnessModifier = 1.1f;
-//        else SkillSharpnessModifier = 1;
-//    }
-//
-//    public float getSkillSharpnessModifier(){
-//        return SkillSharpnessModifier;
-//    }
     
     //Weapon Specific
 
@@ -633,6 +645,11 @@ public class SkillsCalculation {
         }
     }
 
+    void setProvokeModifier(boolean Check){
+        if(Check) ProvokeModifier = 15;
+        else ProvokeModifier = 0;
+    }
+
     void setProwlerModifier(String Prowler){
         switch (Prowler){
             case "Protection":
@@ -692,13 +709,76 @@ public class SkillsCalculation {
     }
 
     float getNineLivesModifier(){
-        return ProwlerModifier;
+        return NineLivesModifier;
     }
 
-    void setProvokeModifier(boolean Check){
-        if(Check) ProvokeModifier = 15;
-        else ProvokeModifier = 0;
+    void setAttackUpSModifier(boolean Check){
+        if(Check) AttackUpSModifier = 5;
+        else AttackUpSModifier = 0;
     }
+
+    void setAttackUpLModifier(boolean Check){
+        if(Check) AttackUpLModifier = 10;
+        else AttackUpLModifier = 0;
+    }
+
+    void setTriforceModifier(boolean Check){
+        if(Check) TriforceModifier = 10;
+        else TriforceModifier = 0;
+    }
+
+    void setDemonHornModifier(boolean Check){
+        if(Check) DemonHornModifier = 10;
+        else DemonHornModifier = 0;
+    }
+
+    void setRangedAttackUpModifier(boolean Check){
+        if(Check) RangedAttackUpModifier = 1.1f;
+        else RangedAttackUpModifier = 1;
+    }
+
+    void setLastStandModifier(boolean Check){
+        if(Check) LastStandModifier = 40;
+        else LastStandModifier = 0;
+    }
+
+    void setFanalisModifier(boolean Check){
+        if(Check) FanalisModifier = 30;
+        else FanalisModifier = 0;
+    }
+
+    void setUniversalModifier(boolean Check){
+        if(Check) UniversalModifier = 20;
+        else UniversalModifier = 0;
+    }
+
+    void setWorldsStrongestModifier(boolean Check){
+        if(Check){
+            WorldsStrongestModifier_Melee = 1.25f;
+            WorldsStrongestModifier_Range = 1.15f;
+        }
+        else{
+            WorldsStrongestModifier_Melee = 1;
+            WorldsStrongestModifier_Range = 1;
+        }
+    }
+
+    void setBaddestCatEverModifier(boolean Check){
+        if(Check) BaddestCatEverModifier = 1.1f;
+        else BaddestCatEverModifier = 1;
+    }
+
+    void setWeaponUpgrade(boolean Check){
+        if(Check){
+            WeaponUpgradeModifier_Raw = 20;
+            WeaponUpgradeModifier_Affinity = 30;
+        }
+        else{
+            WeaponUpgradeModifier_Raw = 0;
+            WeaponUpgradeModifier_Affinity = 0;
+        }
+    }
+
 
     //TODO: *NOTE* Affinity related methods
 
@@ -723,7 +803,8 @@ public class SkillsCalculation {
 //        //return 1 + (CritBoostModifier + 0.25f) * ((TotalSkillCritModifier +
 //        //      AffinityOilModifier + EvasiveManeuversModifier + Affinity)/100);
 
-        float CritOverflow, TotalCrit;
+        float CritOverflow;
+        int PalicoSkills = FuryStateModifier + WeaponUpgradeModifier_Affinity + AffinityUpSModifier + AffinityUpLModifier;
         if(Affinity == 0) CritBoostModifier = 0;
         if(!Check){
             TotalSkillCritModifier = 0;
@@ -736,11 +817,9 @@ public class SkillsCalculation {
 
         CritOverflow = TotalSkillCritModifier +
                 getOilStackModifier(OilSynergyState, OilSynergyLevel) + EvasiveManeuversModifier +
-                StingerModifier + Affinity;
+                StingerModifier + PalicoSkills + Affinity;
 
         if(CritOverflow > 100) CritOverflow = 100;
-
-        //TotalCrit = 1 + (CritBoostModifier + 0.25f) * (CritOverflow / 100);
 
         return 1 + (CritBoostModifier + 0.25f) * (CritOverflow / 100);
         //return 1 + (CritBoostModifier + 0.25f) * ((TotalSkillCritModifier +
@@ -834,6 +913,21 @@ public class SkillsCalculation {
 
     public void setGroupO(float CE){
         GroupO = CE;
+    }
+
+    void setFuryStateModifier(boolean Check){
+        if(Check) FuryStateModifier = 30;
+        else FuryStateModifier = 0;
+    }
+
+    void setAffinityUpSModifier(boolean Check){
+        if(Check) AffinityUpSModifier = 10;
+        else AffinityUpSModifier = 0;
+    }
+
+    void setAffinityUpLModifier(boolean Check){
+        if(Check) AffinityUpLModifier = 20;
+        else AffinityUpLModifier = 0;
     }
 
     //TODO: *NOTE* Element related methods

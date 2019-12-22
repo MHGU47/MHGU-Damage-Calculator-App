@@ -1124,7 +1124,7 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
  loaded the activity.
 -Altered code in 'DamageCalculation.java'; the code inside 'alterHA_MV(int, float)' has been streamlined
  as it only really affects Sonic Smash at the moment. This could change in the future, so the old code
-  has been kept as a comment.
+ has been kept as a comment.
 -Added new function to 'DamageCalculation.java'; 'setBoomerang(string)' was added in order to set the
  array used to store the boomerang MVs. The appropriate variables have also been added.
 -Renamed the textviews for Prowler stub to allow them to be initialised
@@ -1133,7 +1133,14 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Added an 'If' statement in 'DisplayInfo(String)' in 'UI.java'; this is to make sure the Prowler
  calculations are properly accounted for.
 -Added case for Prowler in 'Calculate(int)', 'DamageCalculation.java'
-
+-Simplified 'If' statement in 'setMVs()' in 'DamageCalculation.java'; case for CB has had it's 'If'
+ statement handling the 'Charge' variable altered so the variable is set straight away and changed
+ if needed instead of being created and then set a value after through the 'If' statement.
+-Corrected error in 'SkillsCalculation.java'; 'ProwlerModifier' was returned instead of 'NineLivesModifier'
+ by 'getNineLivesModifer()'.
+-Added functionality for Palico skills in 'SkillsCalculation.java' by adding getters/setters and adding
+ variables into the appropriate formulas where needed, except for skills that specifically affect
+ melee or range.
 
 #CHECK TODOS
 
