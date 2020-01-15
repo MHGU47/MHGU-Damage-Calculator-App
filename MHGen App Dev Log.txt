@@ -1142,6 +1142,13 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
  variables into the appropriate formulas where needed, except for skills that specifically affect
  melee or range.
 
+15/01/2020
+-Added code to allow fixed damage to be displayed properly for Prowler in new code base. This includes
+ code that makes sure sharpness is applied appropriately as well. Consider putting this in
+ 'alterHA_MV(int, float)'.
+-Fixed error where choosing Rath-of-Meow crashed the app. This was due to the correct array not being
+ chosen, as the string criteria not containing the hyphens.
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,

@@ -240,6 +240,7 @@ public class DamageCalculation {
 
         //TODO 08/12/2019: Make sure to add Palico/Bow calculation, new DB HA and test HBG HAs
         //TODO 22/12/2019: Add full palico functionality (Boomerang selection, support skills, etc.)
+        //TODO *PRIORITY* 15/01/2020: Palico skills still don't work at this point.
 
         switch(Weapon) {
             case "GS":
@@ -263,6 +264,14 @@ public class DamageCalculation {
                 break;
             case "Prowler":
                 TrueRaw = Skills.getTrueRaw(RawDamage, Affinity, ui.SkillCheck) * MV[counter] * 0.01f;
+                if (ui.ChosenArt.equals("-None-")) TrueRaw = getTrueAttack(counter, TrueRaw);
+                else {
+                    if(HA_Levels[counter].contains("Fixed Damage")) {
+                        TrueRaw = MV[counter] / 100f;
+                        if(!ui.ChosenArt.equals("Felyne Comet") && !ui.ChosenArt.equals("Claw Dance") &&
+                                !ui.ChosenArt.equals("Shock Tripper")) TrueRaw *= Skills.getProwlerModifier();
+                    }
+                }
 
                 MVs.add(getTrueAttack(counter, TrueRaw));
                 //SpecialAlter(counter, RawDamage);
@@ -315,7 +324,6 @@ public class DamageCalculation {
 
         //TODO 11/07/2019: Add in SA Energy Charge functionality (for new and old code base)
         //TODO: Make sure Valor shelling works for GL (see old code base for reference)
-        //TODO:
     }
 
     public void setGunnerMVs(String SelectedShot){
@@ -1183,8 +1191,14 @@ public class DamageCalculation {
 //                if ((counter % 2) == 1) MVs.set(counter, MV[counter] * (1 + TrueRaw * 0.16f));
 //        }
 
-        if(ui.ChosenArt.equals("Sonic Smash"))
+        if(ui.ChosenArt.equals("Sonic Smash")) {
             if ((counter % 2) == 1) MVs.set(counter, MV[counter] * (1 + TrueRaw * 0.16f));
+        }
+//        else if(HA_Levels[counter].contains("Fixed Damage") && Weapon.equals("Prowler")) {
+//            MVs.set(counter, MV[counter] / 100f);
+//            if(!ui.ChosenArt.equals("Felyne Comet") && !ui.ChosenArt.equals("Claw Dance") &&
+//                    !ui.ChosenArt.equals("Shock Tripper")) MVs.set(counter, TrueRaw * Skills.getProwlerModifier());
+//        }
     }
 
     private void setMVs(){
@@ -1543,7 +1557,7 @@ public class DamageCalculation {
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
                     break;
-                case "Rath of Meow":
+                case "Rath-of-Meow":
                     MV = context.getResources().getIntArray(context.getResources().getIdentifier("Prowler_HA_RathofMeow_MV", "array", context.getPackageName()));
                     HA_Levels = context.getResources().getStringArray(context.getResources().getIdentifier("Prowler_HA_MV_Names", "array", context.getPackageName()));
                     HA_ElementCheck = context.getResources().getIntArray(context.getResources().getIdentifier("HA_ElementCheck", "array", context.getPackageName()));
