@@ -916,6 +916,7 @@ public class DamageCalculation {
         M.setElmHitzoneValue(context,ui.ChosenMonster + "ElmHitzones_Fire");
         HitzoneElm = (RawDamage * MV[counter] * M.getElmHitzoneValue()) / 10000;
 
+        //TODO 22/01/2020: Clean this up
         if(ui.ChosenArt.equals("-None-")){
             switch(ShotType) {
                 case "Triblast":
