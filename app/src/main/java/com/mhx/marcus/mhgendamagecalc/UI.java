@@ -347,50 +347,6 @@ public class UI extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                     Sharpness = String.valueOf(SharpnessSelect.getSelectedItem());
-
-                    switch (String.valueOf(SharpnessSelect.getSelectedItem())) {
-                        case "Red":
-                            //getAtk(SharpModAtk[0]);
-                            //getElm(SharpModElm[0]);
-                            Skills.getBludgeonerModifier(30f);
-                            break;
-
-                        case "Orange":
-                            //getAtk(SharpModAtk[1]);
-                            //getElm(SharpModElm[1]);
-                            Skills.getBludgeonerModifier(30f);
-                            break;
-
-                        case "Yellow":
-                            //getAtk(SharpModAtk[2]);
-                            //getElm(SharpModElm[2]);
-                            Skills.getBludgeonerModifier(25f);
-                            break;
-
-                        case "Green":
-                            //getAtk(SharpModAtk[3]);
-                            //getElm(SharpModElm[3]);
-                            Skills.getBludgeonerModifier(15f);
-                            break;
-
-//                            case "Blue":
-//                                //getAtk(SharpModAtk[4]);
-//                                //getElm(SharpModElm[4]);
-//                                Skills.getBludgeonerModifier(0f);
-//                                break;
-//
-//                            case "White":
-//                                //getAtk(SharpModAtk[5]);
-//                                //getElm(SharpModElm[5]);
-//                                Skills.getBludgeonerModifier(0f);
-//                                break;
-
-                        default:
-                            //getAtk(SharpModAtk[6]);
-                            //getElm(SharpModElm[6]);
-                            Skills.getBludgeonerModifier(0f);
-                            break;
-                    }
                 }
 
                 @Override
@@ -603,22 +559,6 @@ public class UI extends AppCompatActivity {
             BeastModeCheck = findViewById(R.id.BeastModeCheck);
             WeaponUpgradeCheck = findViewById(R.id.WeaponUpgradeCheckBox);
 
-            Skills.setAttackUpSModifier(AttackUpSCheck.isChecked());
-            Skills.setAttackUpLModifier(AttackUpLCheck.isChecked());
-            Skills.setTriforceModifier(TriforceCheck.isChecked());
-            Skills.setAffinityUpSModifier(AffinityUpSCheck.isChecked());
-            Skills.setAffinityUpLModifier(AffinityUpLCheck.isChecked());
-            Skills.setDemonHornModifier(DemonHornCheck.isChecked());
-            Skills.setRangedAttackUpModifier(RangedAttackUpCheck.isChecked());
-            Skills.setLastStandModifier(LastStandCheck.isChecked());
-            Skills.setFanalisModifier(FanalisCheck.isChecked());
-            Skills.setUniversalModifier(UniversalCheck.isChecked());
-            Skills.setWorldsStrongestModifier(WorldsStrongestCheck.isChecked());
-            Skills.setBaddestCatEverModifier(BaddestCatEverCheck.isChecked());
-            Skills.setFuryStateModifier(FuryStateCheck.isChecked());
-            //Skills.setProwlerBeastMode(BeastModeCheck.isChecked());
-            Skills.setWeaponUpgrade(WeaponUpgradeCheck.isChecked());
-
             //HunterArtSelect = findViewById(R.id.SupportSkillsSelect);
         }
         else{
@@ -771,44 +711,16 @@ public class UI extends AppCompatActivity {
 
                             switch (String.valueOf(SharpnessSelect.getSelectedItem())) {
                                 case "Red":
-                                    //getAtk(SharpModAtk[0]);
-                                    //getElm(SharpModElm[0]);
-                                    Skills.getBludgeonerModifier(30f);
-                                    break;
-
                                 case "Orange":
-                                    //getAtk(SharpModAtk[1]);
-                                    //getElm(SharpModElm[1]);
                                     Skills.getBludgeonerModifier(30f);
                                     break;
-
                                 case "Yellow":
-                                    //getAtk(SharpModAtk[2]);
-                                    //getElm(SharpModElm[2]);
                                     Skills.getBludgeonerModifier(25f);
                                     break;
-
                                 case "Green":
-                                    //getAtk(SharpModAtk[3]);
-                                    //getElm(SharpModElm[3]);
                                     Skills.getBludgeonerModifier(15f);
                                     break;
-
-//                            case "Blue":
-//                                //getAtk(SharpModAtk[4]);
-//                                //getElm(SharpModElm[4]);
-//                                Skills.getBludgeonerModifier(0f);
-//                                break;
-//
-//                            case "White":
-//                                //getAtk(SharpModAtk[5]);
-//                                //getElm(SharpModElm[5]);
-//                                Skills.getBludgeonerModifier(0f);
-//                                break;
-
                                 default:
-                                    //getAtk(SharpModAtk[6]);
-                                    //getElm(SharpModElm[6]);
                                     Skills.getBludgeonerModifier(0f);
                                     break;
                             }
@@ -1327,7 +1239,7 @@ public class UI extends AppCompatActivity {
                             break;
 
                         default:
-                            Skills.setGroupK(0f);
+                            Skills.setGroupO(0f);
                             break;
                     }
                 }
@@ -1943,44 +1855,44 @@ public class UI extends AppCompatActivity {
 
                 }
             });
-
-            //Set Skill display
-            //Creates a method that checks for the state of the switch and is triggered whenever it is
-            //changed, making the skills disappear and reappear as necessary. It also sets the value of
-            //the 'SkillCheck' variable to either '1' or '0' depending on the state of the switch in order
-            //to make sure that none of the  values from the spinners affect the overall calculation if
-            //the switch is set to 'Off'.
-            SkillSwitch = findViewById(R.id.SkillsSwitch);
-            SkillSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    RelativeLayout SkillsLayout = findViewById(getResources().getIdentifier("Skills", "id", getPackageName()));
-                    if(isChecked){
-                        SkillsLayout.setVisibility(View.VISIBLE);
-
-                        Calculate = findViewById(R.id.CalculateButton);
-                        ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) Calculate.getLayoutParams();
-                        if(Wpn.equals("HBG") || Wpn.equals("LBG"))
-                            Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Visible_BG), 0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
-                        else
-                            Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Visible), 0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
-                        Calculate.setLayoutParams(Margin);
-
-                        SkillCheck = true;
-                    }
-                    else{
-                        SkillsLayout.setVisibility(View.GONE);
-
-                        Calculate = findViewById(R.id.CalculateButton);
-                        ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) Calculate.getLayoutParams();
-                        Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Hidden), 0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
-                        Calculate.setLayoutParams(Margin);
-
-                        SkillCheck = false;
-                    }
-                }
-            });
         }
+
+        //Set Skill display
+        //Creates a method that checks for the state of the switch and is triggered whenever it is
+        //changed, making the skills disappear and reappear as necessary. It also sets the value of
+        //the 'SkillCheck' variable to either '1' or '0' depending on the state of the switch in order
+        //to make sure that none of the  values from the spinners affect the overall calculation if
+        //the switch is set to 'Off'.
+        SkillSwitch = findViewById(R.id.SkillsSwitch);
+        SkillSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                RelativeLayout SkillsLayout = findViewById(getResources().getIdentifier("Skills", "id", getPackageName()));
+                if(isChecked){
+                    SkillsLayout.setVisibility(View.VISIBLE);
+
+                    Calculate = findViewById(R.id.CalculateButton);
+                    ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) Calculate.getLayoutParams();
+                    if(Wpn.equals("HBG") || Wpn.equals("LBG"))
+                        Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Visible_BG), 0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
+                    else
+                        Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Visible), 0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
+                    Calculate.setLayoutParams(Margin);
+
+                    SkillCheck = true;
+                }
+                else{
+                    SkillsLayout.setVisibility(View.GONE);
+
+                    Calculate = findViewById(R.id.CalculateButton);
+                    ViewGroup.MarginLayoutParams Margin = (ViewGroup.MarginLayoutParams) Calculate.getLayoutParams();
+                    Margin.setMargins(0, getResources().getDimensionPixelSize(R.dimen.Skills_Hidden), 0, getResources().getDimensionPixelSize(R.dimen.Calculate_Bottom_Margin));
+                    Calculate.setLayoutParams(Margin);
+
+                    SkillCheck = false;
+                }
+            }
+        });
 
         //Set MonsterSelect spinner
         /*Gives the variable for the spinner 'MonsterSelect' the actual value for a spinner.*/

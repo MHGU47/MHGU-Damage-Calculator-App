@@ -1149,6 +1149,19 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Fixed error where choosing 'Rath-of-Meow' crashed the app. This was due to the correct array not being
  chosen, as the string criteria did not contain the hyphens.
 
+03/02/2020
+-Cleaned up 'SharpnessSelect' section of code in 'UI.java'
+-Moved skill setters for Prowler from 'UI.java' to 'DamageCalculation.java'
+-Moved SkillSwitch section out of 'If' statement in 'UI.java'; this is required no matter what weapon
+ is selected, including Prowler. This fixed the issue with the skills menu not showing up for Prowler
+ in the new code base.
+-Removed 'Bludgeoner' 'Switch' statement from Prowler set up in 'UI.java'; this was causing the damage
+ numbers to come out wrong for Prowler whenever the skills menu was open in the new code base.
+-Fixed small issue with Affinity calculation in 'SkillsCalculation.java'; this was due to the variables
+ for groups D, J, and O were set values of 1 instead of 0 when they were initialised.
+-Removed second 'getTrueAttack(counter, TrueRaw)' from 'Prowler' case in 'DamageCalculation.java';
+ this was causing the numbers to be calculated wrong.
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,

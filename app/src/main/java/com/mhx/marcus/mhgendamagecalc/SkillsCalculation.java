@@ -120,13 +120,13 @@ public class SkillsCalculation {
     private float GroupPMulti = 1, GroupPMultiSub = 1;
     //Element Atk Up +1, Element Atk Up +2
 
-    private float GroupDCrit = 1;
+    private float GroupDCrit = 0;
     //Demon Affinity S (+15)
 
-    private float GroupJCrit = 1;
+    private float GroupJCrit = 0;
     //Challenger +1 (+10%), Challenger +2 (+20%), Latent Power +1, Latent Power +2
 
-    private float GroupO = 1;
+    private float GroupO = 0;
     //Critical Eye +1, Critical Eye +2, Critical Eye +3
 
     private void SkillCheck(boolean Check){

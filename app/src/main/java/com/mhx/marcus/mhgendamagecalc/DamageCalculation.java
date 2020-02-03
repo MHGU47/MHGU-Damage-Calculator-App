@@ -273,7 +273,7 @@ public class DamageCalculation {
                     }
                 }
 
-                MVs.add(getTrueAttack(counter, TrueRaw));
+                MVs.add(TrueRaw);
                 //SpecialAlter(counter, RawDamage);
                 //alterHA_MV(counter, TrueRaw);
                 break;
@@ -1739,6 +1739,23 @@ public class DamageCalculation {
             Skills.setFurorModifier(ui.FurorCheck.isChecked());
 
             return Skills.CheckElmSkill(ElementalDamage, ui.SkillCheck);
+        }
+        else{
+            Skills.setAttackUpSModifier(ui.AttackUpSCheck.isChecked());
+            Skills.setAttackUpLModifier(ui.AttackUpLCheck.isChecked());
+            Skills.setTriforceModifier(ui.TriforceCheck.isChecked());
+            Skills.setAffinityUpSModifier(ui.AffinityUpSCheck.isChecked());
+            Skills.setAffinityUpLModifier(ui.AffinityUpLCheck.isChecked());
+            Skills.setDemonHornModifier(ui.DemonHornCheck.isChecked());
+            Skills.setRangedAttackUpModifier(ui.RangedAttackUpCheck.isChecked());
+            Skills.setLastStandModifier(ui.LastStandCheck.isChecked());
+            Skills.setFanalisModifier(ui.FanalisCheck.isChecked());
+            Skills.setUniversalModifier(ui.UniversalCheck.isChecked());
+            Skills.setWorldsStrongestModifier(ui.WorldsStrongestCheck.isChecked());
+            Skills.setBaddestCatEverModifier(ui.BaddestCatEverCheck.isChecked());
+            Skills.setFuryStateModifier(ui.FuryStateCheck.isChecked());
+            //Skills.setProwlerBeastMode(ui.BeastModeCheck.isChecked());
+            Skills.setWeaponUpgrade(ui.WeaponUpgradeCheck.isChecked());
         }
         return false;
     }
