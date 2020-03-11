@@ -1190,23 +1190,20 @@ public class UI extends AppCompatActivity {
 
                     switch (String.valueOf(GroupKSelect.getSelectedItem())) {
                         case "Cold Blooded - Cold Area (+15)":
-                            Skills.setGroupK(15f);
+                        case "Hot Blooded - Hot Area (+15)":
+                            Skills.setGroupK(15);
                             break;
 
                         case "Cold Blooded - Cold Drink (+5)":
-                            Skills.setGroupK(5f);
+                            Skills.setGroupK(5);
                             break;
 
                         case "Cold Blooded - Cold Area + Cold Drink (+20)":
-                            Skills.setGroupK(20f);
-                            break;
-
-                        case "Hot Blooded - Hot Area (+15)":
-                            Skills.setGroupK(15f);
+                            Skills.setGroupK(20);
                             break;
 
                         default:
-                            Skills.setGroupK(0f);
+                            Skills.setGroupK(0);
                             break;
                     }
                 }

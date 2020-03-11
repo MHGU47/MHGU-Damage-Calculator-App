@@ -827,19 +827,19 @@ public class LanceCalculation extends AppCompatActivity implements AdapterView.O
         TextView GroupKSkills = (TextView) view;
         String GroupKSkillsText = GroupKSkills.getText().toString();
         if(GroupKSkillsText.equals("Cold Blooded - Cold Area (+15)")){
-            Skills.setGroupK(15f);
+            Skills.setGroupK(15);
         }
         else if(GroupKSkillsText.equals("Cold Blooded - Cold Drink (+5)")) {
-            Skills.setGroupK(5f);
+            Skills.setGroupK(5);
         }
         else if(GroupKSkillsText.equals("Cold Blooded - Cold Area + Cold Drink (+20)")) {
-            Skills.setGroupK(20f);
+            Skills.setGroupK(20);
         }
         else if(GroupKSkillsText.equals("Hot Blooded - Hot Area (+15)")) {
-            Skills.setGroupK(15f);
+            Skills.setGroupK(15);
         }
         else if(GroupKSkillsText.equals("-Cold/Hot Blooded-")) {
-            Skills.setGroupK(0f);
+            Skills.setGroupK(0);
         }
 
         TextView GroupOSkills = (TextView) view;

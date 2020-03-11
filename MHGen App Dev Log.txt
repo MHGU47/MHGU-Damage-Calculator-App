@@ -1162,6 +1162,16 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Removed second 'getTrueAttack(counter, TrueRaw)' from 'Prowler' case in 'DamageCalculation.java';
  this was causing the numbers to be calculated wrong.
 
+10/03/2020
+-Altered variable 'GroupK' in 'SkillsCalculation.java'; this was a 'float' when it should have been an
+ 'int' and it was initialised as 1 instead of 0. This was causing calculations to be off slightly, with
+  higher damage numbers being most affected. The setter for this variable was also altered to
+  accommodate for this change.
+-Altered MV for Prowler; increased 'Shock Tripper' fixed damage MV by a factor of 100 as the damage
+ was too low when calculated.
+-Prowler calculation is mostly finished at this point. Adding in the specific modifiers for range
+ and melee is still needed though.
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,

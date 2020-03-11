@@ -110,7 +110,7 @@ public class SkillsCalculation {
     private float GroupJ_2 = 0;
     //Unscathed (+20), Latent Power +1, Latent Power +2
 
-    private float GroupK = 1;
+    private int GroupK = 0;
     //Cold Blooded - Cold Area (+15), Cold Blooded - Cold Drink (+5)
     //Cold Blooded - Cold Area + Cold Drink (+20), Hot Blooded - Hot Area (+15)
 
@@ -235,8 +235,8 @@ public class SkillsCalculation {
         GroupJ_2 = J2;
     }
 
-    public void setGroupK(float J) {
-        GroupK = J;
+    public void setGroupK(int K) {
+        GroupK = K;
     }
 
     void setArtilleryModifier(float A){
