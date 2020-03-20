@@ -686,7 +686,7 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
         }
         else if (SelectedShot.equals("Clust S Lv2")) {
             MotionAtk[0] = 0.24f;
-            MotionAtk[1] = 1f;
+            MotionAtk[1] = 100f;
             MotionAtk[2] = 0.08f;
             MotionAtk[3] = 0f;
             ShotType = "Clust";

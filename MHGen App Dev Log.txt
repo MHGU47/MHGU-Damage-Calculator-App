@@ -1172,6 +1172,9 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Prowler calculation is mostly finished at this point. Adding in the specific modifiers for range
  and melee is still needed though.
 
+12/03/2020
+-Fixed issue with 'Clust S Lv2'; the fixed damage was displayed as 1 instead of 100
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,
