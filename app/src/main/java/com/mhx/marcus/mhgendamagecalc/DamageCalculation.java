@@ -2441,8 +2441,6 @@ public class DamageCalculation {
                             Mod = 1.5f;
                             break;
                         case 5:
-                            Mod = 1.6f;
-                            break;
                         case 6:
                             Mod = 1.6f;
                             break;

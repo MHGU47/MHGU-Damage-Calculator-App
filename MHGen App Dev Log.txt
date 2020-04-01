@@ -1177,6 +1177,8 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 
 01/04/2020
 -Uploaded Version 2.0.8
+-Simplified 'Switch' statement in 'GLShelling(int)', DamageCalculaton.java; this had a duplicate case
+ when selecting Wyvern Fire shells.
 
 #CHECK TODOS
 
