@@ -277,7 +277,7 @@ public class WeaponSelect extends AppCompatActivity {
             }
         });
 
-        GreatSwordCalculations.setOnLongClickListener(new View.OnLongClickListener() {
+        /*GreatSwordCalculations.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 Intent intent = new Intent(WeaponSelect.this, UI.class);
@@ -425,6 +425,6 @@ public class WeaponSelect extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
-        });
+        });*/
     }
 }
