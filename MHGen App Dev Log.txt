@@ -1180,6 +1180,9 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Simplified 'Switch' statement in 'GLShelling(int)', DamageCalculaton.java; this had a duplicate case
  when selecting Wyvern Fire shells.
 
+20/05/2020
+-Test upload
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,
