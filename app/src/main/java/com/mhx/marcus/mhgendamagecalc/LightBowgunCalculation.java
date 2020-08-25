@@ -1,9 +1,7 @@
 package com.mhx.marcus.mhgendamagecalc;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +19,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 public class LightBowgunCalculation extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -49,7 +52,7 @@ public class LightBowgunCalculation extends AppCompatActivity implements Adapter
     CheckBox PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck, FurorCheck,
             RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck, ElementalAtkUpCheck,
             FelyneTemperCheck, FelyneSharpshooterCheck, AirborneCheck, FelyneBombardierCheck,
-            WeaknessExploitCheck, PowerReloadCheck, RapidFireCheck;
+            WeaknessExploitCheck, PowerReloadCheck, RapidFireCheck, DragonheartCheck;
     RadioButton NoShotUpRadio, NormalUpRadio, PelletUpRadio, PierceUpRadio, HeavyUpRadio,TrueShotUpRadio;
 
     //-End-
@@ -478,6 +481,7 @@ public class LightBowgunCalculation extends AppCompatActivity implements Adapter
         PowerReloadCheck = (CheckBox) findViewById(R.id.PowerReloadCheckBox);
         RapidFireCheck = (CheckBox) findViewById(R.id.RapidFireCheckBox);
         AerialShotSelect = (CheckBox) findViewById(R.id.AerialShotSelect);
+        DragonheartCheck = findViewById(R.id.DragonheartCheckBox);
 
         NoShotUpRadio = (RadioButton) findViewById(R.id.NoShotUpRadio);
         NormalUpRadio = (RadioButton) findViewById(R.id.NormalUpRadio);
@@ -1234,6 +1238,7 @@ public class LightBowgunCalculation extends AppCompatActivity implements Adapter
                 Skills.setFelyneBoosterModifier(FelyneBoosterCheck.isChecked());
                 Skills.setCrisisModifier(CrisisCheck.isChecked());
                 Skills.setFurorModifier(FurorCheck.isChecked());
+                Skills.setDragonHeartModifier(DragonheartCheck.isChecked());
 
                 Skills.setElementAtkUp(ElementalAtkUpCheck.isChecked());
                 Skills.setElementCrit(ElementalCritCheck.isChecked(), RawAffinity);

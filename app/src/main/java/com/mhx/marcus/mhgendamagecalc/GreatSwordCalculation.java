@@ -3,9 +3,6 @@ package com.mhx.marcus.mhgendamagecalc;
 import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +19,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class GreatSwordCalculation extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -47,7 +49,7 @@ public class GreatSwordCalculation extends AppCompatActivity implements AdapterV
             GroupISelect, GroupJSelect, GroupKSelect, GroupOSelect, GroupPSelect;
     CheckBox PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck, FurorCheck, BludgeonerCheck,
             RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck, ElementalAtkUpCheck, AirborneCheck,
-            WeaknessExploitCheck;
+            WeaknessExploitCheck, DragonheartCheck;
     RadioButton LionsMawLevel1Check, LionsMawLevel2Check, LionsMawLevel3Check, LionsMawOffCheck;
 
     Float SkillSharpnessModifier = 1f, BrimstoneCounterModifier = 1f;
@@ -527,6 +529,7 @@ public class GreatSwordCalculation extends AppCompatActivity implements AdapterV
         ElementalAtkUpCheck = (CheckBox) findViewById(R.id.ElementalAtkUpCheckBox);
         AirborneCheck = (CheckBox) findViewById(R.id.AirborneCheckBox);
         WeaknessExploitCheck = findViewById(R.id.WeaknessExploitCheckBox);
+        DragonheartCheck = findViewById(R.id.DragonheartCheckBox);
 
         LionsMawOffCheck = (RadioButton) findViewById(R.id.LionsMawOffCheck);
         LionsMawLevel1Check = (RadioButton) findViewById(R.id.LionsMawLevel1Check);
@@ -1040,6 +1043,7 @@ public class GreatSwordCalculation extends AppCompatActivity implements AdapterV
                 Skills.setCrisisModifier(CrisisCheck.isChecked());
                 Skills.setFurorModifier(FurorCheck.isChecked());
                 Skills.setBludgeonerModifier(BludgeonerCheck.isChecked());
+                Skills.setDragonHeartModifier(DragonheartCheck.isChecked());
 
                 Skills.setElementAtkUp(ElementalAtkUpCheck.isChecked());
                 Skills.setElementCrit(ElementalCritCheck.isChecked(), RawAffinity);

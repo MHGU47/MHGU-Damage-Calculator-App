@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
     android:scrollIndicators="right">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="false"
@@ -267,9 +266,9 @@
                 android:id="@+id/PowercharmCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/ElementalCritCheckBox"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/ElementalCritCheckBox"
                 android:text="Powercharm (+6)"
                 android:visibility="visible" />
 
@@ -277,9 +276,9 @@
                 android:id="@+id/PowertalonCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
                 android:text="Powertalon (+9)"
                 android:visibility="visible" />
 
@@ -287,8 +286,8 @@
                 android:id="@+id/FelyneBoosterCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/PowercharmCheckBox"
+                android:layout_alignParentLeft="true"
                 android:text="Felyne Booster (+3)"
                 android:visibility="visible" />
 
@@ -296,10 +295,10 @@
                 android:id="@+id/CrisisCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/PowertalonCheckBox"
+                android:layout_alignStart="@+id/PowertalonCheckBox"
                 android:layout_alignLeft="@+id/PowertalonCheckBox"
                 android:layout_alignParentRight="true"
-                android:layout_alignStart="@+id/PowertalonCheckBox"
-                android:layout_below="@+id/PowertalonCheckBox"
                 android:text="Crisis (+20)"
                 android:visibility="visible" />
 
@@ -307,9 +306,9 @@
                 android:id="@+id/FurorCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_below="@+id/FelyneBoosterCheckBox"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:text="Furor (+20)"
                 android:visibility="visible" />
 
@@ -317,10 +316,10 @@
                 android:id="@+id/BludgeonerCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/CrisisCheckBox"
+                android:layout_alignStart="@+id/CrisisCheckBox"
                 android:layout_alignLeft="@+id/CrisisCheckBox"
                 android:layout_alignParentRight="true"
-                android:layout_alignStart="@+id/CrisisCheckBox"
-                android:layout_below="@+id/CrisisCheckBox"
                 android:text="Bludgeoner"
                 android:visibility="visible" />
 
@@ -328,9 +327,9 @@
                 android:id="@+id/RepeatOffenderCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_below="@+id/FurorCheckBox"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:text="Repeat Offender"
                 android:visibility="visible" />
 
@@ -338,10 +337,10 @@
                 android:id="@+id/CriticalBoostCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/BludgeonerCheckBox"
+                android:layout_alignStart="@+id/CrisisCheckBox"
                 android:layout_alignLeft="@+id/BludgeonerCheckBox"
                 android:layout_alignParentRight="true"
-                android:layout_alignStart="@+id/CrisisCheckBox"
-                android:layout_below="@+id/BludgeonerCheckBox"
                 android:text="Critical Boost"
                 android:visibility="visible" />
 
@@ -349,9 +348,9 @@
                 android:id="@+id/ElementalCritCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignStart="@+id/GroupDSelect"
                 android:layout_below="@+id/RepeatOffenderCheckBox"
+                android:layout_alignStart="@+id/GroupDSelect"
+                android:layout_alignParentLeft="true"
                 android:text="Elemental Crit"
                 android:visibility="visible" />
 
@@ -359,10 +358,10 @@
                 android:id="@+id/ElementalAtkUpCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/CriticalBoostCheckBox"
+                android:layout_alignStart="@+id/CrisisCheckBox"
                 android:layout_alignLeft="@+id/CriticalBoostCheckBox"
                 android:layout_alignParentRight="true"
-                android:layout_alignStart="@+id/CrisisCheckBox"
-                android:layout_below="@+id/CriticalBoostCheckBox"
                 android:text="Element Atk Up"
                 android:visibility="visible" />
 
@@ -370,8 +369,8 @@
                 android:id="@+id/FelyneTemperCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/ElementalCritCheckBox"
+                android:layout_alignParentLeft="true"
                 android:text="Felyne Temper"
                 android:visibility="visible" />
 
@@ -379,9 +378,9 @@
                 android:id="@+id/FelyneSharpshooterCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/ElementalAtkUpCheckBox"
                 android:layout_alignLeft="@+id/ElementalAtkUpCheckBox"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/ElementalAtkUpCheckBox"
                 android:text="Felyne Sharpshooter"
                 android:visibility="visible" />
 
@@ -389,8 +388,8 @@
                 android:id="@+id/FelyneBombardierCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/FelyneTemperCheckBox"
+                android:layout_alignParentLeft="true"
                 android:text="Felyne Bombardier"
                 android:visibility="visible" />
 
@@ -398,9 +397,9 @@
                 android:id="@+id/AirborneCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/FelyneSharpshooterCheckBox"
                 android:layout_alignLeft="@+id/FelyneSharpshooterCheckBox"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/FelyneSharpshooterCheckBox"
                 android:text="Airborne"
                 android:visibility="visible" />
 
@@ -408,114 +407,20 @@
                 android:id="@+id/WeaknessExploitCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_below="@+id/FelyneBombardierCheckBox"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:text="Weakness Exploit"
                 android:visibility="visible" />
 
-            <Spinner
-                android:id="@+id/GroupC_1Select"
-                android:layout_width="150dp"
+            <CheckBox
+                android:id="@+id/DragonheartCheckBox"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@id/WeaknessExploitCheckBox"
-                android:layout_marginTop="10dp"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupC_2Select"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:layout_below="@id/AirborneCheckBox"
+                android:layout_alignLeft="@id/AirborneCheckBox"
                 android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/GroupC_1Select"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupDSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/GroupC_1Select"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupFSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/GroupC_2Select"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupGSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/GroupDSelect"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupHSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/GroupFSelect"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupISelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/GroupGSelect"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupJSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/GroupHSelect"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupKSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/GroupISelect"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupOSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/GroupJSelect"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupPSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/GroupKSelect"
-                android:visibility="visible" />
-
-            <Spinner
-                android:id="@+id/GroupSSelect"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/GroupOSelect"
+                android:text="Dragonheart"
                 android:visibility="visible" />
 
             <RadioGroup
@@ -564,6 +469,110 @@
                     android:text="True Shot Up" />
 
             </RadioGroup>
+
+            <Spinner
+                android:id="@+id/GroupC_1Select"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/WeaknessExploitCheckBox"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupC_2Select"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/GroupC_1Select"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupDSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupC_1Select"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupFSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupC_2Select"
+                android:layout_alignParentRight="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupGSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupDSelect"
+                android:layout_alignParentLeft="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupHSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupFSelect"
+                android:layout_alignParentRight="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupISelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupGSelect"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupJSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupHSelect"
+                android:layout_alignParentRight="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupKSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupISelect"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupOSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupJSelect"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupPSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupKSelect"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:visibility="visible" />
+
+            <Spinner
+                android:id="@+id/GroupSSelect"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupOSelect"
+                android:layout_alignParentRight="true"
+                android:visibility="visible" />
 
         </RelativeLayout>
 

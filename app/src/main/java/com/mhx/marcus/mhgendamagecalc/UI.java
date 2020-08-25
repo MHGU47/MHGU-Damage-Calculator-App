@@ -2,9 +2,6 @@ package com.mhx.marcus.mhgendamagecalc;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +19,15 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class UI extends AppCompatActivity {
 
@@ -105,7 +108,7 @@ public class UI extends AppCompatActivity {
 
     List<TextView> Banners = new ArrayList<>();
     String[] TextViewIDsAttacks, TextViewIDsNames, AllTextViewIDs;
-    TextView textviews[];
+    TextView[] textviews;
 //    List<String> ElementShots = Arrays.asList("Flaming S Lv1","Freeze S Lv1","Water S Lv1",
 //            "Thunder S Lv1","Dragon S Lv1","Flaming S Lv2","Freeze S Lv2","Water S Lv2",
 //            "Thunder S Lv2","Dragon S Lv2","P.Flaming S Lv1","P.Freeze S Lv1","P.Water S Lv1",

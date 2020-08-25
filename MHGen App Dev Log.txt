@@ -1183,6 +1183,10 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 20/05/2020
 -Test upload
 
+15/08/2020
+-Added 'Dragonheart' Skill
+-Migrated to AndroidX
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,

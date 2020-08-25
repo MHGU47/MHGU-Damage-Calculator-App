@@ -2,9 +2,6 @@ package com.mhx.marcus.mhgendamagecalc;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +18,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class SwitchAxeCalculation extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -42,7 +44,7 @@ public class SwitchAxeCalculation extends AppCompatActivity implements AdapterVi
             GroupISelect, GroupJSelect, GroupKSelect, GroupOSelect, GroupPSelect;
     CheckBox PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck, FurorCheck, BludgeonerCheck,
             RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck, ElementalAtkUpCheck, AirborneCheck,
-            TempestAxeCheck, WeaknessExploitCheck;
+            TempestAxeCheck, WeaknessExploitCheck, DragonheartCheck;
     RadioButton DemonRiotLevel1Check, DemonRiotLevel2Check, DemonRiotLevel3Check, DemonRiotOffCheck,
             EnergyChargeLevel2Check, EnergyChargeLevel3Check, EnergyChargeOffCheck;
 
@@ -548,6 +550,7 @@ public class SwitchAxeCalculation extends AppCompatActivity implements AdapterVi
         AirborneCheck = (CheckBox) findViewById(R.id.AirborneCheckBox);
         TempestAxeCheck = (CheckBox) findViewById(R.id.TempestAxeCheckBox);
         WeaknessExploitCheck = findViewById(R.id.WeaknessExploitCheckBox);
+        DragonheartCheck = findViewById(R.id.DragonheartCheckBox);
 
         DemonRiotOffCheck = (RadioButton) findViewById(R.id.DemonRiotOffCheck);
         DemonRiotLevel1Check = (RadioButton) findViewById(R.id.DemonRiotLevel1Check);
@@ -1109,6 +1112,7 @@ public class SwitchAxeCalculation extends AppCompatActivity implements AdapterVi
                 Skills.setCrisisModifier(CrisisCheck.isChecked());
                 Skills.setFurorModifier(FurorCheck.isChecked());
                 Skills.setBludgeonerModifier(BludgeonerCheck.isChecked());
+                Skills.setDragonHeartModifier(DragonheartCheck.isChecked());
 
                 Skills.setElementAtkUp(ElementalAtkUpCheck.isChecked());
                 Skills.setElementCrit(ElementalCritCheck.isChecked(), RawAffinity);

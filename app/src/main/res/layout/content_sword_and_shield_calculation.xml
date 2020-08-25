@@ -421,11 +421,20 @@
                 android:text="Airborne"
                 android:visibility="visible" />
 
+            <CheckBox
+                android:id="@+id/DragonheartCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/WeaknessExploitCheckBox"
+                android:layout_alignParentLeft="true"
+                android:text="Dragonheart"
+                android:visibility="visible" />
+
             <Spinner
                 android:id="@+id/GroupC_1Select"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/AirborneCheckBox"
+                android:layout_below="@id/DragonheartCheckBox"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="10dp"

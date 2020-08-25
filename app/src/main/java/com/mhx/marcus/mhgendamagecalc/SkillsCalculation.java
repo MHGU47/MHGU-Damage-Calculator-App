@@ -78,6 +78,7 @@ public class SkillsCalculation {
     private float FelyneSharpshooterModifer = 1;
     private float FelyneTemperModifier = 1;
     private float SkillSharpnessModifier = 1;
+    private float DragonHeartModifier = 1;
 
     private float GroupC_1 = 0;
     //Demondrug (+5), Mega Demondrug (+7)
@@ -145,13 +146,15 @@ public class SkillsCalculation {
             multiplicativeElm_Sub = 1;
 
             AirborneModifier = 1;
+            DragonHeartModifier = 1;
         }
         else{
             additiveRaw = GroupC_1 + GroupC_2 + GroupD + GroupF + GroupJ_2 + GroupK  +
                     PowercharmModifier + PowertalonModifier + FelyneBoosterModifier +
                     CrisisModifier + FurorModifier + BludgeonerModifier + ProvokeModifier +
                     PalicoSkills_Add;
-            multiplicativeRaw = GroupG * GroupH * GroupI * GroupJ_1 * AirborneModifier * PalicoSkills_Multi;
+            multiplicativeRaw = GroupG * GroupH * GroupI * GroupJ_1 * AirborneModifier * DragonHeartModifier *
+                    PalicoSkills_Multi;
 
             additiveElm = GroupPAdd;
             multiplicativeElm = GroupPMulti * ElementAtkUp;
@@ -318,6 +321,10 @@ public class SkillsCalculation {
             BludgeonerModifier = BludgeonerTemp;
         }
     } //Was a float method
+
+    public void setDragonHeartModifier(boolean Check) {
+        DragonHeartModifier = Check ? 1.1f : 1;
+    }
     
     //Weapon Specific
 

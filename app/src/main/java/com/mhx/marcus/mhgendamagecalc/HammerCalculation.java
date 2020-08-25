@@ -2,9 +2,6 @@ package com.mhx.marcus.mhgendamagecalc;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +17,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class HammerCalculation extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -40,7 +42,7 @@ public class HammerCalculation extends AppCompatActivity implements AdapterView.
             GroupISelect, GroupJSelect, GroupKSelect, GroupOSelect, GroupPSelect;
     CheckBox PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck, FurorCheck, BludgeonerCheck,
             RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck, ElementalAtkUpCheck,
-            WeaknessExploitCheck, AirborneCheck;
+            WeaknessExploitCheck, AirborneCheck, DragonheartCheck;
 
     Float SkillSharpnessModifier = 1f;
     //-End-
@@ -538,6 +540,7 @@ public class HammerCalculation extends AppCompatActivity implements AdapterView.
         ElementalAtkUpCheck = (CheckBox) findViewById(R.id.ElementalAtkUpCheckBox);
         WeaknessExploitCheck = findViewById(R.id.WeaknessExploitCheckBox);
         AirborneCheck = (CheckBox) findViewById(R.id.AirborneCheckBox);
+        DragonheartCheck = findViewById(R.id.DragonheartCheckBox);
 
         Calculate();
     }
@@ -1028,6 +1031,7 @@ public class HammerCalculation extends AppCompatActivity implements AdapterView.
                 Skills.setCrisisModifier(CrisisCheck.isChecked());
                 Skills.setFurorModifier(FurorCheck.isChecked());
                 Skills.setBludgeonerModifier(BludgeonerCheck.isChecked());
+                Skills.setDragonHeartModifier(DragonheartCheck.isChecked());
 
                 Skills.setElementAtkUp(ElementalAtkUpCheck.isChecked());
                 Skills.setElementCrit(ElementalCritCheck.isChecked(), RawAffinity);

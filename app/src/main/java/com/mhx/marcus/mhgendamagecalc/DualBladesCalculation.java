@@ -2,9 +2,6 @@ package com.mhx.marcus.mhgendamagecalc;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +18,15 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.w3c.dom.Text;
 
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class DualBladesCalculation extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -46,7 +48,7 @@ public class DualBladesCalculation extends AppCompatActivity implements AdapterV
             GroupISelect, GroupJSelect, GroupKSelect, GroupOSelect, GroupPSelect;
     CheckBox PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck, FurorCheck, BludgeonerCheck,
             RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck, ElementalAtkUpCheck, AirborneCheck,
-            WeaknessExploitCheck;
+            WeaknessExploitCheck, DragonheartCheck;
     RadioButton WolfsMawLevel1Check, WolfsMawLevel2Check, WolfsMawLevel3Check, WolfsMawOffCheck;
 
     Float SkillSharpnessModifier = 1f;
@@ -630,6 +632,7 @@ public class DualBladesCalculation extends AppCompatActivity implements AdapterV
         ElementalAtkUpCheck = (CheckBox) findViewById(R.id.ElementalAtkUpCheckBox);
         AirborneCheck = (CheckBox) findViewById(R.id.AirborneCheckBox);
         WeaknessExploitCheck = findViewById(R.id.WeaknessExploitCheckBox);
+        DragonheartCheck = findViewById(R.id.DragonheartCheckBox);
 
         WolfsMawOffCheck = (RadioButton) findViewById(R.id.WolfsMawOffCheck);
         WolfsMawLevel1Check = (RadioButton) findViewById(R.id.WolfsMawLevel1Check);
@@ -1205,6 +1208,7 @@ public class DualBladesCalculation extends AppCompatActivity implements AdapterV
                 Skills.setCrisisModifier(CrisisCheck.isChecked());
                 Skills.setFurorModifier(FurorCheck.isChecked());
                 Skills.setBludgeonerModifier(BludgeonerCheck.isChecked());
+                Skills.setDragonHeartModifier(DragonheartCheck.isChecked());
 
                 Skills.setElementAtkUp(ElementalAtkUpCheck.isChecked());
                 Skills.setElementCrit(ElementalCritCheck.isChecked(), RawAffinity);

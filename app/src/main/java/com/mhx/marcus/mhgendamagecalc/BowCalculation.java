@@ -1,9 +1,6 @@
 package com.mhx.marcus.mhgendamagecalc;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +17,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class BowCalculation extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -52,7 +54,7 @@ public class BowCalculation extends AppCompatActivity implements AdapterView.OnI
     CheckBox PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck, FurorCheck,
             RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck, ElementalAtkUpCheck,
             FelyneTemperCheck, AirborneCheck, NormalUpCheck, HeavyUpCheck, PierceUpCheck, PelletUpCheck,
-            TrueShotUpCheck, WeaknessExploitCheck;
+            TrueShotUpCheck, WeaknessExploitCheck, DragonheartCheck;
     RadioButton EvasiveManeuversLevel2Check, EvasiveManeuversLevel3Check, EvasiveManeuversOffCheck;
 
     //-End-
@@ -536,6 +538,8 @@ public class BowCalculation extends AppCompatActivity implements AdapterView.OnI
         PelletUpCheck = (CheckBox) findViewById(R.id.PelletUpCheckBox);
         TrueShotUpCheck = (CheckBox) findViewById(R.id.TrueShotUpCheckBox);
         WeaknessExploitCheck = findViewById(R.id.WeaknessExploitCheckBox);
+        DragonheartCheck = findViewById(R.id.DragonheartCheckBox);
+
 
         EvasiveManeuversOffCheck = (RadioButton) findViewById(R.id.EvasiveManeuversOffCheck);
         EvasiveManeuversLevel2Check = (RadioButton) findViewById(R.id.EvasiveManeuversLevel2Check);
@@ -1528,6 +1532,7 @@ public class BowCalculation extends AppCompatActivity implements AdapterView.OnI
                 Skills.setCrisisModifier(CrisisCheck.isChecked());
                 Skills.setFurorModifier(FurorCheck.isChecked());
                 Skills.setAirborneModifier(AirborneCheck.isChecked());
+                Skills.setDragonHeartModifier(DragonheartCheck.isChecked());
 
                 Skills.setElementAtkUp(ElementalAtkUpCheck.isChecked());
                 Skills.setElementCrit(ElementalCritCheck.isChecked(), RawAffinity);

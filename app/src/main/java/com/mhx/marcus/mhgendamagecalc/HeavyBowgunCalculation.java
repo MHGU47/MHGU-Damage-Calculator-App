@@ -1,9 +1,6 @@
 package com.mhx.marcus.mhgendamagecalc;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +18,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 public class HeavyBowgunCalculation extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -49,7 +51,7 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
     CheckBox PowercharmCheck, PowertalonCheck, FelyneBoosterCheck, CrisisCheck, FurorCheck,
             RepeatOffenderCheck, CriticalBoostCheck, ElementalCritCheck, ElementalAtkUpCheck,
             FelyneTemperCheck, FelyneSharpshooterCheck, WeaknessExploitCheck, AirborneCheck,
-            FelyneBombardierCheck, GunpowderInfusionCheck, PowerReloadCheck;
+            FelyneBombardierCheck, GunpowderInfusionCheck, PowerReloadCheck, DragonheartCheck;
     RadioButton NoShotUpRadio, NormalUpRadio, PelletUpRadio, PierceUpRadio, HeavyUpRadio,TrueShotUpRadio;
 
     //-End-
@@ -470,6 +472,7 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
         ElementalCritCheck = (CheckBox) findViewById(R.id.ElementalCritCheckBox);
         ElementalAtkUpCheck = (CheckBox) findViewById(R.id.ElementalAtkUpCheckBox);
         AirborneCheck = (CheckBox) findViewById(R.id.AirborneCheckBox);
+        DragonheartCheck = findViewById(R.id.DragonheartCheckBox);
         FelyneTemperCheck = (CheckBox) findViewById(R.id.FelyneTemperCheckBox);
         FelyneSharpshooterCheck = (CheckBox) findViewById(R.id.FelyneSharpshooterCheckBox);
         FelyneBombardierCheck = (CheckBox) findViewById(R.id.FelyneBombardierCheckBox);
@@ -1251,6 +1254,7 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
                 Skills.setFelyneBoosterModifier(FelyneBoosterCheck.isChecked());
                 Skills.setCrisisModifier(CrisisCheck.isChecked());
                 Skills.setFurorModifier(FurorCheck.isChecked());
+                Skills.setDragonHeartModifier(DragonheartCheck.isChecked());
 
                 Skills.setElementAtkUp(ElementalAtkUpCheck.isChecked());
                 Skills.setElementCrit(ElementalCritCheck.isChecked(), RawAffinity);
