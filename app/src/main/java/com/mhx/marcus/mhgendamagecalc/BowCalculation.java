@@ -1415,8 +1415,12 @@ public class BowCalculation extends AppCompatActivity implements AdapterView.OnI
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(BowCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 TextViewIDsAttacks = new String[]{"BAttack_1", "BAttack_2", "BAttack_3",
                         "BAttack_4", "BAttack_5", "BAttack_6", "BAttack_7",

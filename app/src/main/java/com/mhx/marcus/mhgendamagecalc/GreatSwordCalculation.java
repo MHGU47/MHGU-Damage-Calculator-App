@@ -912,9 +912,12 @@ public class GreatSwordCalculation extends AppCompatActivity implements AdapterV
 
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(GreatSwordCalculation.this.INPUT_METHOD_SERVICE);
-
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 TextViewIDsAttacks = new String[]{"GSAttack_1", "GSAttack_2", "GSAttack_3",
                         "GSAttack_4", "GSAttack_5", "GSAttack_6", "GSAttack_7",

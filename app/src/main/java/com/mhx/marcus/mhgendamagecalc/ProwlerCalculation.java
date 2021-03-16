@@ -614,9 +614,12 @@ public class ProwlerCalculation extends AppCompatActivity implements AdapterView
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(ProwlerCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 int Counter;
                     TextViewIDsAttacks = new String[]{"PAttack_1", "PAttack_2", "PAttack_3",
                         "PAttack_4", "PAttack_5", "PAttack_6", "PAttack_7",

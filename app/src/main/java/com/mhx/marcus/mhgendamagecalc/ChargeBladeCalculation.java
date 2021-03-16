@@ -1107,8 +1107,12 @@ public class ChargeBladeCalculation extends AppCompatActivity implements Adapter
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(ChargeBladeCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 int Counter;
                 TextViewIDsAttacks = new String[]{"CBAttack_1", "CBAttack_2", "CBAttack_3",

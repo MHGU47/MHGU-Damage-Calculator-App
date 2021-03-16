@@ -1187,6 +1187,10 @@ Added 'getStagger()' to DamageCalculation.java'; this is to allow 'UI.java' to d
 -Added 'Dragonheart' Skill
 -Migrated to AndroidX
 
+16/03/2021
+-Fixed crashing issue. This was caused by the 'InputMethodManager' being null. This only affected newer
+ devices, most likely due to how the input method is handled.
+
 #CHECK TODOS
 
 #Make style specific check boxes appear only when they're applicable e.g. Power Reload can only be used in Bushido,

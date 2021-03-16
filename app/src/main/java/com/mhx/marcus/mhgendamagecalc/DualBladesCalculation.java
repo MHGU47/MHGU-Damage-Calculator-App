@@ -1027,8 +1027,12 @@ public class DualBladesCalculation extends AppCompatActivity implements AdapterV
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(DualBladesCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 TextViewIDsAttacks = new String[]{"DBAttack_1", "DBAttack_2", "DBAttack_3",
                         "DBAttack_4", "DBAttack_5", "DBAttack_6", "DBAttack_7",

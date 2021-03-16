@@ -1002,8 +1002,12 @@ public class GunlanceCalculation extends AppCompatActivity implements AdapterVie
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(GunlanceCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 TextViewIDsAttacks = new String[]{"GLAttack_1", "GLAttack_2", "GLAttack_3",
                         "GLAttack_4", "GLAttack_5", "GLAttack_6", "GLAttack_7",

@@ -1139,8 +1139,12 @@ public class HeavyBowgunCalculation extends AppCompatActivity implements Adapter
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(HeavyBowgunCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 int Counter;
                 TextViewIDsAttacks = new String[]{"HBGAttack_1", "HBGAttack_2", "HBGAttack_3", "HBGAttack_4",

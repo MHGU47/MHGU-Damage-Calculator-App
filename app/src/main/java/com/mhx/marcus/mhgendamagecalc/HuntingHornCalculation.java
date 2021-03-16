@@ -895,8 +895,12 @@ public class HuntingHornCalculation extends AppCompatActivity implements Adapter
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(HuntingHornCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 int Counter;
                 int Banner;

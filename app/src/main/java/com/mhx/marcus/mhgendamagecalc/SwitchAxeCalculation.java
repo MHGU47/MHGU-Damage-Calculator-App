@@ -970,9 +970,12 @@ public class SwitchAxeCalculation extends AppCompatActivity implements AdapterVi
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(SwitchAxeCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 TextViewIDsAttacks = new String[]{"SAAttack_1", "SAAttack_2", "SAAttack_3",
                         "SAAttack_4", "SAAttack_5", "SAAttack_6", "SAAttack_7",
                         "SAAttack_8", "SAAttack_9", "SAAttack_10", "SAAttack_11",

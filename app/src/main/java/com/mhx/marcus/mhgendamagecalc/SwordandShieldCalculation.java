@@ -914,9 +914,12 @@ public class SwordandShieldCalculation extends AppCompatActivity implements Adap
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(SwordandShieldCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 int Counter;
                 TextViewIDsAttacks = new String[]{"SnSAttack_1", "SnSAttack_2", "SnSAttack_3",
                         "SnSAttack_4", "SnSAttack_5", "SnSAttack_6", "SnSAttack_7",

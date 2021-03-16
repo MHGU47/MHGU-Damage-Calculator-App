@@ -927,9 +927,12 @@ public class LongSwordCalculation extends AppCompatActivity implements AdapterVi
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(LongSwordCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 int Counter;
                 TextViewIDsAttacks = new String[]{"LSAttack_1", "LSAttack_2", "LSAttack_3",
                         "LSAttack_4", "LSAttack_5", "LSAttack_6", "LSAttack_7",

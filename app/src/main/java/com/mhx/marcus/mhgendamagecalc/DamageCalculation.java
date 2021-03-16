@@ -90,7 +90,7 @@ public class DamageCalculation {
         this.ElementalDamage = ElementalDamage;
         this.ChosenElement = ChosenElement;
         this.Affinity = Affinity;
-        this.Affinity = Affinity;
+        //this.Affinity = Affinity;
 
         this.Weapon = ui.getIntent().getStringExtra("Weapon");
 

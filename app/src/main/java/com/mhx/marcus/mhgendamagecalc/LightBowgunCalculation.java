@@ -1097,9 +1097,12 @@ public class LightBowgunCalculation extends AppCompatActivity implements Adapter
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(LightBowgunCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 int Counter;
                 TextViewIDsAttacks = new String[]{"LBGAttack_1", "LBGAttack_2", "LBGAttack_3", "LBGAttack_4",
                         "LBGAttack_5", "LBGAttack_6"};

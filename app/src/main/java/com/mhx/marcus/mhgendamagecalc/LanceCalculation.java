@@ -891,9 +891,12 @@ public class LanceCalculation extends AppCompatActivity implements AdapterView.O
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(LanceCalculation.this.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 int Counter;
                 TextViewIDsAttacks = new String[]{"LAttack_1", "LAttack_2", "LAttack_3",
                         "LAttack_4", "LAttack_5", "LAttack_6", "LAttack_7",

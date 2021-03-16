@@ -962,9 +962,12 @@ public class InsectGlaiveCalculation extends AppCompatActivity implements Adapte
 
                 InputMethodManager inputManager = (InputMethodManager)
                         getSystemService(InsectGlaiveCalculation.this.INPUT_METHOD_SERVICE);
-
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                try{
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 TextViewIDsAttacks = new String[]{"IGAttack_1", "IGAttack_2", "IGAttack_3",
                         "IGAttack_4", "IGAttack_5", "IGAttack_6", "IGAttack_7",
