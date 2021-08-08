@@ -163,7 +163,7 @@ public class LanceCalculation extends AppCompatActivity implements AdapterView.O
 
         HunterArtSelect = (Spinner) findViewById(R.id.HunterArtSelect);
 
-        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.LS_HA_Names,
+        ArrayAdapter adapter5 = ArrayAdapter.createFromResource(this,R.array.Lance_HA_Names,
                 android.R.layout.simple_spinner_dropdown_item);
 
         HunterArtSelect.setAdapter(adapter5);
@@ -1096,7 +1096,7 @@ public class LanceCalculation extends AppCompatActivity implements AdapterView.O
                         }
                         else if(ChosenArt.equals("Shield Assault")){
                             textviews[i].setText(HunterArtsLevelsSA[i]);
-                            Snackbar.make(view, "Distance, not attack, increases at higher levels",
+                            Snackbar.make(view, "Distance, not attack power, increases at higher levels",
                                     Snackbar.LENGTH_LONG).setAction("Action", null).show();
                             Banner.setText(ChosenArt + "\nKey: (Move Name) - (KO), (Exhaust)");
                         }
